@@ -1,0 +1,175 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>現役球員 (女) | 山姆籃球</title>
+	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/players.css">
+	<link rel="stylesheet" href="../css/table.css">
+
+	<script src="../js/tools/popper.min.js"></script>
+	<script src="../js/tools/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <script src="../js/footer.js"></script>
+	<script src="../js/custom.js"></script>
+	<script src="../js/dictionary.js"></script>
+	<script src="../js/players.js"></script>
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+		<div class="container-fluid">
+			<a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon">&nbsp;&nbsp;</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link" href="./rosters">球隊陣容</a>
+					<a class="nav-link active" href="./players">現役球員</a>
+					<a class="nav-link" href="./drafts">選秀</a>
+					<a class="nav-link" href="./us-students">旅美學生</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="content">
+		<div id="women_page" class="jumbotron"></div>
+
+		<div class="container-lg" style="overflow-x: auto;">
+			<div class="col" style="width:580px;">
+
+				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+				</button>
+				<ul id="team-dropdown_w" class="dropdown-menu">
+					<li><a class="dropdown-item active" onclick="f1('players_tb','all')">
+							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+					<li><a class="dropdown-item" onclick="f1('players_tb','oversea')">
+							<img src="../asset/images/women/wcba.png" alt="oversea" class="teamicon">WCBA & 旅外</a></li>
+					<li><a id="menu_cathay" class="dropdown-item" onclick="f1('players_tb','cathay')"></a></li>
+					<li><a id="menu_power" class="dropdown-item" onclick="f1('players_tb','power')"></a></li>
+					<li><a id="menu_telecom" class="dropdown-item" onclick="f1('players_tb','telecom')"></a></li>
+					<li><a id="menu_taiyuen" class="dropdown-item" onclick="f1('players_tb','taiyuen')"></a></li>
+				</ul>
+
+				<a><b>&nbsp;&nbsp;球員篩選: </b></a>
+				<div id="other-btngroup" class="btn-group">
+					<a class="btn btn-light active" onclick="f2('team-dropdown_w','players_tb','all')">全部球員</a>
+					<a class="btn btn-light" onclick="f2('team-dropdown_w','players_tb','change')">換隊球員</a>
+					<a class="btn btn-light" onclick="f2('team-dropdown_w','players_tb','2023Rookie')">2023'新秀</a>
+				</div>
+				
+				<div class="col" style="width:390px; padding-top:3px;">
+
+					<div class="form-check form-switch" style="width: 150px; display: inline-block">
+						<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked>
+						<label class="form-check-label" for="flexSwitchCheckChecked">全不勾 / 全勾</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox"
+							onclick="fC('players_tb','team-dropdown_w','other-btngroup', 'local')" checked>
+						<label class="form-check-label" for="inlineCheckbox1">本土</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox"
+							onclick="fC('players_tb','team-dropdown_w','other-btngroup', 'taiwanese')" checked>
+						<label class="form-check-label" for="inlineCheckbox1">華裔</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox"
+							onclick="fC('players_tb','team-dropdown_w','other-btngroup', 'import')" checked>
+						<label class="form-check-label" for="inlineCheckbox1">洋將</label>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container-lg">
+			<div class="table-scroll" style="max-height: calc(100vh - 191px)">
+				<table id="players_tb" class="table table-hover table-fix3">
+					<thead>
+						<th style="width:200px">球隊</th>
+                        <th style="width:70px">背號</th>
+                        <th style="width:110px">球員</th>
+                        <th style="width:90px">聯盟身份</th>
+                        <th style="width:80px">位置</th>
+                        <th style="width:80px">身高</th>
+                        <th style="width:80px">體重</th>
+                        <th style="width:80px">年齡</th>
+                        <th style="width:120px">生日</th>
+						<th style="width:120px">前球隊</th>
+					</thead>
+					<tbody id="players_tbody">
+
+					</tbody>
+				</table>
+			</div>
+			<a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a>
+		</div>
+
+		<img id="loader" class="spinner" src="../asset/images/logo.png">
+	</div>
+
+	<footer id="footerContent" class="bg-dark" style="color:white;"></footer>
+
+	<script>
+		window.onload = function () {document.getElementById('loader').style.display = 'none';}
+
+		var teams = document.getElementById("team-dropdown_w").getElementsByClassName("dropdown-item");
+		var btns = document.getElementById("other-btngroup").getElementsByClassName("btn");
+		var teambtn = document.getElementById("teambtn");
+
+		for (let i = 0; i < teams.length; i++) {
+			teams[i].addEventListener("click", function () {
+				var currentTeam = document.getElementById("team-dropdown_w").getElementsByClassName("active");
+				currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+				this.className += " active";
+				teambtn.innerHTML = this.innerHTML;
+
+				btns[0].click();
+			});
+		}
+
+		for (let i = 0; i<btns.length; i++) {
+			btns[i].addEventListener("click", function () {
+				var currentBtn = document.getElementsByClassName("btn btn-light active");
+				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+				this.className += " active";
+
+				fC('players_tb', 'team-dropdown_w', 'other-btngroup');
+			});
+		}
+
+		checkSwitch = document.getElementById('checkSwitch');
+		checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#checkSwitch)');
+		checked_cb = document.getElementsByClassName("form-check-input");
+
+		checkSwitch.addEventListener('change', () => {
+			checkboxes.forEach(checkbox => checkbox.checked = checkSwitch.checked);
+			fC('players_tb', 'team-dropdown_w', 'other-btngroup');
+		});
+	</script>
+
+</body>
+
+</html>

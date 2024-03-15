@@ -1,0 +1,366 @@
+0,1,2,3
+性別,球隊,class,異動
+"extend / import extend
+change / keep / merge / fa / trade / loan / draft / import
+lost / lost trade / lost loan / import lost",,,
+men,oversea,extend,陳盈駿 (續約 3 年)
+men,oversea,extend,林庭謙 (續約 3 年)
+men,oversea,extend,劉錚 (續約 1 年)
+men,oversea,fa,劉駿霆 (加盟 日本 B2)
+men,oversea,draft,林彥廷 (總順位: 3)
+men,braves,fa,吳永盛
+men,braves,fa,伊波卡 (已離隊)
+men,braves,draft,蔡鎮嶽 (總順位: 6)
+men,braves,lost,張耕淯 (加盟 T1戰神)
+men,braves,lost,呂宗霖 (加盟 SBL台啤)
+men,braves,lost,伊波卡 (加盟 SBL裕隆)
+men,braves,import extend,辛特力 (續約)
+men,braves,import extend,塞瑟夫 (續約)
+men,braves,import extend,強森 (續約)
+men,braves,import,賽爾登
+men,braves,import,伊貝
+men,braves,import lost,巴爾菲特
+men,braves,import lost,布朗
+men,braves,import lost,石門
+men,braves,import lost,梅克
+men,braves,import lost,沛登
+men,kings,extend,簡祐哲 (提前續約)
+men,kings,extend,洪志善 (續約)
+men,kings,extend,陳俊男 (提前續約)
+men,kings,extend,林力仁 (續約)
+men,kings,fa,王柏智
+men,kings,fa,林書豪
+men,kings,fa,翟振皓
+men,kings,draft,蘇培凱 (總順位: 5)
+men,kings,lost,李睿麒 (加盟 鋼鐵人)
+men,kings,lost,高承恩 (加盟 T1獵鷹)
+men,kings,lost,聶歐瑪 (加盟 SBL臺銀)
+men,kings,lost,林仕軒 (加盟 SBL裕隆)
+men,kings,lost,曾于豪
+men,kings,lost,楊興治
+men,kings,import extend,牧倫斯 (合約期內)
+men,kings,import extend,曼尼高 (續約)
+men,kings,import,米歇爾
+men,kings,import,海登
+men,kings,import,安尼奎
+men,kings,import,奧帝
+men,kings,import lost,比利 (熱身賽)
+men,pilots,fa,李學林
+men,pilots,fa,陳昱翰
+men,pilots,trade,周儀翔 (from 鋼鐵人)
+men,pilots,draft,喬楚瑜 (總順位: 2)
+men,pilots,lost,施顏宗 (加盟 攻城獅)
+men,pilots,lost,黃泓瀚 (加盟 T1特攻)
+men,pilots,lost,成力煥
+men,pilots,lost trade,施晉堯 (交易至 鋼鐵人)
+men,pilots,lost trade,陳冠全 (交易至 鋼鐵人)
+men,pilots,import extend,沃許本 (續約)
+men,pilots,import,密克斯
+men,pilots,import,伯朗
+men,pilots,import,葛拉漢
+men,pilots,import lost,塔克
+men,pilots,import lost,勞倫斯
+men,lioneers,extend,蕭順議 (續約 2 年)
+men,lioneers,fa,王子綱
+men,lioneers,fa,劉光尚
+men,lioneers,fa,周伯勳
+men,lioneers,fa,林秉聖 (未報到)
+men,lioneers,fa,施顏宗
+men,lioneers,fa,張傑瑋
+men,lioneers,fa,盧冠軒
+men,lioneers,draft,阿拉薩 (總順位: 1 / 未報到)
+men,lioneers,draft,王翊帆 (總順位: 7 / 未報到)
+men,lioneers,lost,陳則語 (回歸教練團)
+men,lioneers,lost,伊波卡 (加盟 勇士)
+men,lioneers,lost,郭少傑 (加盟 T1獵鷹)
+men,lioneers,import extend,阿提諾 (合約期內 / 已離隊)
+men,lioneers,import,克拉
+men,lioneers,import,艾夫伯
+men,lioneers,import,霍立飛
+men,lioneers,import,狄帝
+men,lioneers,import lost,伯朗 (熱身賽)
+men,lioneers,import lost,歐獅傅
+men,lioneers,import lost,伊凡
+men,lioneers,import lost,阿提諾
+men,dreamers,extend,忻沃克 (續約 2 年)
+men,dreamers,extend,林俊吉 (延長至 2026-27賽季)
+men,dreamers,extend,楊盛硯 (延長 2 年)
+men,dreamers,extend,簡浩 (延長 2 年)
+men,dreamers,extend,吳松蔚 (續約 1 年)
+men,dreamers,draft,丁冠皓 (總順位: 3)
+men,dreamers,lost,吳永盛 (加盟 勇士)
+men,dreamers,lost,王振原 (加盟 SBL柏力力)
+men,dreamers,lost,鄭子洋
+men,dreamers,import extend,麥卡洛 (合約期內)
+men,dreamers,import extend,吉爾貝克 (延長合約)
+men,dreamers,import,布依德
+men,dreamers,import,德文馬布爾
+men,dreamers,import lost,貝札尼什維利
+men,steelers,extend,盧哲毅 (續約)
+men,steelers,fa,李睿麒
+men,steelers,trade,施晉堯 (from 領航猿)
+men,steelers,trade,陳冠全 (from 領航猿)
+men,steelers,draft,丹尼爾 (總順位: 4)
+men,steelers,draft,劉承彥 (總順位: 8)
+men,steelers,lost,王柏智 (加盟 國王)
+men,steelers,lost,林書豪 (加盟 國王)
+men,steelers,lost,張傑瑋 (加盟 攻城獅)
+men,steelers,lost,孫思堯 (加盟 T1戰神)
+men,steelers,lost,藍少甫 (加盟 T1太陽)
+men,steelers,lost,林均濠 (加盟 SBL臺銀)
+men,steelers,lost,鄭德維 (加盟 SBL裕隆)
+men,steelers,lost,林柏豪 (加盟 SBL台啤)
+men,steelers,lost trade,周儀翔 (交易至 領航猿)
+men,steelers,import extend,鐵米 (續約)
+men,steelers,import extend,悟空 (續約 / 已離隊)
+men,steelers,import,楊和
+men,steelers,import,塔壁
+men,steelers,import,銳米
+men,steelers,import,卡麥龍
+men,steelers,import lost,悟空
+men,steelers,import lost,比克
+men,steelers,import lost,班尼特
+men,dea,fa,黃泓瀚
+men,dea,draft,李沛澄 (總順位: 6)
+men,dea,lost,林秉聖 (加盟 戰神)
+men,dea,lost,李學林 (加盟 PLG領航猿)
+men,dea,lost,東方譯慷 (加盟 SBL裕隆)
+men,dea,import extend,艾德 (續約)
+men,dea,import extend,克力斯 (續約)
+men,dea,import,傑卡
+men,dea,import,柯丹
+men,dea,import lost,飛克
+men,dea,import lost,泰龍
+men,mars,fa,林宜輝
+men,mars,fa,丁聖儒
+men,mars,fa,曹薰襄
+men,mars,fa,張耕淯
+men,mars,fa,陳文宏
+men,mars,fa,孫思堯
+men,mars,fa,劉彥廷
+men,mars,fa,許敬恩
+men,mars,fa,林勵
+men,mars,fa,林秉聖
+men,mars,trade,黃聰翰 (from 英熊)
+men,mars,draft,張兆辰 (總順位: 3)
+men,mars,draft,簡賀宇 (總順位: 4 / 已離隊)
+men,mars,lost,簡賀宇 (解約 / 回UBA)
+men,mars,import,強森
+men,mars,import,恩多
+men,mars,import,科倫紐克
+men,mars,import,赫里斯-傑佛森
+men,mars,import lost,莫布利 (熱身賽)
+men,mars,import lost,皮朋
+men,mars,import lost,麥卡利
+men,leopards,merge,黃鎮 (from 英熊)
+men,leopards,merge,蔣淯安 (from 英熊)
+men,leopards,merge,李啓瑋 (from 英熊)
+men,leopards,merge,朱億宗 (from 英熊)
+men,leopards,merge,吳沛嘉 (from SBL台啤)
+men,leopards,draft,林信寬 (總順位: 1)
+men,leopards,draft,高錦瑋 (總順位: 2)
+men,leopards,lost,蘇翊傑 (退役)
+men,leopards,lost,陳建銘 (調度至 SBL台啤)
+men,leopards,lost,呂蔡瑜倫 (租借結束回 英熊)
+men,leopards,lost,曾品富 (加盟 太陽)
+men,leopards,lost,蔡揚名
+men,leopards,lost,杜譽城
+men,leopards,lost,劉宏柏
+men,leopards,lost,高士杰
+men,leopards,lost,黃奕勝
+men,leopards,lost,張舜丞
+men,leopards,lost,尤楚翔
+men,leopards,lost,羅振峰 (涉賭)
+men,leopards,lost trade,黃聰翰 (交易至 戰神)
+men,leopards,import,阿拉薩
+men,leopards,import,克羅馬
+men,leopards,import,威廉斯
+men,leopards,import,強森
+men,leopards,import lost,漢密爾頓
+men,leopards,import lost,卡森斯
+men,ghosthawks,extend,吳彥侖 (續約 / 被租借)
+men,ghosthawks,extend,吳岱豪 (續約 / 被租借)
+men,ghosthawks,fa,張博勝
+men,ghosthawks,fa,高承恩 (被租借)
+men,ghosthawks,fa,郭少傑
+men,ghosthawks,fa,蘇奕晉
+men,ghosthawks,fa,藍少甫 (被租借)
+men,ghosthawks,fa,白薩
+men,ghosthawks,lost,龍弘元 (退役)
+men,ghosthawks,lost,劉駿霆 (旅外 日本 B2)
+men,ghosthawks,lost,林梓峰 (加盟 SBL柏力力)
+men,ghosthawks,lost,張幃翔
+men,ghosthawks,lost,蔡建宇
+men,ghosthawks,lost,陳靖寰 (疑涉賭)
+men,ghosthawks,lost loan,吳彥侖 (租借至 SBL裕隆)
+men,ghosthawks,lost loan,高承恩 (租借至 SBL裕隆)
+men,ghosthawks,lost loan,藍少甫 (租借至 SBL裕隆)
+men,ghosthawks,lost loan,吳岱豪 (租借至 SBL裕隆)
+men,ghosthawks,import extend,布拉 (續約 / 註銷)
+men,ghosthawks,import extend,德古拉 (續約 / 已離隊)
+men,ghosthawks,import extend,阿修羅 (續約 / 已離隊)
+men,ghosthawks,import,金恩
+men,ghosthawks,import,米可
+men,ghosthawks,import,鷹吉
+men,ghosthawks,import,武科維奇
+men,ghosthawks,import lost,阿修羅
+men,ghosthawks,import lost,葛瑞飛
+men,ghosthawks,import lost,德古拉
+men,ghosthawks,import lost,威力
+men,aquas,extend,吳曉瑾 (續約)
+men,aquas,extend,勤明慶 (續約)
+men,aquas,extend,吳怡斌 (續約)
+men,aquas,draft,唐維傑 (總順位: 5)
+men,aquas,import extend,布銳克曼 (續約)
+men,aquas,import extend,庫薩斯 (續約)
+men,aquas,import,艾倫
+men,aquas,import,瓊斯
+men,aquas,import,史考特
+men,beer,merge,范士恩 (from T1英熊)
+men,beer,merge,呂蔡瑜倫 (from T1英熊)
+men,beer,merge,楊天佑 (from T1英熊)
+men,beer,merge,陳建銘 (from T1雲豹)
+men,beer,fa,吳季穎 (已離隊)
+men,beer,fa,林柏豪
+men,beer,fa,呂宗霖
+men,beer,fa,曾品富
+men,beer,fa,董永全
+men,beer,draft,蔣浩文 (總順位: 2)
+men,beer,draft,吳沛嘉 (總順位: 6 / 已離隊)
+men,beer,lost,吳沛嘉 (調度至 T1雲豹)
+men,beer,lost,王子綱 (加盟 PLG攻城獅)
+men,beer,lost,翟振皓 (加盟 PLG國王)
+men,beer,lost,陳昱翰 (加盟 PLG領航猿)
+men,beer,lost,蘇柏彰 (加盟 T1太陽)
+men,beer,lost,豐正凱
+men,beer,lost,吳念哲
+men,beer,lost,吳季穎 (涉賭)
+men,beer,import,菲爾斯
+men,beer,import lost,威廉斯
+men,trust,fa,蔡亞軒
+men,trust,fa,林均濠
+men,trust,fa,聶歐瑪
+men,trust,draft,郭振復 (總順位: 3)
+men,trust,lost,張博勝 (加盟 T1獵鷹)
+men,trust,lost,曾開暄
+men,trust,lost,沈睿洋
+men,trust,import extend,瑪哈尼 (續約)
+men,yulon,fa,林明毅
+men,yulon,fa,鄭德維
+men,yulon,fa,林仕軒
+men,yulon,fa,東方譯慷
+men,yulon,fa,楊承翰
+men,yulon,fa,伊波卡
+men,yulon,loan,吳彥侖
+men,yulon,loan,高承恩
+men,yulon,loan,藍少甫
+men,yulon,loan,吳岱豪
+men,yulon,draft,王翊帆 (總順位: 4)
+men,yulon,draft,涂亦含 (總順位: 7)
+men,yulon,lost,吳季穎 (加盟 台啤)
+men,yulon,lost,邱忠博 (涉賭)
+men,yulon,lost,顏聞佐 (涉賭)
+men,yulon,lost,柯旻豪 (涉賭)
+men,yulon,lost,吳祐任 (涉賭)
+men,yulon,lost,李其恩 (涉賭)
+men,yulon,lost,周暐宸 (涉賭)
+men,yulon,lost,斑霸 (涉賭)
+men,yulon,lost,陳品銓 (涉賭)
+men,yulon,lost,黃鉉閔 (涉賭)
+men,yulon,lost,翁嘉鴻 (疑涉賭)
+men,yulon,import extend,夏普 (續約)
+men,yulon,import lost,喬丹
+men,bll,extend,陳奕綸 (續約)
+men,bll,fa,陳昶宏
+men,bll,fa,林梓峰
+men,bll,fa,楊浩之
+men,bll,fa,王振原
+men,bll,draft,蘇格爾 (總順位: 1)
+men,bll,draft,謝承諳 (總順位: 5)
+men,bll,draft,蔡紘揚 (總順位: 8)
+men,bll,draft,廖景泰 (總順位: 9)
+men,bll,draft,陳昭群 (總順位: 10)
+men,bll,draft,徐仕宏 (總順位: 11)
+men,bll,lost,施顏宗 (租借結束回 PLG領航猿)
+men,bll,lost,鄭子洋 (租借結束回 PLG夢想家)
+men,bll,lost,李謨汎
+men,bll,lost,趙得恩
+men,bll,lost,林俊恩
+men,bll,lost,朱恩麟
+men,bll,lost,邱家佑
+men,bll,lost,莊又齊
+men,bll,import,葛萊斯
+men,herobears,lost,黃鎮 (合併至 雲豹)
+men,herobears,lost,黃聰翰 (合併至 雲豹)
+men,herobears,lost,蔣淯安 (合併至 雲豹)
+men,herobears,lost,朱億宗 (合併至 雲豹)
+men,herobears,lost,李啟瑋 (合併至 雲豹)
+men,herobears,lost,范仕恩 (調度至 SBL台啤)
+men,herobears,lost,楊天佑 (調度至 SBL台啤)
+men,herobears,lost,呂蔡瑜倫 (調度至 SBL台啤)
+men,herobears,lost,曹薰襄 (加盟 戰神)
+men,herobears,lost,周伯勳 (加盟 PLG攻城獅)
+men,herobears,lost,梁浩真
+men,suns,extend,楊承翰 (續約2年)
+men,suns,fa,蘇柏彰
+men,suns,fa,曾品富
+men,suns,fa,藍少甫
+men,suns,draft,郭振復 (總順位: 7 / 未報到)
+men,suns,lost,彭俊諺 (退役)
+men,suns,lost,丁聖儒 (加盟 戰神)
+men,suns,lost,陳文宏 (加盟 戰神)
+men,suns,lost,蘇奕晉 (加盟 獵鷹)
+men,suns,lost,藍少甫 (加盟 獵鷹)
+men,suns,lost,白薩 (加盟 獵鷹)
+men,suns,lost,盧冠軒 (加盟 PLG攻城獅)
+men,suns,lost,董永全 (加盟 SBL台啤)
+men,suns,lost,曾品富 (加盟 SBL台啤)
+men,suns,lost,楊承翰 (加盟 SBL裕隆)
+men,suns,lost,林明毅 (加盟 SBL裕隆)
+men,suns,lost,高孟偉
+men,suns,lost,金德偉
+men,suns,lost,戴瑞騰
+men,suns,lost,溫立煌
+men,suns,lost,李明修
+men,suns,lost,蘇柏彰
+men,end,,
+women,oversea,change,彭詩晴 (新疆天山)
+women,oversea,change,張綺芳 (內蒙古農信)
+women,oversea,change,陳晏宇 (上海浦發)
+women,oversea,fa,林育庭
+women,oversea,fa,黃柔甄
+women,oversea,fa,黃郁婷
+women,oversea,fa,謝羽珊
+women,oversea,lost,魏于淳 (轉任青年隊教練)
+women,cathay,keep,黃巧鈞
+women,cathay,keep,蕭豫玟 (2020 保留)
+women,cathay,lost,林育庭 (旅外 WCBA)
+women,cathay,lost,黃柔甄 (旅外 WCBA)
+women,cathay,lost,戴宜庭 (加盟 台電)
+women,cathay,lost,王維琳 (加盟 台電)
+women,cathay,lost,沈欣
+women,cathay,import,庫克斯
+women,power,fa,羅培儀
+women,power,fa,戴宜庭
+women,power,fa,王維琳
+women,power,keep,廖瑋晴 (2019 保留)
+women,power,draft,吳侑萱 (總順位: 1)
+women,power,draft,林釵娟 (總順位: 4)
+women,power,lost,張欣然
+women,power,lost,郭佳紋
+women,power,lost,林嘉慈
+women,power,lost,李郡歡
+women,power,lost,謝津宛
+women,power,lost,諶怡君
+women,power,lost,辛宜芝
+women,telecom,keep,陳靳豫萱 (2020 保留)
+women,telecom,draft,陳芷英 (總順位: 2)
+women,telecom,lost,黃郁婷 (旅外 WCBA)
+women,telecom,lost,劉嘉瑋
+women,telecom,lost,黃子涵
+women,taiyuen,keep,許玟瑄 (2019 保留)
+women,taiyuen,draft,張琦玟 (總順位: 3)
+women,taiyuen,lost,羅培儀 (加盟 台電)
+women,taiyuen,lost,方妤
+women,taiyuen,lost,謝鎔竹
+women,end,,

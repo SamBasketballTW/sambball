@@ -1,0 +1,105 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>山姆籃球</title>
+	<link rel="icon" href="./asset/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/custom.css">
+	<link rel="stylesheet" href="./css/players.css">
+	<link rel="stylesheet" href="./css/table.css">
+
+	<script src="./js/tools/popper.min.js"></script>
+	<script src="./js/tools/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <script src="./js/footer.js"></script>
+	<script src="./js/custom.js"></script>
+	<script src="./js/dictionary.js"></script>
+	<script src="./js/index.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+		<div class="container-fluid">
+			<a id="index-index" class="navbar-brand" href="./">&nbsp;&nbsp;<img src="./asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW</a>
+		</div>
+	</nav>
+
+	<div class="content">
+		<div class="jumbotron"></div>
+
+        <div class="container-lg">
+            <div class="button-container">
+                <a href="./men/rosters" class="button" style="font-size:21px;">
+                    <img src="../asset/images/logo_round.png" alt="men-basketball" style="width:50px;height:50px">
+                    <strong>&nbsp;臺灣男籃</strong>
+                    </a>
+                </a>
+                <a href="./women/rosters" class="button" style="font-size:21px;">
+                    <img src="../asset/images/logo_round.png" alt="women-basketball" style="width:50px;height:50px">
+                    <strong>&nbsp;臺灣女籃</strong>
+                    </a>
+                </a>
+            </div>
+        </div>
+
+        <div class="container-lg">
+			<div  class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-bottom:0px; text-align:center;">
+				<strong id="birthday_td"></strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			  </div>
+		</div>
+
+        <div class="container-lg">
+			<div class="table-scroll">
+				<table id="plg_tb" class="table table-hover table-fix2">
+		
+				</table>
+			</div>
+		</div>
+		<div class="container-lg">
+			<div class="table-scroll" style="max-width:1010px">
+				<table id="t1_tb" class="table table-hover table-fix2">
+		
+				</table>
+			</div>
+		</div>
+		<div class="container-lg">
+			<div class="table-scroll" style="max-width:920px">
+				<table id="sbl_tb" class="table table-hover table-fix2">
+		
+				</table>
+			</div>
+		</div>
+        <div class="container-lg">
+			<div class="table-scroll" style="max-width:920px">
+				<table id="wsbl_tb" class="table table-hover table-fix2">
+		
+				</table>
+			</div>
+		</div>
+
+		<img id="loader" class="spinner" src="./asset/images/logo.png">
+	</div>
+
+	<footer id="footerContent" class="bg-dark" style="color:white;"></footer>
+
+	<script>
+        window.onload = function () {document.getElementById('loader').style.display = 'none';}
+	</script>
+
+</body>
+
+</html>

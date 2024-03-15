@@ -1,0 +1,111 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>自由球員 (男) | 山姆籃球</title>
+    <link rel="icon" href="../asset/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/players.css">
+	<link rel="stylesheet" href="../css/table.css">
+
+	<script src="../js/tools/popper.min.js"></script>
+	<script src="../js/tools/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <script src="../js/footer.js"></script>
+	<script src="../js/custom.js"></script>
+	<script src="../js/dictionary.js"></script>
+    <script src="../js/free-agents.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon">&nbsp;&nbsp;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+					<a class="nav-link" href="./rosters">球隊陣容</a>
+					<a class="nav-link" href="./players">現役球員</a>
+					<a class="nav-link" href="./contracts">合約</a>
+					<a class="nav-link" href="./drafts">選秀</a>
+					<a class="nav-link" href="./trades">交易</a>
+					<a class="nav-link active" href="./free-agents">自由球員</a>
+					<a class="nav-link" href="./us-students">旅美學生</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div id="men_page" class="jumbotron"></div>
+
+        <div class="container-lg" style="overflow-x: auto;">
+            <div class="col" style="width:380px;">
+                <a><b>&nbsp;&nbsp;2023-24賽季: </b></a>
+                <div id="fa-btngroup" class="btn-group">
+                    <a class="btn btn-light active" onclick="fAll('isFA')">自由球員</a>
+                    <a class="btn btn-light" onclick="fAll('notFA')">合約將到期</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-lg">
+            <div class="table-scroll">
+                <table id="fa_tb" class="table table-hover table-fix1">
+                    <thead>
+                        <th style="width:110px">球員</th>
+                        <th style="width:65px">位置</th>
+                        <th style="width:65px">年齡</th>
+                        <th style="width:65px">身高</th>
+                        <th style="width:165px">合約狀態</th>
+                        <th style="width:170px">原球隊</th>
+                        <th style="width:65px">PPG</th>
+                        <th style="width:65px">RPG</th>
+                        <th style="width:65px">APG</th>
+                    </thead>
+                    <tbody id="roster_fa_tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <img id="loader" class="spinner" src="../asset/images/logo.png">
+    </div>
+
+    <footer id="footerContent" class="bg-dark" style="color:white;"></footer>
+
+    <script>
+        window.onload = function () {document.getElementById('loader').style.display = 'none';}
+        
+        var btns = document.getElementById("fa-btngroup").getElementsByClassName("btn");
+
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var currentBtn = document.getElementsByClassName("btn btn-light active");
+                currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+/* text decorations */
+.text-strike{
+	text-decoration: line-through; 
+	color: white;
+}
+.s-num{
+	text-decoration: line-through;
+	background-color: #EECDCD;
+	color: #BB271A;
+	--bs-table-hover-color: #BB271A;
+}
+.c-num{
+	background-color: #434343;
+	color: #E7C350;
+	--bs-table-hover-color: #E7C350;
+}
+
+/* background colors */
+.plgtrade{
+	background-color: #F8E6D0;
+}
+.t1trade{
+	background-color: rgb(204, 218, 245);
+}
+.ct{
+	background-color: #0E468E;
+	color: #FAF0F0;
+	--bs-table-hover-color: #FAF0F0;
+}
+
+/* team colors */
+.CBA-bg{
+	background-color: #B22625;
+	color:#FAF0F0;
+	--bs-table-hover-color: #FAF0F0;
+}
+.WCBA-bg{
+	background-color: #BE1957;
+	color:#FAF0F0;
+	--bs-table-hover-color: #FAF0F0;
+}
+.B2-bg{
+	background-color: #434343;
+	color:#FAF0F0;
+	--bs-table-hover-color: #FAF0F0;
+}
+.WKBL-bg{
+	background-color: #183F92;
+	color:#FAF0F0;
+	--bs-table-hover-color: #FAF0F0;
+}
+.braves-bg{
+	background-color: #5EC9F6;
+}
+.kings-bg{
+	background-color: #E6D24F;
+}
+.pilots-bg{
+	background-color: #ED733C;
+}
+.lioneers-bg{
+	background-color: #9B7EE2;
+}
+.dreamers-bg{
+	background-color: #96B651;
+}
+.steelers-bg{
+	background-color: #E25E65;
+}
+.dea-bg{
+	background-color: #EDC145;
+}
+.mars-bg{
+	background-color: #BB9E5E;
+}
+.herobears-bg{
+	background-color: #267A31;
+}
+.leopards-bg{
+	background-color: #44984F;
+}
+.suns-bg{
+	background-color: #DD5F58;
+}
+.ghosthawks-bg{
+	background-color: #C27D80;
+}
+.aquas-bg{
+	background-color: #4F78D5;
+}
+.beer-bg{
+	background-color: #459250;
+}
+.trust-bg{
+	background-color: #D75650;
+}
+.yulon-bg{
+	background-color: #8092E4;
+}
+.bll-bg{
+	background-color: #A66ECF;
+}
+.cathay-bg{
+	background-color: #F9D978;
+}
+.taiyuen-bg{
+	background-color: #6D99E1;
+}
+.power-bg{
+	background-color: #66A4D6;
+}
+.telecom-bg{
+	background-color: #82A5D3;
+}
+
+.angels{
+	background-color: #5EC9F6;
+}
+.queens{
+	background-color: #E6D24F;
+}
+.p_crew{
+	background-color: #ED733C;
+}
+.muse{
+	background-color: #9B7EE2;
+}
+.sexy{
+	background-color: #96B651;
+}
+.athena{
+	background-color: #E25E65;
+}
+.passion{
+	background-color: #EDC145;
+}
+.wonders{
+	background-color: #D75650;
+}
+.leopards_g{
+	background-color: #A66ECF;
+}
+.wings{
+	background-color: #C27D80;
+}
+.mermaids{
+	background-color: #4F78D5;
+}
+.bll_g{
+	background-color: #A66ECF;
+}

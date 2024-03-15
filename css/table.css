@@ -1,0 +1,158 @@
+/* filter rows and columns */
+.filterTr {
+	display: none;
+}
+.showTr {
+	display: table-row;
+}
+.filterTd {
+	display: none;
+}
+.showTd {
+	display: table-cell;
+}
+.filterTb {
+	display: none;
+}
+.showTb {
+	display: table;
+}
+
+
+/* table cell general setting */
+th, td {
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+a {
+	text-decoration: none;
+	color: initial;
+}
+a:hover{
+	color: black;
+}
+
+.borderL{
+	border-left: 3px solid black;
+}
+.borderR{
+	border-right: 3px solid black;
+}
+.borderT{
+	border-top: 3px solid black;
+}
+.borderB{
+	border-bottom: 3px solid black;
+}
+
+/* table settings */
+table {
+	table-layout: fixed;
+	position: relative;
+	margin: auto;
+	border-collapse: separate;
+	border-spacing: 0px;
+	--bs-border-width: 0px;
+	background-color: #EEEEEE;
+	width:100%;
+}
+
+table tr{
+	background-color: #EEEEEE;
+}
+
+
+.table-scroll {
+	position: relative;
+	margin:0;
+	overflow: auto;
+	height: auto;
+	max-height: calc(100vh - 163px);
+	border: 3px solid black;
+}
+.table-scroll table {
+	margin:auto;
+}
+.table-scroll td {
+	vertical-align:middle;
+	width: auto;
+	padding: 7px;
+	border-top: 1px solid #666;
+	z-index: 1;
+}
+.table-scroll th {
+	position: sticky;
+	top: -1px;
+	border-top: 0;
+	border-bottom: 0;
+	background: #1b1b1b;
+	color: #fff;
+	width: auto;
+	font-weight: 900;
+	padding:14px 7px;
+	z-index:2;
+}
+
+/* fix columns */
+.table-fix1 th:first-child{
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 4;
+	background-color: #1b1b1b;
+	border-left: inherit;
+	border-right: inherit;
+}
+.table-fix1 td:first-child{
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 3;
+	background-color: inherit;
+	border-left: inherit;
+	border-right: 3px solid black;
+}
+
+.table-fix2 th:nth-child(2){
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 4;
+	background-color: #1b1b1b;
+	border-left: inherit;
+	border-right: inherit;
+}
+.table-fix2 td:nth-child(2){
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 3;
+	background-color: inherit;
+	border-left: inherit;
+	border-right: 3px solid black;
+}
+
+.table-fix3 th:nth-child(3){
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 4;
+	background-color: #1b1b1b;
+	border-left: inherit;
+	border-right: inherit;
+}
+.table-fix3 td:nth-child(3){
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 3;
+	background-color: inherit;
+	border-left: inherit;
+	border-right: 3px solid black;
+}
+
+/* dataTable settings */
+.dataTables_filter {
+	display: none;
+}
