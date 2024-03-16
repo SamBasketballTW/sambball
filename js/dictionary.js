@@ -14,13 +14,12 @@ $(document).ready(function() {
         gender = "women"
     }
 
-    if(document.getElementById('team-dropdown_m') | document.getElementById('team-dropdown_w')){
         for(let i=0; i<teams.length; i++){
             menu = document.getElementById("menu_"+teams[i]);
             menu.innerHTML += `<img src="../asset/images/${gender}/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teams[teams[i]]}</a></li>`
             
         }
-    }
+    
 });
 
 order = {
