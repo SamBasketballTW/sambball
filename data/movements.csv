@@ -175,9 +175,10 @@ men,leopards,lost trade,黃聰翰 (交易至 戰神)
 men,leopards,import,阿拉薩
 men,leopards,import,克羅馬
 men,leopards,import,威廉斯
-men,leopards,import,強森
+men,leopards,import,特威
 men,leopards,import lost,漢密爾頓
 men,leopards,import lost,卡森斯
+men,leopards,import lost,強森
 men,ghosthawks,extend,吳彥侖 (續約 / 被租借)
 men,ghosthawks,extend,吳岱豪 (續約 / 被租借)
 men,ghosthawks,fa,張博勝
@@ -244,7 +245,7 @@ men,trust,draft,郭振復 (總順位: 3)
 men,trust,lost,張博勝 (加盟 T1獵鷹)
 men,trust,lost,曾開暄
 men,trust,lost,沈睿洋
-men,trust,import extend,瑪哈尼 (續約)
+men,trust,import extend,瑪哈尼 (續約 / 註銷)
 men,yulon,fa,林明毅
 men,yulon,fa,鄭德維
 men,yulon,fa,林仕軒
@@ -268,7 +269,8 @@ men,yulon,lost,斑霸 (涉賭)
 men,yulon,lost,陳品銓 (涉賭)
 men,yulon,lost,黃鉉閔 (涉賭)
 men,yulon,lost,翁嘉鴻 (疑涉賭)
-men,yulon,import extend,夏普 (續約)
+men,yulon,import extend,夏普 (續約 / 註銷)
+men,yulon,import,布蘭登
 men,yulon,import lost,喬丹
 men,bll,extend,陳奕綸 (續約)
 men,bll,fa,陳昶宏
