@@ -2,27 +2,27 @@ $(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
 
-    if(men_html){
+    if (men_html) {
         gender = "men"
-    }else if(women_html){
+    } else if (women_html) {
         gender = "women"
     }
-    
-	fetch('../../data/rosters.csv')
-		.then((response) => response.text())
-		.then((result) => {
 
-			lines = result.split('\n');
-			lines = lines.slice(2);
+    fetch('../../data/rosters.csv')
+        .then((response) => response.text())
+        .then((result) => {
 
-			table = document.getElementById('players_tbody');
-            
+            lines = result.split('\n');
+            lines = lines.slice(2);
 
-			lines.forEach(player => {
-				infos = player.split(',');
-				info = ""
+            table = document.getElementById('players_tbody');
 
-                if(infos[0] == gender & infos[6] == "active"){
+
+            lines.forEach(player => {
+                infos = player.split(',');
+                info = ""
+
+                if (infos[0] == gender & infos[6] == "active") {
                     is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "");
                     is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
                     is_import = (infos[9] == "洋將" | infos[9] == "亞外");
@@ -34,27 +34,27 @@ $(document).ready(function () {
                     const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 
                     number = infos[2];
-                    if(infos[2] == "00") number = 100;
+                    if (infos[2] == "00") number = 100;
 
-                    if(is_oversea){
+                    if (is_oversea) {
                         is_local = true;
                         filter = "oversea";
-                        bg = infos[3]+"-bg";
+                        bg = infos[3] + "-bg";
                         team_order = order[infos[3]];
-                        team_name = infos[3]+" "+infos[4];
-                    }else{
+                        team_name = infos[3] + " " + infos[4];
+                    } else {
                         filter = infos[4];
-                        bg = infos[4]+"-bg";
+                        bg = infos[4] + "-bg";
                         team_order = order[infos[4]];
                         team_name = `
                         <img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
                         <b>${cn_teams[infos[4]]}</b>`
                     }
 
-                    if(infos[16] != "") filter += " change";
-                
+                    if (infos[16] != "") filter += " change";
 
-                    if(is_local | is_import){
+
+                    if (is_local | is_import) {
                         info += `
                         <tr class="filterTr ${filter} ${infos[7]} ${infos[8]} showTr">
                             <td class="borderR ${bg}" data-order=${team_order}>${team_name}</td>
@@ -71,10 +71,10 @@ $(document).ready(function () {
                         </tr>`
                     }
                 }
-                    
 
-				table.innerHTML += info;
-			});
+
+                table.innerHTML += info;
+            });
 
             var dataTable = $('#players_tb').DataTable({
                 dom: 't',
@@ -84,5 +84,5 @@ $(document).ready(function () {
                 ordering: true,
                 order: [],
             });
-		});
+        });
 });

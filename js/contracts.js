@@ -1,10 +1,10 @@
 $(document).ready(function () {
 	men_html = document.getElementById("men_page");
-    women_html = document.getElementById("women_page");
+	women_html = document.getElementById("women_page");
 
-	if(men_html){
+	if (men_html) {
 		gender = "men"
-	}else if(women_html){
+	} else if (women_html) {
 		gender = "women"
 	}
 
@@ -21,13 +21,13 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if(infos[0] == gender & infos[4] != "" & infos[6] != "isFA" & infos[7] != "coach" & infos[7] != "GM"){
+				if (infos[0] == gender & infos[4] != "" & infos[6] != "isFA" & infos[7] != "coach" & infos[7] != "GM") {
 					is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL");
-					
-					if(is_oversea){
+
+					if (is_oversea) {
 						filter = `oversea ${infos[3]}-bg`
 						cn_team_name = `${infos[3]} ${infos[4]}`;
-					}else{
+					} else {
 						filter = `${infos[4]} ${infos[4]}-bg`;
 						cn_team_name = `
 						<img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
@@ -35,10 +35,10 @@ $(document).ready(function () {
 					}
 
 					url = ""
-					for(let i=27;i<30;i+=2){
-						if(infos[i] != ""){
+					for (let i = 27; i < 30; i += 2) {
+						if (infos[i] != "") {
 							url += `
-							<a style="color:inherit; text-decoration:underline" href="${infos[i+1]}" target="_blank">
+							<a style="color:inherit; text-decoration:underline" href="${infos[i + 1]}" target="_blank">
 							<i class="bi bi-link-45deg"></i>${infos[i]}</a>`;
 						}
 					}

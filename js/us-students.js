@@ -1,34 +1,34 @@
-$(document).ready(function() {
+$(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
 
-    if(men_html){
+    if (men_html) {
         gender = "men"
-    }else if(women_html){
+    } else if (women_html) {
         gender = "women"
     }
 
-	fetch('../../data/us-students.csv')
-		.then((response) => response.text())
-		.then((result) => {
-			
-			lines = result.split('\n');
-			lines = lines.slice(2);
-			
-			tableC = document.getElementById('college_tbody');
+    fetch('../../data/us-students.csv')
+        .then((response) => response.text())
+        .then((result) => {
+
+            lines = result.split('\n');
+            lines = lines.slice(2);
+
+            tableC = document.getElementById('college_tbody');
             tableHS = document.getElementById('hs_tbody');
 
-			lines.forEach(player => {
-				infos = player.split(',');
-                info = "" 
+            lines.forEach(player => {
+                infos = player.split(',');
+                info = ""
 
-                if(infos[0] == gender){
-                    if( infos[5] == "本土"){
+                if (infos[0] == gender) {
+                    if (infos[5] == "本土") {
                         filter = "local";
-                    }else{
+                    } else {
                         filter = "taiwanese";
                     }
-                    
+
                     info += `
                     <tr class="filterTr ${filter} showTr">
                         <td class="borderR">${infos[2]}</td>
@@ -44,17 +44,17 @@ $(document).ready(function() {
                         <td class="borderR">${infos[10]}</td>
                         <td>${infos[11]}</td>
                         <td>${infos[12]}</td>
-                    </tr>`  
-                    
+                    </tr>`
 
-                    if(infos[1] == "c"){  
+
+                    if (infos[1] == "c") {
                         tableC.innerHTML += info;
-                    }else if (infos[1] == "hs"){   
-                        tableHS.innerHTML += info;  
+                    } else if (infos[1] == "hs") {
+                        tableHS.innerHTML += info;
                     }
                 }
-			});
+            });
 
             document.getElementById('us-btngroup').getElementsByClassName('btn')[1].click();
-		});
+        });
 });
