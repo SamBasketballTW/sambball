@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     }
 
-    fetch('../../data/rosters.csv')
+    fetch('../data/rosters.csv')
         .then((response) => response.text())
         .then((result) => {
 
@@ -258,7 +258,7 @@ $(document).ready(function () {
             document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
         });
 
-    fetch('../../data/movements.csv')
+    fetch('../data/movements.csv')
         .then((response) => response.text())
         .then((result) => {
 

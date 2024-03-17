@@ -2,7 +2,7 @@ $(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
 
-    fetch('../../data/trades.csv')
+    fetch('../data/trades.csv')
         .then((response) => response.text())
         .then((result) => {
 

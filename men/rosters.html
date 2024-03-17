@@ -7,46 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>球隊陣容 (男) | 山姆籃球</title>
     <link rel="icon" href="../asset/images/logo.png" type="image/icon">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/custom.css">
-	<link rel="stylesheet" href="../css/players.css">
-	<link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/players.css">
+    <link rel="stylesheet" href="../css/table.css">
 
-	<script src="../js/tools/popper.min.js"></script>
-	<script src="../js/tools/bootstrap.min.js"></script>
+    <script src="../js/tools/popper.min.js"></script>
+    <script src="../js/tools/bootstrap.min.js"></script>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <script src="../js/footer.js"></script>
-	<script src="../js/custom.js"></script>
-	<script src="../js/dictionary.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/dictionary.js"></script>
     <script src="../js/rosters.js"></script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
-            <a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon">&nbsp;&nbsp;</a>
+            <a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png"
+                    class="icon">&nbsp;&nbsp;</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-					<a class="nav-link active" href="./rosters">球隊陣容</a>
-					<a class="nav-link" href="./players">現役球員</a>
-					<a class="nav-link" href="./contracts">合約</a>
-					<a class="nav-link" href="./drafts">選秀</a>
-					<a class="nav-link" href="./trades">交易</a>
-					<a class="nav-link" href="./free-agents">自由球員</a>
-					<a class="nav-link" href="./us-students">旅美學生</a>
+                    <a class="nav-link active" href="./rosters">球隊陣容</a>
+                    <a class="nav-link" href="./players">現役球員</a>
+                    <a class="nav-link" href="./contracts">合約</a>
+                    <a class="nav-link" href="./drafts">選秀</a>
+                    <a class="nav-link" href="./trades">交易</a>
+                    <a class="nav-link" href="./free-agents">自由球員</a>
+                    <a class="nav-link" href="./us-students">旅美學生</a>
                 </div>
             </div>
         </div>
@@ -68,13 +69,18 @@
                         <li><a id="menu_braves" class="dropdown-item" onclick="fAll('braves'); fR('braves')"></a></li>
                         <li><a id="menu_kings" class="dropdown-item" onclick="fAll('kings'); fR('kings')"></a></li>
                         <li><a id="menu_pilots" class="dropdown-item" onclick="fAll('pilots'); fR('pilots')"></a></li>
-                        <li><a id="menu_lioneers" class="dropdown-item" onclick="fAll('lioneers'); fR('lioneers')"></a></li>
-                        <li><a id="menu_dreamers" class="dropdown-item" onclick="fAll('dreamers'); fR('dreamers')"></a></li>
-                        <li><a id="menu_steelers" class="dropdown-item" onclick="fAll('steelers'); fR('steelers')"></a></li>
+                        <li><a id="menu_lioneers" class="dropdown-item" onclick="fAll('lioneers'); fR('lioneers')"></a>
+                        </li>
+                        <li><a id="menu_dreamers" class="dropdown-item" onclick="fAll('dreamers'); fR('dreamers')"></a>
+                        </li>
+                        <li><a id="menu_steelers" class="dropdown-item" onclick="fAll('steelers'); fR('steelers')"></a>
+                        </li>
                         <li><a id="menu_dea" class="dropdown-item" onclick="fAll('dea'); fR('dea')"></a></li>
                         <li><a id="menu_mars" class="dropdown-item" onclick="fAll('mars'); fR('mars')"></a></li>
-                        <li><a id="menu_leopards" class="dropdown-item" onclick="fAll('leopards'); fR('leopards')"></a></li>
-                        <li><a id="menu_ghosthawks" class="dropdown-item" onclick="fAll('ghosthawks'); fR('ghosthawks')"></a>
+                        <li><a id="menu_leopards" class="dropdown-item" onclick="fAll('leopards'); fR('leopards')"></a>
+                        </li>
+                        <li><a id="menu_ghosthawks" class="dropdown-item"
+                                onclick="fAll('ghosthawks'); fR('ghosthawks')"></a>
                         </li>
                         <li><a id="menu_aquas" class="dropdown-item" onclick="fAll('aquas'); fR('aquas')"></a></li>
                         <li><a class="dropdown-item" onclick="fAll('herobears'); fR('herobears')">台灣啤酒英熊</a></li>
@@ -84,36 +90,36 @@
                         <li><a id="menu_yulon" class="dropdown-item" onclick="fAll('yulon'); fR('yulon')"></a></li>
                         <li><a id="menu_bll" class="dropdown-item" onclick="fAll('bll'); fR('bll')"></a></li>
                     </ul>
-        
+
                 </div>
             </div>
-        
+
             <div class="container-lg">
                 <div class="table-scroll" style="border-bottom:0px">
                     <table id="r_count" class="table table-hover">
                         <tbody id="r_count_tbody">
-        
+
                         </tbody>
                     </table>
                 </div>
                 <div class="table-scroll" style="max-height: calc(100vh - 262px)">
                     <table id="roster_movements_tb" class="table table-hover">
                         <thead id="roster_movements_thead">
-        
+
                         </thead>
                         <tbody id="roster_movements_tbody">
-        
+
                         </tbody>
                     </table>
                 </div>
                 <a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a>
             </div>
-        
+
             <div class="container-lg">
                 <div class="table-scroll" style="border-bottom:0px">
                     <table id="r_coach" class="table table-hover">
                         <tr id="r_coach_tbody">
-        
+
                         </tr>
                     </table>
                 </div>
@@ -131,7 +137,7 @@
                             <th style="width:245px">加入途徑</th>
                         </thead>
                         <tbody id="roster_tbody">
-        
+
                         </tbody>
                     </table>
                 </div>
@@ -150,7 +156,7 @@
                             <th style="width:245px">加入途徑</th>
                         </thead>
                         <tbody id="roster_oversea_tbody">
-        
+
                         </tbody>
                     </table>
                 </div>
@@ -163,18 +169,18 @@
     <footer id="footerContent" class="bg-dark" style="color:white;"></footer>
 
     <script>
-        window.onload = function () {document.getElementById('loader').style.display = 'none';}
-        
+        window.onload = function () { document.getElementById('loader').style.display = 'none'; }
+
         var teams = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item");
         var teambtn = document.getElementById("teambtn");
         var roster_tbs = document.getElementsByClassName("filterTb");
 
         for (var i = 0; i < teams.length; i++) {
             teams[i].addEventListener("click", function () {
-                if(this.innerHTML.includes("旅外")){
+                if (this.innerHTML.includes("旅外")) {
                     roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
                     roster_tbs[1].className += " showTb";
-                }else if(roster_tbs[1].className.includes("showTb")){
+                } else if (roster_tbs[1].className.includes("showTb")) {
                     roster_tbs[1].className = roster_tbs[1].className.replace(" showTb", "");
                     roster_tbs[0].className += " showTb";
                 }

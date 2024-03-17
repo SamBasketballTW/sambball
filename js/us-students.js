@@ -8,7 +8,7 @@ $(document).ready(function () {
         gender = "women"
     }
 
-    fetch('../../data/us-students.csv')
+    fetch('../data/us-students.csv')
         .then((response) => response.text())
         .then((result) => {
 
