@@ -120,7 +120,7 @@ $(document).ready(function () {
 
 	table_bday = document.getElementById('birthday_td');
 
-	fetch('../../data/rosters.csv')
+	fetch('../data/rosters.csv')
 		.then((response) => response.text())
 		.then((result) => {
 
