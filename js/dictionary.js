@@ -1,6 +1,8 @@
 $(document).ready(function () {
     
-    if (window.innerWidth > 450) {
+    if (window.innerWidth <= 450) {
+        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
+    } else if (window.innerWidth > 450) {
         document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
     }
 

@@ -54,13 +54,18 @@ $(document).ready(function () {
                     if (infos[16] != "") filter += " change";
 
 
-                    if (is_local | is_import) {
+                    if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
+                        temp_id = `${infos[9]}`
+                        if(infos[9] == "註銷" | infos[9] == "未註冊"){
+                            temp_id = `洋將`;
+                        }
+
                         info += `
                         <tr class="filterTr ${filter} ${infos[7]} ${infos[8]} showTr">
                             <td class="borderR ${bg}" data-order=${team_order}>${team_name}</td>
                             <td class="borderR" data-order=${number}>${infos[2]}</td>
                             <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
-                            <td data-order=${order[infos[9]]}>${infos[9]}</td>
+                            <td data-order=${order[infos[9]]}>${temp_id}</td>
                             <td>${infos[10]}</td>
                             <td>${infos[11]}</td>
                             <td>${infos[12]}</td>

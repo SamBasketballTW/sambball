@@ -46,6 +46,7 @@ $(document).ready(function () {
 					info += `
 						<tr class="filterTr ${filter} ${infos[21]} ${infos[22]} ${infos[23]} showTr">
 							<td class="borderR">${cn_team_name}</td>
+							<td class="borderR">${infos[2]}</td>
 							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
 							<td>${infos[23]}</td>
 							<td class="borderR">${infos[24]}</td>

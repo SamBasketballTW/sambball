@@ -133,23 +133,24 @@ $(document).ready(function () {
                     number = infos[2];
                     if (infos[2] == "00") number = 100;
 
-                    if (is_local | is_import | infos[9] == "註銷") {
+                    if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
+                        filter = `${infos[4]} ${infos[4]}-bg`;
+                        temp_team = "";
+                        temp_id = `${infos[9]}`;
+
                         if (is_oversea) {
                             filter = `oversea ${infos[3]}-bg`;
-                            temp = `<td class="borderR">${infos[3]} ${infos[4]}</td>`;
-                        } else if (infos[9] == "註銷") {
-                            filter = `${infos[4]}`
-                            temp = "";
-                        } else {
-                            filter = `${infos[4]} ${infos[4]}-bg`;
-                            temp = "";
+                            temp_team = `<td class="borderR">${infos[3]} ${infos[4]}</td>`;
+                        } else if (infos[9] == "註銷" | infos[9] == "未註冊") {
+                            temp_id = `<a style="color:white">${infos[9]}</a>`
                         }
+
                         tempInfo = `
                             <tr class="filterTr ${filter} showTr">
-                                ${temp}
+                                ${temp_team}
                                 <td class="borderR" data-order="${number}">${infos[2]}</td>
                                 <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>             
-                                <td data-order=${order[infos[9]]}>${infos[9]}</td>
+                                <td data-order=${order[infos[9]]}>${temp_id}</td>
                                 <td>${infos[10]}</td>
                                 <td>${infos[11]}</td>
                                 <td>${infos[12]}</td>
