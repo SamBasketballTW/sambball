@@ -11,7 +11,7 @@ $(document).ready(function () {
                         sam_basketball_tw&nbsp;
                     </a>
                     <a style="color:white;"
-                        href="https://www.instagram.com/sam_basketball_tw/"> 
+                        href="mailto:sambasketballtw@gmail.com"> 
                         <i class="bi bi-envelope-open" style="color:white; font-size: 18px;"></i>
                         Gmail
                     </a>

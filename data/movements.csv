@@ -17,13 +17,14 @@ men,braves,lost,伊波卡 (加盟 SBL裕隆)
 men,braves,import extend,辛特力 (續約)
 men,braves,import extend,塞瑟夫 (續約)
 men,braves,import extend,強森 (續約)
-men,braves,import,賽爾登
 men,braves,import,伊貝
+men,braves,import,泰勒
 men,braves,import lost,巴爾菲特
 men,braves,import lost,布朗
 men,braves,import lost,石門
 men,braves,import lost,梅克
 men,braves,import lost,沛登
+men,braves,import lost,賽爾登
 men,kings,extend,簡祐哲 (提前續約)
 men,kings,extend,洪志善 (續約)
 men,kings,extend,陳俊男 (提前續約)
@@ -366,4 +367,5 @@ women,taiyuen,draft,張琦玟 (總順位: 3)
 women,taiyuen,lost,羅培儀 (加盟 台電)
 women,taiyuen,lost,方妤
 women,taiyuen,lost,謝鎔竹
+women,taiyuen,import,Yemiyah Morris
 women,end,,

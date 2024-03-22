@@ -82,7 +82,7 @@ $(document).ready(function () {
                     } else if (infos[0] == "sbl") {
                         for (let i = 9; i < 18; i += 3) sbl_standings.splice(findRank(sbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
                         for (let i = 0; i < 4; i++) standings += `<td>${sbl_standings[i]}</td>`;
-                        
+
                     }
                 }else if(women_html){
                     if (infos[0] == "wsbl_rank") {
@@ -94,7 +94,6 @@ $(document).ready(function () {
                     }
 
                     if (infos[0] == "wsbl") {
-                        table = table_wsbl
                         for (let i = 9; i < 18; i += 3) wsbl_standings.splice(findRank(wsbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
                         for (let i = 0; i < 4; i++) standings += `<td>${wsbl_standings[i]}</td>`;
                     }
