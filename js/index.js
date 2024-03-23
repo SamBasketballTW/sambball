@@ -70,19 +70,19 @@ $(document).ready(function () {
 
 				if (infos[0] == "plg") {
 					table = table_plg
-					for (let i = 9; i < 24; i += 3) plg_standings.splice(findRank(plg_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+					for (let i = 24; i < 39; i += 3) plg_standings.splice(findRank(plg_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
 					for (let i = 0; i < 6; i++) standings += `<td>${plg_standings[i]}</td>`;
 				} else if (infos[0] == "t1") {
 					table = table_t1
-					for (let i = 9; i < 21; i += 3) t1_standings.splice(findRank(t1_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+					for (let i = 24; i < 36; i += 3) t1_standings.splice(findRank(t1_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
 					for (let i = 0; i < 5; i++) standings += `<td>${t1_standings[i]}</td>`;
 				} else if (infos[0] == "sbl") {
 					table = table_sbl
-					for (let i = 9; i < 18; i += 3) sbl_standings.splice(findRank(sbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+					for (let i = 24; i < 33; i += 3) sbl_standings.splice(findRank(sbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
 					for (let i = 0; i < 4; i++) standings += `<td>${sbl_standings[i]}</td>`;
 				} else if (infos[0] == "wsbl") {
 					table = table_wsbl
-					for (let i = 9; i < 18; i += 3) wsbl_standings.splice(findRank(wsbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+					for (let i = 24; i < 33; i += 3) wsbl_standings.splice(findRank(wsbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
 					for (let i = 0; i < 4; i++) standings += `<td>${wsbl_standings[i]}</td>`;
 				}
 
