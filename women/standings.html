@@ -49,6 +49,7 @@
 					<a class="nav-link" href="./trades">交易</a>
 					<a class="nav-link" href="./free-agents">自由球員</a>
 					<a class="nav-link" href="./us-students">旅美學生</a>
+					<a class="nav-link" href="../men/standings">男籃</a>
 				</div>
 			</div>
 		</div>
@@ -57,9 +58,68 @@
 	<div class="content">
 		<div id="women_page" class="jumbotron"></div>
 
+        <div class="container-lg" style="overflow-x:auto">
+			<div class="col" style="width:780px">
+				<a><b>&nbsp;&nbsp;戰績篩選: </b></a>
+				<div id="standings-btngroup" class="btn-group">
+					<a class="btn btn-light active">綜合</a>
+					<a class="btn btn-light">領先 / 落後</a>
+					<a class="btn btn-light">對戰組合</a>
+				</div>
+			</div>
+		</div>
+
         <div class="container-lg">
-			<div class="table-scroll">
-				<table id="wsbl_tb" class="table table-hover table-fix2">
+			<div class="table-scroll" style="border-bottom:0px">
+				<table id="overall_tb" class="table table-hover table-fix2 filterTb showTb">
+                    <thead>
+                        <th style="width:50px">排名</th>
+                        <th style="width:95px">球隊</th>
+                        <th style="width:50px">已賽</th>
+                        <th style="width:50px">勝場</th>
+                        <th style="width:50px">敗場</th>
+                        <th style="width:50px">勝率</th>
+                        <th style="width:50px">勝差</th>
+                        <th style="width:50px">連勝</th>
+                        <th style="width:70px">近5場</th>
+                        <th style="width:70px">主場</th>
+                        <th style="width:70px">客場</th>
+                        <th style="width:70px">OT</th>
+                        <th style="width:70px">得分</th>
+                        <th style="width:70px">失分</th>
+                    </thead>
+                    <tbody id="overall_tbody">
+
+                    </tbody>
+				</table>
+			</div>
+
+			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
+				<table id="ahead_tb" class="table table-hover table-fix2 filterTb">
+                    <thead>
+                        <th style="width:50px">排名</th>
+                        <th style="width:95px">球隊</th>
+                        <th style="width:50px">已賽</th>
+                        <th style="width:50px">勝場</th>
+                        <th style="width:50px">敗場</th>
+                        <th style="width:50px">勝率</th>
+                        <th style="width:70px">半場領先</th>
+                        <th style="width:70px">半場落後</th>
+                        <th style="width:70px">半場平手</th>
+                        <th style="width:70px">第三節領先</th>
+                        <th style="width:70px">第三節落後</th>
+                        <th style="width:70px">第三節平手</th>
+                        <th style="width:80px">3分(含)差以內</th>
+                        <th style="width:80px">10分(含)差以外</th>
+                    </thead>
+                    <tbody id="ahead_tbody">
+
+                    </tbody>
+				</table>
+			</div>
+
+			<div class="table-scroll" style="border-top:0px">
+				<table id="wsbl_tb" class="table table-hover table-fix2 filterTb">
 		
 				</table>
 			</div>
@@ -72,6 +132,29 @@
 
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
+
+		var btns = document.getElementById("standings-btngroup").getElementsByClassName("btn");
+        var tables = document.getElementsByClassName("filterTb");
+
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].addEventListener("click", function () {
+				currentBtn = document.getElementsByClassName("btn btn-light active");
+				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+				this.className += " active";
+
+                var currentTable = document.getElementsByClassName("showTb");
+                if(this.innerHTML.includes("綜合")){
+                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                    tables[0].className += " showTb";
+                } else if (this.innerHTML.includes("領先")){
+                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                    tables[1].className += " showTb";
+                } else if (this.innerHTML.includes("對戰組合")){
+                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                    tables[2].className += " showTb";
+                }
+			});
+		}
 	</script>
 
 </body>
