@@ -27,7 +27,7 @@ $(document).ready(function () {
 						<tbody>
 							<tr>
 								<td class="borderR">${infos[1]}</td>
-								<td style="font-size:15px">
+								<td style="font-size:15px; text-align:left">
 									<img src="../asset/images/${gender}/${infos[2]}.png" alt="${infos[2]}" class="teamicon">
 									<b>${cn_teams[infos[2]]}</b>
 								</td>
