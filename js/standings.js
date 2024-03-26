@@ -75,15 +75,15 @@ $(document).ready(function () {
                         }
                         table_sbl.innerHTML += `<thead>${infothead}${sbl_standings_th}</thead>`
                     } else if (infos[0] == "plg") {
-                        for (let i = 23; i < 38; i += 3) plg_standings.splice(findRank(plg_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+                        for (let i = 28; i < 43; i += 3) plg_standings.splice(findRank(plg_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
                         for (let i = 0; i < 6; i++) standings += `<td>${plg_standings[i]}</td>`;
 
                     } else if (infos[0] == "t1") {
-                        for (let i = 23; i < 35; i += 3) t1_standings.splice(findRank(t1_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+                        for (let i = 28; i < 40; i += 3) t1_standings.splice(findRank(t1_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
                         for (let i = 0; i < 5; i++) standings += `<td>${t1_standings[i]}</td>`;
 
                     } else if (infos[0] == "sbl") {
-                        for (let i = 23; i < 32; i += 3) sbl_standings.splice(findRank(sbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+                        for (let i = 28; i < 37; i += 3) sbl_standings.splice(findRank(sbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
                         for (let i = 0; i < 4; i++) standings += `<td>${sbl_standings[i]}</td>`;
 
                     }
@@ -96,7 +96,7 @@ $(document).ready(function () {
                         }
                         table_wsbl.innerHTML += `<thead>${infothead}${wsbl_standings_th}</thead>`
                     } else if (infos[0] == "wsbl") {
-                        for (let i = 23; i < 32; i += 3) wsbl_standings.splice(findRank(wsbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
+                        for (let i = 28; i < 37; i += 3) wsbl_standings.splice(findRank(wsbl_rank, infos[i]), 1, infos[i + 1] + "-" + infos[i + 2]);
                         for (let i = 0; i < 4; i++) standings += `<td>${wsbl_standings[i]}</td>`;
                     }
                 }
@@ -117,11 +117,11 @@ $(document).ready(function () {
                                 <td>${infos[7]}</td>
                                 <td class="borderR">${infos[8]}</td>
                                 <td class="borderR">${infos[9]}</td>
-                                <td>${infos[10]}</td>
-                                <td>${infos[11]}</td>
-                                <td class="borderR">${infos[12]}</td>
-                                <td>${(infos[19]/infos[3]).toFixed(1)}</td>
-                                <td>${(infos[20]/infos[3]).toFixed(1)}</td>
+                                <td>${infos[15]}</td>
+                                <td>${infos[16]}</td>
+                                <td class="borderR">${infos[17]}</td>
+                                <td>${(infos[24]/infos[3]).toFixed(1)}</td>
+                                <td>${(infos[25]/infos[3]).toFixed(1)}</td>
                             </tr>
                         </tbody>`
 
@@ -137,14 +137,14 @@ $(document).ready(function () {
                                 <td>${infos[4]}</td>
                                 <td>${infos[5]}</td>
                                 <td class="borderR">${infos[6]}</td>
-                                <td>${infos[13]}</td>
-                                <td>${infos[14]}</td>
-                                <td class="borderR">${infos[15]}</td>
-                                <td>${infos[16]}</td>
-                                <td>${infos[17]}</td>
-                                <td class="borderR">${infos[18]}</td>
+                                <td>${infos[18]}</td>
+                                <td>${infos[19]}</td>
+                                <td class="borderR">${infos[20]}</td>
                                 <td>${infos[21]}</td>
                                 <td>${infos[22]}</td>
+                                <td class="borderR">${infos[23]}</td>
+                                <td>${infos[26]}</td>
+                                <td>${infos[27]}</td>
                             </tr>
                         </tbody>`
 
