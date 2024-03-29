@@ -23,6 +23,58 @@ $(document).ready(function () {
 
 });
 
+coach_name = {
+    "braves": "",
+    "kings": " Ryan Marchand",
+    "pilots": " Iurgi Caminos",
+    "lioneers": " Milan Mitrović",
+    "dreamers": " Jamie Pearlman",
+    "steelers": "",
+
+    "dea": "",
+    "mars": "",
+    "leopards": " Charles Dubé-Brais",
+    "ghosthawks": " Raoul Korner",
+    "aquas": " Branden Joyce",
+
+    "beer":"",
+    "trust":"",
+    "yulon":"",
+    "bll":"",
+
+    "cathay":"",
+    "power":"",
+    "telecom":"",
+    "taiyuen":"",
+    "":""
+}
+
+gm_name = {
+    "braves": "GM: 蔡承儒",
+    "kings": "GM: 毛加恩",
+    "pilots": "GM: 李忠恕",
+    "lioneers": "GM: 張樹人",
+    "dreamers": "GM: 韓駿鎧",
+    "steelers": "GM: 高景炎",
+
+    "dea": "GM: 劉志威",
+    "mars": "GM: 林祐廷",
+    "leopards": "執行長: 張建偉",
+    "ghosthawks": "GM: 錢韋成",
+    "aquas": "執行長: 李偉誠",
+
+    "beer":"",
+    "trust":"",
+    "yulon":"",
+    "bll":"",
+
+    "cathay":"",
+    "power":"",
+    "telecom":"",
+    "taiyuen":"",
+    "":""
+}
+
 order = {
     "本土": "1",
     "華裔": "2",
@@ -60,6 +112,7 @@ order = {
     "telecom": "6",
     "taiyuen": "7",
 
+    "fa":"40",
     "": ""
 }
 cn_teams = {
@@ -83,6 +136,8 @@ cn_teams = {
     "taiyuen": "台元紡織",
     "power": "台灣電力",
     "telecom": "中華電信",
+
+    "fa":"自由球員",
 
     "suns": "臺中太陽",
     "herobears": "台灣啤酒英熊",

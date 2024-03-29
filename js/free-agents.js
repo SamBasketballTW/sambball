@@ -24,32 +24,28 @@ $(document).ready(function () {
                 if (infos[0] == gender) {
                     is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL");
 
-                    const birthday = new Date(infos[13]);
-                    const today = new Date();
-                    const diff = today - birthday
-                    const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-
-
-                    if (infos[6] == "isFA" | infos[17] != "") {
-                        fa = "isFA";
-                        if (infos[6] == "active") fa = "notFA";
+                    if (infos[17] != "") {
+                        const birthday = new Date(infos[13]);
+                        const today = new Date();
+                        const diff = today - birthday
+                        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 
                         if (is_oversea) {
-                            team_name = `${infos[3]} ${infos[4]}`;
+                            team_name = `${infos[3]} ${infos[16]}`;
                             team_order = order[infos[3]];
                         } else {
-                            team_name = cn_teams[infos[4]];
-                            team_order = order[infos[4]];
+                            team_name = cn_teams[infos[16]];
+                            team_order = order[infos[16]];
                         }
 
                         info += `
-                            <tr class="filterTr ${fa} showTr">
+                            <tr>
                                 <td><a style="text-decoration:underline; color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
                                 <td>${infos[10]}</td>
                                 <td>${age}</td>
                                 <td class="borderR">${infos[11]}</td>
                                 <td>${infos[17]}</td>
-                                <td class="${infos[4]}-bg borderR" data-order="${team_order}">${team_name}</td>
+                                <td class="${infos[16]}-bg borderR" data-order="${team_order}">${team_name}</td>
                                 <td>${infos[18]}</td>
                                 <td>${infos[19]}</td>
                                 <td>${infos[20]}</td>                
@@ -66,7 +62,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [],
+                order: [5,'asc'],
             });
 
         });

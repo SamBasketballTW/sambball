@@ -21,7 +21,7 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == gender & infos[4] != "" & infos[6] != "isFA" & infos[7] != "coach" & infos[7] != "GM") {
+				if (infos[0] == gender & infos[4] != "" & infos[4] != "fa" & infos[7] != "coach") {
 					is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL");
 
 					if (is_oversea) {

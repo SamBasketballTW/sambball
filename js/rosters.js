@@ -74,9 +74,15 @@ $(document).ready(function () {
                     const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
-                        infoCoach += `<td class="filterTd ${infos[4]} ${infos[4]}-bg showTd">${infos[9]}: ${infos[1]}</td>`
-                    } else if (infos[7] == "GM") {
-                        infoCoach += `<td class="filterTd ${infos[4]} ${infos[4]}-bg borderL showTd">${infos[9]}: ${infos[1]}</td>`
+                        if(window.innerWidth <= 576){
+                            blank = `<br>`
+                        }else{
+                            blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+                        }
+                        infoCoach += `
+                            <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
+                                <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank}${gm_name[infos[4]]}</td>
+                            </tr>`
                     } else {
                         if (is_oversea) {
                             same_team = true;
@@ -244,7 +250,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [],
+                order: [0,'asc'],
             });
 
             var dataTable2 = $('#rosters_oversea_tb').DataTable({

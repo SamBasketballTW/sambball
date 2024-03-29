@@ -39,25 +39,32 @@ $(document).ready(function () {
                     if (is_oversea) {
                         is_local = true;
                         filter = "oversea";
-                        bg = infos[3] + "-bg";
+                        bg = `${infos[3]}-bg`;
                         team_order = order[infos[3]];
-                        team_name = infos[3] + " " + infos[4];
+                        team_name = `${infos[3]} ${infos[4]}`;
+                        last_team = infos[16]
                     } else {
                         filter = infos[4];
-                        bg = infos[4] + "-bg";
+                        bg = `${infos[4]}-bg`;
                         team_order = order[infos[4]];
                         team_name = `
                         <img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
                         <b>${cn_teams[infos[4]]}</b>`
+                        last_team = infos[16]
+
+                        if( infos[4] == "fa"){
+                            team_name = cn_teams[infos[4]];
+                            last_team = `${infos[3]} ${shorts[infos[16]]}`
+                        }
                     }
 
                     if (infos[16] != "") filter += " change";
 
 
-                    if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
-                        temp_id = `${infos[9]}`
-                        if(infos[9] == "註銷" | infos[9] == "未註冊"){
-                            temp_id = `洋將`;
+                    if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊" | infos[4] == "fa") {
+                        identity = `${infos[9]}`
+                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩"){
+                            identity = `洋將`;
                         }
 
                         info += `
@@ -65,13 +72,13 @@ $(document).ready(function () {
                             <td class="borderR ${bg}" data-order=${team_order}>${team_name}</td>
                             <td class="borderR" data-order=${number}>${infos[2]}</td>
                             <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
-                            <td data-order=${order[infos[9]]}>${temp_id}</td>
+                            <td data-order=${order[infos[9]]}>${identity}</td>
                             <td>${infos[10]}</td>
                             <td>${infos[11]}</td>
                             <td>${infos[12]}</td>
                             <td>${age}</td>
                             <td class="borderR">${infos[13]}</td>
-                            <td>${infos[16]}</td>
+                            <td>${last_team}</td>
                             
                         </tr>`
                     }
@@ -87,7 +94,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [],
+                order: [0,'asc'],
             });
         });
 });
