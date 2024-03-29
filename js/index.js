@@ -83,7 +83,7 @@ $(document).ready(function () {
 					if (birthday.getDate() == today.getDate() && birthday.getMonth() == today.getMonth()) {
 						team_name = cn_teams[infos[4]];
 						if (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL") {
-							team_name = infos[3] + infos[4];
+							team_name = `${infos[3]} ${infos[4]}`;
 						}
 						if (count == 0) {
 							text += `今天是 ${team_name}-${infos[1]} ${age}歲生日`
