@@ -29,7 +29,7 @@ $(document).ready(function () {
 								<td class="borderR">${infos[1]}</td>
 								<td style="font-size:15px; text-align:left">
 									<img src="../asset/images/${gender}/${infos[2]}.png" alt="${infos[2]}" class="teamicon">
-									<b>${cn_teams[infos[2]]}</b>
+									<b>${cn_teamName[infos[2]]}</b>
 								</td>
 								<td>${infos[3]}</td>
 								<td>${infos[4]}</td>
@@ -81,7 +81,7 @@ $(document).ready(function () {
 					const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 
 					if (birthday.getDate() == today.getDate() && birthday.getMonth() == today.getMonth()) {
-						team_name = cn_teams[infos[4]];
+						team_name = cn_teamName[infos[4]];
 						if (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL") {
 							team_name = `${infos[3]} ${infos[4]}`;
 						}

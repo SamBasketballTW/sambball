@@ -12,7 +12,8 @@ $(document).ready(function () {
         temp1 = "CBA"
         temp2 = `
         CBA:&nbsp;&nbsp;5&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        日本 B2:&nbsp;&nbsp;1&nbsp;&nbsp;人`
+        日本:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        其他國家:&nbsp;&nbsp;1&nbsp;&nbsp;人`
 
     } else if (women_html) {
         gender = "women"
@@ -100,15 +101,7 @@ $(document).ready(function () {
                                 c_import += 1;
                             }
                         } else {
-                            if (cur_team == "oversea") {
-                                infoCount += `
-                                <tr class="filterTr oversea ${temp1}-bg showTr">
-                                    <td>
-                                        平均年齡:&nbsp;&nbsp;${(sum_A / c_local).toFixed(1)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        平均身高:&nbsp;&nbsp;${(sum_H / c_local).toFixed(1)}
-                                    </td>
-                                </tr>`
-                            } else {
+                            if (cur_team != "oversea"){
                                 infoCount += `
                                 <tr class="filterTr ${cur_team} ${cur_team}-bg showTr">
                                     <td>

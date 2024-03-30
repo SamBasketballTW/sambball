@@ -1,28 +1,3 @@
-$(document).ready(function () {
-    
-    if (window.innerWidth <= 450) {
-        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
-    } else if (window.innerWidth > 450) {
-        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
-    }
-
-    if (document.getElementById('team-dropdown_m')) {
-        teams = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers',
-            'dea', 'mars', 'leopards', 'ghosthawks', 'aquas',
-            'beer', 'trust', 'yulon', 'bll'];
-        gender = "men"
-    } else if (document.getElementById('team-dropdown_w')) {
-        teams = ['cathay', 'power', 'telecom', 'taiyuen'];
-        gender = "women"
-    }
-
-    for (let i = 0; i < teams.length; i++) {
-        menu = document.getElementById("menu_" + teams[i]);
-        menu.innerHTML += `<img src="../asset/images/${gender}/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teams[teams[i]]}</a></li>`
-    }
-
-});
-
 coach_name = {
     "braves": "",
     "kings": " Ryan Marchand",
@@ -84,6 +59,7 @@ order = {
 
     "CBA": "1",
     "日本 B2": "2",
+    "TAT 香港":"3",
     "braves": "11",
     "kings": "12",
     "pilots": "13",
@@ -115,7 +91,7 @@ order = {
     "fa":"40",
     "": ""
 }
-cn_teams = {
+cn_teamName = {
     "braves": "臺北富邦勇士",
     "kings": "新北國王",
     "pilots": "桃園璞園領航猿",
@@ -143,7 +119,7 @@ cn_teams = {
     "herobears": "台灣啤酒英熊",
     "": ""
 }
-shorts = {
+short_teamName = {
     "braves": "勇士",
     "kings": "國王",
     "pilots": "領航猿",

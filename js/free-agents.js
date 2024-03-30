@@ -34,7 +34,7 @@ $(document).ready(function () {
                             team_name = `${infos[3]} ${infos[16]}`;
                             team_order = order[infos[3]];
                         } else {
-                            team_name = cn_teams[infos[16]];
+                            team_name = cn_teamName[infos[16]];
                             team_order = order[infos[16]];
                         }
 

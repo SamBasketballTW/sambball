@@ -59,19 +59,19 @@ $(document).ready(function () {
                     if (infos[0] == "plg_rank") {
                         plg_rank = [infos[1], infos[2], infos[3], infos[4], infos[5], infos[6]];
                         for (let i = 1; i < 7; i++) {
-                            plg_standings_th += `<th style="width:70px">${shorts[infos[i]]}</th>`
+                            plg_standings_th += `<th style="width:70px">${short_teamName[infos[i]]}</th>`
                         }
                         table_plg.innerHTML += `<thead>${infothead}${plg_standings_th}</thead>`
                     } else if (infos[0] == "t1_rank") {
                         t1_rank = [infos[1], infos[2], infos[3], infos[4], infos[5]];
                         for (let i = 1; i < 6; i++) {
-                            t1_standings_th += `<th style="width:70px">${shorts[infos[i]]}</th>`
+                            t1_standings_th += `<th style="width:70px">${short_teamName[infos[i]]}</th>`
                         }
                         table_t1.innerHTML += `<thead>${infothead}${t1_standings_th}</thead>`
                     } else if (infos[0] == "sbl_rank") {
                         sbl_rank = [infos[1], infos[2], infos[3], infos[4], infos[5]];
                         for (let i = 1; i < 5; i++) {
-                            sbl_standings_th += `<th style="width:70px">${shorts[infos[i]]}</th>`
+                            sbl_standings_th += `<th style="width:70px">${short_teamName[infos[i]]}</th>`
                         }
                         table_sbl.innerHTML += `<thead>${infothead}${sbl_standings_th}</thead>`
                     } else if (infos[0] == "plg") {
@@ -92,7 +92,7 @@ $(document).ready(function () {
                     if (infos[0] == "wsbl_rank") {
                         wsbl_rank = [infos[1], infos[2], infos[3], infos[4], infos[5]];
                         for (let i = 1; i < 5; i++) {
-                            wsbl_standings_th += `<th style="width:70px">${shorts[infos[i]]}</th>`
+                            wsbl_standings_th += `<th style="width:70px">${short_teamName[infos[i]]}</th>`
                         }
                         table_wsbl.innerHTML += `<thead>${infothead}${wsbl_standings_th}</thead>`
                     } else if (infos[0] == "wsbl") {
@@ -108,7 +108,7 @@ $(document).ready(function () {
                                 <td class="borderR">${infos[1]}</td>
                                 <td>
                                     <img src="../asset/images/${gender}/${infos[2]}.png" alt="${infos[2]}" class="teamicon">
-                                    <b>${shorts[infos[2]]}</b>
+                                    <b>${short_teamName[infos[2]]}</b>
                                 </td>
                                 <td>${infos[3]}</td>
                                 <td>${infos[4]}</td>
@@ -131,7 +131,7 @@ $(document).ready(function () {
                                 <td class="borderR">${infos[1]}</td>
                                 <td>
                                     <img src="../asset/images/${gender}/${infos[2]}.png" alt="${infos[2]}" class="teamicon">
-                                    <b>${shorts[infos[2]]}</b>
+                                    <b>${short_teamName[infos[2]]}</b>
                                 </td>
                                 <td>${infos[3]}</td>
                                 <td>${infos[4]}</td>
@@ -154,7 +154,7 @@ $(document).ready(function () {
                                 <td class="borderR">${infos[1]}</td>
                                 <td>
                                     <img src="../asset/images/${gender}/${infos[2]}.png" alt="${infos[2]}" class="teamicon">
-                                    <b>${shorts[infos[2]]}</b>
+                                    <b>${short_teamName[infos[2]]}</b>
                                 </td>
                                 <td>${infos[3]}</td>
                                 <td>${infos[4]}</td>

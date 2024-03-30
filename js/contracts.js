@@ -21,7 +21,7 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == gender & infos[4] != "" & infos[4] != "fa" & infos[7] != "coach") {
+				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa" & infos[7] != "coach") {
 					is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL");
 
 					if (is_oversea) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
 						filter = `${infos[4]} ${infos[4]}-bg`;
 						cn_team_name = `
 						<img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
-							<b>${shorts[infos[4]]}</b>`
+							<b>${short_teamName[infos[4]]}</b>`
 					}
 
 					url = ""

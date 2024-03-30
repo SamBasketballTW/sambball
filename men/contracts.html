@@ -20,7 +20,7 @@
 	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-	<script src="../js/footer.js"></script>
+	<script src="../js/initial.js"></script>
 	<script src="../js/custom.js"></script>
 	<script src="../js/dictionary.js"></script>
 	<script src="../js/contracts.js"></script>
@@ -128,7 +128,12 @@
 					</tbody>
 				</table>
 			</div>
-			<a style="font-size:13px"><b>註: 被交易球員因不知是否有重新簽約，皆假設為承接合約，將原合約及年限以*標注</b></a>
+			<a style="font-size:13px">
+				<b>	註1: 被交易球員因不知是否有重新簽約，皆假設為承接合約，將原合約及年限以*標注<br>
+					註2: 因新秀合約年限未知，剩餘年限皆假設為制式新秀合約 (2+1年 / 3年 )<br>
+				</b>
+			</a>
+			<a id="timeStamp"style="font-size:13px"></a>
 		</div>
 
 		<img id="loader" class="spinner" src="../asset/images/logo.png">

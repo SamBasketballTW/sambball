@@ -49,12 +49,12 @@ $(document).ready(function () {
                         team_order = order[infos[4]];
                         team_name = `
                         <img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
-                        <b>${cn_teams[infos[4]]}</b>`
+                        <b>${cn_teamName[infos[4]]}</b>`
                         last_team = infos[16]
 
                         if( infos[4] == "fa"){
-                            team_name = cn_teams[infos[4]];
-                            last_team = `${infos[3]} ${shorts[infos[16]]}`
+                            team_name = cn_teamName[infos[4]];
+                            last_team = `${infos[3]} ${short_teamName[infos[16]]}`
                         }
                     }
 
