@@ -104,7 +104,7 @@ cn_teamName = {
     "ghosthawks": "臺南台鋼獵鷹",
     "aquas": "高雄全家海神",
     "beer": "台灣啤酒",
-    "trust": "臺灣銀行",
+    "trust": "臺灣銀行", 
     "yulon": "裕隆納智捷",
     "bll": "彰化柏力力",
 
