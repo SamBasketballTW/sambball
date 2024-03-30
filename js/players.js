@@ -94,7 +94,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [0,'asc'],
+                order: [],
             });
         });
 });
