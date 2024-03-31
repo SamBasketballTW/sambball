@@ -82,7 +82,7 @@ order = {
 
     "WCBA": 1,
     "WKBL": 2,
-    "葡萄牙 PNB": 3,
+    "葡萄牙PNB": 3,
     "cathay": 4,
     "power": 5,
     "telecom": 6,
