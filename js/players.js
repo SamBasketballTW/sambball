@@ -66,6 +66,7 @@ $(document).ready(function () {
                         if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩"){
                             identity = `洋將`;
                         }
+                        console.log(team_order);
 
                         info += `
                         <tr class="filterTr ${filter} ${infos[7]} ${infos[8]} showTr">
@@ -94,7 +95,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [],
+                order: [0,'asc'],
             });
         });
 });
