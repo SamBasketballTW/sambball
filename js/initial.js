@@ -29,7 +29,7 @@ $(document).ready(function () {
     footerBody = document.getElementById("footerContent");
     timeStamp = document.getElementById("timeStamp");
     timeStamp.innerHTML = `
-    <b>更新日期: 2024.03.30</b>`
+    <b>更新日期: 2024.03.31</b>`
     footerBody.innerHTML = `
     <div class="container" style="padding:1.5rem;text-align:center;">
                     <a style="color:white;">
