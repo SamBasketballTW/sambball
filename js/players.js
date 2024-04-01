@@ -63,10 +63,9 @@ $(document).ready(function () {
 
                     if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊" | infos[4] == "fa") {
                         identity = `${infos[9]}`
-                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩"){
+                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "牧倫斯"){
                             identity = `洋將`;
                         }
-                        console.log(team_order);
 
                         info += `
                         <tr class="filterTr ${filter} ${infos[7]} ${infos[8]} showTr">
