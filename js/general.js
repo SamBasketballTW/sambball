@@ -1,3 +1,37 @@
+$(document).ready(function () {
+    if(document.getElementById("index")){
+    if (window.innerWidth <= 450) {
+        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
+    } else if (window.innerWidth > 450) {
+        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
+    }
+    }
+
+    footerBody = document.getElementById("footerContent");
+    timeStamp = document.getElementById("timeStamp");
+    timeStamp.innerHTML = `<b>更新日期: 2024.03.31</b>`
+    footerBody.innerHTML = `
+    <div class="container" style="padding:1.5rem;text-align:center;">
+                    <a style="color:white;">
+                        山姆籃球
+                    </a>
+                    <br>
+                    <a style="color:white;"
+                        href="https://www.instagram.com/sam_basketball_tw/">
+                        <i class="bi bi-instagram" style="color:white; font-size: 18px;"></i>
+                        sam_basketball_tw&nbsp;
+                    </a>
+                    <a style="color:white;"
+                        href="mailto:sambasketballtw@gmail.com"> 
+                        <i class="bi bi-envelope-open" style="color:white; font-size: 18px;"></i>
+                        Gmail
+                    </a>
+                    <br>
+                    <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
+
+    </div>`
+});
+
 coach_name = {
     "braves": "",
     "kings": " Ryan Marchand",
