@@ -1,5 +1,6 @@
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 league,game,date,w-team,home/road,q1,q2,q3,q4,ot,total,l-team,home/road,q1,q2,q3,q4,ot,total
+plg,g84,4/2,lioneers,road,28,38,25,29,-,120,braves,home,31,22,25,23,-,101
 plg,g83,3/31,dreamers,road,28,28,27,25,-,108,kings,home,35,26,13,31,-,105
 plg,g82,3/31,pilots,home,20,15,21,27,-,83,steelers,road,13,29,19,18,-,79
 plg,g81,3/30,braves,road,21,31,23,27,-,102,kings,home,16,25,15,21,-,77

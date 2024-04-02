@@ -11,7 +11,6 @@ $(document).ready(function () {
             table = document.getElementById('plg_tb');
 
             rank = ['dreamers','pilots','kings','lioneers','braves','steelers'];
-            team_count = rank.length;
             temp = "";
             for(let i = 0;i<rank.length;i++) temp += `<th style="width:70px">${short_teamName[rank[i]]}</td>`
 

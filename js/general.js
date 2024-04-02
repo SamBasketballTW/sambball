@@ -1,15 +1,15 @@
 $(document).ready(function () {
     if(document.getElementById("index")){
-    if (window.innerWidth <= 450) {
-        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
-    } else if (window.innerWidth > 450) {
-        document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
-    }
+        if (window.innerWidth <= 450) {
+            document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
+        } else if (window.innerWidth > 450) {
+            document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
+        }
     }
 
     footerBody = document.getElementById("footerContent");
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.03.31</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.02</b>`
     footerBody.innerHTML = `
     <div class="container" style="padding:1.5rem;text-align:center;">
                     <a style="color:white;">
