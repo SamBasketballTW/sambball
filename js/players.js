@@ -22,7 +22,7 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[0] == gender & infos[6] == "active") {
+                if (infos[0] == gender & infos[6] == "active" & infos[1] != "牧倫斯") {
                     is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "");
                     is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
                     is_import = (infos[9] == "洋將" | infos[9] == "亞外");
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
                     if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊" | infos[4] == "fa") {
                         identity = `${infos[9]}`
-                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "牧倫斯"){
+                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "海登" | infos[1] == "安尼奎"){
                             identity = `洋將`;
                         }
 
