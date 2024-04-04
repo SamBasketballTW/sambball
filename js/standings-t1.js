@@ -219,9 +219,9 @@ $(document).ready(function () {
                 table_overall.innerHTML += `
                 <tr class="filterTr t1">
                     <td class="borderR">${i+1}</td>
-                    <td>
+                    <td style="text-align:left">
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
-                        <b>${short_teamName[team]}</b>
+                        <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
                     <td>${w_l[0]+w_l[1]}</td>
                     <td>${w_l[0]}</td>
@@ -240,9 +240,9 @@ $(document).ready(function () {
                 table_points.innerHTML += `
                 <tr class="filterTr t1">
                     <td class="borderR">${i+1}</td>
-                    <td>
+                    <td style="text-align:left">
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
-                        <b>${short_teamName[team]}</b>
+                        <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
                     <td>${w_l[0]+w_l[1]}</td>
                     <td>${w_l[0]}</td>
@@ -264,9 +264,9 @@ $(document).ready(function () {
                 table_ahead.innerHTML += `
                 <tr class="filterTr t1">
                     <td class="borderR">${i+1}</td>
-                    <td>
+                    <td style="text-align:left">
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
-                        <b>${short_teamName[team]}</b>
+                        <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
                     <td>${w_l[0]+w_l[1]}</td>
                     <td>${w_l[0]}</td>
@@ -294,9 +294,9 @@ $(document).ready(function () {
                 <tbody>
                     <tr>
                         <td class="borderR">${i+1}</td>
-                        <td>
+                        <td style="text-align:left">
                             <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
-                            <b>${short_teamName[team]}</b>
+                            <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                         </td>
                         <td>${w_l[0]+w_l[1]}</td>
                         <td>${w_l[0]}</td>
@@ -311,9 +311,9 @@ $(document).ready(function () {
                 table_calendar.innerHTML += `
                 <tr>
                     <td class="borderR">${i+1}</td>
-                    <td>
+                    <td style="text-align:left">
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
-                        <b>${short_teamName[team]}</b>
+                        <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
                     <td>${w_l[0]+w_l[1]}</td>
                     <td>${w_l[0]}</td>

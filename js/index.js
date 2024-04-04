@@ -69,7 +69,7 @@ $(document).ready(function () {
 						<td class="borderR">${i+1}</td>
 						<td style="font-size:15px; text-align:left">
 							<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon">
-							<b>${cn_teamName[team]}</b>
+							<b>${cn_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
 						</td>
 						<td>${w_l[0]+w_l[1]}</td>
 						<td>${w_l[0]}</td>
