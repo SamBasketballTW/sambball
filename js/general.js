@@ -223,7 +223,7 @@ playoff = {
     "kings": "",
     "pilots": "",
     "lioneers": "",
-    "dreamers": "- x",
+    "dreamers": "",
     "steelers": "",
     "dea": "- x",
     "mars": "",
