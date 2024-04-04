@@ -330,8 +330,5 @@ $(document).ready(function () {
                     <td>${cal[4][0]}-${cal[4][1]}</td>
                 </tr>`
             }
-            document.getElementById('league-dropdown').getElementsByClassName('dropdown-item')[0].click();
-
 		});
-        
 });

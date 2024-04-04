@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     footerBody = document.getElementById("footerContent");
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.03</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.04</b>`
     footerBody.innerHTML = `
     <div class="container" style="padding:1.5rem;text-align:center;">
                     <a style="color:white;">

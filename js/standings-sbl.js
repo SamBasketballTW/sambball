@@ -327,5 +327,6 @@ $(document).ready(function () {
                     <td>${cal[3][0]}-${cal[3][1]}</td>
                 </tr>`
             }
+            document.getElementById('league-dropdown').getElementsByClassName('dropdown-item')[0].click();
 		});
 });
