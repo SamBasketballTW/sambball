@@ -155,7 +155,8 @@
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				btns[0].click();
+				var currentBtn = document.getElementsByClassName("btn btn-light active");
+				currentBtn[0].click();
 			});
 		}
 

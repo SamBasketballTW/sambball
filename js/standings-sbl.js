@@ -217,7 +217,7 @@ $(document).ready(function () {
 
 
                 table_overall.innerHTML += `
-                <tr class="filterTr sbl showTr">
+                <tr class="filterTr sbl">
                     <td class="borderR">${i+1}</td>
                     <td>
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
@@ -238,7 +238,7 @@ $(document).ready(function () {
                 </tr>`
 
                 table_points.innerHTML += `
-                <tr class="filterTr sbl showTr">
+                <tr class="filterTr sbl">
                     <td class="borderR">${i+1}</td>
                     <td>
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
@@ -262,7 +262,7 @@ $(document).ready(function () {
 
                 
                 table_ahead.innerHTML += `
-                <tr class="filterTr sbl showTr">
+                <tr class="filterTr sbl">
                     <td class="borderR">${i+1}</td>
                     <td>
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
@@ -309,7 +309,7 @@ $(document).ready(function () {
                 </tbody>`
 
                 table_calendar.innerHTML += `
-                <tr class="filterTr sbl showTr">
+                <tr>
                     <td class="borderR">${i+1}</td>
                     <td>
                         <img src="../asset/images/men/${team}.png" alt="${team}" class="teamicon">
