@@ -52,7 +52,7 @@ $(document).ready(function () {
                 q3_ahead = [0,0];
                 q3_behind = [0,0];
                 q3_tied = [0,0];
-                less3 = [0,0];
+                less5 = [0,0];
                 more10 = [0,0];
                 lunar = [ [0,0] , [0,0] ];
                 cal = [];
@@ -125,8 +125,8 @@ $(document).ready(function () {
                             q3_tied[0] += 1;
                         }
 
-                        if( (parseInt(infos[10]) - parseInt(infos[18])) <= 3 ){
-                            less3[0] += 1
+                        if( (parseInt(infos[10]) - parseInt(infos[18])) <= 5 ){
+                            less5[0] += 1
                         }else if( (parseInt(infos[10]) - parseInt(infos[18])) >= 10 ){
                             more10[0] += 1
                         }
@@ -193,8 +193,8 @@ $(document).ready(function () {
                             q3_tied[1] += 1;
                         }
 
-                        if( (parseInt(infos[10]) - parseInt(infos[18])) <= 3 ){
-                            less3[1] += 1
+                        if( (parseInt(infos[10]) - parseInt(infos[18])) <= 5 ){
+                            less5[1] += 1
                         }else if( (parseInt(infos[10]) - parseInt(infos[18])) >= 10 ){
                             more10[1] += 1
                         }
@@ -212,7 +212,7 @@ $(document).ready(function () {
                 if(ot[0] == 0 & ot[1] == 0) ot = ['',''];
                 if(q2_tied[0] == 0 & q2_tied[1] == 0) q2_tied = ['',''];
                 if(q3_tied[0] == 0 & q3_tied[1] == 0) q3_tied = ['',''];
-                if(less3[0] == 0 & less3[1] == 0) less3 = ['',''];
+                if(less5[0] == 0 & less5[1] == 0) less5 = ['',''];
                 if(more10[0] == 0 & more10[1] == 0) more10 = ['',''];
 
 
@@ -278,7 +278,7 @@ $(document).ready(function () {
                     <td>${q3_ahead[0]}-${q3_ahead[1]}</td>
                     <td>${q3_behind[0]}-${q3_behind[1]}</td>
                     <td class="borderR">${q3_tied[0]}-${q3_tied[1]}</td>
-                    <td>${less3[0]}-${less3[1]}</td>
+                    <td>${less5[0]}-${less5[1]}</td>
                     <td>${more10[0]}-${more10[1]}</td>
                 </tr>`
 
