@@ -51,7 +51,7 @@ $(document).ready(function () {
         teams = ['cathay', 'power', 'telecom', 'taiyuen'];
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
-            menu.innerHTML += `<img src="../asset/images/men/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`
+            menu.innerHTML += `<img src="../asset/images/women/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`
         }
     }
 
