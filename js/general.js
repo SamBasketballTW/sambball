@@ -57,7 +57,7 @@ $(document).ready(function () {
 
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.05</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.06</b>`
 
     footerBody = document.getElementById("footerContent");
     footerBody.innerHTML = `
