@@ -1,11 +1,28 @@
 $(document).ready(function () {
-	plg_rank = ['pilots','dreamers','lioneers','kings','braves','steelers'];
-	t1_rank = ['dea','aquas','leopards','mars','ghosthawks'];
-	sbl_rank = ['beer','trust','yulon','bll'];
-	wsbl_rank = ['taiyuen','cathay','telecom','power'];
+	plg_rank = [];
+	t1_rank = [];
+	sbl_rank = [];
+	wsbl_rank = [];
+	teams = ['braves','kings','pilots','lioneers','dreamers','steelers',
+			'dea','mars','leopards','ghosthawks','aquas',
+			'beer','trust','yulon','bll',
+			'cathay','power','telecom','taiyuen'];
+	league = ['plg','t1','sbl','wsbl'];
+	for (let i = 0; i <19 ; i++){
+		if(i<6){
+			plg_rank.splice(teamRank[teams[i]]-1,0,teams[i])
+		}else if(i<11){
+			t1_rank.splice(teamRank[teams[i]]-1,0,teams[i])
+		}else if(i<15){
+			sbl_rank.splice(teamRank[teams[i]]-1,0,teams[i])
+		}else{
+			wsbl_rank.splice(teamRank[teams[i]]-1,0,teams[i])
+		}
+		
+	}
 	rank = [plg_rank,t1_rank,sbl_rank,wsbl_rank];
     team_count = [plg_rank.length , t1_rank.length , sbl_rank.length , wsbl_rank.length];
-	league = ['plg','t1','sbl','wsbl'];
+
 
 	for(let j=0;j<4;j++){
 		fetch(`../data/standings-${league[j]}.csv`)

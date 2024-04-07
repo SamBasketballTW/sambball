@@ -81,14 +81,51 @@ $(document).ready(function () {
 
     </div>`
 });
-plg_teamRank = {
-    "1":"pilots",
-    "2":"dreamers",
-    "3":"lioneers",
-    "4":"kings",
-    "5":"braves",
-    "6":"steelrs",
+teamRank = {
+    "braves": 5,
+    "kings": 4,
+    "pilots": 1,
+    "lioneers": 3,
+    "dreamers": 2,
+    "steelers": 6,
+    "dea": 1,
+    "mars": 4,
+    "leopards": 2,
+    "ghosthawks": 5,
+    "aquas": 3,
+    "beer": 1,
+    "trust": 2,
+    "yulon": 3,
+    "bll": 4,
+
+    "cathay": 2,
+    "power": 4,
+    "telecom": 3,
+    "taiyuen": 1,
     "":"" 
+}
+playoff = {
+    "braves": "",
+    "kings": "",
+    "pilots": "",
+    "lioneers": "",
+    "dreamers": "",
+    "steelers": "",
+    "dea": "- x",
+    "mars": "",
+    "leopards": "- x",
+    "ghosthawks": "",
+    "aquas": "- x",
+    "beer": "- c",
+    "trust": "- c",
+    "yulon": "",
+    "bll": "",
+
+    "cathay": "- c",
+    "taiyuen": "- c",
+    "power": "",
+    "telecom": "",
+    "": ""
 }
 coach_name = {
     "braves": "",
@@ -177,6 +214,7 @@ order = {
     "fa":40
 }
 cn_teamName = {
+    "fa":"自由球員",
     "braves": "臺北富邦勇士",
     "kings": "新北國王",
     "pilots": "桃園璞園領航猿",
@@ -198,7 +236,6 @@ cn_teamName = {
     "power": "台灣電力",
     "telecom": "中華電信",
 
-    "fa":"自由球員",
     "suns": "臺中太陽",
     "herobears": "台灣啤酒英熊",
     "": ""
@@ -224,28 +261,5 @@ short_teamName = {
     "taiyuen": "台元",
     "power": "台電",
     "telecom": "電信",
-    "": ""
-}
-playoff = {
-    "braves": "",
-    "kings": "",
-    "pilots": "",
-    "lioneers": "",
-    "dreamers": "",
-    "steelers": "",
-    "dea": "- x",
-    "mars": "",
-    "leopards": "- x",
-    "ghosthawks": "",
-    "aquas": "- x",
-    "beer": "- c",
-    "trust": "",
-    "yulon": "",
-    "bll": "",
-
-    "cathay": "- c",
-    "taiyuen": "- c",
-    "power": "",
-    "telecom": "",
     "": ""
 }

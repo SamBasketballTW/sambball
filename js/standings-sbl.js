@@ -12,20 +12,21 @@ $(document).ready(function () {
             table = document.getElementById('sbl_tb');
             table_calendar = document.getElementById('calendar_sbl_tbody');
 
-            rank = ['beer','trust','yulon','bll'];
-            temp = "";
-            for(let i = 0;i<rank.length;i++) temp += `<th style="width:70px">${short_teamName[rank[i]]}</td>`
+            teams = ['beer','trust','yulon','bll'];
+            rank = [];
+            for (let i = 0;i<4;i++) rank.splice(teamRank[teams[i]]-1,0,teams[i]);
 
-            table.innerHTML += `
+            matchup_thead = `
             <thead>
                 <th style="width:50px">排名</th>
                 <th style="width:115px">球隊</th>
                 <th style="width:50px">已賽</th>
                 <th style="width:50px">勝場</th>
                 <th style="width:50px">敗場</th>
-                <th style="width:50px">勝率</th>
-                ${temp}
-            </thead>`
+                <th style="width:60px">勝率</th>`
+            for(let i = 0;i<rank.length;i++) matchup_thead += `<th style="width:70px">${short_teamName[rank[i]]}</td>`
+            matchup_thead += `</thead>`
+            table.innerHTML += matchup_thead
             
 
             for( let i=0; i<rank.length; i++){
