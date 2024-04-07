@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    timeStamp = document.getElementById("timeStamp");
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.07</b>`
+
     if(document.getElementById("index")){
         if (window.innerWidth <= 450) {
             document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
@@ -55,10 +59,6 @@ $(document).ready(function () {
         }
     }
 
-
-    timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.06</b>`
-
     footerBody = document.getElementById("footerContent");
     footerBody.innerHTML = `
     <div class="container" style="padding:1.5rem;text-align:center;">
@@ -81,7 +81,15 @@ $(document).ready(function () {
 
     </div>`
 });
-
+plg_teamRank = {
+    "1":"pilots",
+    "2":"dreamers",
+    "3":"lioneers",
+    "4":"kings",
+    "5":"braves",
+    "6":"steelrs",
+    "":"" 
+}
 coach_name = {
     "braves": "",
     "kings": " Ryan Marchand",

@@ -12,20 +12,18 @@ $(document).ready(function () {
             table = document.getElementById('plg_tb');
             table_calendar = document.getElementById('calendar_plg_tbody');
 
-            rank = ['dreamers','pilots','lioneers','kings','braves','steelers'];
+            rank = ['pilots','dreamers','lioneers','kings','braves','steelers'];
             temp = "";
             for(let i = 0;i<rank.length;i++) temp += `<th style="width:70px">${short_teamName[rank[i]]}</td>`
 
             table.innerHTML += `
             <thead>
                 <th style="width:50px">排名</th>
-                <th style="width:95px">球隊</th>
+                <th style="width:115px">球隊</th>
                 <th style="width:50px">已賽</th>
                 <th style="width:50px">勝場</th>
                 <th style="width:50px">敗場</th>
                 <th style="width:50px">勝率</th>
-                <th style="width:50px">勝差</th>
-                <th style="width:50px">連勝</th>
                 ${temp}
             </thead>`
             
@@ -301,9 +299,7 @@ $(document).ready(function () {
                         <td>${w_l[0]+w_l[1]}</td>
                         <td>${w_l[0]}</td>
                         <td>${w_l[1]}</td>
-                        <td>${((w_l[0] / (w_l[0]+w_l[1]))*100).toFixed(0)}%</td>
-                        <td>${gb}</td>
-                        <td class="borderR">${streak}</td>
+                        <td class="borderR">${((w_l[0] / (w_l[0]+w_l[1]))*100).toFixed(0)}%</td>
                         ${match_standings}
                     </tr>
                 </tbody>`

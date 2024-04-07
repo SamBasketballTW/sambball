@@ -1,5 +1,7 @@
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 league,game,date,w-team,home/road,q1,q2,q3,q4,ot,total,l-team,home/road,q1,q2,q3,q4,ot,total
+t1,g59,2024/4/7,aquas,home,32,21,29,25,-,107,mars,road,20,29,25,15,-,89
+t1,g58,2024/4/7,leopards,road,21,27,33,24,-,105,ghosthawks,home,21,16,16,32,-,85
 t1,g57,2024/4/6,dea,road,28,33,29,18,-,108,aquas,home,28,18,17,30,-,93
 t1,g56,2024/4/6,ghosthawks,home,30,35,13,23,8,109,mars,road,22,28,25,26,5,106
 t1,g55,2024/4/4,leopards,road,22,27,35,20,-,104,dea,home,23,27,22,22,-,94

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	plg_rank = ['dreamers','pilots','lioneers','kings','braves','steelers'];
+	plg_rank = ['pilots','dreamers','lioneers','kings','braves','steelers'];
 	t1_rank = ['dea','aquas','leopards','mars','ghosthawks'];
 	sbl_rank = ['beer','trust','yulon','bll'];
 	wsbl_rank = ['taiyuen','cathay','telecom','power'];
