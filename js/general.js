@@ -99,8 +99,8 @@ teamRank = {
     "bll": 4,
 
     "cathay": 2,
-    "power": 4,
-    "telecom": 3,
+    "power": 3,
+    "telecom": 4,
     "taiyuen": 1,
     "":"" 
 }
