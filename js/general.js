@@ -3,7 +3,7 @@ $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
     timeStamp.innerHTML = `<b>更新日期: 2024.04.07</b>`
 
-    if(document.getElementById("index")){
+    if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
             document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
         } else if (window.innerWidth > 450) {
@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
     }
 
-    if(document.getElementById("men_page")){
+    if (document.getElementById("men_page")) {
         navbar_dropdown = document.getElementById("men-navbar-dropdown");
         navbar_dropdown.innerHTML = `
         <button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,7 +25,7 @@ $(document).ready(function () {
             <li><a class="nav-link" href="../women/us-students">&nbsp;旅美學生</a></li>
         </ul>`
 
-    }else if(document.getElementById("women_page")){
+    } else if (document.getElementById("women_page")) {
         navbar_dropdown = document.getElementById("women-navbar-dropdown");
         navbar_dropdown.innerHTML = `
         <button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,28 +81,32 @@ $(document).ready(function () {
 
     </div>`
 });
-teamRank = {
-    "braves": 5,
-    "kings": 4,
-    "pilots": 1,
-    "lioneers": 3,
-    "dreamers": 2,
-    "steelers": 6,
-    "dea": 1,
-    "mars": 4,
-    "leopards": 2,
-    "ghosthawks": 5,
-    "aquas": 3,
-    "beer": 1,
-    "trust": 2,
-    "yulon": 3,
-    "bll": 4,
-
-    "cathay": 2,
-    "power": 3,
-    "telecom": 4,
-    "taiyuen": 1,
-    "":"" 
+plg_teamRank = {
+    1: 'pilots',
+    2: 'dreamers',
+    3: 'lioneers',
+    4: 'kings',
+    5: 'braves',
+    6: 'steelers'
+}
+t1_teamRank = {
+    1: 'dea',
+    2: 'leopards',
+    3: 'aquas',
+    4: 'mars',
+    5: 'ghosthawks'
+}
+sbl_teamRank = {
+    1: 'beer',
+    2: 'trust',
+    3: 'yulon',
+    4: 'bll'
+}
+wsbl_teamRank = {
+    1: 'taiyuen',
+    2: 'cathay',
+    3: 'power',
+    4: 'telecom'
 }
 playoff = {
     "braves": "",
@@ -139,20 +143,20 @@ coach_name = {
     "leopards": " Charles Dubé-Brais",
     "ghosthawks": " Raoul Korner",
     "aquas": " Branden Joyce",
-    "beer":"",
-    "trust":"",
-    "yulon":"",
-    "bll":"",
+    "beer": "",
+    "trust": "",
+    "yulon": "",
+    "bll": "",
 
-    "cathay":"",
-    "power":"",
-    "telecom":"",
-    "taiyuen":"",
-    "":""
+    "cathay": "",
+    "power": "",
+    "telecom": "",
+    "taiyuen": "",
+    "": ""
 }
 
 gm_name = {
-    "braves": "GM: 蔡承儒",
+    "braves": "領隊: 蔡承儒",
     "kings": "GM: 毛加恩",
     "pilots": "GM: 李忠恕",
     "lioneers": "GM: 張樹人",
@@ -163,16 +167,16 @@ gm_name = {
     "leopards": "執行長: 張建偉",
     "ghosthawks": "GM: 錢韋成",
     "aquas": "執行長: 李偉誠",
-    "beer":"",
-    "trust":"",
-    "yulon":"",
-    "bll":"",
+    "beer": "",
+    "trust": "",
+    "yulon": "",
+    "bll": "",
 
-    "cathay":"",
-    "power":"",
-    "telecom":"",
-    "taiyuen":"",
-    "":""
+    "cathay": "",
+    "power": "",
+    "telecom": "",
+    "taiyuen": "",
+    "": ""
 }
 
 order = {
@@ -211,10 +215,10 @@ order = {
     "telecom": 6,
     "taiyuen": 7,
 
-    "fa":40
+    "fa": 40
 }
 cn_teamName = {
-    "fa":"自由球員",
+    "fa": "自由球員",
     "braves": "臺北富邦勇士",
     "kings": "新北國王",
     "pilots": "桃園璞園領航猿",
@@ -227,7 +231,7 @@ cn_teamName = {
     "ghosthawks": "臺南台鋼獵鷹",
     "aquas": "高雄全家海神",
     "beer": "台灣啤酒",
-    "trust": "臺灣銀行", 
+    "trust": "臺灣銀行",
     "yulon": "裕隆納智捷",
     "bll": "彰化柏力力",
 

@@ -3,28 +3,19 @@ $(document).ready(function () {
 	t1_rank = [];
 	sbl_rank = [];
 	wsbl_rank = [];
-	teams = ['braves','kings','pilots','lioneers','dreamers','steelers',
-			'dea','mars','leopards','ghosthawks','aquas',
-			'beer','trust','yulon','bll',
-			'cathay','power','telecom','taiyuen'];
-	league = ['plg','t1','sbl','wsbl'];
-	for (let i = 0; i <19 ; i++){
-		if(i<6){
-			plg_rank.splice(teamRank[teams[i]]-1,0,teams[i])
-		}else if(i<11){
-			t1_rank.splice(teamRank[teams[i]]-1,0,teams[i])
-		}else if(i<15){
-			sbl_rank.splice(teamRank[teams[i]]-1,0,teams[i])
-		}else{
-			wsbl_rank.splice(teamRank[teams[i]]-1,0,teams[i])
-		}
-		
+	league = ['plg', 't1', 'sbl', 'wsbl'];
+
+	for (let i = 0; i < 6; i++) {
+		if (i < 6) plg_rank.splice(i, 0, plg_teamRank[i + 1])
+		if (i < 5) t1_rank.splice(i, 0, t1_teamRank[i + 1])
+		if (i < 4) sbl_rank.splice(i, 0, sbl_teamRank[i + 1])
+		if (i < 4) wsbl_rank.splice(i, 0, wsbl_teamRank[i + 1])
 	}
-	rank = [plg_rank,t1_rank,sbl_rank,wsbl_rank];
-    team_count = [plg_rank.length , t1_rank.length , sbl_rank.length , wsbl_rank.length];
+	rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
+	team_count = [plg_rank.length, t1_rank.length, sbl_rank.length, wsbl_rank.length];
 
 
-	for(let j=0;j<4;j++){
+	for (let j = 0; j < 4; j++) {
 		fetch(`../data/standings-${league[j]}.csv`)
 			.then((response) => response.text())
 			.then((result) => {
@@ -33,65 +24,65 @@ $(document).ready(function () {
 				lines = lines.slice(2);
 
 				table = document.getElementById(`${league[j]}_tbody`)
-				
-				for( let i=0; i<team_count[j]; i++){
+
+				for (let i = 0; i < team_count[j]; i++) {
 					team = rank[j][i];
-					w_l = [0,0];
+					w_l = [0, 0];
 					gb = 0;
 					streak_count = 0;
 					streak = "";
-		
+
 					lines.forEach(player => {
 						infos = player.split(',');
 						info = ""
 
-						if(league[j] == "wsbl"){
+						if (league[j] == "wsbl") {
 							gender = "women"
-						}else{
+						} else {
 							gender = "men"
 						}
 
-						if(infos[3] == team){
+						if (infos[3] == team) {
 							w_l[0] += 1;
-							if(streak == ""){
+							if (streak == "") {
 								streak = "W"
 								streak_count += 1;
-							}else if(streak == "W"){
+							} else if (streak == "W") {
 								streak_count += 1;
-							}else if(streak == "L"){
+							} else if (streak == "L") {
 								streak = `L${streak_count}`;
 							}
-						}else if(infos[11] == team){
+						} else if (infos[11] == team) {
 							w_l[1] += 1;
-							if(streak == ""){
+							if (streak == "") {
 								streak = "L"
 								streak_count += 1;
-							}else if(streak == "L"){
+							} else if (streak == "L") {
 								streak_count += 1;
-							}else if(streak == "W"){
+							} else if (streak == "W") {
 								streak = `W${streak_count}`
 							}
 						}
 
 					});
 
-					if(team == rank[j][0]){
-						no1 = [w_l[0],w_l[1]];
+					if (team == rank[j][0]) {
+						no1 = [w_l[0], w_l[1]];
 						gb = "-"
-					}else{
-						gb = ((no1[0] - w_l[0]) + (w_l[1] - no1[1]))/2
+					} else {
+						gb = ((no1[0] - w_l[0]) + (w_l[1] - no1[1])) / 2
 					}
 					table.innerHTML += `
 					<tr>
-						<td class="borderR">${i+1}</td>
+						<td class="borderR">${i + 1}</td>
 						<td style="font-size:15px; text-align:left">
 							<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon">
 							<b>${cn_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
 						</td>
-						<td>${w_l[0]+w_l[1]}</td>
+						<td>${w_l[0] + w_l[1]}</td>
 						<td>${w_l[0]}</td>
 						<td>${w_l[1]}</td>
-						<td>${((w_l[0] / (w_l[0]+w_l[1]))*100).toFixed(0)}%</td>
+						<td>${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
 						<td>${gb}</td>
 						<td>${streak}</td>
 					</tr>`
@@ -99,7 +90,7 @@ $(document).ready(function () {
 
 			});
 	}
-	
+
 	table_bday = document.getElementById('birthday_td');
 
 	fetch('./data/rosters.csv')
@@ -153,5 +144,5 @@ $(document).ready(function () {
 
 			table_bday.innerHTML += text;
 		})
-        
+
 });
