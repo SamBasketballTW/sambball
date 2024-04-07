@@ -12,7 +12,7 @@ $(document).ready(function () {
             table = document.getElementById('plg_tb');
             table_calendar = document.getElementById('calendar_plg_tbody');
 
-            rank = ['dreamers','pilots','kings','lioneers','braves','steelers'];
+            rank = ['dreamers','pilots','lioneers','kings','braves','steelers'];
             temp = "";
             for(let i = 0;i<rank.length;i++) temp += `<th style="width:70px">${short_teamName[rank[i]]}</td>`
 

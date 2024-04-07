@@ -230,7 +230,7 @@ playoff = {
     "leopards": "- x",
     "ghosthawks": "",
     "aquas": "- x",
-    "beer": "",
+    "beer": "- c",
     "trust": "",
     "yulon": "",
     "bll": "",
