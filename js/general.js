@@ -82,19 +82,19 @@ $(document).ready(function () {
     </div>`
 });
 plg_teamRank = {
-    1: 'pilots',
-    2: 'dreamers',
-    3: 'lioneers',
-    4: 'kings',
     5: 'braves',
+    4: 'kings',
+    1: 'pilots',
+    3: 'lioneers',
+    2: 'dreamers',
     6: 'steelers'
 }
 t1_teamRank = {
     1: 'dea',
-    2: 'leopards',
-    3: 'aquas',
     4: 'mars',
-    5: 'ghosthawks'
+    2: 'leopards',
+    5: 'ghosthawks',
+    3: 'aquas'
 }
 sbl_teamRank = {
     1: 'beer',
@@ -103,10 +103,10 @@ sbl_teamRank = {
     4: 'bll'
 }
 wsbl_teamRank = {
-    1: 'taiyuen',
     2: 'cathay',
     3: 'power',
-    4: 'telecom'
+    4: 'telecom',
+    1: 'taiyuen'
 }
 playoff = {
     "braves": "",
