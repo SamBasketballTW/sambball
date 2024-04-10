@@ -49,13 +49,25 @@ function fR(value) {
 	}
 }
 
-function findRank(array,team) {
+function findIndex(array,team) {
 	for (let i = 0; i<array.length; i++){
 		if(array[i] == team){
 			return i;
 		}
 	}
 	return -1;
+}
+
+function rankArray(array){
+	temp = [];
+	for(let i = 0; i<array.length;i++){
+		count = 0;
+		for( let j = 0; j<array.length;j++){
+			if(array[i]<array[j]) count += 1;
+		}
+		temp.push(count+1);
+	}
+	return temp;
 }
 
 

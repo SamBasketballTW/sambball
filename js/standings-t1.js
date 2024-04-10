@@ -66,7 +66,7 @@ $(document).ready(function () {
                     var lunarDate = new Date('2024/2/9');
 
                     if (infos[3] == team) {
-                        matchup[findRank(rank, infos[11])][1] += 1;
+                        matchup[findIndex(rank, infos[11])][1] += 1;
                         w_l[0] += 1;
 
                         cal[currentDate.getMonth()][0] += 1;
@@ -132,7 +132,7 @@ $(document).ready(function () {
 
 
                     } else if (infos[11] == team) {
-                        matchup[findRank(rank, infos[3])][2] += 1;
+                        matchup[findIndex(rank, infos[3])][2] += 1;
                         w_l[1] += 1;
 
                         var currentDate = new Date(infos[2]);

@@ -23,7 +23,7 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender & infos[6] == "active") {
-                    is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "");
+                    is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT") | infos[1] == "林胤軒";
                     is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
                     is_import = (infos[9] == "洋將" | infos[9] == "亞外");
 

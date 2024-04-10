@@ -22,12 +22,16 @@ $(document).ready(function () {
 				info = ""
 
 				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa" & infos[7] != "coach") {
-					is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL");
+					is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT") | infos[1] == "林胤軒";
 
 					if (is_oversea) {
 						filter = `oversea ${infos[3]}-bg`
 						cn_team_name = `${infos[3]} ${infos[4]}`;
-					} else {
+					}else if( infos[3] == "TAT"){
+						filter = `${infos[4]} ${infos[4]}-bg`
+						cn_team_name = `${infos[3]} ${cn_teamName[infos[4]]}`;
+					} 
+					else {
 						filter = `${infos[4]} ${infos[4]}-bg`;
 						cn_team_name = `
 						<img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">

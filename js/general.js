@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.07</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.10</b>`
 
     if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
@@ -128,8 +128,7 @@ playoff = {
     "cathay": "- c",
     "taiyuen": "- c",
     "power": "",
-    "telecom": "",
-    "": ""
+    "telecom": ""
 }
 coach_name = {
     "braves": "",
@@ -147,12 +146,12 @@ coach_name = {
     "trust": "",
     "yulon": "",
     "bll": "",
+    "mustangs": " Chris Gavina",
 
     "cathay": "",
     "power": "",
     "telecom": "",
-    "taiyuen": "",
-    "": ""
+    "taiyuen": ""
 }
 
 gm_name = {
@@ -171,12 +170,12 @@ gm_name = {
     "trust": "",
     "yulon": "",
     "bll": "",
+    "mustangs":"GM: 周映洲",
 
     "cathay": "",
     "power": "",
     "telecom": "",
-    "taiyuen": "",
-    "": ""
+    "taiyuen": ""
 }
 
 order = {
@@ -206,6 +205,7 @@ order = {
     "trust": 32,
     "yulon": 33,
     "bll": 34,
+    "mustangs":35,
 
     "WCBA": 1,
     "WKBL": 2,
@@ -234,6 +234,7 @@ cn_teamName = {
     "trust": "臺灣銀行",
     "yulon": "裕隆納智捷",
     "bll": "彰化柏力力",
+    "mustangs":"臺灣野馬",
 
     "cathay": "國泰人壽",
     "taiyuen": "台元紡織",
@@ -241,8 +242,7 @@ cn_teamName = {
     "telecom": "中華電信",
 
     "suns": "臺中太陽",
-    "herobears": "台灣啤酒英熊",
-    "": ""
+    "herobears": "台灣啤酒英熊"
 }
 short_teamName = {
     "braves": "勇士",
@@ -264,6 +264,5 @@ short_teamName = {
     "cathay": "國泰",
     "taiyuen": "台元",
     "power": "台電",
-    "telecom": "電信",
-    "": ""
+    "telecom": "電信"
 }

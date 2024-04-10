@@ -2,31 +2,55 @@ $(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
 
+    tableCoach = document.getElementById('r_coach_tbody');
+    tableCount = document.getElementById('r_count_tbody');
+    table = document.getElementById('roster_tbody');
+    tableOversea = document.getElementById('roster_oversea_tbody');
+
     if (men_html) {
         gender = "men"
         team_dropdown = 'team-dropdown_m';
-        teams = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers',
-            'dea', 'mars', 'leopards', 'ghosthawks', 'aquas',
-            'beer', 'trust', 'yulon', 'bll'];
+        t_counts = [6, 5, 4];
 
-        temp1 = "CBA"
-        temp2 = `
-        CBA:&nbsp;&nbsp;5&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        日本:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        其他國家:&nbsp;&nbsp;1&nbsp;&nbsp;人`
+        teams = [];
+        for (let i = 0; i < t_counts[0]; i++) teams.splice(i, 0, plg_teamRank[i + 1]);
+        for (let i = 0; i < t_counts[1]; i++) teams.splice(i + t_counts[0], 0, t1_teamRank[i + 1]);
+        for (let i = 0; i < t_counts[2]; i++) teams.splice(i + t_counts[0] + t_counts[1], 0, sbl_teamRank[i + 1]);
+        teams.splice(0, 0, 'oversea');
+        teams.splice(teams.length, 0, 'mustang');
+
+        tableCount.innerHTML += `
+        <tr class="filterTr oversea CBA-bg">
+            <td>
+                CBA:&nbsp;&nbsp;5&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                日本:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                其他國家:&nbsp;&nbsp;1&nbsp;&nbsp;人
+            </td>
+        </tr>`
+
+        teams_info = [];
+        for (let i = 0; i < teams.length; i++) teams_info.splice(i, 0, [teams[i], 0, 0, 0, 0]);
 
     } else if (women_html) {
         gender = "women"
         team_dropdown = 'team-dropdown_w';
-        teams = ['cathay', 'power', 'telecom', 'taiyuen']
+        t_counts = 4;
+        teams = [];
+        for (let i = 0; i < t_counts; i++) teams.splice(i, 0, wsbl_teamRank[i + 1]);
+        teams.splice(0, 0, 'oversea');
 
-        temp1 = "WCBA"
+        tableCount.innerHTML += `
+        <tr class="filterTr oversea WCBA-bg">
+            <td>
+                WCBA:&nbsp;&nbsp;6&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                WKBL:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                其他國家:&nbsp;&nbsp;1&nbsp;&nbsp;人
+            </td>
+        </tr>`
 
-        temp2 = `
-        CBA:&nbsp;&nbsp;6&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        WKBL:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        其他國家:&nbsp;&nbsp;1&nbsp;&nbsp;人`
-
+        teams_info = [];
+        for (let i = 0; i < teams.length; i++) teams_info.splice(i, 0, [teams[i], 0, 0, 0, 0]);
+        console.log(teams_info)
     }
 
     fetch('../data/rosters.csv')
@@ -36,24 +60,11 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(2);
 
-            tableCoach = document.getElementById('r_coach_tbody');
-            tableCount = document.getElementById('r_count_tbody');
-            table = document.getElementById('roster_tbody');
-            tableOversea = document.getElementById('roster_oversea_tbody');
-
-
-            cur_team = "oversea";
-            c_team = 1;
-            c_local = 0;
-            c_import = 0;
-            sum_H = 0;
-            sum_A = 0;
-            var avgH = [];
-            var avgA = [];
-            var rH = [];
-            var rA = [];
-
-            tableCount.innerHTML += `<tr class="filterTr oversea ${temp1}-bg showTr"><td>${temp2}</td></tr>`
+            if (window.innerWidth <= 576) {
+                blank_space = `<br>`
+            } else {
+                blank_space = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+            }
 
 
             lines.forEach(player => {
@@ -63,178 +74,180 @@ $(document).ready(function () {
                 infoCoach = ""
                 infoCount = ""
 
-                if (infos[0] == gender & infos[6] == "active") {
-                    is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "");
-                    is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
-                    is_import = (infos[9] == "洋將" | infos[9] == "亞外");
-
-
-                    const birthday = new Date(infos[13]);
-                    const today = new Date();
-                    const diff = today - birthday
-                    const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
+                    is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT") | infos[1] == "林胤軒";
 
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
-                        if(window.innerWidth <= 576){
-                            blank = `<br>`
-                        }else{
-                            blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
-                        }
                         infoCoach += `
-                            <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
-                                <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank}${gm_name[infos[4]]}</td>
-                            </tr>`
+                        <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
+                            <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank_space}${gm_name[infos[4]]}</td>
+                        </tr>`
+
                     } else {
                         if (is_oversea) {
-                            same_team = true;
-                            is_local = true;
+                            team_index = 0;
+                            is_local = infos[7] == "local";
+                            is_import = infos[7] != "local";
                         } else {
-                            same_team = (cur_team == infos[4]);
+                            team_index = findIndex(teams, infos[4]);
+                            is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
+                            is_import = (infos[9] == "洋將" | infos[9] == "亞外");
                         }
 
-                        if (same_team) {
-                            if (is_local) {
-                                c_local += 1;
-                                sum_H += parseInt(infos[11]);
-                                sum_A += age;
-                            } else if (is_import) {
-                                c_import += 1;
-                            }
-                        } else {
-                            if (cur_team != "oversea"){
-                                infoCount += `
-                                <tr class="filterTr ${cur_team} ${cur_team}-bg showTr">
-                                    <td>
-                                        本土球員:&nbsp;&nbsp;${c_local}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        外籍球員:&nbsp;&nbsp;${c_import}&nbsp;&nbsp;人
-                                    </td>
-                                </tr>`
+                        const birthday = new Date(infos[13]);
+                        const today = new Date();
+                        const diff = today - birthday
+                        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 
-                                avgH.push((sum_H / c_local).toFixed(1));
-                                avgA.push((sum_A / c_local).toFixed(1));
-                                c_team += 1;
-                            }
-                            cur_team = infos[4];
-                            c_local = 0;
-                            c_import = 0;
-                            sum_H = 0;
-                            sum_A = 0;
-                            if (is_local) {
-                                c_local += 1;
-                                sum_H += parseInt(infos[11]);
-                                sum_A += age;
-                            } else if (is_import) {
-                                c_import += 1;
-                            }
-                        }
-                    }
-
-                    number = infos[2];
-                    if (infos[2] == "00") number = 100;
-
-                    if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
-                        filter = `${infos[4]} ${infos[4]}-bg`;
-                        temp_team = "";
-                        temp_id = `${infos[9]}`;
-
-                        if (is_oversea) {
-                            filter = `oversea ${infos[3]}-bg`;
-                            temp_team = `<td class="borderR">${infos[3]} ${infos[4]}</td>`;
-                        } else if (infos[9] == "註銷" | infos[9] == "未註冊") {
-                            temp_id = `<a style="color:white">${infos[9]}</a>`
+                        if (is_local) {
+                            teams_info[team_index][1] += age;
+                            teams_info[team_index][2] += parseInt(infos[11]);
+                            teams_info[team_index][3] += 1;
+                        } else if (is_import) {
+                            teams_info[team_index][4] += 1;
                         }
 
-                        tempInfo = `
-                            <tr class="filterTr ${filter} showTr">
-                                ${temp_team}
-                                <td class="borderR" data-order="${number}">${infos[2]}</td>
-                                <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>             
-                                <td data-order=${order[infos[9]]}>${temp_id}</td>
-                                <td>${infos[10]}</td>
-                                <td>${infos[11]}</td>
-                                <td>${infos[12]}</td>
-                                <td>${age}</td>
-                                <td class="borderR">${infos[13]}</td>
-                                <td style="text-align:left">${infos[15]}</td>
-                            </tr>
-                        `
-                        if (is_oversea) {
-                            infoOversea += tempInfo;
-                        } else {
-                            info += tempInfo;
+                        number = infos[2];
+                        if (infos[2] == "00") number = 100;
+
+                        if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
+                            filter = `${infos[4]} ${infos[4]}-bg`;
+                            oversea_team = "";
+                            id_color = `${infos[9]}`;
+
+                            if (is_oversea) {
+                                filter = `oversea ${infos[3]}-bg`;
+                                oversea_team = `<td class="borderR">${infos[3]} ${infos[4]}</td>`;
+                            } else if (infos[9] == "註銷" | infos[9] == "未註冊") {
+                                id_color = `<a style="color:white">${infos[9]}</a>`
+                            }
+
+                            tempInfo = `
+                                <tr class="filterTr ${filter} showTr">
+                                    ${oversea_team}
+                                    <td class="borderR" data-order="${number}">${infos[2]}</td>
+                                    <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>             
+                                    <td data-order=${order[infos[9]]}>${id_color}</td>
+                                    <td>${infos[10]}</td>
+                                    <td>${infos[11]}</td>
+                                    <td>${infos[12]}</td>
+                                    <td>${age}</td>
+                                    <td class="borderR">${infos[13]}</td>
+                                    <td style="text-align:left">${infos[15]}</td>
+                                </tr>
+                            `
+                            if (is_oversea) {
+                                infoOversea += tempInfo;
+                            } else {
+                                info += tempInfo;
+                            }
                         }
                     }
                 }
 
                 tableCoach.innerHTML += infoCoach;
-                tableCount.innerHTML += infoCount;
                 table.innerHTML += info;
                 tableOversea.innerHTML += infoOversea;
             });
-
-
             if (men_html) {
-                h_PLG = avgH.slice(0, 6);
-                h_T1 = avgH.slice(6, 11);
-                h_SBL = avgH.slice(11);
-                a_PLG = avgA.slice(0, 6);
-                a_T1 = avgA.slice(6, 11);
-                a_SBL = avgA.slice(11);
-
-                var rh_PLG = [];
-                var ra_PLG = [];
-                var rh_T1 = [];
-                var ra_T1 = [];
-                var rh_SBL = [];
-                var ra_SBL = [];
-
-                avg_data = [h_PLG, h_T1, h_SBL, a_PLG, a_T1, a_SBL];
-                rate_data = [rh_PLG, rh_T1, rh_SBL, ra_PLG, ra_T1, ra_SBL];
+                a_plg = [];
+                h_plg = [];
+                a_t1 = [];
+                h_t1 = [];
+                a_sbl = [];
+                h_sbl = [];
             } else if (women_html) {
-                avg_data = [avgH, avgA];
-                rate_data = [rH, rA];
+                a_wsbl = [];
+                h_wsbl = [];
             }
 
+            for (let i = 0; i < teams_info.length; i++) {
+                teams_info[i].push((teams_info[i][1] / teams_info[i][3]).toFixed(1));
+                teams_info[i].push((teams_info[i][2] / teams_info[i][3]).toFixed(1));
+                if (i != 0) {
+                    tableCount.innerHTML += `
+                    <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][0]}-bg showTr">
+                        <td>
+                            本土球員:&nbsp;&nbsp;${teams_info[i][3]}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            外籍球員:&nbsp;&nbsp;${teams_info[i][4]}&nbsp;&nbsp;人
+                        </td>
+                    </tr>`
 
-            for (let i = 0; i < avg_data.length; i++) {
-                var indexes = avg_data[i].map(function (_, index) { return index; }).sort(function (a, b) {
-                    return avg_data[i][b] - avg_data[i][a];
-                });
-                for (var j = 0; j < indexes.length; j++) rate_data[i][indexes[j]] = j + 1;
+                    if (men_html) {
+                        if (i < 1 + t_counts[0]) {
+                            a_plg.push(teams_info[i][5])
+                            h_plg.push(teams_info[i][6])
+                        } else if (i < 1 + t_counts[0] + t_counts[1]) {
+                            a_t1.push(teams_info[i][5])
+                            h_t1.push(teams_info[i][6])
+                        } else if (i < 1 + t_counts[0] + t_counts[1] + t_counts[2]) {
+                            a_sbl.push(teams_info[i][5])
+                            h_sbl.push(teams_info[i][6])
+                        }
+                    } else if (women_html) {
+                        if (i < 1 + t_counts) {
+                            a_wsbl.push(teams_info[i][5])
+                            h_wsbl.push(teams_info[i][6])
+                        }
+                    }
+
+                }
             }
-
             if (men_html) {
-                rH = rh_PLG.concat(rh_T1, rh_SBL);
-                rA = ra_PLG.concat(ra_T1, ra_SBL);
+                a_plg = rankArray(a_plg);
+                h_plg = rankArray(h_plg);
+                a_t1 = rankArray(a_t1);
+                h_t1 = rankArray(h_t1);
+                a_sbl = rankArray(a_sbl);
+                h_sbl = rankArray(h_sbl);
+                rankA = a_plg.concat(a_t1, a_sbl);
+                rankH = h_plg.concat(h_t1, h_sbl);
+            } else if (women_html) {
+                rankA = rankArray(a_wsbl);
+                rankH = rankArray(h_wsbl);
             }
 
-            if (window.innerWidth <= 576) {
-                blank_space = `<br>`
-            } else {
-                blank_space = `&nbsp;&nbsp;&nbsp;`
-            }
 
-            for (let i = 0; i < teams.length; i++) {
+            for (let i = 0; i < teams_info.length; i++) {
                 if (men_html) {
-                    if (i < 6) {
-                        temp1 = "PLG"
-                    } else if (i < 11) {
-                        temp1 = "T1"
-                    } else if (i < 16) {
-                        temp1 = "SBL"
+                    if (i == 0) {
+                        avg_filter = `oversea CBA-bg`
+                        age_league_rank = ``
+                        height_league_rank = ``
+                    } else if (i == teams_info.length - 1) {
+                        avg_filter = `${teams_info[i][0]} ${teams_info[i][0]}-bg`
+                        age_league_rank = ``
+                        height_league_rank = ``
+                    } else {
+                        avg_filter = `${teams_info[i][0]} ${teams_info[i][0]}-bg`
+                        if (i < 1 + t_counts[0]) {
+                            temp = 'PLG'
+                        } else if (i < 1 + t_counts[0] + t_counts[1]) {
+                            temp = 'T1'
+                        } else {
+                            temp = 'SBL'
+                        }
+                        age_league_rank = `(${temp}第${rankA[i - 1]})`
+                        height_league_rank = `(${temp}第${rankH[i - 1]})`
                     }
                 } else if (women_html) {
-                    temp1 = ""
+                    if (i == 0) {
+                        avg_filter = `oversea WCBA-bg`
+                        age_league_rank = ``
+                        height_league_rank = ``
+                    } else {
+                        avg_filter = `${teams_info[i][0]} ${teams_info[i][0]}-bg`
+                        age_league_rank = `(WSBL第${rankA[i - 1]})`
+                        height_league_rank = `(WSBL第${rankH[i - 1]})`
+                    }
                 }
-
                 tableCount.innerHTML += `
-                <tr class="filterTr ${teams[i]} ${teams[i]}-bg showTr">
-                    <td>
-                        本土平均年齡:&nbsp;${avgA[i]}&nbsp;(${temp1}第${rA[i]})${blank_space}
-                        本土平均身高:&nbsp;${avgH[i]}&nbsp;(${temp1}第${rH[i]})
-                    </td>
-                </tr>
-                `
+                    <tr class="filterTr ${avg_filter} showTr">
+                        <td>
+                            本土平均年齡:&nbsp;${teams_info[i][5]}&nbsp;${age_league_rank}${blank_space}
+                            本土平均身高:&nbsp;${teams_info[i][6]}&nbsp;${height_league_rank}
+                        </td>
+                    </tr>`
             }
 
             var dataTable = $('#rosters_tb').DataTable({
@@ -243,7 +256,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [0,'asc'],
+                order: [0, 'asc'],
             });
 
             var dataTable2 = $('#rosters_oversea_tb').DataTable({
