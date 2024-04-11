@@ -50,7 +50,6 @@ $(document).ready(function () {
 
         teams_info = [];
         for (let i = 0; i < teams.length; i++) teams_info.splice(i, 0, [teams[i], 0, 0, 0, 0]);
-        console.log(teams_info)
     }
 
     fetch('../data/rosters.csv')
