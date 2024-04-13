@@ -63,7 +63,7 @@ $(document).ready(function () {
 
                     if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊" | infos[4] == "fa") {
                         identity = `${infos[9]}`
-                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "海登" | infos[1] == "安尼奎"){
+                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
                             identity = `洋將`;
                         }
 

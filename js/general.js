@@ -98,8 +98,8 @@ t1_teamRank = {
 }
 sbl_teamRank = {
     1: 'beer',
-    2: 'trust',
-    3: 'yulon',
+    3: 'trust',
+    2: 'yulon',
     4: 'bll'
 }
 wsbl_teamRank = {
@@ -122,8 +122,8 @@ playoff = {
     "aquas": "- x",
     "beer": "- c",
     "trust": "- c",
-    "yulon": "",
-    "bll": "",
+    "yulon": "- c",
+    "bll": "- o",
 
     "cathay": "- c",
     "taiyuen": "- c",
