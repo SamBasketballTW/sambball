@@ -93,16 +93,6 @@
 
     <script>
         window.onload = function () { document.getElementById('loader').style.display = 'none'; }
-
-        var btns = document.getElementById("fa-btngroup").getElementsByClassName("btn");
-
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                var currentBtn = document.getElementsByClassName("btn btn-light active");
-                currentBtn[0].className = currentBtn[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
     </script>
 
 </body>

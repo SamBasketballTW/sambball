@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.12</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.13</b>`
 
     if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
@@ -114,13 +114,13 @@ playoff = {
     "pilots": "",
     "lioneers": "",
     "dreamers": "",
-    "steelers": "",
+    "steelers": "- o",
     "dea": "- x",
     "mars": "",
     "leopards": "- x",
     "ghosthawks": "",
     "aquas": "- x",
-    "beer": "- c",
+    "beer": "- f",
     "trust": "- c",
     "yulon": "- c",
     "bll": "- o",
