@@ -75,7 +75,7 @@ $(document).ready(function () {
 					table.innerHTML += `
 					<tr>
 						<td class="borderR">${i + 1}</td>
-						<td style="font-size:15px; text-align:left">
+						<td style="font-size:14px; text-align:left">
 							<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon">
 							<b>${cn_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
 						</td>
