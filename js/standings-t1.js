@@ -32,18 +32,12 @@ $(document).ready(function () {
                 team = rank[i];
                 w_l = [0, 0];
                 gb = 0;
-                streak_count = 0;
-                streak = "";
+                streak = ["", 0];
                 recent5 = [0, 0];
-                home = [0, 0];
-                road = [0, 0];
+                home_road = [[0, 0], [0, 0]];
                 ot = [0, 0];
-                total_pts = [0, 0];
-                total_pa = [0, 0];
-                total_q1 = 0;
-                total_q2 = 0;
-                total_q3 = 0;
-                total_q4 = 0;
+                total_pts_a = [[0, 0], [0, 0]];
+                q_diff = [0, 0, 0, 0];
                 q2_ahead = [0, 0];
                 q2_behind = [0, 0];
                 q2_tied = [0, 0];
@@ -62,143 +56,154 @@ $(document).ready(function () {
                     infos = player.split(',');
                     info = ""
 
-                    var currentDate = new Date(infos[2]);
-                    var lunarDate = new Date('2024/2/9');
+                    gameDate = new Date(infos[2]);
+                    lunarDate = new Date('2024/2/9');
 
                     if (infos[3] == team) {
+                        q1 = parseInt(infos[5]);
+                        q2 = parseInt(infos[6]);
+                        q3 = parseInt(infos[7]);
+                        q4 = parseInt(infos[8])
+                        pts = parseInt(infos[10]);
+                        q1_a = parseInt(infos[13]);
+                        q2_a = parseInt(infos[14]);
+                        q3_a = parseInt(infos[15]);
+                        q4_a = parseInt(infos[16]);
+                        pts_a = parseInt(infos[18]);
+
                         matchup[findIndex(rank, infos[11])][1] += 1;
                         w_l[0] += 1;
 
-                        cal[currentDate.getMonth()][0] += 1;
-                        if (currentDate < lunarDate) {
+                        cal[gameDate.getMonth()][0] += 1;
+                        if (gameDate < lunarDate) {
                             lunar[0][0] += 1;
                         } else {
                             lunar[1][0] += 1;
                         }
 
-                        if (streak == "") {
-                            streak = "W"
-                            streak_count += 1;
-                        } else if (streak == "W") {
-                            streak_count += 1;
-                        } else if (streak == "L") {
-                            streak = `L${streak_count}`;
+                        if (streak[0] == "") {
+                            streak[0] = "W"
+                            streak[1] += 1;
+                        } else if (streak[0] == "W") {
+                            streak[1] += 1;
+                        } else if (streak[0] == "L") {
+                            streak[0] = `L${streak[1]}`;
                         }
 
                         if (recent5[0] + recent5[1] < 5) recent5[0] += 1;
 
                         if (infos[4] == "home") {
-                            home[0] += 1;
+                            home_road[0][0] += 1;
                         } else {
-                            road[0] += 1;
+                            home_road[1][0] += 1;
                         }
 
                         if (infos[9] != "-") ot[0] += 1;
 
-                        total_q1 += parseInt(infos[5]) - parseInt(infos[13]);
-                        total_q2 += parseInt(infos[6]) - parseInt(infos[14]);
-                        total_q3 += parseInt(infos[7]) - parseInt(infos[15]);
-                        total_q4 += parseInt(infos[8]) - parseInt(infos[16]);
-                        total_pts[0] += parseInt(infos[10]);
-                        total_pa[0] += parseInt(infos[18]);
+                        q_diff[0] += q1 - q1_a
+                        q_diff[1] += q2 - q2_a
+                        q_diff[2] += q3 - q3_a
+                        q_diff[3] += q4 - q4_a
+                        total_pts_a[0][0] += pts
+                        total_pts_a[1][0] += pts_a
 
-                        q2 = parseInt(infos[5]) + parseInt(infos[6]);
-                        q2_a = parseInt(infos[13]) + parseInt(infos[14]);
-                        q3 = q2 + parseInt(infos[7]);
-                        q3_a = q2_a + parseInt(infos[15]);
-
-                        if (q2 > q2_a) {
+                        if (q1 + q2 > q1_a + q2_a) {
                             q2_ahead[0] += 1;
-                        } else if (q2 < q2_a) {
+                        } else if (q1 + q2 < q1_a + q2_a) {
                             q2_behind[0] += 1;
                         } else {
                             q2_tied[0] += 1;
                         }
 
-                        if (q3 > q3_a) {
+                        if (q1 + q2 + q3 > q1_a + q2_a + q3_a) {
                             q3_ahead[0] += 1;
-                        } else if (q3 < q3_a) {
+                        } else if (q1 + q2 + q3 < q1_a + q2_a + q3_a) {
                             q3_behind[0] += 1;
                         } else {
                             q3_tied[0] += 1;
                         }
 
-                        if ((parseInt(infos[10]) - parseInt(infos[18])) <= 3) {
+                        if (pts - pts_a <= 3) {
                             less3[0] += 1
-                        } else if ((parseInt(infos[10]) - parseInt(infos[18])) >= 10) {
+                        } else if (pts - pts_a >= 10) {
                             more10[0] += 1
                         }
 
 
-
                     } else if (infos[11] == team) {
+                        q1 = parseInt(infos[13]);
+                        q2 = parseInt(infos[14]);
+                        q3 = parseInt(infos[15]);
+                        q4 = parseInt(infos[16])
+                        pts = parseInt(infos[18]);
+                        q1_a = parseInt(infos[5]);
+                        q2_a = parseInt(infos[6]);
+                        q3_a = parseInt(infos[7]);
+                        q4_a = parseInt(infos[8]);
+                        pts_a = parseInt(infos[10]);
+
                         matchup[findIndex(rank, infos[3])][2] += 1;
                         w_l[1] += 1;
 
-                        var currentDate = new Date(infos[2]);
-                        var lunarDate = new Date('2024/2/9');
-                        cal[currentDate.getMonth()][1] += 1;
-                        if (currentDate < lunarDate) {
+                        cal[gameDate.getMonth()][1] += 1;
+                        if (gameDate < lunarDate) {
                             lunar[0][1] += 1;
                         } else {
                             lunar[1][1] += 1;
                         }
 
-                        if (streak == "") {
-                            streak = "L"
-                            streak_count += 1;
-                        } else if (streak == "L") {
-                            streak_count += 1;
-                        } else if (streak == "W") {
-                            streak = `W${streak_count}`
+                        if (streak[0] == "") {
+                            streak[0] = "L"
+                            streak[1] += 1;
+                        } else if (streak[0] == "L") {
+                            streak[1] += 1;
+                        } else if (streak[0] == "W") {
+                            streak[0] = `W${streak[1]}`
                         }
 
                         if (recent5[0] + recent5[1] < 5) recent5[1] += 1;
 
                         if (infos[12] == "home") {
-                            home[1] += 1;
+                            home_road[0][1] += 1;
                         } else {
-                            road[1] += 1;
+                            home_road[1][1] += 1;
                         }
 
                         if (infos[17] != "-") ot[1] += 1;
 
-                        total_q1 += parseInt(infos[13]) - parseInt(infos[5]);
-                        total_q2 += parseInt(infos[14]) - parseInt(infos[6]);
-                        total_q3 += parseInt(infos[15]) - parseInt(infos[7]);
-                        total_q4 += parseInt(infos[16]) - parseInt(infos[8]);
-                        total_pts[1] += parseInt(infos[18]);
-                        total_pa[1] += parseInt(infos[10]);
+                        q_diff[0] += q1 - q1_a
+                        q_diff[1] += q2 - q2_a
+                        q_diff[2] += q3 - q3_a
+                        q_diff[3] += q4 - q4_a
+                        total_pts_a[0][1] += pts
+                        total_pts_a[1][1] += pts_a
 
-                        q2 = parseInt(infos[13]) + parseInt(infos[14]);
-                        q2_a = parseInt(infos[5]) + parseInt(infos[6]);
-                        q3 = q2 + parseInt(infos[15]);
-                        q3_a = q2_a + parseInt(infos[7]);
-
-                        if (q2 > q2_a) {
+                        if (q1 + q2 > q1_a + q2_a) {
                             q2_ahead[1] += 1;
-                        } else if (q2 < q2_a) {
+                        } else if (q1 + q2 < q1_a + q2_a) {
                             q2_behind[1] += 1;
                         } else {
                             q2_tied[1] += 1;
                         }
 
-                        if (q3 > q3_a) {
+                        if (q1 + q2 + q3 > q1_a + q2_a + q3_a) {
                             q3_ahead[1] += 1;
-                        } else if (q3 < q3_a) {
+                        } else if (q1 + q2 + q3 < q1_a + q2_a + q3_a) {
                             q3_behind[1] += 1;
                         } else {
                             q3_tied[1] += 1;
                         }
 
-                        if ((parseInt(infos[10]) - parseInt(infos[18])) <= 3) {
+                        if (pts_a - pts <= 3) {
                             less3[1] += 1
-                        } else if ((parseInt(infos[10]) - parseInt(infos[18])) >= 10) {
+                        } else if (pts_a - pts >= 10) {
                             more10[1] += 1
                         }
 
+
                     }
                 });
+                total_games = w_l[0] + w_l[1];
 
                 if (team == rank[0]) {
                     no1 = [w_l[0], w_l[1]];
@@ -207,11 +212,11 @@ $(document).ready(function () {
                     gb = ((no1[0] - w_l[0]) + (w_l[1] - no1[1])) / 2
                 }
 
-                if (ot[0] == 0 & ot[1] == 0) ot = ['', ''];
-                if (q2_tied[0] == 0 & q2_tied[1] == 0) q2_tied = ['', ''];
-                if (q3_tied[0] == 0 & q3_tied[1] == 0) q3_tied = ['', ''];
-                if (less3[0] == 0 & less3[1] == 0) less3 = ['', ''];
-                if (more10[0] == 0 & more10[1] == 0) more10 = ['', ''];
+                if (ot[0] + ot[1] == 0) ot = ['', ''];
+                if (q2_tied[0] + q2_tied[1] == 0) q2_tied = ['', ''];
+                if (q3_tied[0] + q3_tied[1] == 0) q3_tied = ['', ''];
+                if (less3[0] + less3[1] == 0) less3 = ['', ''];
+                if (more10[0] + more10[1] == 0) more10 = ['', ''];
 
 
                 table_overall.innerHTML += `
@@ -224,15 +229,15 @@ $(document).ready(function () {
                     <td>${w_l[0] + w_l[1]}</td>
                     <td>${w_l[0]}</td>
                     <td>${w_l[1]}</td>
-                    <td>${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
+                    <td>${((w_l[0] / total_games) * 100).toFixed(0)}%</td>
                     <td>${gb}</td>
-                    <td class="borderR">${streak}</td>
+                    <td class="borderR">${streak[0]}</td>
                     <td class="borderR">${recent5[0]}-${recent5[1]}</td>
-                    <td>${home[0]}-${home[1]}</td>
-                    <td>${road[0]}-${road[1]}</td>
+                    <td>${home_road[0][0]}-${home_road[0][1]}</td>
+                    <td>${home_road[1][0]}-${home_road[1][1]}</td>
                     <td class="borderR">${ot[0]}-${ot[1]}</td>
-                    <td>${((total_pts[0] + total_pts[1]) / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td>${((total_pa[0] + total_pa[1]) / (w_l[0] + w_l[1])).toFixed(1)}</td>
+                    <td>${((total_pts_a[0][0] + total_pts_a[0][1]) / total_games).toFixed(1)}</td>
+                    <td>${((total_pts_a[1][0] + total_pts_a[1][1]) / total_games).toFixed(1)}</td>
                 </tr>`
 
                 table_points.innerHTML += `
@@ -245,17 +250,17 @@ $(document).ready(function () {
                     <td>${w_l[0] + w_l[1]}</td>
                     <td>${w_l[0]}</td>
                     <td>${w_l[1]}</td>
-                    <td class="borderR">${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
-                    <td>${((total_pts[0] + total_pts[1]) / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td class="borderR">${((total_pa[0] + total_pa[1]) / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td>${(total_q1 / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td>${(total_q2 / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td>${(total_q3 / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td class="borderR">${(total_q4 / (w_l[0] + w_l[1])).toFixed(1)}</td>
-                    <td>${(total_pts[0] / w_l[0]).toFixed(1)}</td>
-                    <td class="borderR">${(total_pts[1] / w_l[1]).toFixed(1)}</td>
-                    <td>${(total_pa[0] / w_l[0]).toFixed(1)}</td>
-                    <td>${(total_pa[1] / w_l[1]).toFixed(1)}</td>
+                    <td class="borderR">${((w_l[0] / total_games) * 100).toFixed(0)}%</td>
+                    <td>${((total_pts_a[0][0] + total_pts_a[0][1]) / total_games).toFixed(1)}</td>
+                    <td class="borderR">${((total_pts_a[1][0] + total_pts_a[1][1]) / total_games).toFixed(1)}</td>
+                    <td>${(q_diff[0] / total_games).toFixed(1)}</td>
+                    <td>${(q_diff[1] / total_games).toFixed(1)}</td>
+                    <td>${(q_diff[2] / total_games).toFixed(1)}</td>
+                    <td class="borderR">${(q_diff[3] / total_games).toFixed(1)}</td>
+                    <td>${(total_pts_a[0][0] / w_l[0]).toFixed(1)}</td>
+                    <td class="borderR">${(total_pts_a[0][1] / w_l[1]).toFixed(1)}</td>
+                    <td>${(total_pts_a[1][0] / w_l[0]).toFixed(1)}</td>
+                    <td>${(total_pts_a[1][1] / w_l[1]).toFixed(1)}</td>
                 </tr>`
 
 
@@ -269,7 +274,7 @@ $(document).ready(function () {
                     <td>${w_l[0] + w_l[1]}</td>
                     <td>${w_l[0]}</td>
                     <td>${w_l[1]}</td>
-                    <td class="borderR">${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
+                    <td class="borderR">${((w_l[0] / total_games) * 100).toFixed(0)}%</td>
                     <td>${q2_ahead[0]}-${q2_ahead[1]}</td>
                     <td>${q2_behind[0]}-${q2_behind[1]}</td>
                     <td class="borderR">${q2_tied[0]}-${q2_tied[1]}</td>
@@ -299,7 +304,7 @@ $(document).ready(function () {
                         <td>${w_l[0] + w_l[1]}</td>
                         <td>${w_l[0]}</td>
                         <td>${w_l[1]}</td>
-                        <td class="borderR">${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
+                        <td class="borderR">${((w_l[0] / total_games) * 100).toFixed(0)}%</td>
                         ${match_standings}
                     </tr>
                 </tbody>`
@@ -314,7 +319,7 @@ $(document).ready(function () {
                     <td>${w_l[0] + w_l[1]}</td>
                     <td>${w_l[0]}</td>
                     <td>${w_l[1]}</td>
-                    <td class="borderR">${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
+                    <td class="borderR">${((w_l[0] / total_games) * 100).toFixed(0)}%</td>
                     <td>${lunar[0][0]}-${lunar[0][1]}</td>
                     <td class="borderR">${lunar[1][0]}-${lunar[1][1]}</td>
                     <td>${cal[9][0]}-${cal[9][1]}</td>

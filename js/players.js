@@ -23,7 +23,7 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender & infos[6] == "active") {
-                    is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT") | infos[1] == "林胤軒";
+                    is_oversea = infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT");
                     is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
                     is_import = (infos[9] == "洋將" | infos[9] == "亞外");
 
@@ -54,31 +54,34 @@ $(document).ready(function () {
 
                         if( infos[4] == "fa"){
                             team_name = cn_teamName[infos[4]];
-                            last_team = `${infos[3]} ${short_teamName[infos[16]]}`
+                            infos[16] = `${infos[3]} ${short_teamName[infos[16]]}`
                         }
                     }
 
                     if (infos[16] != "") filter += " change";
 
-
                     if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊" | infos[4] == "fa") {
-                        identity = `${infos[9]}`
-                        if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
-                            identity = `洋將`;
+                        if( infos[9] == "註銷" | infos[9] == "未註冊" ){
+                            if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
+                                infos[9] = `洋將`;
+                            }else if(infos[1] == "海登"){
+                                infos[9] = `亞外`;
+                            }
                         }
+                        
 
                         info += `
                         <tr class="filterTr ${filter} ${infos[7]} ${infos[8]} showTr">
                             <td class="borderR ${bg}" data-order=${team_order}>${team_name}</td>
                             <td class="borderR" data-order=${number}>${infos[2]}</td>
                             <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
-                            <td data-order=${order[infos[9]]}>${identity}</td>
+                            <td data-order=${order[infos[9]]}>${infos[9]}</td>
                             <td>${infos[10]}</td>
                             <td>${infos[11]}</td>
                             <td>${infos[12]}</td>
                             <td>${age}</td>
                             <td class="borderR">${infos[13]}</td>
-                            <td>${last_team}</td>
+                            <td>${infos[16]}</td>
                             
                         </tr>`
                     }

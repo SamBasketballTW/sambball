@@ -48,47 +48,36 @@ $(document).ready(function () {
 			for (let i = 0; i < drafts.length; i++) {
 				drafts[i].addEventListener("click", function () {
 					currentDraft = document.getElementById("draft_dropdown").getElementsByClassName("active");
-					currentDraft[0].className = currentDraft[0].className.replace(" active", "");
-					this.className += " active";
+					if (currentDraft.length != 0 ) currentDraft[0].className = currentDraft[0].className.replace(" active", "");
 
-					var currentLeague = this.parentElement.parentElement.parentElement.getElementsByTagName('a')[0];
-					if (this.innerHTML.includes("全部選秀")) {
-						draftbtn.innerHTML = this.innerHTML;
-						if (teams[0].className.includes("active")) {
-							if (men_html) {
-								teams[1].click();
-							} else if (women_html) {
-								teams[2].click();
-							}
-						} else {
-							currentTeam = document.getElementById(team_dropdown).getElementsByClassName("active");
-							currentTeam[0].click();
-						}
-					} else {
-						draftbtn.innerHTML = this.innerHTML;
-						teams[0].click();
-					}
+					currentTeam = document.getElementById(team_dropdown).getElementsByClassName("dropdown-item active");
+					if (currentTeam.length != 0 ) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+
+					this.className += " active";
+					draftbtn.innerHTML = this.innerHTML;
+					teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
+
 				});
 			}
 
 			for (let i = 0; i < teams.length; i++) {
 				teams[i].addEventListener("click", function () {
-					currentTeam = document.getElementById(team_dropdown).getElementsByClassName("dropdown-item active");
-					currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+					currentTeam = document.getElementById(team_dropdown).getElementsByClassName("active");
+					if(currentTeam.length != 0) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+
+					currentDraft = document.getElementById("draft_dropdown").getElementsByClassName("active");
+					if (currentDraft.length != 0 ) currentDraft[0].className = currentDraft[0].className.replace(" active", "");
+
 					this.className += " active";
 					teambtn.innerHTML = this.innerHTML;
+					draftbtn.innerHTML = `歷屆選秀`;
 
-					if (this.innerHTML.includes("全部球隊") & drafts[0].className.includes("active")) {
-						drafts[3].click();
-					} else if (!this.innerHTML.includes("全部球隊") & draftbtn.innerHTML.includes("旅外")) {
-						drafts[0].click();
-					}
 				});
 			}
 			if (men_html) {
-				document.getElementById('draft_dropdown').getElementsByClassName('dropdown-item')[3].click();
-			} else if (women_html) {
 				document.getElementById('draft_dropdown').getElementsByClassName('dropdown-item')[2].click();
+			} else if (women_html) {
+				document.getElementById('draft_dropdown').getElementsByClassName('dropdown-item')[1].click();
 			}
 
 		});

@@ -74,7 +74,7 @@ $(document).ready(function () {
                 infoCount = ""
 
                 if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
-                    is_oversea = (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT") | infos[1] == "林胤軒";
+                    is_oversea = infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT");
 
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
                         infoCoach += `

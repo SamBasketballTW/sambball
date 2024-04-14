@@ -29,8 +29,7 @@ $(document).ready(function () {
 					team = rank[j][i];
 					w_l = [0, 0];
 					gb = 0;
-					streak_count = 0;
-					streak = "";
+					streak = ["", 0];
 
 					lines.forEach(player => {
 						infos = player.split(',');
@@ -44,23 +43,23 @@ $(document).ready(function () {
 
 						if (infos[3] == team) {
 							w_l[0] += 1;
-							if (streak == "") {
-								streak = "W"
-								streak_count += 1;
-							} else if (streak == "W") {
-								streak_count += 1;
-							} else if (streak == "L") {
-								streak = `L${streak_count}`;
+							if (streak[0] == "") {
+								streak[0] = "W"
+								streak[1] += 1;
+							} else if (streak[0] == "W") {
+								streak[1] += 1;
+							} else if (streak [0]== "L") {
+								streak[0] = `L${streak[1]}`;
 							}
 						} else if (infos[11] == team) {
 							w_l[1] += 1;
-							if (streak == "") {
-								streak = "L"
-								streak_count += 1;
-							} else if (streak == "L") {
-								streak_count += 1;
-							} else if (streak == "W") {
-								streak = `W${streak_count}`
+							if (streak[0] == "") {
+								streak[0] = "L"
+								streak[1] += 1;
+							} else if (streak[0] == "L") {
+								streak[1] += 1;
+							} else if (streak[0] == "W") {
+								streak[0] = `W${streak[1]}`
 							}
 						}
 
@@ -84,7 +83,7 @@ $(document).ready(function () {
 						<td>${w_l[1]}</td>
 						<td>${((w_l[0] / (w_l[0] + w_l[1])) * 100).toFixed(0)}%</td>
 						<td>${gb}</td>
-						<td>${streak}</td>
+						<td>${streak[0]}</td>
 					</tr>`
 				}
 
@@ -120,7 +119,7 @@ $(document).ready(function () {
 
 					if (birthday.getDate() == today.getDate() && birthday.getMonth() == today.getMonth()) {
 						team_name = cn_teamName[infos[4]];
-						if (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL") {
+						if (infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL")) {
 							team_name = `${infos[3]} ${infos[4]}`;
 						}
 						if (count == 0) {
