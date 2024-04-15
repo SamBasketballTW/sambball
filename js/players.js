@@ -42,6 +42,11 @@ $(document).ready(function () {
                         bg = `${infos[3]}-bg`;
                         team_order = order[infos[3]];
                         team_name = `${infos[3]} ${infos[4]}`;
+                    } else if (infos[4] == "mustangs"){
+                        filter = infos[4];
+                        bg = `${infos[4]}-bg`;
+                        team_order = order[infos[4]];
+                        team_name = `${infos[3]} ${cn_teamName[infos[4]]}`;
                     } else {
                         filter = infos[4];
                         bg = `${infos[4]}-bg`;
