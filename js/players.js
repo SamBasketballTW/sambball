@@ -42,7 +42,6 @@ $(document).ready(function () {
                         bg = `${infos[3]}-bg`;
                         team_order = order[infos[3]];
                         team_name = `${infos[3]} ${infos[4]}`;
-                        last_team = infos[16]
                     } else {
                         filter = infos[4];
                         bg = `${infos[4]}-bg`;
@@ -50,7 +49,6 @@ $(document).ready(function () {
                         team_name = `
                         <img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
                         <b>${cn_teamName[infos[4]]}</b>`
-                        last_team = infos[16]
 
                         if( infos[4] == "fa"){
                             team_name = cn_teamName[infos[4]];

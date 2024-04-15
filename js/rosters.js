@@ -17,7 +17,7 @@ $(document).ready(function () {
         for (let i = 0; i < t_counts[1]; i++) teams.splice(i + t_counts[0], 0, t1_teamRank[i + 1]);
         for (let i = 0; i < t_counts[2]; i++) teams.splice(i + t_counts[0] + t_counts[1], 0, sbl_teamRank[i + 1]);
         teams.splice(0, 0, 'oversea');
-        teams.splice(teams.length, 0, 'mustang');
+        teams.splice(teams.length, 0, 'mustangs');
 
         tableCount.innerHTML += `
         <tr class="filterTr oversea CBA-bg">
