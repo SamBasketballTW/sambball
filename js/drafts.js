@@ -70,7 +70,7 @@ $(document).ready(function () {
 
 					this.className += " active";
 					teambtn.innerHTML = this.innerHTML;
-					draftbtn.innerHTML = `歷屆選秀`;
+					draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
 
 				});
 			}

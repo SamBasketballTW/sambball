@@ -277,13 +277,13 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(2);
 
-            table_th = document.getElementById('roster_movements_thead')
-            table = document.getElementById('roster_movements_tbody')
+            table_movements_th = document.getElementById('roster_movements_thead')
+            table_movements = document.getElementById('roster_movements_tbody')
 
             if (window.innerWidth <= 576) {
-                table_th.innerHTML += `<th>2023-24 球員異動</th>`
+                table_movements_th.innerHTML += `<th>2023-24 球員異動</th>`
             } else {
-                table_th.innerHTML += `
+                table_movements_th.innerHTML += `
                 <th>續約 / 延長</th>
                 <th>加盟</th>
                 <th>離隊</th>`
@@ -383,7 +383,7 @@ $(document).ready(function () {
                     }
                 }
 
-                table.innerHTML += info;
+                table_movements.innerHTML += info;
             });
 
             document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
