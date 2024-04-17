@@ -3,17 +3,6 @@
 	text-decoration: line-through; 
 	color: white;
 }
-.s-num{
-	text-decoration: line-through;
-	background-color: #EECDCD;
-	color: #BB271A;
-	--bs-table-hover-color: #BB271A;
-}
-.c-num{
-	background-color: #434343;
-	color: #E7C350;
-	--bs-table-hover-color: #E7C350;
-}
 
 /* background colors */
 .plgtrade{

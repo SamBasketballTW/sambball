@@ -121,7 +121,7 @@ $(document).ready(function () {
                             }
 
                             tempInfo = `
-                                <tr class="filterTr ${filter} showTr">
+                                <tr class="filterTr ${filter} showTr" style="font-size:15px">
                                     ${oversea_team}
                                     <td class="borderR" data-order="${number}">${infos[2]}</td>
                                     <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>             
@@ -131,7 +131,8 @@ $(document).ready(function () {
                                     <td>${infos[12]}</td>
                                     <td>${age}</td>
                                     <td class="borderR">${infos[13]}</td>
-                                    <td style="text-align:left">${infos[15]}</td>
+                                    <td class="borderR" style="font-size:14px; text-align:left">${infos[14]}</td>
+                                    <td style="font-size:14px; text-align:left">${infos[15]}</td>
                                 </tr>
                             `
                             if (is_oversea) {

@@ -84,6 +84,7 @@ $(document).ready(function () {
                             <td>${infos[12]}</td>
                             <td>${age}</td>
                             <td class="borderR">${infos[13]}</td>
+                            <td class="borderR" style="text-align:left">${infos[14]}</td>
                             <td>${infos[16]}</td>
                             
                         </tr>`
