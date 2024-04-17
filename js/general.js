@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.15</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.17</b>`
 
     if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
@@ -44,15 +44,20 @@ $(document).ready(function () {
     }
 
     if (document.getElementById('team-dropdown_m')) {
-        teams = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers',
-            'dea', 'mars', 'leopards', 'ghosthawks', 'aquas',
-            'beer', 'trust', 'yulon', 'bll'];
+        teams = [];
+        t_counts = [6, 5, 4];
+        for (let i = 0; i < t_counts[0]; i++) teams.splice(i, 0, plg_teamRank[i + 1]);
+        for (let i = 0; i < t_counts[1]; i++) teams.splice(i + t_counts[0], 0, t1_teamRank[i + 1]);
+        for (let i = 0; i < t_counts[2]; i++) teams.splice(i + t_counts[0] + t_counts[1], 0, sbl_teamRank[i + 1]);
+
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
             menu.innerHTML += `<img src="../asset/images/men/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`
         }
     } else if (document.getElementById('team-dropdown_w')) {
-        teams = ['cathay', 'power', 'telecom', 'taiyuen'];
+        teams = [];
+        t_counts = 4;
+        for (let i = 0; i < t_counts; i++) teams.splice(i, 0, wsbl_teamRank[i + 1]);
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
             menu.innerHTML += `<img src="../asset/images/women/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`

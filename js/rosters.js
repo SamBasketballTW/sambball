@@ -11,7 +11,6 @@ $(document).ready(function () {
         gender = "men"
         team_dropdown = 'team-dropdown_m';
         t_counts = [6, 5, 4];
-
         teams = [];
         for (let i = 0; i < t_counts[0]; i++) teams.splice(i, 0, plg_teamRank[i + 1]);
         for (let i = 0; i < t_counts[1]; i++) teams.splice(i + t_counts[0], 0, t1_teamRank[i + 1]);
@@ -163,6 +162,7 @@ $(document).ready(function () {
             for (let i = 0; i < teams_info.length; i++) {
                 teams_info[i].push((teams_info[i][1] / teams_info[i][3]).toFixed(1));
                 teams_info[i].push((teams_info[i][2] / teams_info[i][3]).toFixed(1));
+
                 if (i != 0) {
                     tableCount.innerHTML += `
                     <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][0]}-bg showTr">
@@ -207,7 +207,7 @@ $(document).ready(function () {
             }
 
 
-            for (let i = 0; i < teams_info.length; i++) {
+            for (let i = 0; i < teams_info.length - 1; i++) { // -1 for mustangs
                 if (men_html) {
                     if (i == 0) {
                         avg_filter = `oversea CBA-bg`

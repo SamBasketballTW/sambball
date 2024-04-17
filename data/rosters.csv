@@ -292,6 +292,7 @@ men,蔡紘揚,24,SBL,bll,https://sleague.tw/player/oldRoster/7000,active,local,2
 men,葛萊斯,40,SBL,bll,https://sleague.tw/player/oldRoster/7001,active,import,,洋將,-,203,-,1994/05/07,-,加盟: 2023/09/04,,,,,,,,2023-24,,,,,,,,-
 men,徐仕宏,77,SBL,bll,https://sleague.tw/player/oldRoster/7002,active,local,2023Rookie,本土,-,188,-,1998/03/23,HBL 來義高中,#11 順位 - 2023 SBL 選秀,,,,,,2023Draft,3y,2023-24,23' 新秀合約,,,,,,,0
 men,克里斯,-,TAT,mustangs,https://www.instagram.com/taiwan_mustangs,active,headCoach,,總教練,-,-,-,1979/01/27,,加盟: 2024/03/28,,,,,,,,2024,,,,,,,,
+men,卡巴諾特,5,TAT,mustangs,https://www.instagram.com/taiwan_mustangs,active,import,,亞外,G,183,86,1982/12/08,-,加盟: 2024/04/17,,,,,,,,2024,,,,,,,,
 men,德古拉,23,TAT,mustangs,https://www.instagram.com/taiwan_mustangs,active,import,,洋將,C,230,130,1991/06/21,-,加盟: 2024/04/15,T1 獵鷹,,,,,,,2024,,,,,,,,
 men,楊興治,,PLG,,https://pleagueofficial.com/player/228,,local,,本土,F,195,100,1993/11/09,,,kings,球隊不續約,1.6,1.1,0.2,,,,,,,,,,,
 men,曾于豪,,PLG,,https://pleagueofficial.com/player/236,,local,2021Rookie,本土,F,196,94,1999/08/05,,,kings,不執行球隊選擇權,3.6,2.8,1.0,,,,,,,,,,,2
@@ -325,78 +326,78 @@ men,李謨汎,,SBL,,https://sleague.tw/player/oldRoster/5881&nocache=16953943819
 men,朱恩麟,,SBL,,https://sleague.tw/player/oldRoster/5886&nocache=1695394431747,,local,2021Rookie,本土,C,192,92,1997/06/17,,,bll,-,5.7,2.1,1.2,,,,,,,,,,,2
 men,林俊恩,,SBL,,https://sleague.tw/player/oldRoster/5888&nocache=1695394443208,,local,2021Rookie,本土,G,176,75,1999/01/28,,,bll,-,1.5,0.7,1.4,,,,,,,,,,,2
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-women,彭詩晴,23,WCBA,新疆國達氫,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=18845,active,local,,港澳台,G,165,63,1991/11/09,,加盟: 2023-24賽季,WCBA 福建,,,,,,,,,,,,,,,
-women,張綺芳,31,WCBA,內蒙古農信,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=18905,active,local,,港澳台,G,174,67,1993/01/16,,加盟: 2023-24賽季,WCBA 北京,,,,,,,,,,,,,,,
-women,陳晏宇,4,WCBA,上海浦發銀行,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=19052,active,local,,港澳台,G,171,64,1994/10/07,,加盟: 2023-24賽季,WCBA 河北,,,,,,,,,,,,,,,
-women,林育庭,22,WCBA,東莞新彤盛,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=398541,active,local,,港澳台,G,178,67,1994/01/25,,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,
-women,黃郁婷,67,WCBA,陝西天澤,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=401833,active,local,,港澳台,G,165,54,1994/04/07,,加盟: 2023-24賽季,電信,,,,,,,,,,,,,,,
-women,黃柔甄,4,WCBA,遼寧雙喜電器,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=401073,active,local,,港澳台,G,172,65,1997/06/16,,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,
-women,秦安 (許筱彤),31,WKBL,釜山BNK Sum,http://bnksumbasket.com/player2.php?no=31,active,local,,歸化,C,181,72,1996/03/23,,#2 順位 - 2015 WKBL 選秀,,,,,,,,,,,,,,,,
+women,彭詩晴,23,WCBA,新疆國達氫,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=18845,active,local,,港澳台,G,165,63,1991/11/09,北市大學,加盟: 2023-24賽季,WCBA 福建,,,,,,,,,,,,,,,
+women,張綺芳,31,WCBA,內蒙古農信,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=18905,active,local,,港澳台,G,174,67,1993/01/16,臺灣師大,加盟: 2023-24賽季,WCBA 北京,,,,,,,,,,,,,,,
+women,陳晏宇,4,WCBA,上海浦發銀行,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=19052,active,local,,港澳台,G,171,64,1994/10/07,臺灣師大,加盟: 2023-24賽季,WCBA 河北,,,,,,,,,,,,,,,
+women,林育庭,22,WCBA,東莞新彤盛,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=398541,active,local,,港澳台,G,178,67,1994/01/25,文化大學,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,
+women,黃郁婷,67,WCBA,陝西天澤,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=401833,active,local,,港澳台,G,165,54,1994/04/07,佛光大學,加盟: 2023-24賽季,電信,,,,,,,,,,,,,,,
+women,黃柔甄,4,WCBA,遼寧雙喜電器,https://www.cba.net.cn/wcbaqyzhsj/index.jhtml?competitiOnId=56&seasOnId=1470&playerId=401073,active,local,,港澳台,G,172,65,1997/06/16,文化大學,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,
+women,秦安 (許筱彤),31,WKBL,釜山BNK Sum,http://bnksumbasket.com/player2.php?no=31,active,local,,歸化,C,181,72,1996/03/23,韓國 水原女高,#2 順位 - 2015 WKBL 選秀,,,,,,,,,,,,,,,,
 women,謝羽姍,14,葡萄牙PNB,Loures,https://www.instagram.com/pnbloures/,active,local,2023Rookie,-,G,161,60,2001/03/30,輔仁大學,加盟: 2023-24賽季 (新秀),,,,,,,,,,,,,,,,0
 women,鄭慧芸,-,WSBL,cathay,https://wsbl.meetagile.com/team/2/77/715,active,headCoach,-,總教練,-,-,-,1977/04/23,,,,,,,,,,,,,,,,,,-
 women,凱拉喬治,3,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/7033,active,import,,洋將,-,193,-,1989/05/01,-,加盟: 2024/03/29,,,,,,,,,,,,,,,,
-women,韓雅恩,4,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/581,active,local,,本土,-,180,-,1995/01/01,,加盟: 2016-17賽季 (新秀),,,,,,,,,,,,,,,,
-women,黃凡珊,5,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/496,active,local,,本土,-,175,-,1987/09/29,,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
-women,黃鈴娟,6,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/593,active,local,,本土,-,175,-,1994/12/06,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
-women,藍浩語,7,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/440,active,local,,本土,-,170,-,1983/08/02,,加盟: 2004-05賽季 (新秀),,,,,,,,,,,,,,,,
-women,羅蘋,8,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/595,active,local,,本土,-,168,-,1996/04/02,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,韓雅恩,4,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/581,active,local,,本土,-,180,-,1995/01/01,文化大學,加盟: 2016-17賽季 (新秀),,,,,,,,,,,,,,,,
+women,黃凡珊,5,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/496,active,local,,本土,-,175,-,1987/09/29,文化大學,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
+women,黃鈴娟,6,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/593,active,local,,本土,-,175,-,1994/12/06,文化大學,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,藍浩語,7,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/440,active,local,,本土,-,170,-,1983/08/02,文化大學,加盟: 2004-05賽季 (新秀),,,,,,,,,,,,,,,,
+women,羅蘋,8,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/595,active,local,,本土,-,168,-,1996/04/02,文化大學,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
 women,徐玉蓮,9,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/5504,active,local,2021Rookie,本土,-,176,-,1997/04/18,文化大學,保留名單: 2021-22賽季,,,,,,,,,,,,,,,,2
-women,李宥叡,10,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/487,active,local,,本土,-,180,-,1986/12/23,,加盟: 2005-06賽季 (新秀),,,,,,,,,,,,,,,,
-women,鄭伊秀,11,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/578,active,local,,本土,-,178,-,1993/06/24,,加盟: 2013-14賽季 (新秀),,,,,,,,,,,,,,,,
-women,陳鈺君,13,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/489,active,local,,本土,-,178,-,1987/03/07,,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
-women,陳薇安,14,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/594,active,local,,本土,-,177,-,1995/11/01,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
-women,歐婕,15,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/582,active,local,,本土,-,181,-,1995/05/08,,加盟: 2016-17賽季 (新秀),,,,,,,,,,,,,,,,
-women,劉昕妤,16,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/649,active,local,2020Rookie,本土,-,180,-,1998/11/23,,加盟: 2022-23賽季,,,,,,,,,,,,,,,,3
-women,陳孟欣,17,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/650,active,local,2020Rookie,本土,-,164,-,1999/10/07,,加盟: 2022-23賽季,,,,,,,,,,,,,,,,3
-women,黃巧鈞,18,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/7014,active,local,2023Rookie,本土,-,172,-,2001/10/24,,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
-women,蕭豫玟,19,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/7015,active,local,2023Rookie,本土,-,185,-,2005/03/05,,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
+women,李宥叡,10,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/487,active,local,,本土,-,180,-,1986/12/23,文化大學,加盟: 2005-06賽季 (新秀),,,,,,,,,,,,,,,,
+women,鄭伊秀,11,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/578,active,local,,本土,-,178,-,1993/06/24,文化大學,加盟: 2013-14賽季 (新秀),,,,,,,,,,,,,,,,
+women,陳鈺君,13,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/489,active,local,,本土,-,178,-,1987/03/07,文化大學,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
+women,陳薇安,14,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/594,active,local,,本土,-,177,-,1995/11/01,文化大學,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,歐婕,15,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/582,active,local,,本土,-,181,-,1995/05/08,文化大學,加盟: 2016-17賽季 (新秀),,,,,,,,,,,,,,,,
+women,劉昕妤,16,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/649,active,local,2020Rookie,本土,-,180,-,1998/11/23,佛光大學,加盟: 2022-23賽季,,,,,,,,,,,,,,,,3
+women,陳孟欣,17,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/650,active,local,2020Rookie,本土,-,164,-,1999/10/07,佛光大學,加盟: 2022-23賽季,,,,,,,,,,,,,,,,3
+women,黃巧鈞,18,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/7014,active,local,2023Rookie,本土,-,172,-,2001/10/24,文化大學,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
+women,蕭豫玟,19,WSBL,cathay,https://wsbl.meetagile.com/player/oldRoster/7015,active,local,2023Rookie,本土,-,185,-,2005/03/05,HBL 淡水商工,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
 women,陳萓峰,-,WSBL,power,https://wsbl.meetagile.com/team/2/77/716,active,headCoach,-,教練,-,-,-,1984/11/13,,,,,,,,,,,,,,,,,,-
-women,黃沁瑜,0,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/5943,active,local,2022Rookie,本土,-,169,-,2000/08/30,,#4 順位 - 2022 WSBL 選秀,,,,,,,,,,,,,,,,1
-women,蘇苡瑈,2,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/556,active,local,,本土,-,175,-,1992/03/19,,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
-women,吳侑萱,7,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/5781,active,local,2023Rookie,本土,-,183,-,1997/10/09,,#1 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
-women,廖瑋晴,10,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/7017,active,local,2023Rookie,本土,-,180,-,2001/01/14,,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
-women,王維琳,11,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/571,active,local,,本土,-,181,-,1993/02/01,,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,
-women,戴宜庭,13,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/652,active,local,2020Rookie,本土,-,176,-,1995/11/12,,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,3
-women,林釵娟,14,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/7016,active,local,2023Rookie,本土,-,174,-,2000/01/03,,#4 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
-women,張譯文,15,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/599,active,local,,本土,-,174,-,1996/05/16,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
-women,楊芷瑜,17,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/603,active,local,2019Rookie,本土,-,180,-,1995/12/03,,#1 順位 - 2019 WSBL 選秀,,,,,,,,,,,,,,,,4
-women,李吟娸,20,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/5951,active,local,2022Rookie,本土,-,165,-,2000/09/20,,#2 順位 - 2022 WSBL 選秀,,,,,,,,,,,,,,,,1
-women,劉希曄,24,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/558,active,local,,本土,-,174,-,1991/10/10,,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
-women,林芷安,55,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/551,active,local,,本土,-,165,-,1991/12/27,,加盟: 2010-11賽季 (新秀),,,,,,,,,,,,,,,,
-women,羅培儀,66,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/659,active,local,2020Rookie,本土,-,163,-,2000/03/01,,加盟: 2023-24賽季,台元,,,,,,,,,,,,,,,3
-women,彭惠貞,77,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/605,active,local,2019Rookie,本土,-,169,-,1996/08/20,,#3 順位 - 2019 WSBL 選秀,,,,,,,,,,,,,,,,4
+women,黃沁瑜,0,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/5943,active,local,2022Rookie,本土,-,169,-,2000/08/30,佛光大學,#4 順位 - 2022 WSBL 選秀,,,,,,,,,,,,,,,,1
+women,蘇苡瑈,2,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/556,active,local,,本土,-,175,-,1992/03/19,佛光大學,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
+women,吳侑萱,7,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/5781,active,local,2023Rookie,本土,-,183,-,1997/10/09,日本 體育大學,#1 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
+women,廖瑋晴,10,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/7017,active,local,2023Rookie,本土,-,180,-,2001/01/14,北市大學,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
+women,王維琳,11,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/571,active,local,,本土,-,181,-,1993/02/01,臺灣師大,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,
+women,戴宜庭,13,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/652,active,local,2020Rookie,本土,-,176,-,1995/11/12,文化大學,加盟: 2023-24賽季,國泰,,,,,,,,,,,,,,,3
+women,林釵娟,14,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/7016,active,local,2023Rookie,本土,-,174,-,2000/01/03,臺灣師大,#4 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
+women,張譯文,15,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/599,active,local,,本土,-,174,-,1996/05/16,臺灣體大,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,楊芷瑜,17,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/603,active,local,2019Rookie,本土,-,180,-,1995/12/03,佛光大學,#1 順位 - 2019 WSBL 選秀,,,,,,,,,,,,,,,,4
+women,李吟娸,20,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/5951,active,local,2022Rookie,本土,-,165,-,2000/09/20,世新大學,#2 順位 - 2022 WSBL 選秀,,,,,,,,,,,,,,,,1
+women,劉希曄,24,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/558,active,local,,本土,-,174,-,1991/10/10,臺灣師大,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
+women,林芷安,55,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/551,active,local,,本土,-,165,-,1991/12/27,北市大學,加盟: 2010-11賽季 (新秀),,,,,,,,,,,,,,,,
+women,羅培儀,66,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/659,active,local,2020Rookie,本土,-,163,-,2000/03/01,世新大學,加盟: 2023-24賽季,台元,,,,,,,,,,,,,,,3
+women,彭惠貞,77,WSBL,power,https://wsbl.meetagile.com/player/oldRoster/605,active,local,2019Rookie,本土,-,169,-,1996/08/20,佛光大學,#3 順位 - 2019 WSBL 選秀,,,,,,,,,,,,,,,,4
 women,柯孟儀,-,WSBL,telecom,https://wsbl.meetagile.com/team/2/77/717,active,headCoach,-,教練,-,-,-,,,,,,,,,,,,,,,,,,,-
-women,陳怡萱,0,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5918,active,local,2021Rookie,本土,-,175,-,1997/11/27,,#2 順位 - 2021 WSBL 選秀,,,,,,,,,,,,,,,,2
+women,陳怡萱,0,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5918,active,local,2021Rookie,本土,-,175,-,1997/11/27,臺灣師大,#2 順位 - 2021 WSBL 選秀,,,,,,,,,,,,,,,,2
 women,霍利維,1,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/7031,active,import,,洋將,-,193,-,1993/10/24,-,加盟: 2024/04/12,,,,,,,,,,,,,,,,
-women,潘姿吟,2,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/559,active,local,,本土,-,170,-,1992/07/23,,加盟: 2016-17賽季,,,,,,,,,,,,,,,,
-women,許庭瑜,3,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5945,active,local,2022Rookie,本土,-,176,-,1997/09/12,,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
-women,徐詩涵,4,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5946,active,local,2022Rookie,本土,-,164,-,2000/07/15,,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
-women,陳靳豫萱,6,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/6912,active,local,2023Rookie,本土,-,173,-,2000/11/19,,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
-women,劉惠茹,7,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/606,active,local,2019Rookie,本土,-,162,-,1996/07/25,,保留名單: 2019-20賽季,,,,,,,,,,,,,,,,4
-women,吳明臻,9,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5947,active,local,2022Rookie,本土,-,169,-,1999/10/24,,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
+women,潘姿吟,2,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/559,active,local,,本土,-,170,-,1992/07/23,臺灣師大,加盟: 2016-17賽季,,,,,,,,,,,,,,,,
+women,許庭瑜,3,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5945,active,local,2022Rookie,本土,-,176,-,1997/09/12,臺灣師大,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
+women,徐詩涵,4,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5946,active,local,2022Rookie,本土,-,164,-,2000/07/15,臺灣師大,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
+women,陳靳豫萱,6,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/6912,active,local,2023Rookie,本土,-,173,-,2000/11/19,臺灣師大,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
+women,劉惠茹,7,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/606,active,local,2019Rookie,本土,-,162,-,1996/07/25,臺灣師大,保留名單: 2019-20賽季,,,,,,,,,,,,,,,,4
+women,吳明臻,9,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5947,active,local,2022Rookie,本土,-,169,-,1999/10/24,臺灣師大,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
 women,陳芷英,11,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/7013,active,local,2023Rookie,本土,-,174,-,2002/07/30,臺灣科大,#2 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
-women,黃湘婷,12,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/570,active,local,,本土,-,180,-,1993/01/26,,加盟: 2011-12賽季 (新秀),,,,,,,,,,,,,,,,
-women,王竫婷,13,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5948,active,local,2022Rookie,本土,-,179,-,1998/02/21,,#1 順位 - 2022 WSBL 選秀,,,,,,,,,,,,,,,,1
-women,陳雅彤,23,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5949,active,local,2022Rookie,本土,-,180,-,2000/08/31,,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
-women,林玉書,30,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/590,active,local,,本土,-,169,-,1996/06/30,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
-women,楊婉琳,31,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5919,active,local,2021Rookie,本土,-,167,-,1997/08/15,,#3 順位 - 2021 WSBL 選秀,,,,,,,,,,,,,,,,2
-women,王游乙文,88,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/654,active,local,2020Rookie,本土,-,174,-,1996/10/16,,#2 順位 - 2020 WSBL 選秀,,,,,,,,,,,,,,,,3
+women,黃湘婷,12,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/570,active,local,,本土,-,180,-,1993/01/26,臺灣師大,加盟: 2011-12賽季 (新秀),,,,,,,,,,,,,,,,
+women,王竫婷,13,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5948,active,local,2022Rookie,本土,-,179,-,1998/02/21,佛光大學,#1 順位 - 2022 WSBL 選秀,,,,,,,,,,,,,,,,1
+women,陳雅彤,23,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5949,active,local,2022Rookie,本土,-,180,-,2000/08/31,臺灣師大,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
+women,林玉書,30,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/590,active,local,,本土,-,169,-,1996/06/30,輔仁大學,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,楊婉琳,31,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/5919,active,local,2021Rookie,本土,-,167,-,1997/08/15,佛光大學,#3 順位 - 2021 WSBL 選秀,,,,,,,,,,,,,,,,2
+women,王游乙文,88,WSBL,telecom,https://wsbl.meetagile.com/player/oldRoster/654,active,local,2020Rookie,本土,-,174,-,1996/10/16,北市大學,#2 順位 - 2020 WSBL 選秀,,,,,,,,,,,,,,,,3
 women,邱啟益,-,WSBL,taiyuen,https://wsbl.meetagile.com/team/2/77/718,active,headCoach,-,執行教練,-,-,-,1975/10/06,,,,,,,,,,,,,,,,,,-
-women,林文佑,3,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/592,active,local,,本土,-,180,-,1995/08/01,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
-women,卓敬,6,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/591,active,local,,本土,-,172,-,1997/10/13,,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
-women,朱育勤,7,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/655,active,local,2020Rookie,本土,-,163,-,1996/04/01,,#3 順位 - 2020 WSBL 選秀,,,,,,,,,,,,,,,,3
-women,黃品蓁,9,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/527,active,local,,本土,-,179,-,1989/11/06,,加盟: 2021-22賽季,,,,,,,,,,,,,,,,
-women,蔡佩真,10,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/466,active,local,,本土,-,186,-,1984/05/27,,加盟: 2004-05賽季 (新秀),,,,,,,,,,,,,,,,
-women,吳盈潔,12,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/553,active,local,,本土,-,178,-,1992/11/03,,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
-women,黃英利,14,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/504,active,local,,本土,-,170,-,1989/02/24,,加盟: 2022-23賽季,,,,,,,,,,,,,,,,
-women,許玟瑄,17,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/7012,active,local,2023Rookie,本土,-,177,-,2000/01/17,,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
-women,史靜茹,18,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/656,active,local,2020Rookie,本土,-,182,-,1995/11/06,,保留名單: 2020-21賽季,,,,,,,,,,,,,,,,3
-women,張琦玟,19,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/6914,active,local,2023Rookie,本土,-,179,-,2000/03/04,,#3 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
+women,林文佑,3,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/592,active,local,,本土,-,180,-,1995/08/01,文化大學,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,卓敬,6,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/591,active,local,,本土,-,172,-,1997/10/13,世新大學,加盟: 2018-19賽季 (新秀),,,,,,,,,,,,,,,,
+women,朱育勤,7,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/655,active,local,2020Rookie,本土,-,163,-,1996/04/01,北市大學,#3 順位 - 2020 WSBL 選秀,,,,,,,,,,,,,,,,3
+women,黃品蓁,9,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/527,active,local,,本土,-,179,-,1989/11/06,臺灣師大,加盟: 2021-22賽季,,,,,,,,,,,,,,,,
+women,蔡佩真,10,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/466,active,local,,本土,-,186,-,1984/05/27,北市大學,加盟: 2004-05賽季 (新秀),,,,,,,,,,,,,,,,
+women,吳盈潔,12,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/553,active,local,,本土,-,178,-,1992/11/03,臺灣師大,加盟: 2019-20賽季,,,,,,,,,,,,,,,,
+women,黃英利,14,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/504,active,local,,本土,-,170,-,1989/02/24,文化大學,加盟: 2022-23賽季,,,,,,,,,,,,,,,,
+women,許玟瑄,17,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/7012,active,local,2023Rookie,本土,-,177,-,2000/01/17,世新大學,保留名單: 2023-24賽季,,,,,,,,,,,,,,,,0
+women,史靜茹,18,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/656,active,local,2020Rookie,本土,-,182,-,1995/11/06,北市大學,保留名單: 2020-21賽季,,,,,,,,,,,,,,,,3
+women,張琦玟,19,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/6914,active,local,2023Rookie,本土,-,179,-,2000/03/04,日本 環太平洋大學,#3 順位 - 2023 WSBL 選秀,,,,,,,,,,,,,,,,0
 women,莫里斯,20,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/7032,active,import,,洋將,-,198,-,1998/11/27,-,加盟: 2024/03/21,,,,,,,,,,,,,,,,
-women,宋佩欣,21,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/5922,active,taiwanese,2021Rookie,華裔,-,176,-,1998/03/03,,加盟: 2021-22賽季 (新秀),,,,,,,,,,,,,,,,2
-women,林蝶,22,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/5779,active,local,2021Rookie,本土,-,179,-,1999/08/02,,保留名單: 2021-22賽季,,,,,,,,,,,,,,,,2
-women,蘇嘉嫻,27,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/5950,active,local,2022Rookie,本土,-,175,-,1999/09/27,,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
-women,羅培甄,35,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/658,active,local,2020Rookie,本土,-,175,-,1998/10/11,,保留名單: 2020-21賽季,,,,,,,,,,,,,,,,3
+women,宋佩欣,21,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/5922,active,taiwanese,2021Rookie,華裔,-,176,-,1998/03/03,NCAA D1 UC Davis,加盟: 2021-22賽季 (新秀),,,,,,,,,,,,,,,,2
+women,林蝶,22,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/5779,active,local,2021Rookie,本土,-,179,-,1999/08/02,世新大學,保留名單: 2021-22賽季,,,,,,,,,,,,,,,,2
+women,蘇嘉嫻,27,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/5950,active,local,2022Rookie,本土,-,175,-,1999/09/27,世新大學,保留名單: 2022-23賽季,,,,,,,,,,,,,,,,1
+women,羅培甄,35,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/658,active,local,2020Rookie,本土,-,175,-,1998/10/11,世新大學,保留名單: 2020-21賽季,,,,,,,,,,,,,,,,3
 women,彭曉彤,55,WSBL,taiyuen,https://wsbl.meetagile.com/player/oldRoster/589,active,local,,本土,-,170,-,1998/02/19,,加盟: 2017-18賽季 (新秀),,,,,,,,,,,,,,,,
 women,沈欣,,WSBL,,https://wsbl.meetagile.com/player/oldRoster/587&nocache=1701017422069,,local,,本土,G/F,161,54,1993/10/10,,,cathay,,,,,,,,,,,,,,,
 women,張欣然,,WSBL,,https://wsbl.meetagile.com/player/oldRoster/5944&nocache=1701017609886,,local,,本土,F,169,70,1998/07/09,,,power,,,,,,,,,,,,,,,
