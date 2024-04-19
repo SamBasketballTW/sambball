@@ -16,7 +16,6 @@ $(document).ready(function () {
         for (let i = 0; i < t_counts[1]; i++) teams.splice(i + t_counts[0], 0, t1_teamRank[i + 1]);
         for (let i = 0; i < t_counts[2]; i++) teams.splice(i + t_counts[0] + t_counts[1], 0, sbl_teamRank[i + 1]);
         teams.splice(0, 0, 'oversea');
-        teams.splice(teams.length, 0, 'mustangs');
 
         tableCount.innerHTML += `
         <tr class="filterTr oversea CBA-bg">
@@ -73,13 +72,20 @@ $(document).ready(function () {
                 infoCount = ""
 
                 if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
-                    is_oversea = infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT");
+                    is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
 
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
-                        infoCoach += `
-                        <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
-                            <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank_space}${gm_name[infos[4]]}</td>
-                        </tr>`
+                        if (coach_name[infos[4]] == "") {
+                            infoCoach += `
+                            <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
+                                <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${gm_name[infos[4]]}</td>
+                            </tr>`
+                        } else {
+                            infoCoach += `
+                            <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
+                                <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank_space}${gm_name[infos[4]]}</td>
+                            </tr>`
+                        }
 
                     } else {
                         if (is_oversea) {
@@ -131,8 +137,8 @@ $(document).ready(function () {
                                     <td>${infos[12]}</td>
                                     <td>${age}</td>
                                     <td class="borderR">${infos[13]}</td>
-                                    <td class="borderR" style="font-size:14px; text-align:left">${infos[14]}</td>
-                                    <td style="font-size:14px; text-align:left">${infos[15]}</td>
+                                    <td class="borderR textL" style="font-size:14px">${infos[14]}</td>
+                                    <td class="textL" style="font-size:14px">${infos[15]}</td>
                                 </tr>
                             `
                             if (is_oversea) {
@@ -193,6 +199,7 @@ $(document).ready(function () {
 
                 }
             }
+
             if (men_html) {
                 a_plg = rankArray(a_plg);
                 h_plg = rankArray(h_plg);
@@ -208,17 +215,13 @@ $(document).ready(function () {
             }
 
 
-            for (let i = 0; i < teams_info.length - 1; i++) { // -1 for mustangs
+            for (let i = 0; i < teams_info.length; i++) {
                 if (men_html) {
                     if (i == 0) {
                         avg_filter = `oversea CBA-bg`
                         age_league_rank = ``
                         height_league_rank = ``
-                    } else if (i == teams_info.length - 1) {
-                        avg_filter = `${teams_info[i][0]} ${teams_info[i][0]}-bg`
-                        age_league_rank = ``
-                        height_league_rank = ``
-                    } else {
+                    }else {
                         avg_filter = `${teams_info[i][0]} ${teams_info[i][0]}-bg`
                         if (i < 1 + t_counts[0]) {
                             temp = 'PLG'
@@ -242,12 +245,12 @@ $(document).ready(function () {
                     }
                 }
                 tableCount.innerHTML += `
-                    <tr class="filterTr ${avg_filter} showTr">
-                        <td>
-                            本土平均年齡:&nbsp;${teams_info[i][5]}&nbsp;${age_league_rank}${blank_space}
-                            本土平均身高:&nbsp;${teams_info[i][6]}&nbsp;${height_league_rank}
-                        </td>
-                    </tr>`
+                <tr class="filterTr ${avg_filter} showTr">
+                    <td>
+                        本土平均年齡:&nbsp;${teams_info[i][5]}&nbsp;${age_league_rank}${blank_space}
+                        本土平均身高:&nbsp;${teams_info[i][6]}&nbsp;${height_league_rank}
+                    </td>
+                </tr>` 
             }
 
             var dataTable = $('#rosters_tb').DataTable({
@@ -315,22 +318,22 @@ $(document).ready(function () {
                         if (window.innerWidth <= 576) {
                             info += `
                             <tr class="filterTr ${cur_team} showTr">
-                                <td style="text-align:left"><a style="text-decoration:underline; font-size:20px;">續約 / 延長</a><br>${textExtend}</td>
+                                <td class="textL"><a style="text-decoration:underline; font-size:20px;">續約 / 延長</a><br>${textExtend}</td>
                             </tr>
                             <tr class="filterTr ${cur_team} showTr">
-                                <td style="text-align:left"><a style="text-decoration:underline; font-size:20px;">加盟</a><br>${textAdd}</td>
+                                <td class="textL"><a style="text-decoration:underline; font-size:20px;">加盟</a><br>${textAdd}</td>
                             </tr>
                             <tr class="filterTr ${cur_team} showTr">
-                                <td style="text-align:left"><a style="text-decoration:underline; font-size:20px;">離隊</a><br>${textLost}</td>
+                                <td class="textL"><a style="text-decoration:underline; font-size:20px;">離隊</a><br>${textLost}</td>
                             </tr>
                             
                             `
                         } else {
                             info += `
                             <tr class="filterTr ${cur_team} showTr">
-                                <td class="borderR" style="text-align:left">${textExtend}</td>
-                                <td class="borderR" style="text-align:left">${textAdd}</td>
-                                <td style="text-align:left">${textLost}</td>
+                                <td class="borderR textL">${textExtend}</td>
+                                <td class="borderR textL">${textAdd}</td>
+                                <td class="textL">${textLost}</td>
                             </tr>`
                         }
                         cur_team = infos[1];

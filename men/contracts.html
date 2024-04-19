@@ -58,7 +58,7 @@
 		<div id="men_page" class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x: auto;">
-			<div class="col" style="width:770px;">
+			<div class="col" style="width:970px;">
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">
 					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
@@ -84,8 +84,6 @@
 					<li><a id="menu_trust" class="dropdown-item" onclick="f1('contracts_tb','trust')"></a></li>
 					<li><a id="menu_yulon" class="dropdown-item" onclick="f1('contracts_tb','yulon')"></a></li>
 					<li><a id="menu_bll" class="dropdown-item" onclick="f1('contracts_tb','bll')"></a></li>
-					<li><a class="dropdown-item" onclick="f1('contracts_tb','mustangs')">
-						<img src="../asset/images/logo_round.png" alt="all" class="teamicon">TAT 臺灣野馬</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;2023-24賽季合約: </b></a>
@@ -95,6 +93,17 @@
 					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','extension')">續留</a>
 					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','2021Draft')">21'新秀合約</a>
 					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','2022Draft')">22'新秀合約</a>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox"
+						onclick="fC('contracts_tb','team-dropdown_m','contract-btngroup', 'local')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">本土</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox"
+						onclick="fC('contracts_tb','team-dropdown_m','contract-btngroup', 'import')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">外教 / 洋將</label>
 				</div>
 
 			</div>
@@ -166,6 +175,8 @@
 				var currentBtn = document.getElementsByClassName("btn btn-light active");
 				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
 				this.className += " active";
+
+				fC('contracts_tb','team-dropdown_m','contract-btngroup');
 			});
 		}
 	</script>

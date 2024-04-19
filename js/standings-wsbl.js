@@ -45,8 +45,7 @@ $(document).ready(function () {
                 q3_ahead = [0, 0];
                 q3_behind = [0, 0];
                 q3_tied = [0, 0];
-                less3 = [0, 0];
-                more10 = [0, 0];
+                more_less = [[0, 0], [0, 0], [0, 0]];
                 lunar = [[0, 0], [0, 0]];
                 cal = [];
                 for (let i = 0; i < 12; i++) cal.push([0, 0]);
@@ -125,11 +124,12 @@ $(document).ready(function () {
                         }
 
                         if (pts - pts_a <= 3) {
-                            less3[0] += 1
+                            more_less[0][0] += 1
                         } else if (pts - pts_a >= 10) {
-                            more10[0] += 1
+                            more_less[2][0] += 1
+                        } else {
+                            more_less[1][0] += 1
                         }
-
 
                     } else if (infos[11] == team) {
                         q1 = parseInt(infos[13]);
@@ -196,11 +196,12 @@ $(document).ready(function () {
                         }
 
                         if (pts_a - pts <= 3) {
-                            less3[1] += 1
+                            more_less[0][1] += 1
                         } else if (pts_a - pts >= 10) {
-                            more10[1] += 1
+                            more_less[2][1] += 1
+                        } else {
+                            more_less[1][1] += 1
                         }
-
 
                     }
                 });
@@ -216,14 +217,12 @@ $(document).ready(function () {
                 if (ot[0] + ot[1] == 0) ot = ['', ''];
                 if (q2_tied[0] + q2_tied[1] == 0) q2_tied = ['', ''];
                 if (q3_tied[0] + q3_tied[1] == 0) q3_tied = ['', ''];
-                if (less3[0] + less3[1] == 0) less3 = ['', ''];
-                if (more10[0] + more10[1] == 0) more10 = ['', ''];
 
 
                 table_overall.innerHTML += `
                 <tr>
                     <td class="borderR">${i + 1}</td>
-                    <td style="text-align:left">
+                    <td class="textL">
                         <img src="../asset/images/women/${team}.png" alt="${team}" class="teamicon">
                         <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
@@ -244,7 +243,7 @@ $(document).ready(function () {
                 table_points.innerHTML += `
                 <tr>
                     <td class="borderR">${i + 1}</td>
-                    <td style="text-align:left">
+                    <td class="textL">
                         <img src="../asset/images/women/${team}.png" alt="${team}" class="teamicon">
                         <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
@@ -268,7 +267,7 @@ $(document).ready(function () {
                 table_ahead.innerHTML += `
                 <tr>
                     <td class="borderR">${i + 1}</td>
-                    <td style="text-align:left">
+                    <td class="textL">
                         <img src="../asset/images/women/${team}.png" alt="${team}" class="teamicon">
                         <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>
@@ -282,8 +281,9 @@ $(document).ready(function () {
                     <td>${q3_ahead[0]}-${q3_ahead[1]}</td>
                     <td>${q3_behind[0]}-${q3_behind[1]}</td>
                     <td class="borderR">${q3_tied[0]}-${q3_tied[1]}</td>
-                    <td>${less3[0]}-${less3[1]}</td>
-                    <td>${more10[0]}-${more10[1]}</td>
+                    <td>${more_less[0][0]}-${more_less[0][1]}</td>
+                    <td>${more_less[1][0]}-${more_less[1][1]}</td>
+                    <td>${more_less[2][0]}-${more_less[2][1]}</td>
                 </tr>`
 
                 match_standings = ""
@@ -298,7 +298,7 @@ $(document).ready(function () {
                 <tbody>
                     <tr>
                         <td class="borderR">${i + 1}</td>
-                        <td style="text-align:left">
+                        <td class="textL">
                             <img src="../asset/images/women/${team}.png" alt="${team}" class="teamicon">
                             <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                         </td>
@@ -313,7 +313,7 @@ $(document).ready(function () {
                 table_calendar.innerHTML += `
                 <tr>
                     <td class="borderR">${i + 1}</td>
-                    <td style="text-align:left">
+                    <td class="textL">
                         <img src="../asset/images/women/${team}.png" alt="${team}" class="teamicon">
                         <b>${short_teamName[team]}<a style="font-size:12px">${playoff[team]}</a></b>
                     </td>

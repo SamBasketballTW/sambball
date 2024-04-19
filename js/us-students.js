@@ -33,7 +33,7 @@ $(document).ready(function () {
                     <tr class="filterTr ${filter} showTr">
                         <td class="borderR">${infos[2]}</td>
                         <td class="borderR">${infos[3]}</td>
-                        <td class="borderR" style="text-align:left">
+                        <td class="borderR textL">
                             <a href="https://www.instagram.com/${infos[4]}/" target="_blank">
                             <i class="bi bi-instagram"></i> ${infos[4]}</a>
                         </td>

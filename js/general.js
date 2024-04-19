@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.17</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.18 - 16:30</b>`
 
     if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
@@ -131,9 +131,9 @@ playoff = {
     "bll": "- o",
 
     "cathay": "- c",
-    "taiyuen": "- c",
     "power": "",
-    "telecom": ""
+    "telecom": "",
+    "taiyuen": "- f"
 }
 coach_name = {
     "braves": "",
@@ -151,7 +151,6 @@ coach_name = {
     "trust": "",
     "yulon": "",
     "bll": "",
-    "mustangs": " Chris Gavina",
 
     "cathay": "",
     "power": "",
@@ -175,7 +174,6 @@ gm_name = {
     "trust": "",
     "yulon": "",
     "bll": "",
-    "mustangs":"GM: 周映洲",
 
     "cathay": "",
     "power": "",
@@ -210,7 +208,6 @@ order = {
     "trust": 32,
     "yulon": 33,
     "bll": 34,
-    "mustangs":35,
 
     "WCBA": 1,
     "WKBL": 2,
@@ -239,7 +236,6 @@ cn_teamName = {
     "trust": "臺灣銀行",
     "yulon": "裕隆納智捷",
     "bll": "彰化柏力力",
-    "mustangs":"臺灣野馬",
 
     "cathay": "國泰人壽",
     "taiyuen": "台元紡織",

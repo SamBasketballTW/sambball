@@ -33,17 +33,11 @@ a:hover{
 	color: black;
 }
 
-.borderL{
-	border-left: 3px solid black;
-}
 .borderR{
 	border-right: 3px solid black;
 }
-.borderT{
-	border-top: 3px solid black;
-}
-.borderB{
-	border-bottom: 3px solid black;
+.textL{
+	text-align: left;
 }
 
 /* table settings */

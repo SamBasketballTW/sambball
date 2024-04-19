@@ -7,7 +7,7 @@ men,oversea,extend,陳盈駿 (續約 3 年)
 men,oversea,extend,林庭謙 (續約 3 年)
 men,oversea,extend,劉錚 (續約 1 年)
 men,oversea,fa,劉駿霆 (日本 B2. LEAGUE)
-men,oversea,fa,林胤軒 (The Asian Tournament)
+men,oversea,fa,林胤軒 (TAT 東海海盜)
 men,oversea,draft,林彥廷 (CBA 總順位: 3)
 men,braves,fa,吳永盛
 men,braves,fa,伊波卡 (已離隊)
@@ -27,7 +27,7 @@ men,braves,import lost,梅克 Matur Maker
 men,braves,import lost,沛登 Justin Patton
 men,braves,import lost,賽爾登 Wayne Selden Jr.
 men,kings,extend,簡祐哲 (提前續約)
-men,kings,extend,洪志善 (續約)
+men,kings,extend,洪志善 (續約 2 年)
 men,kings,extend,陳俊男 (提前續約)
 men,kings,extend,林力仁 (續約)
 men,kings,fa,王柏智
@@ -298,8 +298,6 @@ men,bll,lost,朱恩麟
 men,bll,lost,邱家佑
 men,bll,lost,莊又齊
 men,bll,import,葛萊斯 Tevin Glass
-men,mustangs,import,德古拉 Samuel Deguara
-men,mustangs,import,卡巴諾特 Alex Cabagnot (亞外)
 men,herobears,lost,黃鎮 (合併至 雲豹)
 men,herobears,lost,黃聰翰 (合併至 雲豹)
 men,herobears,lost,蔣淯安 (合併至 雲豹)
@@ -327,8 +325,8 @@ men,suns,lost,董永全 (加盟 SBL台啤)
 men,suns,lost,曾品富 (加盟 SBL台啤)
 men,suns,lost,楊承翰 (加盟 SBL裕隆)
 men,suns,lost,林明毅 (加盟 SBL裕隆)
+men,suns,lost,金德偉 (加盟 TAT香港梵塔黑龍)
 men,suns,lost,高孟偉
-men,suns,lost,金德偉
 men,suns,lost,戴瑞騰
 men,suns,lost,溫立煌
 men,suns,lost,李明修

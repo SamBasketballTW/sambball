@@ -23,7 +23,7 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender & infos[6] == "active") {
-                    is_oversea = infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL" & infos[3] != "TAT");
+                    is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
                     is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
                     is_import = (infos[9] == "洋將" | infos[9] == "亞外");
 
@@ -42,11 +42,6 @@ $(document).ready(function () {
                         bg = `${infos[3]}-bg`;
                         team_order = order[infos[3]];
                         team_name = `${infos[3]} ${infos[4]}`;
-                    } else if (infos[4] == "mustangs"){
-                        filter = infos[4];
-                        bg = `${infos[4]}-bg`;
-                        team_order = order[infos[4]];
-                        team_name = `${infos[3]} ${cn_teamName[infos[4]]}`;
                     } else {
                         filter = infos[4];
                         bg = `${infos[4]}-bg`;
@@ -84,7 +79,7 @@ $(document).ready(function () {
                             <td>${infos[12]}</td>
                             <td>${age}</td>
                             <td class="borderR">${infos[13]}</td>
-                            <td class="borderR" style="text-align:left">${infos[14]}</td>
+                            <td class="borderR textL">${infos[14]}</td>
                             <td>${infos[16]}</td>
                             
                         </tr>`

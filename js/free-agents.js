@@ -22,7 +22,7 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender) {
-                    is_oversea = infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL");
+                    is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
 
                     if (infos[17] != "") {
                         const birthday = new Date(infos[13]);
