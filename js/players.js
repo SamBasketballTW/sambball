@@ -22,68 +22,38 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[0] == gender & infos[6] == "active") {
-                    is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
-                    is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
-                    is_import = (infos[9] == "洋將" | infos[9] == "亞外");
-
-
-                    const birthday = new Date(infos[13]);
-                    const today = new Date();
-                    const diff = today - birthday
-                    const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-
-                    number = infos[2];
-                    if (infos[2] == "00") number = 100;
-
-                    if (is_oversea) {
-                        is_local = true;
-                        filter = "oversea";
-                        bg = `${infos[3]}-bg`;
-                        team_order = order[infos[3]];
-                        team_name = `${infos[3]} ${infos[4]}`;
+                if (infos[0] == gender & infos[6] == "active" & infos[7] != "headCoach" & infos[7] != "coach") {
+                    if (infos[16] == ""){
+                        filter = ""
                     } else {
-                        filter = infos[4];
-                        bg = `${infos[4]}-bg`;
-                        team_order = order[infos[4]];
-                        team_name = `
-                        <img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
-                        <b>${cn_teamName[infos[4]]}</b>`
-
-                        if( infos[4] == "fa"){
-                            team_name = cn_teamName[infos[4]];
-                            infos[16] = `${infos[3]} ${short_teamName[infos[16]]}`
-                        }
+                        filter = "change"
+                    }
+                    if (infos[4] == "fa"){
+                        infos[16] = `${infos[3]} ${short_teamName[infos[16]]}`
                     }
 
-                    if (infos[16] != "") filter += " change";
-
-                    if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊" | infos[4] == "fa") {
-                        if( infos[9] == "註銷" | infos[9] == "未註冊" ){
-                            if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
-                                infos[9] = `洋將`;
-                            }else if(infos[1] == "海登"){
-                                infos[9] = `亞外`;
-                            }
-                        }
-                        
-
-                        info += `
-                        <tr class="filterTr ${filter} ${infos[7]} ${infos[8]} showTr">
-                            <td class="borderR ${bg}" data-order=${team_order}>${team_name}</td>
-                            <td class="borderR" data-order=${number}>${infos[2]}</td>
-                            <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
-                            <td data-order=${order[infos[9]]}>${infos[9]}</td>
-                            <td>${infos[10]}</td>
-                            <td>${infos[11]}</td>
-                            <td>${infos[12]}</td>
-                            <td>${age}</td>
-                            <td class="borderR">${infos[13]}</td>
-                            <td class="borderR textL">${infos[14]}</td>
-                            <td>${infos[16]}</td>
-                            
-                        </tr>`
+                    if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
+                        infos[9] = `洋將`;
+                    }else if(infos[1] == "海登"){
+                        infos[9] = `亞外`;
                     }
+
+                    info += `
+                    <tr class="filterTr ${filter_team(infos[3], infos[4])} ${infos[7]} ${infos[8]} ${filter} showTr">
+                        <td class="borderR ${bg_team(infos[3], infos[4])}" data-order=${team_order(infos[3], infos[4])}>
+                            ${full_image_team(gender, infos[3], infos[4])}
+                        </td>
+                        <td class="borderR" data-order=${num_order(infos[2])}>${infos[2]}</td>
+                        <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
+                        <td data-order=${order[infos[9]]}>${infos[9]}</td>
+                        <td>${infos[10]}</td>
+                        <td>${infos[11]}</td>
+                        <td>${infos[12]}</td>
+                        <td>${age(infos[13])}</td>
+                        <td class="borderR">${infos[13]}</td>
+                        <td class="borderR textL">${infos[14]}</td>
+                        <td>${infos[16]}</td>                
+                    </tr>`
                 }
 
 

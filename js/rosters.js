@@ -71,77 +71,69 @@ $(document).ready(function () {
                 infoCoach = ""
                 infoCount = ""
 
-                if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
-                    is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
+                if (window.innerWidth <= 576) {
+                    blank_space = `<br>`
+                } else {
+                    blank_space = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
 
+                if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
-                        if (coach_name[infos[4]] == "") {
-                            infoCoach += `
-                            <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
-                                <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${gm_name[infos[4]]}</td>
-                            </tr>`
-                        } else {
-                            infoCoach += `
-                            <tr class="filterTr ${infos[4]} ${infos[4]}-bg showTr">
-                                <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank_space}${gm_name[infos[4]]}</td>
-                            </tr>`
-                        }
+                        if (window.innerWidth <= 576 & coach_name[infos[4]] == "") blank_space = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+
+                        infoCoach += `
+                        <tr class="filterTr ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])} showTr">
+                            <td>${infos[9]}: ${infos[1]}${coach_name[infos[4]]}${blank_space}${gm_name[infos[4]]}</td>
+                        </tr>`
 
                     } else {
-                        if (is_oversea) {
+                        if (is_oversea(infos[3])) {
                             team_index = 0;
-                            is_local = infos[7] == "local";
-                            is_import = infos[7] != "local";
+                            is_local = 1;
+                            is_import = identity(infos[9]) == "import";
                         } else {
                             team_index = findIndex(teams, infos[4]);
-                            is_local = (infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | infos[9] == "特案外籍生");
-                            is_import = (infos[9] == "洋將" | infos[9] == "亞外");
+                            is_local = identity(infos[9]) == "local";
+                            is_import = identity(infos[9]) == "import";
                         }
 
-                        const birthday = new Date(infos[13]);
-                        const today = new Date();
-                        const diff = today - birthday
-                        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-
                         if (is_local) {
-                            teams_info[team_index][1] += age;
+                            teams_info[team_index][1] += age(infos[13]);
                             teams_info[team_index][2] += parseInt(infos[11]);
                             teams_info[team_index][3] += 1;
                         } else if (is_import) {
                             teams_info[team_index][4] += 1;
                         }
 
-                        number = infos[2];
-                        if (infos[2] == "00") number = 100;
-
                         if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
-                            filter = `${infos[4]} ${infos[4]}-bg`;
-                            oversea_team = "";
-                            id_color = `${infos[9]}`;
+                            if (is_oversea(infos[3])) {
+                                oversea_team = `<td class="borderR">${full_team(infos[3], infos[4])}</td>`;
+                            } else {
+                                oversea_team = ""
+                            }
 
-                            if (is_oversea) {
-                                filter = `oversea ${infos[3]}-bg`;
-                                oversea_team = `<td class="borderR">${infos[3]} ${infos[4]}</td>`;
-                            } else if (infos[9] == "註銷" | infos[9] == "未註冊") {
+                            if (infos[9] == "註銷" | infos[9] == "未註冊") {
                                 id_color = `<a style="color:white">${infos[9]}</a>`
+                            } else {
+                                id_color = `${infos[9]}`
                             }
 
                             tempInfo = `
-                                <tr class="filterTr ${filter} showTr" style="font-size:15px">
+                                <tr class="filterTr ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])} showTr" style="font-size:15px">
                                     ${oversea_team}
-                                    <td class="borderR" data-order="${number}">${infos[2]}</td>
+                                    <td class="borderR" data-order="${num_order(infos[2])}">${infos[2]}</td>
                                     <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>             
                                     <td data-order=${order[infos[9]]}>${id_color}</td>
                                     <td>${infos[10]}</td>
                                     <td>${infos[11]}</td>
                                     <td>${infos[12]}</td>
-                                    <td>${age}</td>
+                                    <td>${age(infos[13])}</td>
                                     <td class="borderR">${infos[13]}</td>
                                     <td class="borderR textL" style="font-size:14px">${infos[14]}</td>
                                     <td class="textL" style="font-size:14px">${infos[15]}</td>
                                 </tr>
                             `
-                            if (is_oversea) {
+                            if (is_oversea(infos[3])) {
                                 infoOversea += tempInfo;
                             } else {
                                 info += tempInfo;

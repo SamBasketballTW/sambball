@@ -3,10 +3,8 @@ $(document).ready(function () {
 	women_html = document.getElementById("women_page");
 
 	if (men_html) {
-		team_dropdown = 'team-dropdown_m';
 		gender = "men"
 	} else if (women_html) {
-		team_dropdown = 'team-dropdown_w';
 		gender = "women"
 	}
 
@@ -40,40 +38,6 @@ $(document).ready(function () {
 				table.innerHTML += info;
 			});
 
-			var drafts = document.getElementById("draft_dropdown").getElementsByClassName("dropdown-item");
-			var teams = document.getElementById(team_dropdown).getElementsByClassName("dropdown-item");
-			var draftbtn = document.getElementById("draftbtn");
-			var teambtn = document.getElementById("teambtn");
-
-			for (let i = 0; i < drafts.length; i++) {
-				drafts[i].addEventListener("click", function () {
-					currentDraft = document.getElementById("draft_dropdown").getElementsByClassName("active");
-					if (currentDraft.length != 0 ) currentDraft[0].className = currentDraft[0].className.replace(" active", "");
-
-					currentTeam = document.getElementById(team_dropdown).getElementsByClassName("dropdown-item active");
-					if (currentTeam.length != 0 ) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-
-					this.className += " active";
-					draftbtn.innerHTML = this.innerHTML;
-					teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
-
-				});
-			}
-
-			for (let i = 0; i < teams.length; i++) {
-				teams[i].addEventListener("click", function () {
-					currentTeam = document.getElementById(team_dropdown).getElementsByClassName("active");
-					if(currentTeam.length != 0) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-
-					currentDraft = document.getElementById("draft_dropdown").getElementsByClassName("active");
-					if (currentDraft.length != 0 ) currentDraft[0].className = currentDraft[0].className.replace(" active", "");
-
-					this.className += " active";
-					teambtn.innerHTML = this.innerHTML;
-					draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
-
-				});
-			}
 			if (men_html) {
 				document.getElementById('draft_dropdown').getElementsByClassName('dropdown-item')[2].click();
 			} else if (women_html) {

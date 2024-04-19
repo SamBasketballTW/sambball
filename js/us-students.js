@@ -55,6 +55,8 @@ $(document).ready(function () {
                 }
             });
 
-            document.getElementById('us-btngroup').getElementsByClassName('btn')[1].click();
+            if(men_html){
+                document.getElementById('us-btngroup').getElementsByClassName('btn')[1].click();
+            }
         });
 });

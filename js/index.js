@@ -113,19 +113,13 @@ $(document).ready(function () {
 				}
 
 				if (infos[6] == "active") {
-					const birthday = new Date(infos[13]);
-					const diff = today - birthday
-					const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+					birthday = new Date(infos[13]);
 
 					if (birthday.getDate() == today.getDate() && birthday.getMonth() == today.getMonth()) {
-						team_name = cn_teamName[infos[4]];
-						if (infos[1] == "林胤軒" | (infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL")) {
-							team_name = `${infos[3]} ${infos[4]}`;
-						}
 						if (count == 0) {
-							text += `今天是 ${team_name}-${infos[1]} ${age}歲生日`
+							text += `今天是 ${full_team(infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`
 						} else {
-							text += `、${team_name}-${infos[1]} ${age}歲生日`;
+							text += `、${full_team(infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`;
 						}
 						count += 1;
 					}

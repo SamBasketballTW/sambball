@@ -21,36 +21,27 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[0] == gender) {
-                    is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
-
-                    if (infos[17] != "") {
-                        const birthday = new Date(infos[13]);
-                        const today = new Date();
-                        const diff = today - birthday
-                        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-
-                        if (is_oversea) {
-                            team_name = `${infos[3]} ${infos[16]}`;
-                            team_order = order[infos[3]];
-                        } else {
-                            team_name = cn_teamName[infos[16]];
-                            team_order = order[infos[16]];
-                        }
-
-                        info += `
-                            <tr>
-                                <td><a style="text-decoration:underline; color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
-                                <td>${infos[10]}</td>
-                                <td>${age}</td>
-                                <td class="borderR">${infos[11]}</td>
-                                <td>${infos[17]}</td>
-                                <td class="${infos[16]}-bg borderR" data-order="${team_order}">${team_name}</td>
-                                <td>${infos[18]}</td>
-                                <td>${infos[19]}</td>
-                                <td>${infos[20]}</td>                
-                            </tr>`
+                if (infos[0] == gender & infos[17] != "") {
+                    if(infos[4] == "fa") {
+                        team = infos[16]
+                    } else if(infos[6] == "active"){
+                        team = infos[4]
+                    } else {
+                        team = infos[16]
                     }
+
+                    info += `
+                    <tr>
+                        <td><a style="text-decoration:underline; color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
+                        <td>${infos[10]}</td>
+                        <td>${age(infos[13])}</td>
+                        <td class="borderR">${infos[11]}</td>
+                        <td>${infos[17]}</td>
+                        <td class="${bg_team(infos[3], team)} borderR" data-order="${team_order(infos[3], team)}">${full_team(infos[3], team)}</td>
+                        <td>${infos[18]}</td>
+                        <td>${infos[19]}</td>
+                        <td>${infos[20]}</td>                
+                    </tr>`
                 }
 
                 table.innerHTML += info;

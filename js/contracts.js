@@ -22,26 +22,14 @@ $(document).ready(function () {
 				info = ""
 
 				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa" & infos[7] != "coach") {
-					is_oversea = infos[3] != "PLG" & infos[3] != "T1" & infos[3] != "SBL" & infos[3] != "WSBL";
+					filter = `${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}`;
 
-					if (is_oversea) {
-						filter = `oversea local ${infos[3]}-bg`
-						cn_team_name = `${infos[3]} ${infos[4]}`;
-					}else {
-						filter = `${infos[4]} ${infos[4]}-bg`;
-						cn_team_name = `
-						<img src="../asset/images/${gender}/${infos[4]}.png" alt="${infos[4]}" class="teamicon">
-							<b>${short_teamName[infos[4]]}</b>`
-					}
-
-					if (infos[7] == "import"){
-						filter += ` import`
-					}else if (is_oversea | infos[9] == "本土" | infos[9] == "華裔" | infos[9] == "外籍生" | coach_name[infos[1]]) {
-						filter += ` local`
+					if (is_oversea(infos[3]) | identity(infos[9]) == "local") {
+						filter = ` local`
 					}else if (coach_name[infos[4]] == "") {
-						filter += ` local`
+						filter = ` local`
 					}else {
-						filter += ' import'
+						filter = ' import'
 					}
 
 					url = ""
@@ -54,8 +42,8 @@ $(document).ready(function () {
 					}
 
 					info += `
-						<tr class="filterTr ${filter} ${infos[21]} ${infos[22]} ${infos[23]} showTr">
-							<td class="borderR">${cn_team_name}</td>
+						<tr class="filterTr ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]} showTr">
+							<td class="borderR">${short_team(gender, infos[3], infos[4])}</td>
 							<td class="borderR">${infos[2]}</td>
 							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
 							<td>${infos[23]}</td>
