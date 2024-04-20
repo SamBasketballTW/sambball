@@ -61,7 +61,7 @@
 			<div class="col" style="width:970px;">
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">
-					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
 				</button>
 				<ul id="team-dropdown_m" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f1('contracts_tb','all')">
@@ -86,23 +86,27 @@
 					<li><a id="menu_bll" class="dropdown-item" onclick="f1('contracts_tb','bll')"></a></li>
 				</ul>
 
-				<a><b>&nbsp;&nbsp;2023-24賽季合約: </b></a>
-				<div id="contract-btngroup" class="btn-group">
-					<a class="btn btn-light active" onclick="f2('team-dropdown_m','contracts_tb','all')">全部</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','1y')">剩1年</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','extension')">續留</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','2021Draft')">21'新秀合約</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','contracts_tb','2022Draft')">22'新秀合約</a>
-				</div>
+				<a><b>&nbsp;&nbsp;2023-24賽季: </b></a>
+				<button id="contractbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:160px">全部合約
+				</button>
+				<ul id="contract-dropdown" class="dropdown-menu">
+					<li><a class="dropdown-item active" onclick="f2('team-dropdown_m','contracts_tb','all')">全部合約</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','1y')">剩1年</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','extension')">續留</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','2021Draft')">21'新秀合約</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','2022Draft')">22'新秀合約</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','2023Draft')">23'新秀合約</a></li>
+				</ul>
 
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="fC('contracts_tb','team-dropdown_m','contract-btngroup', 'local')" checked>
+						onclick="fC('contracts_tb','team-dropdown_m','contract-dropdown', 'local')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">本土</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="fC('contracts_tb','team-dropdown_m','contract-btngroup', 'import')" checked>
+						onclick="fC('contracts_tb','team-dropdown_m','contract-dropdown', 'import')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">外教 / 洋將</label>
 				</div>
 
@@ -155,28 +159,30 @@
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
 		var teams = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item");
-		var btns = document.getElementById("contract-btngroup").getElementsByClassName("btn");
+		var contracts = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item");
 		var teambtn = document.getElementById("teambtn");
+		var contractbtn = document.getElementById("contractbtn");
 
 		for (let i = 0; i < teams.length; i++) {
 			teams[i].addEventListener("click", function () {
-				var currentTeam = document.getElementsByClassName("dropdown-item active");
+				var currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item active");
 				currentTeam[0].className = currentTeam[0].className.replace(" active", "");
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				var currentBtn = document.getElementsByClassName("btn btn-light active");
-				currentBtn[0].click();
+				var currentContract = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item active");
+				currentContract[0].click();
 			});
 		}
 
-		for (let i = 0; i < btns.length; i++) {
-			btns[i].addEventListener("click", function () {
-				var currentBtn = document.getElementsByClassName("btn btn-light active");
-				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+		for (let i = 0; i < contracts.length; i++) {
+			contracts[i].addEventListener("click", function () {
+				var currentContract = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item active");
+				currentContract[0].className = currentContract[0].className.replace(" active", "");
 				this.className += " active";
+				contractbtn.innerHTML = this.innerHTML;
 
-				fC('contracts_tb','team-dropdown_m','contract-btngroup');
+				fC('contracts_tb','team-dropdown_m','contract-dropdown');
 			});
 		}
 	</script>

@@ -7,37 +7,32 @@ function is_oversea(league, team) {
 function identity(id) {
 	if(id == "本土" | id == "華裔" | id == "外籍生" | id == "特案外籍生") {
 		return "local"
-	}else if(id == "洋將" | id == "亞外") {
+	} else if (id == "洋將" | id == "亞外") {
 		return "import"
-	}else {
-		return "coach"
+	} else {
+		return "unknown"
 	}
 }
-function full_image_team(gender, league, team) {
+
+function team_name(value, league, team, gender = "") {
+	if(value == "full"){
+		teamName = cn_teamName[team];
+	}else if(value == "short"){
+		teamName = short_teamName[team];
+	}
+	
 	if (is_oversea(league)) {
 		return `${league} ${team}`
 	} else if(team == "fa") {
-		return `${cn_teamName[team]}`
-	} else {
+		return teamName
+	} else if(gender != "") {
 		return `<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon">
-			<b>${cn_teamName[team]}</b>`
-	}
-}
-function full_team(league, team) {
-	if (is_oversea(league)) {
-		return `${league} ${team}`
+			<b>${teamName}</b>`
 	} else {
-		return cn_teamName[team]
+		return teamName
 	}
 }
-function short_team(gender, league, team) {
-	if (is_oversea(league)) {
-		return `${league} ${team}`
-	} else {
-		return `<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon">
-			<b>${short_teamName[team]}</b>`
-	}
-}
+
 function filter_team(league, team) {
 	if (is_oversea(league)) {
 		return `oversea`

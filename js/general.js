@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.19</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.20</b>`
 
     if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
             document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
-        } else if (window.innerWidth > 450) {
+        } else {
             document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
         }
     }
@@ -121,9 +121,9 @@ playoff = {
     "dreamers": "",
     "steelers": "- o",
     "dea": "- x",
-    "mars": "",
+    "mars": "- x",
     "leopards": "- x",
-    "ghosthawks": "",
+    "ghosthawks": "- o",
     "aquas": "- x",
     "beer": "- f",
     "trust": "- c",

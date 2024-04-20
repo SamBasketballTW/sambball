@@ -26,10 +26,12 @@ $(document).ready(function () {
 
 					if (is_oversea(infos[3]) | identity(infos[9]) == "local") {
 						filter = ` local`
-					}else if (coach_name[infos[4]] == "") {
+					} else if (identity(infos[9]) == "import" | infos[7] == "import" | infos[1] == "阿拉薩"){
+						filter = ` import`
+					} else if (coach_name[infos[4]] == "") {
 						filter = ` local`
-					}else {
-						filter = ' import'
+					} else {
+						filter = ` import`
 					}
 
 					url = ""
@@ -43,7 +45,7 @@ $(document).ready(function () {
 
 					info += `
 						<tr class="filterTr ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]} showTr">
-							<td class="borderR">${short_team(gender, infos[3], infos[4])}</td>
+							<td class="borderR">${team_name("short", infos[3], infos[4], gender)}</td>
 							<td class="borderR">${infos[2]}</td>
 							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
 							<td>${infos[23]}</td>

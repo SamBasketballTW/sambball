@@ -29,7 +29,7 @@ $(document).ready(function () {
                         filter = "change"
                     }
                     if (infos[4] == "fa"){
-                        infos[16] = `${infos[3]} ${short_teamName[infos[16]]}`
+                        infos[16] = `${infos[3]} ${team_name("short", infos[3], infos[16])}`
                     }
 
                     if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
@@ -41,7 +41,7 @@ $(document).ready(function () {
                     info += `
                     <tr class="filterTr ${filter_team(infos[3], infos[4])} ${infos[7]} ${infos[8]} ${filter} showTr">
                         <td class="borderR ${bg_team(infos[3], infos[4])}" data-order=${team_order(infos[3], infos[4])}>
-                            ${full_image_team(gender, infos[3], infos[4])}
+                            ${team_name("full", infos[3], infos[4], gender)}
                         </td>
                         <td class="borderR" data-order=${num_order(infos[2])}>${infos[2]}</td>
                         <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>

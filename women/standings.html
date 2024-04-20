@@ -57,13 +57,16 @@
         <div class="container-lg" style="overflow-x:auto">
 			<div class="col" style="width:490px">
 				<a><b>&nbsp;&nbsp;戰績篩選: </b></a>
-				<div id="standings-btngroup" class="btn-group">
-					<a class="btn btn-light active">綜合</a>
-					<a class="btn btn-light">球隊得分</a>
-					<a class="btn btn-light">領先 / 落後</a>
-					<a class="btn btn-light">對戰組合</a>
-					<a class="btn btn-light">月份</a>
-				</div>
+				<button id="standingbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:160px">綜合戰績
+				</button>
+				<ul id="standing-dropdown" class="dropdown-menu">
+					<li><a class="dropdown-item active">綜合戰績</a></li>
+                    <li><a class="dropdown-item">球隊得分</a></li>
+                    <li><a class="dropdown-item">領先 / 落後</a></li>
+					<li><a class="dropdown-item">對戰組合</a></li>
+					<li><a class="dropdown-item">月份</a></li>
+				</ul>
 			</div>
 		</div>
 
@@ -183,30 +186,28 @@
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
-		var btns = document.getElementById("standings-btngroup").getElementsByClassName("btn");
+		var standings = document.getElementById("standing-dropdown").getElementsByClassName("dropdown-item");
+		var standingbtn = document.getElementById("standingbtn");
         var tables = document.getElementsByClassName("filterTb");
 
-		for (var i = 0; i < btns.length; i++) {
-			btns[i].addEventListener("click", function () {
-				currentBtn = document.getElementsByClassName("btn btn-light active");
-				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+		for (var i = 0; i < standings.length; i++) {
+			standings[i].addEventListener("click", function () {
+				currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
+				currentStanding[0].className = currentStanding[0].className.replace(" active", "");
 				this.className += " active";
+				standingbtn.innerHTML = this.innerHTML;
 
                 var currentTable = document.getElementsByClassName("showTb");
-                if(this.innerHTML.includes("綜合")){
-                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+				currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                if(this.innerHTML == standings[0].innerHTML){
                     tables[0].className += " showTb";
-					} else if (this.innerHTML.includes("球隊得分")){
-                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+				} else if (this.innerHTML == standings[1].innerHTML){
                     tables[1].className += " showTb";
-                } else if (this.innerHTML.includes("領先")){
-                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                } else if (this.innerHTML == standings[2].innerHTML){
                     tables[2].className += " showTb";
-                } else if (this.innerHTML.includes("對戰組合")){
-                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                } else if (this.innerHTML == standings[3].innerHTML){
                     tables[3].className += " showTb";
-                } else if (this.innerHTML.includes("月份")){
-                    currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+                } else if (this.innerHTML == standings[4].innerHTML){
                     tables[4].className += " showTb";
 				}
 			});

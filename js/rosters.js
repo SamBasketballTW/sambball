@@ -107,7 +107,7 @@ $(document).ready(function () {
 
                         if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
                             if (is_oversea(infos[3])) {
-                                oversea_team = `<td class="borderR">${full_team(infos[3], infos[4])}</td>`;
+                                oversea_team = `<td class="borderR">${team_name("full", infos[3], infos[4])}</td>`;
                             } else {
                                 oversea_team = ""
                             }

@@ -37,7 +37,7 @@ $(document).ready(function () {
                         <td>${age(infos[13])}</td>
                         <td class="borderR">${infos[11]}</td>
                         <td>${infos[17]}</td>
-                        <td class="${bg_team(infos[3], team)} borderR" data-order="${team_order(infos[3], team)}">${full_team(infos[3], team)}</td>
+                        <td class="${bg_team(infos[3], team)} borderR" data-order="${team_order(infos[3], team)}">${team_name("full", infos[3], team)}</td>
                         <td>${infos[18]}</td>
                         <td>${infos[19]}</td>
                         <td>${infos[20]}</td>                

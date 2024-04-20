@@ -73,11 +73,18 @@
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球員篩選: </b></a>
-				<div id="other-btngroup" class="btn-group">
-					<a class="btn btn-light active" onclick="f2('team-dropdown_w','players_tb','all')">全部球員</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_w','players_tb','change')">換隊球員</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_w','players_tb','2023Rookie')">2023'新秀</a>
-				</div>
+				<button id="playerbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:160px">全部球員
+				</button>
+				<ul id="player-dropdown" class="dropdown-menu">
+					<li><a class="dropdown-item active" onclick="f2('team-dropdown_w','players_tb','all')">全部球員</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','change')">換隊球員</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2023Rookie')">2024'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2022Rookie')">2023'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2021Rookie')">2022'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2020Rookie')">2021'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2019Rookie')">2020'新秀</a></li>
+				</ul>
 
 				<div class="col" style="width:390px; padding-top:3px;">
 
@@ -87,17 +94,17 @@
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox"
-							onclick="fC('players_tb','team-dropdown_w','other-btngroup', 'local')" checked>
+							onclick="fC('players_tb','team-dropdown_w','player-dropdown', 'local')" checked>
 						<label class="form-check-label" for="inlineCheckbox1">本土</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox"
-							onclick="fC('players_tb','team-dropdown_w','other-btngroup', 'taiwanese')" checked>
+							onclick="fC('players_tb','team-dropdown_w','player-dropdown', 'taiwanese')" checked>
 						<label class="form-check-label" for="inlineCheckbox1">華裔</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox"
-							onclick="fC('players_tb','team-dropdown_w','other-btngroup', 'import')" checked>
+							onclick="fC('players_tb','team-dropdown_w','player-dropdown', 'import')" checked>
 						<label class="form-check-label" for="inlineCheckbox1">洋將</label>
 					</div>
 
@@ -140,8 +147,9 @@
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
 		var teams = document.getElementById("team-dropdown_w").getElementsByClassName("dropdown-item");
-		var btns = document.getElementById("other-btngroup").getElementsByClassName("btn");
+		var players = document.getElementById("player-dropdown").getElementsByClassName("dropdown-item");
 		var teambtn = document.getElementById("teambtn");
+		var playerbtn = document.getElementById("playerbtn");
 
 		for (let i = 0; i < teams.length; i++) {
 			teams[i].addEventListener("click", function () {
@@ -150,17 +158,18 @@
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				btns[0].click();
+				players[0].click();
 			});
 		}
 
-		for (let i = 0; i < btns.length; i++) {
-			btns[i].addEventListener("click", function () {
-				var currentBtn = document.getElementsByClassName("btn btn-light active");
-				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+		for (let i = 0; i < players.length; i++) {
+			players[i].addEventListener("click", function () {
+				var currentPlayer = document.getElementById("player-dropdown").getElementsByClassName("active");
+				currentPlayer[0].className = currentPlayer[0].className.replace(" active", "");
 				this.className += " active";
+				playerbtn.innerHTML = this.innerHTML;
 
-				fC('players_tb', 'team-dropdown_w', 'other-btngroup');
+				fC('players_tb', 'team-dropdown_w', 'player-dropdown');
 			});
 		}
 
@@ -170,7 +179,7 @@
 
 		checkSwitch.addEventListener('change', () => {
 			checkboxes.forEach(checkbox => checkbox.checked = checkSwitch.checked);
-			fC('players_tb', 'team-dropdown_w', 'other-btngroup');
+			fC('players_tb', 'team-dropdown_w', 'player-dropdown');
 		});
 	</script>
 

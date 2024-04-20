@@ -22,14 +22,14 @@ $(document).ready(function () {
 				info = ""
 
 				if (infos[0] == gender) {
-					team_name = infos[5];
-					if (infos[5] == "") team_name = cn_teamName[infos[4]];
+					teamName = infos[5];
+					if (infos[5] == "") teamName = cn_teamName[infos[4]];
 
 					info += `
 					<tr class="filterTr ${infos[1]}${infos[2]} ${infos[4]} showTr">	
 						<td class="borderR">${infos[1]} ${infos[2].toUpperCase()} 選秀大會</td>
 						<td class="borderR">${infos[3]}</td>
-						<td class="borderR">${team_name}</td>
+						<td class="borderR">${teamName}</td>
 						<td>${infos[6]}</td>
 					</tr>
 					`

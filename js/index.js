@@ -117,9 +117,9 @@ $(document).ready(function () {
 
 					if (birthday.getDate() == today.getDate() && birthday.getMonth() == today.getMonth()) {
 						if (count == 0) {
-							text += `今天是 ${full_team(infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`
+							text += `今天是 ${team_name("full", infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`
 						} else {
-							text += `、${full_team(infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`;
+							text += `、${team_name("full", infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`;
 						}
 						count += 1;
 					}
