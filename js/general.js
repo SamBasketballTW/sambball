@@ -88,9 +88,9 @@ $(document).ready(function () {
 });
 plg_teamRank = {
     5: 'braves',
-    4: 'kings',
+    3: 'kings',
     1: 'pilots',
-    3: 'lioneers',
+    4: 'lioneers',
     2: 'dreamers',
     6: 'steelers'
 }
