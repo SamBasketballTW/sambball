@@ -13,21 +13,19 @@ function identity(id) {
 		return "unknown"
 	}
 }
-
 function team_name(value, league, team, gender = "") {
 	if(value == "full"){
 		teamName = cn_teamName[team];
 	}else if(value == "short"){
 		teamName = short_teamName[team];
 	}
-	
+
 	if (is_oversea(league)) {
 		return `${league} ${team}`
-	} else if(team == "fa") {
-		return teamName
-	} else if(gender != "") {
-		return `<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon">
-			<b>${teamName}</b>`
+
+	} else if(team != "fa" & gender != "") {
+		return `<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon"><b>${teamName}</b>`
+
 	} else {
 		return teamName
 	}

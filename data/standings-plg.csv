@@ -1,5 +1,7 @@
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 league,game,date,w-team,home/road,q1,q2,q3,q4,ot,total,l-team,home/road,q1,q2,q3,q4,ot,total
+plg,g98,2024/4/21,kings,road,28,23,24,19,-,94,lioneers,home,16,17,15,24,-,72
+plg,g97,2024/4/21,steelers,home,26,24,22,31,-,103,dreamers,road,30,27,19,24,-,100
 plg,g96,2024/4/20,pilots,road,29,32,27,18,-,106,lioneers,home,23,30,14,29,-,96
 plg,g95,2024/4/20,steelers,home,26,29,24,28,-,107,braves,road,28,28,16,26,-,98
 plg,g94,2024/4/19,dreamers,home,21,27,18,31,-,97,kings,road,25,25,17,26,-,93

@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.20</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.21</b>`
 
     if (document.getElementById("index")) {
         if (window.innerWidth <= 450) {
@@ -89,9 +89,9 @@ $(document).ready(function () {
 plg_teamRank = {
     5: 'braves',
     4: 'kings',
-    2: 'pilots',
+    1: 'pilots',
     3: 'lioneers',
-    1: 'dreamers',
+    2: 'dreamers',
     6: 'steelers'
 }
 t1_teamRank = {
@@ -109,8 +109,8 @@ sbl_teamRank = {
 }
 wsbl_teamRank = {
     2: 'cathay',
-    4: 'power',
-    3: 'telecom',
+    3: 'power',
+    4: 'telecom',
     1: 'taiyuen'
 }
 playoff = {
@@ -131,8 +131,8 @@ playoff = {
     "bll": "- o",
 
     "cathay": "- c",
-    "power": "",
-    "telecom": "",
+    "power": "- c",
+    "telecom": "- o",
     "taiyuen": "- f"
 }
 coach_name = {
