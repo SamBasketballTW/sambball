@@ -55,21 +55,21 @@
 		<div id="women_page" class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x: auto;">
-			<div class="col" style="width:580px;">
+			<div class="col" style="width:460px;">
 
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">
 					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 				</button>
 				<ul id="team-dropdown_w" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f1('players_tb','all')">
+					<li><a class="dropdown-item active" onclick="f('all','players_tb')">
 							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-					<li><a class="dropdown-item" onclick="f1('players_tb','oversea')">
+					<li><a class="dropdown-item" onclick="f('oversea','players_tb')">
 							<img src="../asset/images/women/wcba.png" alt="oversea" class="teamicon">WCBA & 旅外</a></li>
-					<li><a id="menu_cathay" class="dropdown-item" onclick="f1('players_tb','cathay')"></a></li>
-					<li><a id="menu_power" class="dropdown-item" onclick="f1('players_tb','power')"></a></li>
-					<li><a id="menu_telecom" class="dropdown-item" onclick="f1('players_tb','telecom')"></a></li>
-					<li><a id="menu_taiyuen" class="dropdown-item" onclick="f1('players_tb','taiyuen')"></a></li>
+					<li><a id="menu_cathay" class="dropdown-item" onclick="f('cathay','players_tb')"></a></li>
+					<li><a id="menu_power" class="dropdown-item" onclick="f('power','players_tb')"></a></li>
+					<li><a id="menu_telecom" class="dropdown-item" onclick="f('telecom','players_tb')"></a></li>
+					<li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen','players_tb')"></a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球員篩選: </b></a>
@@ -77,37 +77,37 @@
 					aria-expanded="false" style="width:160px">全部球員
 				</button>
 				<ul id="player-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f2('team-dropdown_w','players_tb','all')">全部球員</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','change')">換隊球員</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2023Rookie')">2024'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2022Rookie')">2023'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2021Rookie')">2022'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2020Rookie')">2021'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_w','players_tb','2019Rookie')">2020'新秀</a></li>
+					<li><a class="dropdown-item active" onclick="f('all','players_tb')">全部球員</a></li>
+					<li><a class="dropdown-item" onclick="f('change','players_tb')">換隊球員</a></li>
+					<li><a class="dropdown-item" onclick="f('2023Rookie','players_tb')">2024'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2022Rookie','players_tb')">2023'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2021Rookie','players_tb')">2022'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2020Rookie','players_tb')">2021'新秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2019Rookie','players_tb')">2020'新秀</a></li>
 				</ul>
 
-				<div class="col" style="width:390px; padding-top:3px;">
+			</div>
 
-					<div class="form-check form-switch" style="width: 150px; display: inline-block">
-						<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked>
-						<label class="form-check-label" for="flexSwitchCheckChecked">全不勾 / 全勾</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"
-							onclick="fC('players_tb','team-dropdown_w','player-dropdown', 'local')" checked>
-						<label class="form-check-label" for="inlineCheckbox1">本土</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"
-							onclick="fC('players_tb','team-dropdown_w','player-dropdown', 'taiwanese')" checked>
-						<label class="form-check-label" for="inlineCheckbox1">華裔</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox"
-							onclick="fC('players_tb','team-dropdown_w','player-dropdown', 'import')" checked>
-						<label class="form-check-label" for="inlineCheckbox1">洋將</label>
-					</div>
+			<div class="col" style="width:390px; padding-top:3px;">
 
+				<div class="form-check form-switch" style="width: 150px; display: inline-block">
+					<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked onchange="toggleCheckboxes()">
+					<label class="form-check-label" for="flexSwitchCheckChecked">全不勾 / 全勾</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox"
+						onclick="f('local','players_tb','filter')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">本土</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox"
+						onclick="f('taiwanese','players_tb','filter')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">華裔</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox"
+						onclick="f('import','players_tb','filter')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">洋將</label>
 				</div>
 
 			</div>
@@ -158,7 +158,7 @@
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				players[0].click();
+				f('','players_tb','filter');
 			});
 		}
 
@@ -169,18 +169,19 @@
 				this.className += " active";
 				playerbtn.innerHTML = this.innerHTML;
 
-				fC('players_tb', 'team-dropdown_w', 'player-dropdown');
+				f('','players_tb','filter');
 			});
 		}
 
-		checkSwitch = document.getElementById('checkSwitch');
-		checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#checkSwitch)');
-		checked_cb = document.getElementsByClassName("form-check-input");
+		function toggleCheckboxes() {
+        	var checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]');
+        	var checkSwitch = document.getElementById('checkSwitch');
 
-		checkSwitch.addEventListener('change', () => {
-			checkboxes.forEach(checkbox => checkbox.checked = checkSwitch.checked);
-			fC('players_tb', 'team-dropdown_w', 'player-dropdown');
-		});
+        	checkboxes.forEach(function(checkbox) {
+            	checkbox.checked = checkSwitch.checked;
+				f('','players_tb','filter');
+       		});
+		}
 	</script>
 
 </body>

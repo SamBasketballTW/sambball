@@ -58,32 +58,32 @@
 		<div id="men_page" class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x: auto;">
-			<div class="col" style="width:970px;">
+			<div class="col" style="width:690px;">
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">
 					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
 				</button>
 				<ul id="team-dropdown_m" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f1('contracts_tb','all')">
-							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-					<li><a class="dropdown-item" onclick="f1('contracts_tb','oversea')">
+					<li><a class="dropdown-item active" onclick="f('all','contracts_tb')">
+						<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+					<li><a class="dropdown-item" onclick="f('oversea','contracts_tb')">
 							<img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-					<li><a id="menu_braves" class="dropdown-item" onclick="f1('contracts_tb','braves')"></a></li>
-					<li><a id="menu_kings" class="dropdown-item" onclick="f1('contracts_tb','kings')"></a></li>
-					<li><a id="menu_pilots" class="dropdown-item" onclick="f1('contracts_tb','pilots')"></a></li>
-					<li><a id="menu_lioneers" class="dropdown-item" onclick="f1('contracts_tb','lioneers')"></a></li>
-					<li><a id="menu_dreamers" class="dropdown-item" onclick="f1('contracts_tb','dreamers')"></a></li>
-					<li><a id="menu_steelers" class="dropdown-item" onclick="f1('contracts_tb','steelers')"></a></li>
-					<li><a id="menu_dea" class="dropdown-item" onclick="f1('contracts_tb','dea')"></a></li>
-					<li><a id="menu_mars" class="dropdown-item" onclick="f1('contracts_tb','mars')"></a></li>
-					<li><a id="menu_leopards" class="dropdown-item" onclick="f1('contracts_tb','leopards')"></a></li>
-					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f1('contracts_tb','ghosthawks')"></a>
+					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves','contracts_tb')"></a></li>
+					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings','contracts_tb')"></a></li>
+					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots','contracts_tb')"></a></li>
+					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers','contracts_tb')"></a></li>
+					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers','contracts_tb')"></a></li>
+					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers','contracts_tb')"></a></li>
+					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea','contracts_tb')"></a></li>
+					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars','contracts_tb')"></a></li>
+					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards','contracts_tb')"></a></li>
+					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks','contracts_tb')"></a>
 					</li>
-					<li><a id="menu_aquas" class="dropdown-item" onclick="f1('contracts_tb','aquas')"></a></li>
-					<li><a id="menu_beer" class="dropdown-item" onclick="f1('contracts_tb','beer')"></a></li>
-					<li><a id="menu_trust" class="dropdown-item" onclick="f1('contracts_tb','trust')"></a></li>
-					<li><a id="menu_yulon" class="dropdown-item" onclick="f1('contracts_tb','yulon')"></a></li>
-					<li><a id="menu_bll" class="dropdown-item" onclick="f1('contracts_tb','bll')"></a></li>
+					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas','contracts_tb')"></a></li>
+					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer','contracts_tb')"></a></li>
+					<li><a id="menu_trust" class="dropdown-item" onclick="f('trust','contracts_tb')"></a></li>
+					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon','contracts_tb')"></a></li>
+					<li><a id="menu_bll" class="dropdown-item" onclick="f('bll','contracts_tb')"></a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;2023-24賽季: </b></a>
@@ -91,22 +91,22 @@
 					aria-expanded="false" style="width:160px">全部合約
 				</button>
 				<ul id="contract-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f2('team-dropdown_m','contracts_tb','all')">全部合約</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','1y')">剩1年</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','extension')">續留</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','2021Draft')">21'新秀合約</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','2022Draft')">22'新秀合約</a></li>
-					<li><a class="dropdown-item" onclick="f2('team-dropdown_m','contracts_tb','2023Draft')">23'新秀合約</a></li>
+					<li><a class="dropdown-item active" onclick="f('all','contracts_tb')">全部合約</a></li>
+					<li><a class="dropdown-item" onclick="f('1y','contracts_tb')">剩1年</a></li>
+					<li><a class="dropdown-item" onclick="f('extension','contracts_tb')">續留</a></li>
+					<li><a class="dropdown-item" onclick="f('2021Draft','contracts_tb')">21'新秀合約</a></li>
+					<li><a class="dropdown-item" onclick="f('2022Draft','contracts_tb')">22'新秀合約</a></li>
+					<li><a class="dropdown-item" onclick="f('2023Draft','contracts_tb')">23'新秀合約</a></li>
 				</ul>
 
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="fC('contracts_tb','team-dropdown_m','contract-dropdown', 'local')" checked>
+						onclick="f('local','contracts_tb','filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">本土</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="fC('contracts_tb','team-dropdown_m','contract-dropdown', 'import')" checked>
+						onclick="f('import','contracts_tb','filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">外教 / 洋將</label>
 				</div>
 
@@ -162,16 +162,16 @@
 		var contracts = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item");
 		var teambtn = document.getElementById("teambtn");
 		var contractbtn = document.getElementById("contractbtn");
+		
 
 		for (let i = 0; i < teams.length; i++) {
 			teams[i].addEventListener("click", function () {
-				var currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item active");
+				var currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("active");
 				currentTeam[0].className = currentTeam[0].className.replace(" active", "");
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				var currentContract = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item active");
-				currentContract[0].click();
+				f('','contracts_tb','filter');
 			});
 		}
 
@@ -182,7 +182,7 @@
 				this.className += " active";
 				contractbtn.innerHTML = this.innerHTML;
 
-				fC('contracts_tb','team-dropdown_m','contract-dropdown');
+				f('','contracts_tb','filter');
 			});
 		}
 	</script>

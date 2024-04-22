@@ -61,13 +61,13 @@
                     <img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
                 </button>
                 <ul id="team-dropdown_w" class="dropdown-menu">
-                    <li><a class="dropdown-item active" onclick="fAll('oversea'); fR('oversea')">
+                    <li><a class="dropdown-item active" onclick="f('oversea')">
                             <img src="../asset/images/women/wcba.png" alt="wcba" class="teamicon">WCBA & 旅外</a></li>
-                    <li><a id="menu_cathay" class="dropdown-item" onclick="fAll('cathay'); fR('cathay')"></a></li>
-                    <li><a id="menu_power" class="dropdown-item" onclick="fAll('power'); fR('power')"></a></li>
-                    <li><a id="menu_telecom" class="dropdown-item" onclick="fAll('telecom'); fR('telecom')"></a>
+                    <li><a id="menu_cathay" class="dropdown-item" onclick="f('cathay')"></a></li>
+                    <li><a id="menu_power" class="dropdown-item" onclick="f('power')"></a></li>
+                    <li><a id="menu_telecom" class="dropdown-item" onclick="f('telecom')"></a>
                     </li>
-                    <li><a id="menu_taiyuen" class="dropdown-item" onclick="fAll('taiyuen'); fR('taiyuen')"></a>
+                    <li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen')"></a>
                     </li>
                 </ul>
 
@@ -172,6 +172,8 @@
                 currentTeam[0].className = currentTeam[0].className.replace(" active", "");
                 this.className += " active";
                 teambtn.innerHTML = this.innerHTML;
+
+                f('','','filter');
             });
         }
     </script>

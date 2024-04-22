@@ -38,7 +38,7 @@ $(document).ready(function () {
                 home_road = [['',''], ['', '']];
                 ot = [0, 0];
                 total_pts_a = [[0, 0], [0, 0]];
-                q_diff = [0, 0, 0, 0];
+                q_points = [0, 0, 0, 0];
                 q2_ahead = [0, 0];
                 q2_behind = [0, 0];
                 q2_tied = [0, 0];
@@ -100,10 +100,10 @@ $(document).ready(function () {
 
                         if (infos[9] != "-") ot[0] += 1;
 
-                        q_diff[0] += q1 - q1_a
-                        q_diff[1] += q2 - q2_a
-                        q_diff[2] += q3 - q3_a
-                        q_diff[3] += q4 - q4_a
+                        q_points[0] += q1
+                        q_points[1] += q2
+                        q_points[2] += q3
+                        q_points[3] += q4
                         total_pts_a[0][0] += pts
                         total_pts_a[1][0] += pts_a
 
@@ -172,10 +172,10 @@ $(document).ready(function () {
 
                         if (infos[17] != "-") ot[1] += 1;
 
-                        q_diff[0] += q1 - q1_a
-                        q_diff[1] += q2 - q2_a
-                        q_diff[2] += q3 - q3_a
-                        q_diff[3] += q4 - q4_a
+                        q_points[0] += q1
+                        q_points[1] += q2
+                        q_points[2] += q3
+                        q_points[3] += q4
                         total_pts_a[0][1] += pts
                         total_pts_a[1][1] += pts_a
 
@@ -252,10 +252,10 @@ $(document).ready(function () {
                     <td class="borderR">${((w_l[0] / total_games) * 100).toFixed(0)}%</td>
                     <td>${((total_pts_a[0][0] + total_pts_a[0][1]) / total_games).toFixed(1)}</td>
                     <td class="borderR">${((total_pts_a[1][0] + total_pts_a[1][1]) / total_games).toFixed(1)}</td>
-                    <td>${(q_diff[0] / total_games).toFixed(1)}</td>
-                    <td>${(q_diff[1] / total_games).toFixed(1)}</td>
-                    <td>${(q_diff[2] / total_games).toFixed(1)}</td>
-                    <td class="borderR">${(q_diff[3] / total_games).toFixed(1)}</td>
+                    <td>${(q_points[0] / total_games).toFixed(1)}</td>
+                    <td>${(q_points[1] / total_games).toFixed(1)}</td>
+                    <td>${(q_points[2] / total_games).toFixed(1)}</td>
+                    <td class="borderR">${(q_points[3] / total_games).toFixed(1)}</td>
                     <td>${(total_pts_a[0][0] / w_l[0]).toFixed(1)}</td>
                     <td class="borderR">${(total_pts_a[0][1] / w_l[1]).toFixed(1)}</td>
                     <td>${(total_pts_a[1][0] / w_l[0]).toFixed(1)}</td>

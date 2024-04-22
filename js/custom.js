@@ -68,55 +68,45 @@ function age(bday) {
 	return a;
 }
 
-function fAll(value) {
-	var rows = document.getElementsByClassName(("filterTr"));
+function f(value, table = "", filter = "") {
+	if(filter != ""){
+		filters = []
+		checkboxes = []
+		var actives = document.getElementsByClassName("active");
+		for (let i = 1; i < actives.length; i++){
+			var fil = actives[i].getAttribute('onclick').split('\'')[1];
+			var tab = actives[i].getAttribute('onclick').split('\'')[3];
+			if(table == "") tab = "";
+			if(fil != "all" & tab == table) filters.push(fil)
+		}
+		if(table != ""){
+			var rows = document.getElementById(table).getElementsByClassName(("filterTr"));
+		}else {
+			var rows = document.getElementsByClassName(("filterTr"));
+		}
+		cbs = document.querySelectorAll('.form-check-input:not(#checkSwitch)');
+		for( let i = 0; i<cbs.length; i++) {
+			if (!cbs[i].checked){
+				cb = cbs[i].getAttribute('onclick').split('\'')[1];
+				checkboxes.push(cb);
+			}
+		}
 
-	if (value == "all") value = "";
-
-	for (let i = 0; i < rows.length; i++) {
-		w3RemoveClass(rows[i], " showTr");
-		var text = rows[i].className;
-		if (text.indexOf(value) > -1) w3AddClass(rows[i], " showTr");
+		for( let i = 0; i < rows.length; i++) {
+			w3AddClass(rows[i]," showTr");
+			var text = rows[i].className;
+			show = 1
+			for ( let j = 0; j < filters.length; j++) {
+				if( text.indexOf(filters[j]) == -1 ) show = 0
+			}
+			for ( let j = 0; j < checkboxes.length; j++) {
+				if( text.indexOf(checkboxes[j]) > -1 ) show = 0
+			}
+			if ( show == 0) w3RemoveClass(rows[i]," showTr");
+		}
+		
 	}
-}
 
-function f1(table, value) {
-	var rows = document.getElementById(table).getElementsByClassName(("filterTr"));
-
-	if (value == "all") value = "";
-
-	for (let i = 0; i < rows.length; i++) {
-		w3RemoveClass(rows[i], " showTr");
-		var text = rows[i].className;
-		if (text.indexOf(value) > -1) w3AddClass(rows[i], " showTr");
-	}
-}
-
-function f2(fil1, table, value) {
-	var rows = document.getElementById(table).getElementsByClassName(("filterTr"));
-
-	var currentTeam = document.getElementById(fil1).getElementsByClassName("active");
-	var team = currentTeam[0].getAttribute('onclick').split('\'')[3];
-	if (team == "all") team = "";
-	if (value == "all") value = "";
-
-	for (let i = 0; i < rows.length; i++) {
-		w3RemoveClass(rows[i], "showTr");
-		var text = rows[i].className;
-		if (text.indexOf(team) > -1 & text.indexOf(value) > -1) w3AddClass(rows[i], "showTr");
-	}
-}
-
-function fR(value) {
-	var cols = document.getElementsByClassName(("filterTd"));
-
-	if (value == "all") value = "";
-
-	for (let i = 0; i < cols.length; i++) {
-		w3RemoveClass(cols[i], "showTd");
-		var text = cols[i].className;
-		if (text.indexOf(value) > -1) w3AddClass(cols[i], "showTd");
-	}
 }
 
 function findIndex(array, team) {
@@ -138,55 +128,6 @@ function rankArray(array) {
 		temp.push(count + 1);
 	}
 	return temp;
-}
-
-
-function showAll(table, team, rookie) {
-	rows = document.getElementById(table).getElementsByClassName("filterTr");
-	for (let i = 0; i < rows.length; i++) {
-		text = rows[i].className;
-		is_team = text.indexOf(team) > -1;
-		is_rookie = text.indexOf(rookie) > -1;
-		is_showing = text.indexOf("showTr") > -1;
-
-		if (is_team & is_rookie & !is_showing) {
-			w3AddClass(rows[i], " showTr");
-		} else if ((!is_team | !is_rookie) & is_showing) {
-			w3RemoveClass(rows[i], " showTr");
-		}
-	}
-}
-
-function fC(table, teamFilter, rookieFilter, value) {
-	cbs = document.querySelectorAll('.form-check-input:not(#checkSwitch)');
-	rows = document.getElementById(table).getElementsByClassName("filterTr");
-	currentTeam = document.getElementById(teamFilter).getElementsByClassName("active");
-	team = currentTeam[0].getAttribute('onclick').split('\'')[3];
-	currentRookie = document.getElementById(rookieFilter).getElementsByClassName("active");
-	rookie = currentRookie[0].getAttribute('onclick').split('\'')[5];
-
-	if (team == "all") team = "";
-	if (rookie == "all") rookie = "";
-
-	showAll(table, team, rookie);
-
-	for (let i = 0; i < cbs.length; i++) {
-		cb = cbs[i].getAttribute('onclick').split('\'')[7];
-
-		for (let j = 0; j < rows.length; j++) {
-			text = rows[j].className;
-			is_value = text.indexOf(cb) > -1;
-			is_showing = text.indexOf("showTr") > -1;
-
-			if (cb == "current" | cb == "active") {
-				if (cbs[i].checked) {
-					if (!is_value & is_showing) w3RemoveClass(rows[j], " showTr");
-				}
-			} else if (!cbs[i].checked) {
-				if (is_value & is_showing) w3RemoveClass(rows[j], " showTr");
-			}
-		}
-	}
 }
 
 function switchAvgTotal(value) {

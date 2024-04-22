@@ -61,15 +61,15 @@
 		<div id="men_page" class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x:auto">
-			<div class="col" style="width:690px">
+			<div class="col" style="width:460px">
 
 				<button id="leaguebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">P. LEAGUE+
 				</button>
 				<ul id="league-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="fAll('plg')">P. LEAGUE+</a></li>
-                    <li><a class="dropdown-item" onclick="fAll('t1')">T1 LEAGUE</a></li>
-                    <li><a class="dropdown-item" onclick="fAll('sbl')">SBL 超級籃球聯賽</a></li>
+					<li><a class="dropdown-item active" onclick="f('plg')">P. LEAGUE+</a></li>
+                    <li><a class="dropdown-item" onclick="f('t1')">T1 LEAGUE</a></li>
+                    <li><a class="dropdown-item" onclick="f('sbl')">SBL 超級籃球聯賽</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;戰績篩選: </b></a>
@@ -77,11 +77,11 @@
 					aria-expanded="false" style="width:160px">綜合戰績
 				</button>
 				<ul id="standing-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active">綜合戰績</a></li>
-                    <li><a class="dropdown-item">球隊得分</a></li>
-                    <li><a class="dropdown-item">領先 / 落後</a></li>
-					<li><a class="dropdown-item">對戰組合</a></li>
-					<li><a class="dropdown-item">月份</a></li>
+					<li><a class="dropdown-item active" onclick="f('')">綜合戰績</a></li>
+                    <li><a class="dropdown-item" onclick="f('')">球隊得分</a></li>
+                    <li><a class="dropdown-item" onclick="f('')">領先 / 落後</a></li>
+					<li><a class="dropdown-item" onclick="f('')">對戰組合</a></li>
+					<li><a class="dropdown-item" onclick="f('')">月份</a></li>
 				</ul>
 			</div>
 		</div>
@@ -122,10 +122,10 @@
                         <th style="width:60px">勝率</th>
 						<th style="width:60px">得分</th>
                         <th style="width:60px">失分</th>
-                        <th style="width:70px">第一節勝分</th>
-                        <th style="width:70px">第二節勝分</th>
-                        <th style="width:70px">第三節勝分</th>
-                        <th style="width:70px">第四節勝分</th>
+                        <th style="width:70px">第一節</th>
+                        <th style="width:70px">第二節</th>
+                        <th style="width:70px">第三節</th>
+                        <th style="width:70px">第四節</th>
                         <th style="width:70px">勝場得分</th>
                         <th style="width:70px">敗場得分</th>
                         <th style="width:70px">勝場失分</th>
@@ -314,6 +314,8 @@
                         tables[8].className += " showTb";
                     }
 				}
+
+				f('','','filter');
 			});
 		}
 	</script>

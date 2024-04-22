@@ -58,49 +58,52 @@
 		<div id="men_page" class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x:auto">
-			<div class="col" style="width:780px">
+			<div class="col" style="width:600px">
 
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">
 					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 				</button>
 				<ul id="team-dropdown_m" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f1('trades_tb','all')">
+					<li><a class="dropdown-item active" onclick="f('all','trades_tb')">
 							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-					<li><a id="menu_braves" class="dropdown-item" onclick="f1('trades_tb','braves')"></a></li>
-					<li><a id="menu_kings" class="dropdown-item" onclick="f1('trades_tb','kings')"></a></li>
-					<li><a id="menu_pilots" class="dropdown-item" onclick="f1('trades_tb','pilots')"></a></li>
-					<li><a id="menu_lioneers" class="dropdown-item" onclick="f1('trades_tb','lioneers')"></a></li>
-					<li><a id="menu_dreamers" class="dropdown-item" onclick="f1('trades_tb','dreamers')"></a></li>
-					<li><a id="menu_steelers" class="dropdown-item" onclick="f1('trades_tb','steelers')"></a></li>
-					<li><a id="menu_dea" class="dropdown-item" onclick="f1('trades_tb','dea')"></a></li>
-					<li><a id="menu_mars" class="dropdown-item" onclick="f1('trades_tb','mars')"></a></li>
-					<li><a id="menu_leopards" class="dropdown-item" onclick="f1('trades_tb','leopards')"></a></li>
-					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f1('trades_tb','ghosthawks')"></a></li>
-					<li><a id="menu_aquas" class="dropdown-item" onclick="f1('trades_tb','aquas')"></a></li>
-					<li><a id="menu_beer" class="dropdown-item" onclick="f1('trades_tb','beer')"></a></li>
-					<li><a id="menu_trust" class="dropdown-item" onclick="f1('trades_tb','trust')"></a></li>
-					<li><a id="menu_yulon" class="dropdown-item" onclick="f1('trades_tb','yulon')"></a></li>
-					<li><a id="menu_bll" class="dropdown-item" onclick="f1('trades_tb','bll')"></a></li>
+					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves','trades_tb')"></a></li>
+					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings','trades_tb')"></a></li>
+					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots','trades_tb')"></a></li>
+					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers','trades_tb')"></a></li>
+					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers','trades_tb')"></a></li>
+					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers','trades_tb')"></a></li>
+					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea','trades_tb')"></a></li>
+					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars','trades_tb')"></a></li>
+					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards','trades_tb')"></a></li>
+					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks','trades_tb')"></a></li>
+					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas','trades_tb')"></a></li>
+					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer','trades_tb')"></a></li>
+					<li><a id="menu_trust" class="dropdown-item" onclick="f('trust','trades_tb')"></a></li>
+					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon','trades_tb')"></a></li>
+					<li><a id="menu_bll" class="dropdown-item" onclick="f('bll','trades_tb','trades_tb')"></a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;交易篩選: </b></a>
-				<div id="mybtngroup" class="btn-group">
-					<a class="btn btn-light active" onclick="f2('team-dropdown_m','trades_tb','all')">全部</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','trades_tb','futurePick')">含未來選秀籤</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','trades_tb','draft')">含選秀籤</a>
-					<a class="btn btn-light" onclick="f2('team-dropdown_m','trades_tb','player')">含球員</a>
-				</div>
+				<button id="tradebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:160px">全部交易
+				</button>
+				<ul id="trade-dropdown" class="dropdown-menu">
+					<li><a class="dropdown-item active" onclick="f('all','trades_tb')">全部交易</a></li>
+					<li><a class="dropdown-item" onclick="f('futurePick','trades_tb')">含未來選秀籤</a></li>
+					<li><a class="dropdown-item" onclick="f('draft','trades_tb')">含選秀籤</a></li>
+					<li><a class="dropdown-item" onclick="f('player','trades_tb')">含球員</a></li>
+				</ul>
 
 				&nbsp;
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="fC('trades_tb','team-dropdown_m','mybtngroup','plgtrade')" checked>
+						onclick="f('plgtrade','trades_tb','filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">PLG</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="fC('trades_tb','team-dropdown_m','mybtngroup','t1trade')" checked>
+						onclick="f('t1trade','trades_tb','filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">T1</label>
 				</div>
 			</div>
@@ -132,27 +135,29 @@
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
 		var teams = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item");
-		var btns = document.getElementById("mybtngroup").getElementsByClassName("btn");
+		var trades = document.getElementById("trade-dropdown").getElementsByClassName("dropdown-item");
 		var teambtn = document.getElementById("teambtn");
+		var tradebtn = document.getElementById("tradebtn");
 
 		for (var i = 0; i < teams.length; i++) {
 			teams[i].addEventListener("click", function () {
-				var currentTeam = document.getElementsByClassName("dropdown-item active");
+				var currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("active");
 				currentTeam[0].className = currentTeam[0].className.replace(" active", "");
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				btns[0].click();
+				trades[0].click();
 			});
 		}
 
-		for (var i = 0; i < btns.length; i++) {
-			btns[i].addEventListener("click", function () {
-				currentBtn = document.getElementsByClassName("btn btn-light active");
-				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+		for (var i = 0; i < trades.length; i++) {
+			trades[i].addEventListener("click", function () {
+				currentTrade = document.getElementById("trade-dropdown").getElementsByClassName("active");
+				currentTrade[0].className = currentTrade[0].className.replace(" active", "");
 				this.className += " active";
+				tradebtn.innerHTML = this.innerHTML;
 
-				fC("trades_tb", 'team-dropdown_m', 'mybtngroup',);
+				f('','trades_tb','filter');
 			});
 		}
 	</script>

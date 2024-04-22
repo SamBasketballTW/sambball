@@ -64,31 +64,26 @@
                         <img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
                     </button>
                     <ul id="team-dropdown_m" class="dropdown-menu">
-                        <li><a class="dropdown-item active" onclick="fAll('oversea'); fR('oversea')">
-                                <img src="../asset/images/men/cba.png" alt="cba" class="teamicon">CBA & 旅外</a></li>
-                        <li><a id="menu_braves" class="dropdown-item" onclick="fAll('braves'); fR('braves')"></a></li>
-                        <li><a id="menu_kings" class="dropdown-item" onclick="fAll('kings'); fR('kings')"></a></li>
-                        <li><a id="menu_pilots" class="dropdown-item" onclick="fAll('pilots'); fR('pilots')"></a></li>
-                        <li><a id="menu_lioneers" class="dropdown-item" onclick="fAll('lioneers'); fR('lioneers')"></a>
+                        <li><a class="dropdown-item active" onclick="f('oversea')">
+                                <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
+                        <li><a id="menu_braves" class="dropdown-item" onclick="f('braves')"></a></li>
+                        <li><a id="menu_kings" class="dropdown-item" onclick="f('kings')"></a></li>
+                        <li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots')"></a></li>
+                        <li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers')"></a></li>
+                        <li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers')"></a></li>
+                        <li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers')"></a></li>
+                        <li><a id="menu_dea" class="dropdown-item" onclick="f('dea')"></a></li>
+                        <li><a id="menu_mars" class="dropdown-item" onclick="f('mars')"></a></li>
+                        <li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards')"></a></li>
+                        <li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks')"></a>
                         </li>
-                        <li><a id="menu_dreamers" class="dropdown-item" onclick="fAll('dreamers'); fR('dreamers')"></a>
-                        </li>
-                        <li><a id="menu_steelers" class="dropdown-item" onclick="fAll('steelers'); fR('steelers')"></a>
-                        </li>
-                        <li><a id="menu_dea" class="dropdown-item" onclick="fAll('dea'); fR('dea')"></a></li>
-                        <li><a id="menu_mars" class="dropdown-item" onclick="fAll('mars'); fR('mars')"></a></li>
-                        <li><a id="menu_leopards" class="dropdown-item" onclick="fAll('leopards'); fR('leopards')"></a>
-                        </li>
-                        <li><a id="menu_ghosthawks" class="dropdown-item"
-                                onclick="fAll('ghosthawks'); fR('ghosthawks')"></a>
-                        </li>
-                        <li><a id="menu_aquas" class="dropdown-item" onclick="fAll('aquas'); fR('aquas')"></a></li>
-                        <li><a id="menu_beer" class="dropdown-item" onclick="fAll('beer'); fR('beer')"></a></li>
-                        <li><a id="menu_trust" class="dropdown-item" onclick="fAll('trust'); fR('trust')"></a></li>
-                        <li><a id="menu_yulon" class="dropdown-item" onclick="fAll('yulon'); fR('yulon')"></a></li>
-                        <li><a id="menu_bll" class="dropdown-item" onclick="fAll('bll'); fR('bll')"></a></li>
-                        <li><a class="dropdown-item" onclick="fAll('herobears'); fR('herobears')">台灣啤酒英熊(已解散)</a></li>
-                        <li><a class="dropdown-item" onclick="fAll('suns'); fR('suns')">臺中太陽(已解散)</a></li>
+                        <li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas')"></a></li>
+                        <li><a id="menu_beer" class="dropdown-item" onclick="f('beer')"></a></li>
+                        <li><a id="menu_trust" class="dropdown-item" onclick="f('trust')"></a></li>
+                        <li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon')"></a></li>
+                        <li><a id="menu_bll" class="dropdown-item" onclick="f('bll')"></a></li>
+                        <li><a class="dropdown-item" onclick="f('herobears')">台灣啤酒英熊(已解散)</a></li>
+                        <li><a class="dropdown-item" onclick="f('suns')">臺中太陽(已解散)</a></li>
                     </ul>
 
                 </div>
@@ -190,6 +185,8 @@
                 currentTeam[0].className = currentTeam[0].className.replace(" active", "");
                 this.className += " active";
                 teambtn.innerHTML = this.innerHTML;
+
+                f('','','filter');
             });
         }
     </script>
