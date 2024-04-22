@@ -242,16 +242,16 @@ men,beer,lost,吳念哲
 men,beer,lost,吳季穎 (涉賭)
 men,beer,import,菲爾斯 John Fields III
 men,beer,import lost,威廉斯 Troy Williams
-men,trust,fa,蔡亞軒
-men,trust,fa,林均濠
-men,trust,fa,聶歐瑪
-men,trust,draft,郭振復 (總順位: 3)
-men,trust,lost,張博勝 (加盟 T1獵鷹)
-men,trust,lost,曾開暄
-men,trust,lost,沈睿洋
-men,trust,import extend,瑪哈尼 Max Mahoney (續約 / 已離隊)
-men,trust,import,卡魯 Maurice Calloo
-men,trust,import lost,瑪哈尼 Max Mahoney
+men,bank,fa,蔡亞軒
+men,bank,fa,林均濠
+men,bank,fa,聶歐瑪
+men,bank,draft,郭振復 (總順位: 3)
+men,bank,lost,張博勝 (加盟 T1獵鷹)
+men,bank,lost,曾開暄
+men,bank,lost,沈睿洋
+men,bank,import extend,瑪哈尼 Max Mahoney (續約 / 已離隊)
+men,bank,import,卡魯 Maurice Calloo
+men,bank,import lost,瑪哈尼 Max Mahoney
 men,yulon,fa,林明毅
 men,yulon,fa,鄭德維
 men,yulon,fa,林仕軒
@@ -349,25 +349,25 @@ women,cathay,lost,王維琳 (加盟 台電)
 women,cathay,lost,沈欣
 women,cathay,import,凱拉喬治 Cayla George
 women,cathay,import lost,庫克斯 Sidney Cooks
-women,power,fa,羅培儀
-women,power,fa,戴宜庭
-women,power,fa,王維琳
-women,power,keep,廖瑋晴 (2019 保留)
-women,power,draft,吳侑萱 (總順位: 1)
-women,power,draft,林釵娟 (總順位: 4)
-women,power,lost,張欣然
-women,power,lost,郭佳紋
-women,power,lost,林嘉慈
-women,power,lost,李郡歡
-women,power,lost,謝津宛
-women,power,lost,諶怡君
-women,power,lost,辛宜芝
-women,telecom,keep,陳靳豫萱 (2020 保留)
-women,telecom,draft,陳芷英 (總順位: 2)
-women,telecom,lost,黃郁婷 (旅外 WCBA)
-women,telecom,lost,劉嘉瑋
-women,telecom,lost,黃子涵
-women,telecom,import,霍利維 Rachel Hollivay
+women,taipower,fa,羅培儀
+women,taipower,fa,戴宜庭
+women,taipower,fa,王維琳
+women,taipower,keep,廖瑋晴 (2019 保留)
+women,taipower,draft,吳侑萱 (總順位: 1)
+women,taipower,draft,林釵娟 (總順位: 4)
+women,taipower,lost,張欣然
+women,taipower,lost,郭佳紋
+women,taipower,lost,林嘉慈
+women,taipower,lost,李郡歡
+women,taipower,lost,謝津宛
+women,taipower,lost,諶怡君
+women,taipower,lost,辛宜芝
+women,cht,keep,陳靳豫萱 (2020 保留)
+women,cht,draft,陳芷英 (總順位: 2)
+women,cht,lost,黃郁婷 (旅外 WCBA)
+women,cht,lost,劉嘉瑋
+women,cht,lost,黃子涵
+women,cht,import,霍利維 Rachel Hollivay
 women,taiyuen,keep,許玟瑄 (2019 保留)
 women,taiyuen,draft,張琦玟 (總順位: 3)
 women,taiyuen,lost,羅培儀 (加盟 台電)

@@ -103,14 +103,14 @@ t1_teamRank = {
 }
 sbl_teamRank = {
     1: 'beer',
-    3: 'trust',
+    3: 'bank',
     2: 'yulon',
     4: 'bll'
 }
 wsbl_teamRank = {
     2: 'cathay',
-    3: 'power',
-    4: 'telecom',
+    3: 'taipower',
+    4: 'cht',
     1: 'taiyuen'
 }
 playoff = {
@@ -126,13 +126,13 @@ playoff = {
     "ghosthawks": "- o",
     "aquas": "- x",
     "beer": "- f",
-    "trust": "- c",
+    "bank": "- c",
     "yulon": "- c",
     "bll": "- o",
 
     "cathay": "- c",
-    "power": "- c",
-    "telecom": "- o",
+    "taipower": "- c",
+    "cht": "- o",
     "taiyuen": "- f"
 }
 coach_name = {
@@ -148,13 +148,13 @@ coach_name = {
     "ghosthawks": " Raoul Korner",
     "aquas": " Branden Joyce",
     "beer": "",
-    "trust": "",
+    "bank": "",
     "yulon": "",
     "bll": "",
 
     "cathay": "",
-    "power": "",
-    "telecom": "",
+    "taipower": "",
+    "cht": "",
     "taiyuen": ""
 }
 
@@ -171,13 +171,13 @@ gm_name = {
     "ghosthawks": "GM: 錢韋成",
     "aquas": "執行長: 李偉誠",
     "beer": "",
-    "trust": "",
+    "bank": "",
     "yulon": "",
     "bll": "",
 
     "cathay": "",
-    "power": "",
-    "telecom": "",
+    "taipower": "",
+    "cht": "",
     "taiyuen": ""
 }
 
@@ -205,7 +205,7 @@ order = {
     "herobears": 26,
     "suns": 27,
     "beer": 31,
-    "trust": 32,
+    "bank": 32,
     "yulon": 33,
     "bll": 34,
 
@@ -213,8 +213,8 @@ order = {
     "WKBL": 2,
     "葡萄牙PNB": 3,
     "cathay": 4,
-    "power": 5,
-    "telecom": 6,
+    "taipower": 5,
+    "cht": 6,
     "taiyuen": 7,
 
     "fa": 40
@@ -233,14 +233,14 @@ cn_teamName = {
     "ghosthawks": "臺南台鋼獵鷹",
     "aquas": "高雄全家海神",
     "beer": "台灣啤酒",
-    "trust": "臺灣銀行",
+    "bank": "臺灣銀行",
     "yulon": "裕隆納智捷",
     "bll": "彰化柏力力",
 
     "cathay": "國泰人壽",
     "taiyuen": "台元紡織",
-    "power": "台灣電力",
-    "telecom": "中華電信",
+    "taipower": "台灣電力",
+    "cht": "中華電信",
 
     "suns": "臺中太陽",
     "herobears": "台灣啤酒英熊"
@@ -258,12 +258,12 @@ short_teamName = {
     "ghosthawks": "獵鷹",
     "aquas": "海神",
     "beer": "台啤",
-    "trust": "臺銀",
+    "bank": "臺銀",
     "yulon": "裕隆",
     "bll": "柏力力",
 
     "cathay": "國泰",
     "taiyuen": "台元",
-    "power": "台電",
-    "telecom": "電信"
+    "taipower": "台電",
+    "cht": "電信"
 }
