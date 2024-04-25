@@ -79,7 +79,11 @@ $(document).ready(function () {
 
                 if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
-                        if (window.innerWidth <= 576 & coach_name[infos[4]] == "") blank_space = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+                        if (gm_name[infos[4]] == ""){
+                            blank_space = ``;
+                        } else if (window.innerWidth <= 576 & coach_name[infos[4]] == ""){
+                            blank_space = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+                        }
 
                         infoCoach += `
                         <tr class="filterTr ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])} showTr">

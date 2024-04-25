@@ -60,6 +60,15 @@ function num_order(num) {
 		return 100
 	}
 }
+function school(s) {
+	if(s.includes("HBL") | s == "-"){
+		return ""
+	} else if (college[s] == undefined){
+		return "college-us"
+	} else {
+		return college[s]
+	}
+}
 function age(bday) {
 	const birthday = new Date(bday);
 	const today = new Date();
@@ -69,7 +78,7 @@ function age(bday) {
 }
 
 function f(value, table = "", filter = "") {
-	if(filter != ""){
+	if(value == "filter" | filter == "filter"){
 		filters = []
 		checkboxes = []
 		var actives = document.getElementsByClassName("active");
@@ -93,7 +102,6 @@ function f(value, table = "", filter = "") {
 		}
 
 		for( let i = 0; i < rows.length; i++) {
-			w3AddClass(rows[i]," showTr");
 			var text = rows[i].className;
 			show = 1
 			for ( let j = 0; j < filters.length; j++) {
@@ -102,6 +110,7 @@ function f(value, table = "", filter = "") {
 			for ( let j = 0; j < checkboxes.length; j++) {
 				if( text.indexOf(checkboxes[j]) > -1 ) show = 0
 			}
+			if ( show == 1) w3AddClass(rows[i]," showTr");
 			if ( show == 0) w3RemoveClass(rows[i]," showTr");
 		}
 		
@@ -130,13 +139,6 @@ function rankArray(array) {
 	return temp;
 }
 
-function switchAvgTotal(value) {
-	$("#stats_tb tbody td").each(function () {
-		$(this).html($(this).data(value));
-		$(this).attr("data-order", $(this).data(value));
-	});
-};
-
 function w3AddClass(element, name) {
 	var i, arr1, arr2;
 	arr1 = element.className.split(" ");
@@ -147,7 +149,6 @@ function w3AddClass(element, name) {
 		}
 	}
 }
-
 function w3RemoveClass(element, name) {
 	var i, arr1, arr2;
 	arr1 = element.className.split(" ");

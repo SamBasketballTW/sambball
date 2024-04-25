@@ -32,7 +32,7 @@
 	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
 		<div class="container-fluid">
 			<a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png"
-					class="icon">&nbsp;&nbsp;</a>
+					class="icon">&nbsp;山姆籃球</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -60,9 +60,9 @@
 			<div class="col" style="width:335px;">
 				<a><b>&nbsp;&nbsp;身份篩選: </b></a>
 				<div id="us-btngroup" class="btn-group">
-					<a class="btn btn-light active" onclick="fAll('all')">全部</a>
-					<a class="btn btn-light" onclick="fAll('local')">本土身份</a>
-					<a class="btn btn-light" onclick="fAll('taiwanese')">華裔 / 未知</a>
+					<a class="btn btn-light active" onclick="f('all')">全部</a>
+					<a class="btn btn-light" onclick="f('local')">本土身份</a>
+					<a class="btn btn-light" onclick="f('taiwanese')">華裔 / 未知</a>
 				</div>
 			</div>
 		</div>
@@ -151,6 +151,8 @@
 				var currentBtn = document.getElementsByClassName("btn btn-light active");
 				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
 				this.className += " active";
+
+				f('filter');
 			});
 		}
 

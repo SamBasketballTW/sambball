@@ -101,6 +101,7 @@ $(document).ready(function () {
 
 			count = 0;
 			text = "";
+			gender = "";
 
 			lines.forEach(player => {
 				infos = player.split(',');
@@ -110,6 +111,7 @@ $(document).ready(function () {
 				if (count == 0 && sam.getDate() == today.getDate() && sam.getMonth() == today.getMonth()) {
 					text += `今天是 山姆 的生日`
 					count += 1;
+					gender = "men";
 				}
 
 				if (infos[6] == "active") {
@@ -122,6 +124,7 @@ $(document).ready(function () {
 							text += `、${team_name("full", infos[3], infos[4])}-${infos[1]} ${age(infos[13])}歲生日`;
 						}
 						count += 1;
+						gender = infos[0];
 					}
 				}
 
@@ -129,8 +132,10 @@ $(document).ready(function () {
 
 			if (count == 0) {
 				text += `今天沒有球員生日，祝你有美好的一天！`
-			} else if (count == 1) {
+			} else if (count == 1 & gender == "men") {
 				text += `，祝他生日快樂！`
+			} else if (count == 1){
+				text += `，祝她生日快樂！`
 			} else if (count > 1) {
 				text += `，祝他們生日快樂！`
 			}

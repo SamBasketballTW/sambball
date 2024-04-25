@@ -3,14 +3,6 @@ $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
     timeStamp.innerHTML = `<b>更新日期: 2024.04.21</b>`
 
-    if (document.getElementById("index")) {
-        if (window.innerWidth <= 450) {
-            document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 首頁`
-        } else {
-            document.getElementById("index").innerHTML = `&nbsp;&nbsp;<img src="../asset/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW`
-        }
-    }
-
     if (document.getElementById("men_page")) {
         navbar_dropdown = document.getElementById("men-navbar-dropdown");
         navbar_dropdown.innerHTML = `
@@ -72,7 +64,7 @@ $(document).ready(function () {
                     </a>
                     <br>
                     <a style="color:white;"
-                        href="https://www.instagram.com/sam_basketball_tw/">
+                        href="https://www.instagram.com/sam_basketball_tw/" target="blank">
                         <i class="bi bi-instagram" style="color:white; font-size: 18px;"></i>
                         sam_basketball_tw&nbsp;
                     </a>
@@ -83,7 +75,6 @@ $(document).ready(function () {
                     </a>
                     <br>
                     <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
-
     </div>`
 });
 plg_teamRank = {
@@ -103,8 +94,8 @@ t1_teamRank = {
 }
 sbl_teamRank = {
     1: 'beer',
-    3: 'bank',
-    2: 'yulon',
+    2: 'bank',
+    3: 'yulon',
     4: 'bll'
 }
 wsbl_teamRank = {
@@ -266,4 +257,37 @@ short_teamName = {
     "taiyuen": "台元",
     "taipower": "台電",
     "cht": "電信"
+}
+college = {
+    "中州科大": "ccut",
+    "中信學院": "ctbcbs",
+    "中原大學": "cycu",
+    "文化大學": "pccu",
+    "世新大學": "shu",
+    "北市大學": "utaipei",
+    "佛光大學": "fgu",
+    "宏國德霖": "hdut",
+    "亞洲大學": "asiau",
+    "明道大學": "mdu",
+    "東南科大": "tungnanu",
+    "虎尾科大": "nfu",
+    "政治大學": "nccu",
+    "首府大學": "shoufuu",
+    "高雄師大": "nknu",
+    "健行科大": "uch",
+    "國立體大": "ntsu",
+    "康寧大學": "ukn",
+    "陽明交通": "nycu",
+    "萬能科大": "vnu",
+    "義守大學": "isu",
+    "僑光科大": "ocu",
+    "實踐大學": "usc",
+    "彰化師大": "ncue",
+    "臺北科大": "ntut",
+    "臺灣科大": "ntust",
+    "臺灣師大": "ntnu",
+    "臺灣藝大": "ntua",
+    "臺灣體大": "ntusport",
+    "輔仁大學": "fjcu",
+    "醒吾科大": "hwu"
 }

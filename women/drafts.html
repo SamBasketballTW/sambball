@@ -32,7 +32,7 @@
 	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
 		<div class="container-fluid">
 			<a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png"
-					class="icon">&nbsp;&nbsp;</a>
+					class="icon">&nbsp;山姆籃球</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -130,7 +130,7 @@
 				draftbtn.innerHTML = this.innerHTML;
 				teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
 
-				f('','drafts_tb','filter');
+				f('filter','drafts_tb');
 			});
 		}
 
@@ -146,7 +146,7 @@
 				teambtn.innerHTML = this.innerHTML;
 				draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
 
-				f('','drafts_tb','filter');
+				f('filter','drafts_tb');
 			});
 		}
 	</script>

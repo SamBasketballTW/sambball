@@ -32,34 +32,89 @@
 
 	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
 		<div class="container-fluid">
-			<a id="index-index" class="navbar-brand" href="./">&nbsp;&nbsp;<img src="./asset/images/logo.png"
-					class="icon"> 山姆籃球 SamBasketballTW</a>
+			<a id="index" class="navbar-brand" href="./">&nbsp;&nbsp;<img src="./asset/images/logo.png"
+					class="icon">&nbsp;山姆籃球</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								戰績</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/standings">&nbsp;戰績 (男)</a></li>
+								<li><a class="nav-link" href="./women/standings">&nbsp;戰績 (女)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								球隊陣容</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/rosters">&nbsp;球隊陣容 (男)</a></li>
+								<li><a class="nav-link" href="./women/rosters">&nbsp;球隊陣容 (女)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								現役球員</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/players">&nbsp;現役球員 (男)</a></li>
+								<li><a class="nav-link" href="./women/players">&nbsp;現役球員 (女)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								合約</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/contracts">&nbsp;合約 (男)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								選秀</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/drafts">&nbsp;選秀 (男)</a></li>
+								<li><a class="nav-link" href="./women/drafts">&nbsp;選秀 (女)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								交易</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/trades">&nbsp;交易 (男)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								自由球員</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/free-agents">&nbsp;自由球員 (男)</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+								旅美學生</button>
+							<ul class="dropdown-menu">
+								<li><a class="nav-link" href="./men/us-students">&nbsp;旅美學生 (男)</a></li>
+								<li><a class="nav-link" href="./women/us-students">&nbsp;旅美學生 (女)</a></li>
+							</ul>
+						</li>
+					</div>
+				</div>
 		</div>
 	</nav>
 
 	<div class="content">
 		<div class="jumbotron"></div>
 
-		<div class="container-lg" style="max-width:920px">
-			<div class="button-container">
-				<a href="./men/rosters" class="button" style="font-size:21px;">
-					<img src="./asset/images/logo_round.png" alt="men_basketball_tw" style="width:50px;height:50px">
-					<strong>&nbsp;臺灣男籃</strong>
-				</a>
-				</a>
-				<a href="./women/rosters" class="button" style="font-size:21px;">
-					<img src="./asset/images/logo_round.png" alt="women_basketball_tw" style="width:50px;height:50px">
-					<strong>&nbsp;臺灣女籃</strong>
-				</a>
-				</a>
-			</div>
-		</div>
-
-		<div class="container-lg" style="max-width:920px">
+		<div class="container-lg" style="padding-top:10px; max-width:920px">
 			<div class="alert alert-warning alert-dismissible fade show" role="alert"
-				style="margin-bottom:0px; text-align:center;">
+				style="margin-bottom:0px; text-align:center; color:black; background-color: #FFAD7C;
+				border: 3px solid black;">
 				<strong id="birthday_td"></strong>
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				
 			</div>
 		</div>
 
