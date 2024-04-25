@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.21</b>`
+    timeStamp.innerHTML = `<b>更新日期: 2024.04.24</b>`
 
     if (document.getElementById("men_page")) {
         navbar_dropdown = document.getElementById("men-navbar-dropdown");

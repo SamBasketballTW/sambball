@@ -48,7 +48,7 @@ $(document).ready(function () {
 								streak[1] += 1;
 							} else if (streak[0] == "W") {
 								streak[1] += 1;
-							} else if (streak [0]== "L") {
+							} else if (streak[0] == "L") {
 								streak[0] = `L${streak[1]}`;
 							}
 						} else if (infos[11] == team) {

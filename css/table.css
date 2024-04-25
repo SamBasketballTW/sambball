@@ -39,6 +39,13 @@ a:hover{
 .textL{
 	text-align: left;
 }
+.text-white{
+	color: white;
+}
+.text-strike{
+	text-decoration: line-through; 
+	color: white;
+}
 
 /* table settings */
 table {

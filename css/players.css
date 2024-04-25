@@ -1,10 +1,3 @@
-/* text decorations */
-.text-strike{
-	text-decoration: line-through; 
-	color: white;
-}
-
-/* background colors */
 .plgtrade{
 	background-color: #F8E6D0;
 }
@@ -16,8 +9,6 @@
 	color: #FAF0F0;
 	--bs-table-hover-color: #FAF0F0;
 }
-
-/* team colors */
 .CBA-bg{
 	background-color: #B22625;
 	color:#FAF0F0;
@@ -88,9 +79,6 @@
 }
 .bll-bg{
 	background-color: #A66ECF;
-}
-.mustangs-bg{
-	background-color: #F5DF77;
 }
 .cathay-bg{
 	background-color: #F9D978;

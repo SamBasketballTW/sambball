@@ -36,6 +36,8 @@ $(document).ready(function () {
                         infos[9] = `洋將`;
                     }else if(infos[1] == "海登"){
                         infos[9] = `亞外`;
+                    }else if(infos[1] == "王振原"){
+                        infos[9] = `本土`;
                     }
 
                     info += `
