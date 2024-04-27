@@ -48,7 +48,7 @@
                     <a class="nav-link" href="./trades">交易</a>
                     <a class="nav-link" href="./free-agents">自由球員</a>
                     <a class="nav-link" href="./us-students">旅美學生</a>
-					<li id="men-navbar-dropdown" class="nav-item dropdown"></li>
+                    <li id="men-navbar-dropdown" class="nav-item dropdown"></li>
                 </div>
             </div>
         </div>
@@ -57,108 +57,103 @@
     <div class="content">
         <div id="men_page" class="jumbotron"></div>
 
-            <div class="container-lg" style="overflow-x:auto;">
-                <div class="col" style="width:210px">
-                    <button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-                    </button>
-                    <ul id="team-dropdown_m" class="dropdown-menu">
-                        <li><a class="dropdown-item active" onclick="f('oversea')">
-                                <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-                        <li><a id="menu_braves" class="dropdown-item" onclick="f('braves')"></a></li>
-                        <li><a id="menu_kings" class="dropdown-item" onclick="f('kings')"></a></li>
-                        <li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots')"></a></li>
-                        <li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers')"></a></li>
-                        <li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers')"></a></li>
-                        <li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers')"></a></li>
-                        <li><a id="menu_dea" class="dropdown-item" onclick="f('dea')"></a></li>
-                        <li><a id="menu_mars" class="dropdown-item" onclick="f('mars')"></a></li>
-                        <li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards')"></a></li>
-                        <li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks')"></a>
-                        </li>
-                        <li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas')"></a></li>
-                        <li><a id="menu_beer" class="dropdown-item" onclick="f('beer')"></a></li>
-                        <li><a id="menu_bank" class="dropdown-item" onclick="f('bank')"></a></li>
-                        <li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon')"></a></li>
-                        <li><a id="menu_bll" class="dropdown-item" onclick="f('bll')"></a></li>
-                        <li><a class="dropdown-item" onclick="f('herobears')">台灣啤酒英熊(已解散)</a></li>
-                        <li><a class="dropdown-item" onclick="f('suns')">臺中太陽(已解散)</a></li>
-                    </ul>
-
+        <div class="container-lg" style="overflow-x:auto;">
+            <div class="col" style="width:450px">
+                <button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+                </button>
+                <ul id="team-dropdown_m" class="dropdown-menu">
+                    <li><a class="dropdown-item active" onclick="f('oversea')">
+                            <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
+                    <li><a id="menu_braves" class="dropdown-item" onclick="f('braves')"></a></li>
+                    <li><a id="menu_kings" class="dropdown-item" onclick="f('kings')"></a></li>
+                    <li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots')"></a></li>
+                    <li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers')"></a></li>
+                    <li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers')"></a></li>
+                    <li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers')"></a></li>
+                    <li><a id="menu_dea" class="dropdown-item" onclick="f('dea')"></a></li>
+                    <li><a id="menu_mars" class="dropdown-item" onclick="f('mars')"></a></li>
+                    <li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards')"></a></li>
+                    <li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks')"></a>
+                    </li>
+                    <li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas')"></a></li>
+                    <li><a id="menu_beer" class="dropdown-item" onclick="f('beer')"></a></li>
+                    <li><a id="menu_bank" class="dropdown-item" onclick="f('bank')"></a></li>
+                    <li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon')"></a></li>
+                    <li><a id="menu_bll" class="dropdown-item" onclick="f('bll')"></a></li>
+                    <li><a class="dropdown-item" onclick="f('herobears')">台灣啤酒英熊(已解散)</a></li>
+                    <li><a class="dropdown-item" onclick="f('suns')">臺中太陽(已解散)</a></li>
+                </ul>
+                &nbsp;&nbsp;&nbsp;
+                <div id = "move_check" class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" checked>
+                    <label class="form-check-label" for="inlineCheckbox1"><b>顯示 2023-24 球員異動</b></label>
                 </div>
+
             </div>
+        </div>
 
-            <div class="container-lg">
-                <div class="table-scroll" style="border-bottom:0px">
-                    <table id="r_count" class="table table-hover">
-                        <tbody id="r_count_tbody">
+        <div class="container-lg">
+            <div class="table-scroll" style="border-bottom:0px">
+                <table id="r_count" class="table table-hover">
+                    <tbody id="r_count_tbody">
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-scroll" style="max-height: calc(100vh - 262px)">
-                    <table id="roster_movements_tb" class="table table-hover">
-                        <thead id="roster_movements_thead">
-
-                        </thead>
-                        <tbody id="roster_movements_tbody">
-
-                        </tbody>
-                    </table>
-                </div>
-                <a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a>
+                    </tbody>
+                </table>
             </div>
+            <div class="table-scroll" style="max-height: calc(100vh - 242px); border-top:0px; border-bottom:0px">
+                <table id="roster_movements_tb" class="table table-hover filterTb showTb">
+                    <thead id="roster_movements_thead">
 
-            <div class="container-lg">
-                <div class="table-scroll" style="border-bottom:0px">
-                    <table id="r_coach" class="table table-hover">
-                        <tbody id="r_coach_tbody">
+                    </thead>
+                    <tbody id="roster_movements_tbody">
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-scroll" style="max-height: calc(100vh - 152px); border-bottom:0px">
-                    <table id="rosters_tb" class="table table-hover table-fix2 filterTb showTb">
-                        <thead>
-                            <th style="width:70px">背號</th>
-                            <th style="width:110px">球員</th>
-                            <th style="width:80px">身份</th>
-                            <th style="width:80px">位置</th>
-                            <th style="width:80px">身高</th>
-                            <th style="width:80px">體重</th>
-                            <th style="width:80px">年齡</th>
-                            <th style="width:120px">生日</th>
-                            <th style="width:210px">學校</th>
-                            <th style="width:235px">加入途徑</th>
-                        </thead>
-                        <tbody id="roster_tbody">
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-scroll" style="max-height: calc(100vh - 152px); border-top:0px">
-                    <table id="rosters_oversea_tb" class="table table-hover table-fix3 filterTb">
-                        <thead>
-                            <th style="width:190px">球隊</th>
-                            <th style="width:70px">背號</th>
-                            <th style="width:110px">球員</th>
-                            <th style="width:80px">身份</th>
-                            <th style="width:80px">位置</th>
-                            <th style="width:80px">身高</th>
-                            <th style="width:80px">體重</th>
-                            <th style="width:80px">年齡</th>
-                            <th style="width:120px">生日</th>
-                            <th style="width:210px">學校</th>
-                            <th style="width:235px">加入途徑</th>
-                        </thead>
-                        <tbody id="roster_oversea_tbody">
-
-                        </tbody>
-                    </table>
-                </div>
-                <a id="timeStamp"style="font-size:13px"></a>
+                    </tbody>
+                </table>
             </div>
+            <div class="table-scroll" style="max-height: calc(100vh - 242px); border-top:0px; border-bottom:0px">
+                <table id="rosters_tb" class="table table-hover table-fix2 filterTb showTb">
+                    <thead>
+                        <th style="width:70px">背號</th>
+                        <th style="width:110px">球員</th>
+                        <th style="width:80px">身份</th>
+                        <th style="width:80px">位置</th>
+                        <th style="width:80px">身高</th>
+                        <th style="width:80px">體重</th>
+                        <th style="width:80px">年齡</th>
+                        <th style="width:120px">生日</th>
+                        <th style="width:210px">學校</th>
+                        <th style="width:235px">加入途徑</th>
+                    </thead>
+                    <tbody id="roster_tbody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-scroll" style="max-height: calc(100vh - 242px); border-top:0px">
+                <table id="rosters_oversea_tb" class="table table-hover table-fix3 filterTb">
+                    <thead>
+                        <th style="width:190px">球隊</th>
+                        <th style="width:70px">背號</th>
+                        <th style="width:110px">球員</th>
+                        <th style="width:80px">身份</th>
+                        <th style="width:80px">位置</th>
+                        <th style="width:80px">身高</th>
+                        <th style="width:80px">體重</th>
+                        <th style="width:80px">年齡</th>
+                        <th style="width:120px">生日</th>
+                        <th style="width:210px">學校</th>
+                        <th style="width:235px">加入途徑</th>
+                    </thead>
+                    <tbody id="roster_oversea_tbody">
+
+                    </tbody>
+                </table>
+            </div>
+            <a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a><br>
+            <a id="timeStamp" style="font-size:13px"></a>
+        </div>
 
         <img id="loader" class="spinner" src="../asset/images/logo.png">
     </div>
@@ -167,19 +162,21 @@
 
     <script>
         window.onload = function () { document.getElementById('loader').style.display = 'none'; }
+        window.addEventListener('resize', updateTables);
 
         var teams = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item");
         var teambtn = document.getElementById("teambtn");
         var roster_tbs = document.getElementsByClassName("filterTb");
+        var move_check = document.getElementById("move_check").querySelector("input[type='checkbox']");
 
         for (var i = 0; i < teams.length; i++) {
             teams[i].addEventListener("click", function () {
                 if (this.innerHTML.includes("旅外")) {
-                    roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
-                    roster_tbs[1].className += " showTb";
-                } else if (roster_tbs[1].className.includes("showTb")) {
                     roster_tbs[1].className = roster_tbs[1].className.replace(" showTb", "");
-                    roster_tbs[0].className += " showTb";
+                    roster_tbs[2].className += " showTb";
+                } else if (roster_tbs[2].className.includes("showTb")) {
+                    roster_tbs[2].className = roster_tbs[2].className.replace(" showTb", "");
+                    roster_tbs[1].className += " showTb";
                 }
                 var currentTeam = document.getElementsByClassName("dropdown-item active");
                 currentTeam[0].className = currentTeam[0].className.replace(" active", "");
@@ -189,6 +186,13 @@
                 f('filter');
             });
         }
+        move_check.addEventListener("click", function () {
+            if(move_check.checked){
+                roster_tbs[0].className += " showTb";
+            } else {
+                roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
+            }
+        });
     </script>
 
 </body>

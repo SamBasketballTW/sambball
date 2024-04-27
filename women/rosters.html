@@ -55,7 +55,7 @@
         <div id="women_page" class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x:auto;">
-            <div class="col" style="width:210px">
+            <div class="col" style="width:450px">
                 <button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
@@ -70,8 +70,11 @@
                     <li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen')"></a>
                     </li>
                 </ul>
-
-                <a><b id="r_count"></b></a>
+                &nbsp;&nbsp;&nbsp;
+                <div id = "move_check" class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" checked>
+                    <label class="form-check-label" for="inlineCheckbox1"><b>顯示 2023-24 球員異動</b></label>
+                </div>
 
             </div>
         </div>
@@ -84,8 +87,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table-scroll" style="max-height: calc(100vh - 261px)">
-                <table id="roster_movements_tb" class="table table-hover">
+            <div class="table-scroll" style="max-height: calc(100vh - 242px); border-top:0px; border-bottom:0px">
+                <table id="roster_movements_tb" class="table table-hover filterTb showTb">
                     <thead id="roster_movements_thead">
 
                     </thead>
@@ -94,18 +97,7 @@
                     </tbody>
                 </table>
             </div>
-            <a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a>
-        </div>
-
-        <div class="container-lg">
-            <div class="table-scroll" style="border-bottom:0px">
-                <table id="r_coach" class="table table-hover">
-                    <tbody id="r_coach_tbody">
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="table-scroll" style="max-height: calc(100vh - 152px); border-bottom:0px">
+            <div class="table-scroll" style="max-height: calc(100vh - 242px); border-top:0px; border-bottom:0px">
                 <table id="rosters_tb" class="table table-hover table-fix2 filterTb showTb">
                     <thead>
                         <th style="width:70px">背號</th>
@@ -124,7 +116,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table-scroll" style="max-height: calc(100vh - 152px); border-top:0px">
+            <div class="table-scroll" style="max-height: calc(100vh - 242px); border-top:0px">
                 <table id="rosters_oversea_tb" class="table table-hover table-fix3 filterTb">
                     <thead>
                         <th style="width:190px">球隊</th>
@@ -144,6 +136,7 @@
                     </tbody>
                 </table>
             </div>
+            <a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a><br>
             <a id="timeStamp" style="font-size:13px"></a>
         </div>
 
@@ -154,19 +147,21 @@
 
     <script>
         window.onload = function () { document.getElementById('loader').style.display = 'none'; }
+        window.addEventListener('resize', updateTables);
 
         var teams = document.getElementById("team-dropdown_w").getElementsByClassName("dropdown-item");
         var teambtn = document.getElementById("teambtn");
         var roster_tbs = document.getElementsByClassName("filterTb");
+        var move_check = document.getElementById("move_check").querySelector("input[type='checkbox']");
 
         for (var i = 0; i < teams.length; i++) {
             teams[i].addEventListener("click", function () {
                 if (this.innerHTML.includes("旅外")) {
-                    roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
-                    roster_tbs[1].className += " showTb";
-                } else if (roster_tbs[1].className.includes("showTb")) {
                     roster_tbs[1].className = roster_tbs[1].className.replace(" showTb", "");
-                    roster_tbs[0].className += " showTb";
+                    roster_tbs[2].className += " showTb";
+                } else if (roster_tbs[2].className.includes("showTb")) {
+                    roster_tbs[2].className = roster_tbs[2].className.replace(" showTb", "");
+                    roster_tbs[1].className += " showTb";
                 }
                 var currentTeam = document.getElementsByClassName("dropdown-item active");
                 currentTeam[0].className = currentTeam[0].className.replace(" active", "");
@@ -176,6 +171,13 @@
                 f('filter');
             });
         }
+        move_check.addEventListener("click", function () {
+            if(move_check.checked){
+                roster_tbs[0].className += " showTb";
+            } else {
+                roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
+            }
+        });
     </script>
 
 </body>

@@ -67,6 +67,7 @@ body {
 .dropdown-toggle{
 	width:200px;
 	height:40.5px;
+	border: 2px black solid;
 }
 .dropdown-menu{
 	max-height: calc(73vh - 130.5px);
@@ -102,6 +103,10 @@ body {
 		padding-left:20px;
 		padding-right:20px;
 	}
+}
+.form-check-input{
+	width:1.2em;
+	height:1.2em;
 }
 
 .button-container {

@@ -13,7 +13,7 @@ $(document).ready(function () {
             table_calendar = document.getElementById('calendar_wsbl_tbody');
 
             rank = [];
-            for (let i = 0; i < 4; i++) rank.splice(i, 0, wsbl_teamRank[i + 1]);
+            for (let i = 0; i < 4; i++) rank.push(wsbl_teamRank[i + 1]);
 
             matchup_thead = `
             <thead>

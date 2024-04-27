@@ -6,7 +6,7 @@ $(document).ready(function () {
     if (document.getElementById("men_page")) {
         navbar_dropdown = document.getElementById("men-navbar-dropdown");
         navbar_dropdown.innerHTML = `
-        <button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
             女籃
         </button>
         <ul class="dropdown-menu">
@@ -20,7 +20,7 @@ $(document).ready(function () {
     } else if (document.getElementById("women_page")) {
         navbar_dropdown = document.getElementById("women-navbar-dropdown");
         navbar_dropdown.innerHTML = `
-        <button class="btn dropdown-toggle nav-link" style="width:auto" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			男籃
 		</button>
 		<ul class="dropdown-menu">
@@ -117,12 +117,12 @@ playoff = {
     "ghosthawks": "- o",
     "aquas": "- x",
     "beer": "- f",
-    "bank": "- c",
-    "yulon": "- c",
+    "bank": "- x",
+    "yulon": "- x",
     "bll": "- o",
 
-    "cathay": "- c",
-    "taipower": "- c",
+    "cathay": "- x",
+    "taipower": "- x",
     "cht": "- o",
     "taiyuen": "- f"
 }

@@ -14,11 +14,8 @@ function identity(id) {
 	}
 }
 function team_name(value, league, team, gender = "") {
-	if(value == "full"){
-		teamName = cn_teamName[team];
-	}else if(value == "short"){
-		teamName = short_teamName[team];
-	}
+	if(value == "full") teamName = cn_teamName[team];
+	if(value == "short")teamName = short_teamName[team];
 
 	if (is_oversea(league)) {
 		return `${league} ${team}`
@@ -96,8 +93,11 @@ function f(value, table = "", filter = "") {
 		cbs = document.querySelectorAll('.form-check-input:not(#checkSwitch)');
 		for( let i = 0; i<cbs.length; i++) {
 			if (!cbs[i].checked){
-				cb = cbs[i].getAttribute('onclick').split('\'')[1];
-				checkboxes.push(cb);
+				if(cbs[i].getAttribute('onclick')){
+					cb = cbs[i].getAttribute('onclick').split('\'')[1];
+					checkboxes.push(cb);
+				}
+				
 			}
 		}
 

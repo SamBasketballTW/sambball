@@ -6,10 +6,10 @@ $(document).ready(function () {
 	league = ['plg', 't1', 'sbl', 'wsbl'];
 
 	for (let i = 0; i < 6; i++) {
-		if (i < 6) plg_rank.splice(i, 0, plg_teamRank[i + 1])
-		if (i < 5) t1_rank.splice(i, 0, t1_teamRank[i + 1])
-		if (i < 4) sbl_rank.splice(i, 0, sbl_teamRank[i + 1])
-		if (i < 4) wsbl_rank.splice(i, 0, wsbl_teamRank[i + 1])
+		if (i < 6) plg_rank.push(plg_teamRank[i + 1])
+		if (i < 5) t1_rank.push(t1_teamRank[i + 1])
+		if (i < 4) sbl_rank.push(sbl_teamRank[i + 1])
+		if (i < 4) wsbl_rank.push(wsbl_teamRank[i + 1])
 	}
 	rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 	team_count = [plg_rank.length, t1_rank.length, sbl_rank.length, wsbl_rank.length];
