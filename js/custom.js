@@ -79,7 +79,7 @@ function f(value, table = "", filter = "") {
 		filters = []
 		checkboxes = []
 		var actives = document.getElementsByClassName("active");
-		for (let i = 1; i < actives.length; i++){
+		for (let i = 0; i < actives.length; i++){
 			var fil = actives[i].getAttribute('onclick').split('\'')[1];
 			var tab = actives[i].getAttribute('onclick').split('\'')[3];
 			if(table == "") tab = "";

@@ -5,17 +5,14 @@
 	text-align: justify;
 }
 
-/* body background-color */
 body {
 	background-color: #F8DAB2;
 }
 
-/* footer */
 .content{
 	min-height: calc(100vh - 123px);
 }
 
-/* icon sizes */
 .teamicon {
 	width:25px;
 	height:25px;
@@ -31,7 +28,6 @@ body {
 }
 
 
-/* spinning logo */
 .spinner {
 	animation: spin 3s linear infinite;
 	top: 50%;
@@ -52,14 +48,15 @@ body {
 	}
 }
 
-/* index,title colors */
+
 .index{
 	background-color: #1b1b1b; 
 	color: white;
 	--bs-table-hover-color: white;
 }
 
-/* filter */
+
+
 .btn-group{
 	height: 40.5px;
 }
@@ -70,8 +67,12 @@ body {
 	border: 2px black solid;
 }
 .dropdown-menu{
+	display: none;
 	max-height: calc(73vh - 130.5px);
 	overflow-y: auto;
+}
+.nav-item:hover .dropdown-menu {
+	display: block;
 }
 
 /* dropdown submenu */

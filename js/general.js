@@ -1,39 +1,82 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>更新日期: 2024.04.27</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.04.27</b>`
 
-    if (document.getElementById("men_page")) {
-        navbar_dropdown = document.getElementById("men-navbar-dropdown");
-        navbar_dropdown.innerHTML = `
-        <button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
-            女籃
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="nav-link" href="../women/standings">&nbsp;戰績</a></li>
-            <li><a class="nav-link" href="../women/rosters">&nbsp;球隊陣容</a></li>
-            <li><a class="nav-link" href="../women/players">&nbsp;現役球員</a></li>
-            <li><a class="nav-link" href="../women/drafts">&nbsp;選秀</a></li>
-            <li><a class="nav-link" href="../women/us-students">&nbsp;旅美學生</a></li>
-        </ul>`
-
+    if (document.getElementById("index_page")) {
+        men_path = "./men"
+        women_path = "./women"
+    } else if (document.getElementById("men_page")) {
+        men_path = "."
+        women_path = "../women"
     } else if (document.getElementById("women_page")) {
-        navbar_dropdown = document.getElementById("women-navbar-dropdown");
-        navbar_dropdown.innerHTML = `
-        <button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
-			男籃
-		</button>
-		<ul class="dropdown-menu">
-			<li><a class="nav-link" href="../men/standings">&nbsp;戰績</a></li>
-			<li><a class="nav-link" href="../men/rosters">&nbsp;球隊陣容</a></li>
-			<li><a class="nav-link" href="../men/players">&nbsp;現役球員</a></li>
-			<li><a class="nav-link" href="../men/contracts">&nbsp;合約</a></li>
-			<li><a class="nav-link" href="../men/drafts">&nbsp;選秀</a></li>
-			<li><a class="nav-link" href="../men/trades">&nbsp;交易</a></li>
-			<li><a class="nav-link" href="../men/free-agents">&nbsp;自由球員</a></li>
-			<li><a class="nav-link" href="../men/us-students">&nbsp;旅美學生</a></li>
-		</ul>`
+        men_path = "../men"
+        women_path = "."
     }
+    test = ""
+    navbar_dropdown = document.getElementById("navbar-dropdown");
+    navbar_dropdown.innerHTML = `
+    <li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			戰績</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/standings${test}">&nbsp;戰績 (男)</a></li>
+			<li><a class="nav-link" href="${women_path}/standings${test}">&nbsp;戰績 (女)</a></li>
+		</ul>
+	</li>
+    <li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			球隊陣容</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/rosters${test}">&nbsp;球隊陣容 (男)</a></li>
+			<li><a class="nav-link" href="${women_path}/rosters${test}">&nbsp;球隊陣容 (女)</a></li>
+		</ul>
+	</li>
+	<li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			現役球員</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/players${test}">&nbsp;現役球員 (男)</a></li>
+			<li><a class="nav-link" href="${women_path}/players${test}">&nbsp;現役球員 (女)</a></li>
+		</ul>
+	</li>
+	<li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			合約</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/contracts${test}">&nbsp;合約 (男)</a></li>
+		</ul>
+	</li>
+	<li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			選秀</button>
+		<ul class="dropdown-menu">
+		    <li><a class="nav-link" href="${men_path}/drafts${test}">&nbsp;選秀 (男)</a></li>
+		    <li><a class="nav-link" href="${women_path}/drafts${test}">&nbsp;選秀 (女)</a></li>
+	    </ul>
+	</li>
+	<li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			交易</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/trades${test}">&nbsp;交易 (男)</a></li>
+		</ul>
+	</li>
+	<li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			自由球員</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/free-agents${test}">&nbsp;自由球員 (男)</a></li>
+		</ul>
+	</li>
+	<li class="nav-item dropdown">
+		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+			旅美學生</button>
+		<ul class="dropdown-menu">
+			<li><a class="nav-link" href="${men_path}/us-students${test}">&nbsp;旅美學生 (男)</a></li>
+			<li><a class="nav-link" href="${women_path}/us-students${test}">&nbsp;旅美學生 (女)</a></li>
+		</ul>
+	</li>`
 
     if (document.getElementById('team-dropdown_m')) {
         teams = [];
