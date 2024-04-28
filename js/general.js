@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.04.27</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.04.28</b>`
 
     if (document.getElementById("index_page")) {
         men_path = "./men"
@@ -123,9 +123,9 @@ $(document).ready(function () {
 plg_teamRank = {
     5: 'braves',
     3: 'kings',
-    1: 'pilots',
+    2: 'pilots',
     4: 'lioneers',
-    2: 'dreamers',
+    1: 'dreamers',
     6: 'steelers'
 }
 t1_teamRank = {
@@ -152,7 +152,7 @@ playoff = {
     "kings": "",
     "pilots": "",
     "lioneers": "",
-    "dreamers": "",
+    "dreamers": "- x",
     "steelers": "- o",
     "dea": "- x",
     "mars": "- x",
