@@ -21,17 +21,15 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa" & infos[7] != "coach") {
+				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa" & infos[9] != "代理總教練") {
 					filter = `${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}`;
 
-					if (is_oversea(infos[3]) | identity(infos[9]) == "local") {
-						filter = ` local`
-					} else if (identity(infos[9]) == "import" | infos[7] == "import" | infos[1] == "阿拉薩"){
-						filter = ` import`
-					} else if (coach_name[infos[4]] == "") {
-						filter = ` local`
+					if (infos[7] == "coach") {
+						filter = `coach`
+					} else if (is_oversea(infos[3]) | infos[1] == "王振原" | identity(infos[9]) == "local") {
+						filter = `local`
 					} else {
-						filter = ` import`
+						filter = `import`
 					}
 
 					url = ""
@@ -44,8 +42,8 @@ $(document).ready(function () {
 					}
 
 					info += `
-						<tr class="filterTr ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]} showTr">
-							<td class="borderR">${team_name("short", infos[3], infos[4], gender)}</td>
+						<tr class="filterTr ${filter_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]} showTr">
+							<td class="${bg_team(infos[3], infos[4])} borderR">${team_name("short", infos[3], infos[4], gender)}</td>
 							<td class="borderR">${infos[2]}</td>
 							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
 							<td>${infos[23]}</td>

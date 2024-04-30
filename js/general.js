@@ -14,6 +14,7 @@ $(document).ready(function () {
         women_path = "."
     }
     test = ""
+    test = ".html"
     navbar_dropdown = document.getElementById("navbar-dropdown");
     navbar_dropdown.innerHTML = `
     <li class="nav-item dropdown">
@@ -81,9 +82,9 @@ $(document).ready(function () {
     if (document.getElementById('team-dropdown_m')) {
         teams = [];
         t_counts = [6, 5, 4];
-        for (let i = 0; i < t_counts[0]; i++) teams.splice(i, 0, plg_teamRank[i + 1]);
-        for (let i = 0; i < t_counts[1]; i++) teams.splice(i + t_counts[0], 0, t1_teamRank[i + 1]);
-        for (let i = 0; i < t_counts[2]; i++) teams.splice(i + t_counts[0] + t_counts[1], 0, sbl_teamRank[i + 1]);
+        for (let i = 0; i < t_counts[0]; i++) teams.push(plg_team[i + 1]);
+        for (let i = 0; i < t_counts[1]; i++) teams.push(t1_team[i + 1]);
+        for (let i = 0; i < t_counts[2]; i++) teams.push(sbl_team[i + 1]);
 
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
@@ -92,7 +93,7 @@ $(document).ready(function () {
     } else if (document.getElementById('team-dropdown_w')) {
         teams = [];
         t_counts = 4;
-        for (let i = 0; i < t_counts; i++) teams.splice(i, 0, wsbl_teamRank[i + 1]);
+        for (let i = 0; i < t_counts; i++) teams.push(wsbl_team[i + 1]);
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
             menu.innerHTML += `<img src="../asset/images/women/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`
@@ -120,32 +121,32 @@ $(document).ready(function () {
                     <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
     </div>`
 });
-plg_teamRank = {
-    5: 'braves',
-    3: 'kings',
-    2: 'pilots',
+plg_team = {
+    1: 'braves',
+    2: 'kings',
+    3: 'pilots',
     4: 'lioneers',
-    1: 'dreamers',
+    5: 'dreamers',
     6: 'steelers'
 }
-t1_teamRank = {
+t1_team = {
     1: 'dea',
-    4: 'mars',
-    2: 'leopards',
-    5: 'ghosthawks',
-    3: 'aquas'
+    2: 'mars',
+    3: 'leopards',
+    4: 'ghosthawks',
+    5: 'aquas'
 }
-sbl_teamRank = {
+sbl_team = {
     1: 'beer',
     2: 'bank',
     3: 'yulon',
     4: 'bll'
 }
-wsbl_teamRank = {
-    2: 'cathay',
-    3: 'taipower',
-    4: 'cht',
-    1: 'taiyuen'
+wsbl_team = {
+    1: 'cathay',
+    2: 'taipower',
+    3: 'cht',
+    4: 'taiyuen'
 }
 playoff = {
     "braves": "",

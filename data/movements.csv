@@ -3,7 +3,8 @@
 "extend / import extend
 change / keep / merge / fa / trade / loan / draft / import
 lost / lost trade / lost loan / import lost",,,
-men,oversea,extend,陳盈駿 (續約 3 年)
+men,oversea,extend,"陳盈駿 (續約 3 年)
+"
 men,oversea,extend,林庭謙 (續約 3 年)
 men,oversea,extend,劉錚 (續約 1 年)
 men,oversea,fa,劉駿霆 (日本 B2. LEAGUE)
@@ -100,6 +101,7 @@ men,dreamers,import extend,吉爾貝克 Brandon Gilbeck (延長)
 men,dreamers,import,布依德 Julian Boyd
 men,dreamers,import,德文馬布爾 Devyn Marble
 men,dreamers,import lost,貝札尼什維利 Giorgi Bezhanishvili
+,dreamers,,
 men,steelers,extend,盧哲毅 (續約)
 men,steelers,fa,李睿麒
 men,steelers,trade,施晉堯 (from 領航猿: 2023/06/19)
@@ -275,7 +277,7 @@ men,yulon,lost,斑霸 (涉賭)
 men,yulon,lost,陳品銓 (涉賭)
 men,yulon,lost,黃鉉閔 (涉賭)
 men,yulon,lost,翁嘉鴻 (疑涉賭)
-men,yulon,import extend,夏普 (續約 / 註銷)
+men,yulon,import extend,夏普 Walter Sharpe (續約 / 註銷)
 men,yulon,import,布蘭登 Brandon Moss
 men,yulon,import lost,喬丹 Jordan Tolbert
 men,bll,extend,陳奕綸 (續約)

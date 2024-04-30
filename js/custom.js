@@ -139,6 +139,56 @@ function rankArray(array) {
 	return temp;
 }
 
+function SortStandings(list) {
+    needSort = 0;
+    for (let i = 0; i < list.length - 1; i++) {
+        team1 = list[i][1][0] / (list[i][1][0] + list[i][1][1]);
+        team2 = list[i + 1][1][0] / (list[i + 1][1][0] + list[i + 1][1][1]);
+        if (team1 < team2) {
+            needSort = 1;
+            temp = list[i];
+            list[i] = list[i + 1];
+            list[i + 1] = temp;
+            for (let j = 0; j < list.length; j++) {
+                temp2 = list[j][19][i];
+                list[j][19][i] = list[j][19][i + 1];
+                list[j][19][i + 1] = temp2;
+            }
+        } else if (team1 == team2) {
+            matchup_w = list[i][19][findIndex(rank, list[i + 1][0])][1];
+            matchup_l = list[i][19][findIndex(rank, list[i + 1][0])][2];
+            if (matchup_l > matchup_w) {
+                needSort = 1;
+                temp = list[i];
+                list[i] = list[i + 1];
+                list[i + 1] = temp;
+                for (let j = 0; j < list.length; j++) {
+                    temp2 = list[j][19][i];
+                    list[j][19][i] = list[j][19][i + 1];
+                    list[j][19][i + 1] = temp2;
+                }
+            } else if (matchup_l == matchup_w) {
+                if (list[i][19][findIndex(rank, list[i + 1][0])][3] < 0) {
+                    needSort = 1;
+                    temp = list[i];
+                    list[i] = list[i + 1];
+                    list[i + 1] = temp;
+                    for (let j = 0; j < list.length; j++) {
+                        temp2 = list[j][19][i];
+                        list[j][19][i] = list[j][19][i + 1];
+                        list[j][19][i + 1] = temp2;
+                    }
+                }
+            }
+
+        }
+    }
+    if (needSort == 1) {
+        SortStandings(list);
+    }
+    return list;
+}
+
 function w3AddClass(element, name) {
 	var i, arr1, arr2;
 	arr1 = element.className.split(" ");

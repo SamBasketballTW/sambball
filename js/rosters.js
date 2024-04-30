@@ -13,9 +13,9 @@ $(document).ready(function () {
         team_dropdown = 'team-dropdown_m';
         t_counts = [6, 5, 4];
         teams = ['oversea'];
-        for (let i = 0; i < t_counts[0]; i++) teams.push(plg_teamRank[i + 1]);
-        for (let i = 0; i < t_counts[1]; i++) teams.push(t1_teamRank[i + 1]);
-        for (let i = 0; i < t_counts[2]; i++) teams.push(sbl_teamRank[i + 1]);
+        for (let i = 0; i < t_counts[0]; i++) teams.push(plg_team[i + 1]);
+        for (let i = 0; i < t_counts[1]; i++) teams.push(t1_team[i + 1]);
+        for (let i = 0; i < t_counts[2]; i++) teams.push(sbl_team[i + 1]);
 
         teams_info = [];
         for (let i = 0; i < teams.length; i++) teams_info.push([teams[i], 0, 0, 0, 0]);
@@ -25,7 +25,7 @@ $(document).ready(function () {
         team_dropdown = 'team-dropdown_w';
         t_counts = 4;
         teams = ['oversea'];
-        for (let i = 0; i < t_counts; i++) teams.push(wsbl_teamRank[i + 1]);
+        for (let i = 0; i < t_counts; i++) teams.push(wsbl_team[i + 1]);
 
         teams_info = [];
         for (let i = 0; i < teams.length; i++) teams_info.push([teams[i], 0, 0, 0, 0]);
