@@ -14,7 +14,7 @@ $(document).ready(function () {
         women_path = "."
     }
     test = ""
-    test = ".html"
+    // test = ".html"
     navbar_dropdown = document.getElementById("navbar-dropdown");
     navbar_dropdown.innerHTML = `
     <li class="nav-item dropdown">
