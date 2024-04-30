@@ -112,17 +112,17 @@ $(document).ready(function () {
                 if (infos[9] != "-") teams_info[teamW_index][6][0] += 1;
                 if (infos[17] != "-") teams_info[teamL_index][6][1] += 1;
                 // q_points
-                teams_info[teamW_index][7][0] += q1_w
-                teams_info[teamW_index][7][1] += q2_w
-                teams_info[teamW_index][7][2] += q3_w
-                teams_info[teamW_index][7][3] += q4_w
+                teams_info[teamW_index][7][0] += q1_w - q1_l
+                teams_info[teamW_index][7][1] += q2_w - q2_l
+                teams_info[teamW_index][7][2] += q3_w - q3_l
+                teams_info[teamW_index][7][3] += q4_w - q4_l
                 teams_info[teamW_index][8][0] += pts_w
                 teams_info[teamW_index][9][0] += pts_l
 
-                teams_info[teamL_index][7][0] += q1_l
-                teams_info[teamL_index][7][1] += q2_l
-                teams_info[teamL_index][7][2] += q3_l
-                teams_info[teamL_index][7][3] += q4_l
+                teams_info[teamL_index][7][0] += q1_l - q1_w
+                teams_info[teamL_index][7][1] += q2_l - q2_w
+                teams_info[teamL_index][7][2] += q3_l - q3_w
+                teams_info[teamL_index][7][3] += q4_l - q4_w
                 teams_info[teamL_index][8][1] += pts_l
                 teams_info[teamL_index][9][1] += pts_w
 

@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.04.28</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.04.30</b>`
 
     if (document.getElementById("index_page")) {
         men_path = "./men"
@@ -151,7 +151,7 @@ wsbl_team = {
 playoff = {
     "braves": "",
     "kings": "",
-    "pilots": "",
+    "pilots": "- x",
     "lioneers": "",
     "dreamers": "- x",
     "steelers": "- o",
