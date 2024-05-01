@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 				if (infos[0] == gender) {
 					teamName = infos[5];
-					if (infos[5] == "") teamName = cn_teamName[infos[4]];
+					if (infos[5] == "") teamName = teamName_full_CN[infos[4]];
 
 					info += `
 					<tr class="filterTr ${infos[1]}${infos[2]} ${infos[4]} showTr">	

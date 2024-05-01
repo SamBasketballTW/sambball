@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    test = ""
+    // test = ".html"
 
     timeStamp = document.getElementById("timeStamp");
     timeStamp.innerHTML = `<b>最後更新: 2024.04.30</b>`
@@ -13,20 +15,18 @@ $(document).ready(function () {
         men_path = "../men"
         women_path = "."
     }
-    test = ""
-    // test = ".html"
     navbar_dropdown = document.getElementById("navbar-dropdown");
     navbar_dropdown.innerHTML = `
     <li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			戰績</button>
-		<ul class="dropdown-menu">
+		<ul class="dropdown-menu" style="margin:0">
 			<li><a class="nav-link" href="${men_path}/standings${test}">&nbsp;戰績 (男)</a></li>
 			<li><a class="nav-link" href="${women_path}/standings${test}">&nbsp;戰績 (女)</a></li>
 		</ul>
 	</li>
     <li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			球隊陣容</button>
 		<ul class="dropdown-menu">
 			<li><a class="nav-link" href="${men_path}/rosters${test}">&nbsp;球隊陣容 (男)</a></li>
@@ -34,7 +34,7 @@ $(document).ready(function () {
 		</ul>
 	</li>
 	<li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			現役球員</button>
 		<ul class="dropdown-menu">
 			<li><a class="nav-link" href="${men_path}/players${test}">&nbsp;現役球員 (男)</a></li>
@@ -42,14 +42,14 @@ $(document).ready(function () {
 		</ul>
 	</li>
 	<li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			合約</button>
 		<ul class="dropdown-menu">
 			<li><a class="nav-link" href="${men_path}/contracts${test}">&nbsp;合約 (男)</a></li>
 		</ul>
 	</li>
 	<li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			選秀</button>
 		<ul class="dropdown-menu">
 		    <li><a class="nav-link" href="${men_path}/drafts${test}">&nbsp;選秀 (男)</a></li>
@@ -57,21 +57,21 @@ $(document).ready(function () {
 	    </ul>
 	</li>
 	<li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			交易</button>
 		<ul class="dropdown-menu">
 			<li><a class="nav-link" href="${men_path}/trades${test}">&nbsp;交易 (男)</a></li>
 		</ul>
 	</li>
 	<li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			自由球員</button>
 		<ul class="dropdown-menu">
 			<li><a class="nav-link" href="${men_path}/free-agents${test}">&nbsp;自由球員 (男)</a></li>
 		</ul>
 	</li>
 	<li class="nav-item dropdown">
-		<button class="btn dropdown-toggle nav-link" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
+		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			旅美學生</button>
 		<ul class="dropdown-menu">
 			<li><a class="nav-link" href="${men_path}/us-students${test}">&nbsp;旅美學生 (男)</a></li>
@@ -81,22 +81,21 @@ $(document).ready(function () {
 
     if (document.getElementById('team-dropdown_m')) {
         teams = [];
-        t_counts = [6, 5, 4];
-        for (let i = 0; i < t_counts[0]; i++) teams.push(plg_team[i + 1]);
-        for (let i = 0; i < t_counts[1]; i++) teams.push(t1_team[i + 1]);
-        for (let i = 0; i < t_counts[2]; i++) teams.push(sbl_team[i + 1]);
+        for (let i = 0; i < league_teams['plg']; i++) teams.push(plg_teams[i + 1]);
+        for (let i = 0; i < league_teams['t1']; i++) teams.push(t1_teams[i + 1]);
+        for (let i = 0; i < league_teams['sbl']; i++) teams.push(sbl_teams[i + 1]);
 
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
-            menu.innerHTML += `<img src="../asset/images/men/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`
+            menu.innerHTML += `<img src="../asset/images/men/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${teamName_full_CN[teams[i]]}</a></li>`
         }
     } else if (document.getElementById('team-dropdown_w')) {
         teams = [];
-        t_counts = 4;
-        for (let i = 0; i < t_counts; i++) teams.push(wsbl_team[i + 1]);
+        for (let i = 0; i < league_teams['wsbl']; i++) teams.push(wsbl_teams[i + 1]);
+
         for (let i = 0; i < teams.length; i++) {
             menu = document.getElementById("menu_" + teams[i]);
-            menu.innerHTML += `<img src="../asset/images/women/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${cn_teamName[teams[i]]}</a></li>`
+            menu.innerHTML += `<img src="../asset/images/women/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${teamName_full_CN[teams[i]]}</a></li>`
         }
     }
 
@@ -121,7 +120,13 @@ $(document).ready(function () {
                     <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
     </div>`
 });
-plg_team = {
+league_teams = {
+    'plg': 6,
+    't1': 5,
+    'sbl': 4,
+    'wsbl': 4 
+}
+plg_teams = {
     1: 'braves',
     2: 'kings',
     3: 'pilots',
@@ -129,20 +134,20 @@ plg_team = {
     5: 'dreamers',
     6: 'steelers'
 }
-t1_team = {
+t1_teams = {
     1: 'dea',
     2: 'mars',
     3: 'leopards',
     4: 'ghosthawks',
     5: 'aquas'
 }
-sbl_team = {
+sbl_teams = {
     1: 'beer',
     2: 'bank',
     3: 'yulon',
     4: 'bll'
 }
-wsbl_team = {
+wsbl_teams = {
     1: 'cathay',
     2: 'taipower',
     3: 'cht',
@@ -170,7 +175,7 @@ playoff = {
     "cht": "- o",
     "taiyuen": "- f"
 }
-coach_name = {
+coach_EN_name = {
     "braves": "",
     "kings": " Ryan Marchand",
     "pilots": " Iurgi Caminos",
@@ -192,30 +197,6 @@ coach_name = {
     "cht": "",
     "taiyuen": ""
 }
-
-gm_name = {
-    "braves": "領隊: 蔡承儒",
-    "kings": "GM: 毛加恩",
-    "pilots": "GM: 李忠恕",
-    "lioneers": "GM: 張樹人",
-    "dreamers": "GM: 韓駿鎧",
-    "steelers": "GM: 高景炎",
-    "dea": "GM: 劉志威",
-    "mars": "GM: 林祐廷",
-    "leopards": "執行長: 張建偉",
-    "ghosthawks": "GM: 錢韋成",
-    "aquas": "執行長: 李偉誠",
-    "beer": "",
-    "bank": "",
-    "yulon": "",
-    "bll": "",
-
-    "cathay": "",
-    "taipower": "",
-    "cht": "",
-    "taiyuen": ""
-}
-
 order = {
     "本土": 1,
     "華裔": 2,
@@ -254,7 +235,7 @@ order = {
 
     "fa": 40
 }
-cn_teamName = {
+teamName_full_CN = {
     "fa": "自由球員",
     "braves": "臺北富邦勇士",
     "kings": "新北國王",
@@ -280,7 +261,7 @@ cn_teamName = {
     "suns": "臺中太陽",
     "herobears": "台灣啤酒英熊"
 }
-short_teamName = {
+teamName_short_CN = {
     "braves": "勇士",
     "kings": "國王",
     "pilots": "領航猿",

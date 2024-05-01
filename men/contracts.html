@@ -55,21 +55,24 @@
 				</button>
 				<ul id="team-dropdown_m" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('all','contracts_tb')">
-						<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 					<li><a class="dropdown-item" onclick="f('oversea','contracts_tb')">
 							<img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
+							<li><hr class="dropdown-divider"></li>
 					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves','contracts_tb')"></a></li>
 					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings','contracts_tb')"></a></li>
 					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots','contracts_tb')"></a></li>
 					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers','contracts_tb')"></a></li>
 					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers','contracts_tb')"></a></li>
 					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers','contracts_tb')"></a></li>
+					<li><hr class="dropdown-divider"></li>
 					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea','contracts_tb')"></a></li>
 					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars','contracts_tb')"></a></li>
 					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards','contracts_tb')"></a></li>
 					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks','contracts_tb')"></a>
 					</li>
 					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas','contracts_tb')"></a></li>
+					<li><hr class="dropdown-divider"></li>
 					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer','contracts_tb')"></a></li>
 					<li><a id="menu_bank" class="dropdown-item" onclick="f('bank','contracts_tb')"></a></li>
 					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon','contracts_tb')"></a></li>
@@ -82,26 +85,27 @@
 				</button>
 				<ul id="contract-dropdown" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('all','contracts_tb')">全部合約</a></li>
-					<li><a class="dropdown-item" onclick="f('1y','contracts_tb')">剩1年</a></li>
-					<li><a class="dropdown-item" onclick="f('extension','contracts_tb')">續留</a></li>
+					<li><a class="dropdown-item" onclick="f('1y','contracts_tb')">剩1年 / 選擇權</a></li>
+					<li><a class="dropdown-item" onclick="f('extension','contracts_tb')">續約</a></li>
+					<li><hr class="dropdown-divider"></li>
 					<li><a class="dropdown-item" onclick="f('2021Draft','contracts_tb')">21'新秀合約</a></li>
 					<li><a class="dropdown-item" onclick="f('2022Draft','contracts_tb')">22'新秀合約</a></li>
 					<li><a class="dropdown-item" onclick="f('2023Draft','contracts_tb')">23'新秀合約</a></li>
 				</ul>
 
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('local','contracts_tb','filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('local','contracts_tb','filter')"
+						checked>
 					<label class="form-check-label" for="inlineCheckbox1">本土</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('import','contracts_tb','filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('import','contracts_tb','filter')"
+						checked>
 					<label class="form-check-label" for="inlineCheckbox1">洋將</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('coach','contracts_tb','filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('coach','contracts_tb','filter')"
+						checked>
 					<label class="form-check-label" for="inlineCheckbox1">教練</label>
 				</div>
 
@@ -138,11 +142,11 @@
 				</table>
 			</div>
 			<a style="font-size:13px">
-				<b>	註1: 被交易球員因不知是否有重新簽約，皆假設為承接合約，將原合約及年限以*標注<br>
+				<b> 註1: 被交易球員因不知是否有重新簽約，皆假設為承接合約，將原合約及年限以*標注<br>
 					註2: 因新秀合約年限未知，年限皆假設為制式新秀合約 ( PLG/T1:2+1年 , SBL:3年 )<br>
 				</b>
 			</a>
-			<a id="timeStamp"style="font-size:13px"></a>
+			<a id="timeStamp" style="font-size:13px"></a>
 		</div>
 
 		<img id="loader" class="spinner" src="../asset/images/logo.png">
@@ -157,7 +161,6 @@
 		var contracts = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item");
 		var teambtn = document.getElementById("teambtn");
 		var contractbtn = document.getElementById("contractbtn");
-		
 
 		for (let i = 0; i < teams.length; i++) {
 			teams[i].addEventListener("click", function () {
@@ -166,7 +169,7 @@
 				this.className += " active";
 				teambtn.innerHTML = this.innerHTML;
 
-				f('filter','contracts_tb');
+				f('filter', 'contracts_tb');
 			});
 		}
 
@@ -177,7 +180,7 @@
 				this.className += " active";
 				contractbtn.innerHTML = this.innerHTML;
 
-				f('filter','contracts_tb');
+				f('filter', 'contracts_tb');
 			});
 		}
 	</script>

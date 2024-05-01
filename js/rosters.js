@@ -11,11 +11,10 @@ $(document).ready(function () {
     if (men_html) {
         gender = "men"
         team_dropdown = 'team-dropdown_m';
-        t_counts = [6, 5, 4];
         teams = ['oversea'];
-        for (let i = 0; i < t_counts[0]; i++) teams.push(plg_team[i + 1]);
-        for (let i = 0; i < t_counts[1]; i++) teams.push(t1_team[i + 1]);
-        for (let i = 0; i < t_counts[2]; i++) teams.push(sbl_team[i + 1]);
+        for (let i = 0; i < league_teams['plg']; i++) teams.push(plg_teams[i + 1]);
+        for (let i = 0; i < league_teams['t1']; i++) teams.push(t1_teams[i + 1]);
+        for (let i = 0; i < league_teams['sbl']; i++) teams.push(sbl_teams[i + 1]);
 
         teams_info = [];
         for (let i = 0; i < teams.length; i++) teams_info.push([teams[i], 0, 0, 0, 0]);
@@ -23,9 +22,8 @@ $(document).ready(function () {
     } else if (women_html) {
         gender = "women"
         team_dropdown = 'team-dropdown_w';
-        t_counts = 4;
         teams = ['oversea'];
-        for (let i = 0; i < t_counts; i++) teams.push(wsbl_team[i + 1]);
+        for (let i = 0; i < league_teams['wsbl']; i++) teams.push(wsbl_teams[i + 1]);
 
         teams_info = [];
         for (let i = 0; i < teams.length; i++) teams_info.push([teams[i], 0, 0, 0, 0]);
@@ -137,18 +135,18 @@ $(document).ready(function () {
 
                 if (i != 0) {
                     if (men_html) {
-                        if (i < 1 + t_counts[0]) {
+                        if (i < 1 + league_teams['plg']) {
                             a_plg.push(teams_info[i][5])
                             h_plg.push(teams_info[i][6])
-                        } else if (i < 1 + t_counts[0] + t_counts[1]) {
+                        } else if (i < 1 + league_teams['plg'] + league_teams['t1']) {
                             a_t1.push(teams_info[i][5])
                             h_t1.push(teams_info[i][6])
-                        } else if (i < 1 + t_counts[0] + t_counts[1] + t_counts[2]) {
+                        } else {
                             a_sbl.push(teams_info[i][5])
                             h_sbl.push(teams_info[i][6])
                         }
                     } else if (women_html) {
-                        if (i < 1 + t_counts) {
+                        if (i < 1 + league_teams['wsbl']) {
                             a_wsbl.push(teams_info[i][5])
                             h_wsbl.push(teams_info[i][6])
                         }
@@ -262,6 +260,10 @@ $(document).ready(function () {
         });
 });
 function updateTables() {
+    tableCount = document.getElementById('r_count_tbody');
+    table_movements_th = document.getElementById('roster_movements_thead')
+    table_movements = document.getElementById('roster_movements_tbody')
+
     if (men_html) {
         tableCount.innerHTML = `
         <tr class="filterTr oversea CBA-bg">
@@ -295,7 +297,7 @@ function updateTables() {
     }
 
     for (let i = 1; i < teams_info.length; i++) {
-        if (coach_name[teams[i]] != "" & window.innerWidth <= 600) {
+        if (coach_EN_name[teams[i]] != "" & window.innerWidth <= 600) {
             blank = `<br>`
         } else if (window.innerWidth <= 495) {
             blank = '<br>'
@@ -305,7 +307,7 @@ function updateTables() {
         tableCount.innerHTML += `
         <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][0]}-bg showTr">
             <td>
-                ${team_coach_info[i]}${coach_name[teams[i]]}${blank}
+                ${team_coach_info[i]}${coach_EN_name[teams[i]]}${blank}
                 本土球員:&nbsp;&nbsp;${teams_info[i][3]}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 外籍球員:&nbsp;&nbsp;${teams_info[i][4]}&nbsp;&nbsp;人
             </td>
@@ -313,9 +315,9 @@ function updateTables() {
         avg_filter = `${teams_info[i][0]} ${teams_info[i][0]}-bg`
         if (women_html) {
             league = `WSBL`
-        } else if (i < 1 + t_counts[0]) {
+        } else if (i < 1 + league_teams['plg']) {
             league = 'PLG'
-        } else if (i < 1 + t_counts[0] + t_counts[1]) {
+        } else if (i < 1 + league_teams['plg'] + league_teams['t1']) {
             league = 'T1'
         } else {
             league = 'SBL'
@@ -350,22 +352,25 @@ function updateTables() {
             table_movements.innerHTML += `
             <tr class="filterTr ${teams_movement_info[i][0]} showTr">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;">續約 / 延長</a><br>${teams_movement_info[i][1]}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Extension</b></a><br>${teams_movement_info[i][1]}
                 </td>
             </tr>
             <tr class="filterTr ${teams_movement_info[i][0]} showTr">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;">加盟</a><br>${teams_movement_info[i][2]}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Signed</b></a><br>${teams_movement_info[i][2]}
                 </td>
             </tr>
             <tr class="filterTr ${teams_movement_info[i][0]} showTr">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;">離隊</a><br>${teams_movement_info[i][3]}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Lost</b></a><br>${teams_movement_info[i][3]}
                 </td>
             </tr>`
         }
     } else {
-        table_movements_th.innerHTML = `<th>續約 / 延長</th><th>加盟</th><th>離隊</th>`
+        table_movements_th.innerHTML = `
+        <th style="font-size:18px"><b>Extension</b></th>
+        <th style="font-size:18px"><b>Signed</b></th>
+        <th style="font-size:18px"><b>Lost</b></th>`
 
         for (let i = 0; i < teams_movement_info.length; i++) {
             if (teams_movement_info[i][1] == "") teams_movement_info[i][1] = "無 / 未知"

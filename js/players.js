@@ -43,7 +43,7 @@ $(document).ready(function () {
                     info += `
                     <tr class="filterTr ${filter_team(infos[3], infos[4])} ${infos[7]} ${infos[8]} ${school(infos[14])} ${filter} showTr">
                         <td class="borderR ${bg_team(infos[3], infos[4])}" data-order=${team_order(infos[3], infos[4])}>
-                            ${team_name("full", infos[3], infos[4], gender)}
+                            ${team_name("short", infos[3], infos[4], gender)}
                         </td>
                         <td class="borderR" data-order=${num_order(infos[2])}>${infos[2]}</td>
                         <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>

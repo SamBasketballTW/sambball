@@ -61,6 +61,9 @@ body {
 	height: 40.5px;
 }
 
+.dropdown-toggle-no-caret::after {
+    display: none;
+}
 .dropdown-toggle{
 	width:200px;
 	height:40.5px;
@@ -73,6 +76,7 @@ body {
 }
 .nav-item:hover .dropdown-menu {
 	display: block;
+	margin:0;
 }
 
 /* dropdown submenu */
@@ -96,7 +100,8 @@ body {
 /* containers */
 .container-lg{
 	max-width:1120px;
-	padding-bottom: 10px;
+	padding-top:3px;
+	padding-bottom: 5px;
 }
 @media (max-width: 767px) {
 	.container-lg{

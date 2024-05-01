@@ -5,24 +5,20 @@ $(document).ready(function () {
 	wsbl_rank = [];
 	league = ['plg', 't1', 'sbl', 'wsbl'];
 
-	for (let i = 0; i < 6; i++) {
-		if (i < 6) plg_rank.push(plg_team[i + 1])
-		if (i < 5) t1_rank.push(t1_team[i + 1])
-		if (i < 4) sbl_rank.push(sbl_team[i + 1])
-		if (i < 4) wsbl_rank.push(wsbl_team[i + 1])
-	}
-	team_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
-	team_count = [plg_rank.length, t1_rank.length, sbl_rank.length, wsbl_rank.length];
+	for (let i = 0; i < league_teams['plg']; i++) plg_rank.push(plg_teams[i + 1]);
+	for (let i = 0; i < league_teams['t1']; i++) t1_rank.push(t1_teams[i + 1]);
+	for (let i = 0; i < league_teams['sbl']; i++) sbl_rank.push(sbl_teams[i + 1]);
+	for (let i = 0; i < league_teams['wsbl']; i++) wsbl_rank.push(wsbl_teams[i + 1]);
+	all_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 
-
-	for (let j = 0; j < 4; j++) {
+	for (let j = 0; j < all_rank.length; j++) {
 		fetch(`../data/standings-${league[j]}.csv`)
 			.then((response) => response.text())
 			.then((result) => {
 
-				if(league[j] == 'wsbl'){
+				if (league[j] == 'wsbl') {
 					gender = "women"
-				}else{
+				} else {
 					gender = "men"
 				}
 
@@ -31,7 +27,7 @@ $(document).ready(function () {
 
 				table = document.getElementById(`${league[j]}_tbody`)
 
-				rank = team_rank[j];
+				rank = all_rank[j];
 
 				teams_info = [];
 				for (let i = 0; i < rank.length; i++) {
@@ -39,27 +35,11 @@ $(document).ready(function () {
 					w_l = [0, 0, "W-L"];
 					gb = 0;
 					streak = ["", 0];
-					recent5 = [0, 0, "recent5"];
-					home_road = [[0, 0], [0, 0], "home_road"];
-					ot = [0, 0, "OT"];
-					total_pts_w = [0, 0, "Total Points"];
-					total_pts_l = [0, 0, "Total Points against"];
-					q_points = [0, 0, 0, 0, "Quarter Points"];
-					q2_ahead = [0, 0, "Q2 Ahead"];
-					q2_behind = [0, 0, "Q2 Behind"];
-					q2_tied = [0, 0, "Q2 Tied"];
-					q3_ahead = [0, 0, "Q3 Ahead"];
-					q3_behind = [0, 0, "Q3 Behind"];
-					q3_tied = [0, 0, "Q3 Tied"];
-					more_less = [[0, 0], [0, 0], [0, 0], "<=3, 3<pts<10, >=10"];
-					lunar = [[0, 0], [0, 0], "lunar stand"];
-					cal = [];
-					for (let i = 0; i < 12; i++) cal.push([0, 0]);
 					matchup = [];
 					for (let i = 0; i < rank.length; i++) matchup.push([rank[i], 0, 0, 0]);
 
-					temp = [team, w_l, gb, streak, recent5, home_road, ot, q_points, total_pts_w, total_pts_l,
-						q2_ahead, q2_behind, q2_tied, q3_ahead, q3_behind, q3_tied, more_less, lunar, cal, matchup];
+					temp = [team, w_l, gb, streak, matchup];
+					tI = ['team', 'w_l', 'gb', 'streak', 'matchup']
 					teams_info.push(temp);
 				}
 				lines.forEach(player => {
@@ -74,11 +54,6 @@ $(document).ready(function () {
 					// W-L
 					teams_info[teamW_index][1][0] += 1;
 					teams_info[teamL_index][1][1] += 1;
-					// matchup
-					teams_info[teamW_index][19][teamL_index][1] += 1;
-					teams_info[teamL_index][19][teamW_index][2] += 1;
-					teams_info[teamW_index][19][teamL_index][3] += pts_w - pts_l
-					teams_info[teamL_index][19][teamW_index][3] += pts_l - pts_w
 					// streak
 					if (teams_info[teamW_index][3][0] == "") {
 						teams_info[teamW_index][3][0] = "W"
@@ -96,11 +71,16 @@ $(document).ready(function () {
 					} else if (teams_info[teamL_index][3][0] == "W") {
 						teams_info[teamL_index][3][0] = `W${teams_info[teamL_index][3][1]}`
 					}
+					// matchup
+					teams_info[teamW_index][findIndex(tI, 'matchup')][teamL_index][1] += 1;
+					teams_info[teamL_index][findIndex(tI, 'matchup')][teamW_index][2] += 1;
+					teams_info[teamW_index][findIndex(tI, 'matchup')][teamL_index][3] += pts_w - pts_l
+					teams_info[teamL_index][findIndex(tI, 'matchup')][teamW_index][3] += pts_l - pts_w
 
 				});
 				SortStandings(teams_info);
 
-				for(let i=0;i<rank.length;i++){
+				for (let i = 0; i < rank.length; i++) {
 					if (i == 0) {
 						no1_w = teams_info[0][1][0];
 						no1_l = teams_info[0][1][1];
@@ -114,8 +94,7 @@ $(document).ready(function () {
 					<tr>
 						<td class="borderR">${i + 1}</td>
 						<td class="textL">
-							<img src="../asset/images/${gender}/${teams_info[i][0]}.png" alt="${teams_info[i][0]}" class="teamicon">
-							<b>${cn_teamName[teams_info[i][0]]}<a style="font-size:12px">${playoff[teams_info[i][0]]}</a></b>
+							${team_name("full", '', teams_info[i][0], gender)}<a style="font-size:12px"><b>${playoff[teams_info[i][0]]}</a></b>
 						</td>
 						<td>${teams_info[i][1][0] + teams_info[i][1][1]}</td>
 						<td>${teams_info[i][1][0]}</td>

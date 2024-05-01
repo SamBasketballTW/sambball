@@ -5,7 +5,7 @@ function is_oversea(league, team) {
 	return 0
 }
 function identity(id) {
-	if(id == "本土" | id == "華裔" | id == "外籍生" | id == "特案外籍生") {
+	if (id == "本土" | id == "華裔" | id == "外籍生" | id == "特案外籍生") {
 		return "local"
 	} else if (id == "洋將" | id == "亞外") {
 		return "import"
@@ -14,13 +14,15 @@ function identity(id) {
 	}
 }
 function team_name(value, league, team, gender = "") {
-	if(value == "full") teamName = cn_teamName[team];
-	if(value == "short")teamName = short_teamName[team];
+	if (value == "full") teamName = teamName_full_CN[team];
+	if (value == "short") teamName = teamName_short_CN[team];
 
-	if (is_oversea(league)) {
+	if (team == "fa") {
+		return `自由球員`
+	} else if (league != "" & is_oversea(league)) {
 		return `${league} ${team}`
 
-	} else if(team != "fa" & gender != "") {
+	} else if (team != "fa" & gender != "") {
 		return `<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon"><b>${teamName}</b>`
 
 	} else {
@@ -43,7 +45,7 @@ function bg_team(league, team) {
 	}
 }
 function team_order(league, team) {
-	if (is_oversea(league)){
+	if (is_oversea(league)) {
 		return order[league]
 	} else {
 		return order[team]
@@ -58,9 +60,9 @@ function num_order(num) {
 	}
 }
 function school(s) {
-	if(s.includes("HBL") | s == "-"){
+	if (s.includes("HBL") | s == "-") {
 		return ""
-	} else if (college[s] == undefined){
+	} else if (college[s] == undefined) {
 		return "college-us"
 	} else {
 		return college[s]
@@ -75,45 +77,45 @@ function age(bday) {
 }
 
 function f(value, table = "", filter = "") {
-	if(value == "filter" | filter == "filter"){
+	if (value == "filter" | filter == "filter") {
 		filters = []
 		checkboxes = []
 		var actives = document.getElementsByClassName("active");
-		for (let i = 0; i < actives.length; i++){
+		for (let i = 0; i < actives.length; i++) {
 			var fil = actives[i].getAttribute('onclick').split('\'')[1];
 			var tab = actives[i].getAttribute('onclick').split('\'')[3];
-			if(table == "") tab = "";
-			if(fil != "all" & tab == table) filters.push(fil)
+			if (table == "") tab = "";
+			if (fil != "all" & tab == table) filters.push(fil)
 		}
-		if(table != ""){
+		if (table != "") {
 			var rows = document.getElementById(table).getElementsByClassName(("filterTr"));
-		}else {
+		} else {
 			var rows = document.getElementsByClassName(("filterTr"));
 		}
 		cbs = document.querySelectorAll('.form-check-input:not(#checkSwitch)');
-		for( let i = 0; i<cbs.length; i++) {
-			if (!cbs[i].checked){
-				if(cbs[i].getAttribute('onclick')){
+		for (let i = 0; i < cbs.length; i++) {
+			if (!cbs[i].checked) {
+				if (cbs[i].getAttribute('onclick')) {
 					cb = cbs[i].getAttribute('onclick').split('\'')[1];
 					checkboxes.push(cb);
 				}
-				
+
 			}
 		}
 
-		for( let i = 0; i < rows.length; i++) {
+		for (let i = 0; i < rows.length; i++) {
 			var text = rows[i].className;
 			show = 1
-			for ( let j = 0; j < filters.length; j++) {
-				if( text.indexOf(filters[j]) == -1 ) show = 0
+			for (let j = 0; j < filters.length; j++) {
+				if (text.indexOf(filters[j]) == -1) show = 0
 			}
-			for ( let j = 0; j < checkboxes.length; j++) {
-				if( text.indexOf(checkboxes[j]) > -1 ) show = 0
+			for (let j = 0; j < checkboxes.length; j++) {
+				if (text.indexOf(checkboxes[j]) > -1) show = 0
 			}
-			if ( show == 1) w3AddClass(rows[i]," showTr");
-			if ( show == 0) w3RemoveClass(rows[i]," showTr");
+			if (show == 1) w3AddClass(rows[i], " showTr");
+			if (show == 0) w3RemoveClass(rows[i], " showTr");
 		}
-		
+
 	}
 
 }
@@ -140,53 +142,54 @@ function rankArray(array) {
 }
 
 function SortStandings(list) {
-    needSort = 0;
-    for (let i = 0; i < list.length - 1; i++) {
-        team1 = list[i][1][0] / (list[i][1][0] + list[i][1][1]);
-        team2 = list[i + 1][1][0] / (list[i + 1][1][0] + list[i + 1][1][1]);
-        if (team1 < team2) {
-            needSort = 1;
-            temp = list[i];
-            list[i] = list[i + 1];
-            list[i + 1] = temp;
-            for (let j = 0; j < list.length; j++) {
-                temp2 = list[j][19][i];
-                list[j][19][i] = list[j][19][i + 1];
-                list[j][19][i + 1] = temp2;
-            }
-        } else if (team1 == team2) {
-            matchup_w = list[i][19][findIndex(rank, list[i + 1][0])][1];
-            matchup_l = list[i][19][findIndex(rank, list[i + 1][0])][2];
-            if (matchup_l > matchup_w) {
-                needSort = 1;
-                temp = list[i];
-                list[i] = list[i + 1];
-                list[i + 1] = temp;
-                for (let j = 0; j < list.length; j++) {
-                    temp2 = list[j][19][i];
-                    list[j][19][i] = list[j][19][i + 1];
-                    list[j][19][i + 1] = temp2;
-                }
-            } else if (matchup_l == matchup_w) {
-                if (list[i][19][findIndex(rank, list[i + 1][0])][3] < 0) {
-                    needSort = 1;
-                    temp = list[i];
-                    list[i] = list[i + 1];
-                    list[i + 1] = temp;
-                    for (let j = 0; j < list.length; j++) {
-                        temp2 = list[j][19][i];
-                        list[j][19][i] = list[j][19][i + 1];
-                        list[j][19][i + 1] = temp2;
-                    }
-                }
-            }
+	m = findIndex(tI, 'matchup');
+	needSort = 0;
+	for (let i = 0; i < list.length - 1; i++) {
+		team1 = list[i][1][0] / (list[i][1][0] + list[i][1][1]);
+		team2 = list[i + 1][1][0] / (list[i + 1][1][0] + list[i + 1][1][1]);
+		if (team1 < team2) {
+			needSort = 1;
+			temp = list[i];
+			list[i] = list[i + 1];
+			list[i + 1] = temp;
+			for (let j = 0; j < list.length; j++) {
+				temp2 = list[j][m][i];
+				list[j][m][i] = list[j][m][i + 1];
+				list[j][m][i + 1] = temp2;
+			}
+		} else if (team1 == team2) {
+			matchup_w = list[i][m][findIndex(rank, list[i + 1][0])][1];
+			matchup_l = list[i][m][findIndex(rank, list[i + 1][0])][2];
+			if (matchup_l > matchup_w) {
+				needSort = 1;
+				temp = list[i];
+				list[i] = list[i + 1];
+				list[i + 1] = temp;
+				for (let j = 0; j < list.length; j++) {
+					temp2 = list[j][m][i];
+					list[j][m][i] = list[j][m][i + 1];
+					list[j][m][i + 1] = temp2;
+				}
+			} else if (matchup_l == matchup_w) {
+				if (list[i][m][findIndex(rank, list[i + 1][0])][3] < 0) {
+					needSort = 1;
+					temp = list[i];
+					list[i] = list[i + 1];
+					list[i + 1] = temp;
+					for (let j = 0; j < list.length; j++) {
+						temp2 = list[j][m][i];
+						list[j][m][i] = list[j][m][i + 1];
+						list[j][m][i + 1] = temp2;
+					}
+				}
+			}
 
-        }
-    }
-    if (needSort == 1) {
-        SortStandings(list);
-    }
-    return list;
+		}
+	}
+	if (needSort == 1) {
+		SortStandings(list);
+	}
+	return list;
 }
 
 function w3AddClass(element, name) {
