@@ -7,7 +7,6 @@ $(document).ready(function () {
     } else if (women_html) {
         gender = "women"
     }
-
     fetch('../data/rosters.csv')
         .then((response) => response.text())
         .then((result) => {
@@ -23,20 +22,20 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender & infos[6] == "active" & infos[7] != "headCoach" & infos[7] != "coach") {
-                    if (infos[16] == ""){
+                    if (infos[16] == "") {
                         filter = ""
                     } else {
                         filter = "change"
                     }
-                    if (infos[4] == "fa"){
+                    if (infos[4] == "fa") {
                         infos[16] = `${infos[3]} ${team_name("short", infos[3], infos[16])}`
                     }
 
-                    if(infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎"){
+                    if (infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎") {
                         infos[9] = `洋將`;
-                    }else if(infos[1] == "海登"){
+                    } else if (infos[1] == "海登") {
                         infos[9] = `亞外`;
-                    }else if(infos[1] == "王振原"){
+                    } else if (infos[1] == "王振原") {
                         infos[9] = `本土`;
                     }
 
@@ -68,7 +67,9 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [0,'asc'],
+                order: [0, 'asc'],
             });
+
+
         });
 });

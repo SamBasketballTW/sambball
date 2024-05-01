@@ -185,6 +185,7 @@ $(document).ready(function () {
                 order: [],
             });
 
+            updateTables();
             document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
         });
 
@@ -255,14 +256,12 @@ $(document).ready(function () {
                     teams_movement_info[team_index][i] += `${infos[3]}<br>`
                 }
             });
-            updateTables();
+            updateMovements();
             document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
         });
 });
 function updateTables() {
     tableCount = document.getElementById('r_count_tbody');
-    table_movements_th = document.getElementById('roster_movements_thead')
-    table_movements = document.getElementById('roster_movements_tbody')
 
     if (men_html) {
         tableCount.innerHTML = `
@@ -338,7 +337,9 @@ function updateTables() {
             </td>
         </tr>`
     }
-
+    document.getElementById(team_dropdown).getElementsByClassName('active')[0].click();
+}
+function updateMovements() {
     table_movements.innerHTML = ""
 
     if (window.innerWidth <= 576) {

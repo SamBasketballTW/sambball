@@ -142,6 +142,7 @@
     <script>
         window.onload = function () { document.getElementById('loader').style.display = 'none'; }
         window.addEventListener('resize', updateTables);
+        window.addEventListener('resize', updateMovements);
 
         var teams = document.getElementById("team-dropdown_w").getElementsByClassName("dropdown-item");
         var teambtn = document.getElementById("teambtn");
