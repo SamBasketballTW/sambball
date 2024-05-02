@@ -124,8 +124,14 @@ $(document).ready(function () {
 				infos = player.split(',');
 
 				const today = new Date();
-				if (count == 0 && today.getDate() == 10 && today.getMonth() == 9) {
+				const sam = new Date('10/11');
+				const blackie = new Date('1977/5/2');
+				if (count == 0 && today.getDate() == sam.getDate() && today.getMonth() == sam.getMonth()) {
 					text += `今天是 山姆 的生日`
+					count += 1;
+					gender = "men";
+				} else if (count == 0 && today.getDate() == blackie.getDate() && today.getMonth() == blackie.getMonth()) {
+					text += `今天是 黑哥-陳建州 的${age(blackie)}歲生日`
 					count += 1;
 					gender = "men";
 				}
