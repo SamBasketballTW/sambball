@@ -1,8 +1,9 @@
 function is_oversea(league, team) {
 	if (league != "PLG" & league != "T1" & league != "SBL" & league != "WSBL") {
 		return 1
+	} else {
+		return 0
 	}
-	return 0
 }
 function identity(id) {
 	if (id == "本土" | id == "華裔" | id == "外籍生" | id == "特案外籍生") {
@@ -139,57 +140,6 @@ function rankArray(array) {
 		temp.push(count + 1);
 	}
 	return temp;
-}
-
-function SortStandings(list) {
-	m = findIndex(tI, 'matchup');
-	needSort = 0;
-	for (let i = 0; i < list.length - 1; i++) {
-		team1 = list[i][1][0] / (list[i][1][0] + list[i][1][1]);
-		team2 = list[i + 1][1][0] / (list[i + 1][1][0] + list[i + 1][1][1]);
-		if (team1 < team2) {
-			needSort = 1;
-			temp = list[i];
-			list[i] = list[i + 1];
-			list[i + 1] = temp;
-			for (let j = 0; j < list.length; j++) {
-				temp2 = list[j][m][i];
-				list[j][m][i] = list[j][m][i + 1];
-				list[j][m][i + 1] = temp2;
-			}
-		} else if (team1 == team2) {
-			matchup_w = list[i][m][findIndex(rank, list[i + 1][0])][1];
-			matchup_l = list[i][m][findIndex(rank, list[i + 1][0])][2];
-			if (matchup_l > matchup_w) {
-				needSort = 1;
-				temp = list[i];
-				list[i] = list[i + 1];
-				list[i + 1] = temp;
-				for (let j = 0; j < list.length; j++) {
-					temp2 = list[j][m][i];
-					list[j][m][i] = list[j][m][i + 1];
-					list[j][m][i + 1] = temp2;
-				}
-			} else if (matchup_l == matchup_w) {
-				if (list[i][m][findIndex(rank, list[i + 1][0])][3] < 0) {
-					needSort = 1;
-					temp = list[i];
-					list[i] = list[i + 1];
-					list[i + 1] = temp;
-					for (let j = 0; j < list.length; j++) {
-						temp2 = list[j][m][i];
-						list[j][m][i] = list[j][m][i + 1];
-						list[j][m][i + 1] = temp2;
-					}
-				}
-			}
-
-		}
-	}
-	if (needSort == 1) {
-		SortStandings(list);
-	}
-	return list;
 }
 
 function w3AddClass(element, name) {

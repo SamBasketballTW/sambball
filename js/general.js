@@ -3,7 +3,7 @@ $(document).ready(function () {
     // test = ".html"
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.05.01</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.05.02</b>`
 
     if (document.getElementById("index_page")) {
         men_path = "./men"
@@ -74,8 +74,8 @@ $(document).ready(function () {
 		<button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
 			旅美學生</button>
 		<ul class="dropdown-menu">
-			<li><a class="nav-link" href="${men_path}/us-students${test}">&nbsp;旅美學生 (男)</a></li>
-			<li><a class="nav-link" href="${women_path}/us-students${test}">&nbsp;旅美學生 (女)</a></li>
+			<li><a class="nav-link" href="${men_path}/us-players${test}">&nbsp;旅美學生 (男)</a></li>
+			<li><a class="nav-link" href="${women_path}/us-players${test}">&nbsp;旅美學生 (女)</a></li>
 		</ul>
 	</li>`
 

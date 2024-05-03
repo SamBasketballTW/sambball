@@ -5,7 +5,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>旅美學生 (女) | 山姆籃球</title>
+	<title>旅美學生 (男) | 山姆籃球</title>
 	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/custom.css">
@@ -22,7 +22,7 @@
 
 	<script src="../js/general.js"></script>
 	<script src="../js/custom.js"></script>
-	<script src="../js/us-students.js"></script>
+	<script src="../js/us-players.js"></script>
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
 		crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
 		</div>
 	</nav>
 
-	<div id="women_page" class="content">
+	<div id="men_page" class="content">
 		<div class="jumbotron"></div>
 
 		<div class="container-lg" style="max-width:1230px; overflow-x: auto;">
@@ -51,18 +51,18 @@
 				<a><b>&nbsp;&nbsp;身份篩選: </b></a>
 				<div id="us-btngroup" class="btn-group">
 					<a class="btn btn-light active" onclick="f('all')">全部</a>
-					<a class="btn btn-light disabled" onclick="f('local')">本土身份</a>
-					<a class="btn btn-light disabled" onclick="f('taiwanese')">華裔 / 未知</a>
+					<a class="btn btn-light" onclick="f('local')">本土身份</a>
+					<a class="btn btn-light" onclick="f('taiwanese')">華裔 / 未知</a>
 				</div>
 			</div>
 		</div>
-		<div class="container-lg" style="max-width:1230px">
+		<div class="container-lg" style="max-width:1230px">		
 			<div class="table-scroll">
 				<table id="college_tb" class="table table-hover table-fix2">
 					<colgroup>
 						<col width="60px">
-						<col width="150px">
-						<col width="200px">
+						<col width="120px">
+						<col width="180px">
 						<col width="60px">
 						<col width="60px">
 						<col width="100px">
@@ -88,40 +88,25 @@
 					<tbody id="college_tbody">
 
 					</tbody>
-				</table>
-			</div>
-			<!-- <div class="table-scroll">
-				<table id="hs_tb" class="table table-hover table-fix2">
-					<colgroup>
-						<col width="60px">
-						<col width="150px">
-						<col width="60px">
-						<col width="60px">
-						<col width="100px">
-						<col width="60px">
-						<col width="220px">
-						<col width="100px">
-						<col width="170px">
-						<col width="220px">
-					</colgroup>
 					<thead>
 						<tr>
 							<th>位置</th>
 							<th>球員</th>
+							<th>Instagram</th>
 							<th>身份</th>
 							<th>身高</th>
 							<th>Class</th>
 							<th>#</th>
 							<th>高中</th>
 							<th colspan="2">Committed</th>
-							<th>備註</th>
 						</tr>
 					</thead>
 					<tbody id="hs_tbody">
 
 					</tbody>
 				</table>
-			</div> -->
+			</div>
+			<a style="font-size:13px"><b>特別感謝 Jake Young 提供的幫忙</b></a><br>
 			<a id="timeStamp"style="font-size:13px"></a>
 		</div>
 
@@ -144,6 +129,7 @@
 				f('filter');
 			});
 		}
+
 	</script>
 
 </body>
