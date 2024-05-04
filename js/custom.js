@@ -77,15 +77,18 @@ function age(bday) {
 	return a;
 }
 
-function f(value, table = "", filter = "") {
-	if (value == "filter" | filter == "filter") {
+function f(value, table = "") {
+	if (value == "filter") {
 		filters = []
 		checkboxes = []
 		var actives = document.getElementsByClassName("active");
 		for (let i = 0; i < actives.length; i++) {
 			var fil = actives[i].getAttribute('onclick').split('\'')[1];
-			var tab = actives[i].getAttribute('onclick').split('\'')[3];
-			if (table == "") tab = "";
+			if (table == "") {
+				tab = ""
+			} else {
+				var tab = actives[i].getAttribute('onclick').split('\'')[3];
+			}
 			if (fil != "all" & tab == table) filters.push(fil)
 		}
 		if (table != "") {

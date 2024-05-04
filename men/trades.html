@@ -55,26 +55,26 @@
 					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 				</button>
 				<ul id="team-dropdown_m" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all','trades_tb')">
+					<li><a class="dropdown-item active" onclick="f('all')">
 							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves','trades_tb')"></a></li>
-					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings','trades_tb')"></a></li>
-					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots','trades_tb')"></a></li>
-					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers','trades_tb')"></a></li>
-					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers','trades_tb')"></a></li>
-					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers','trades_tb')"></a></li>
+					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves')"></a></li>
+					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings')"></a></li>
+					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots')"></a></li>
+					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers')"></a></li>
+					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers')"></a></li>
+					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers')"></a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea','trades_tb')"></a></li>
-					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars','trades_tb')"></a></li>
-					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards','trades_tb')"></a></li>
-					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks','trades_tb')"></a></li>
-					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas','trades_tb')"></a></li>
+					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea')"></a></li>
+					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars')"></a></li>
+					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards')"></a></li>
+					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks')"></a></li>
+					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas')"></a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer','trades_tb')"></a></li>
-					<li><a id="menu_bank" class="dropdown-item" onclick="f('bank','trades_tb')"></a></li>
-					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon','trades_tb')"></a></li>
-					<li><a id="menu_bll" class="dropdown-item" onclick="f('bll','trades_tb','trades_tb')"></a></li>
+					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer')"></a></li>
+					<li><a id="menu_bank" class="dropdown-item" onclick="f('bank')"></a></li>
+					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon')"></a></li>
+					<li><a id="menu_bll" class="dropdown-item" onclick="f('bll')"></a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;交易篩選: </b></a>
@@ -82,21 +82,21 @@
 					aria-expanded="false" style="width:160px">全部交易
 				</button>
 				<ul id="trade-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all','trades_tb')">全部交易</a></li>
-					<li><a class="dropdown-item" onclick="f('futurePick','trades_tb')">含未來選秀籤</a></li>
-					<li><a class="dropdown-item" onclick="f('draft','trades_tb')">含選秀籤</a></li>
-					<li><a class="dropdown-item" onclick="f('player','trades_tb')">含球員</a></li>
+					<li><a class="dropdown-item active" onclick="f('all')">全部交易</a></li>
+					<li><a class="dropdown-item" onclick="f('futurePick')">含未來選秀籤</a></li>
+					<li><a class="dropdown-item" onclick="f('draft')">含選秀籤</a></li>
+					<li><a class="dropdown-item" onclick="f('player')">含球員</a></li>
 				</ul>
 
 				&nbsp;
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="f('plgtrade','trades_tb','filter')" checked>
+						onclick="f('plgtrade'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">PLG</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						onclick="f('t1trade','trades_tb','filter')" checked>
+						onclick="f('t1trade'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">T1</label>
 				</div>
 			</div>
@@ -150,7 +150,7 @@
 				this.className += " active";
 				tradebtn.innerHTML = this.innerHTML;
 
-				f('filter','trades_tb');
+				f('filter');
 			});
 		}
 	</script>

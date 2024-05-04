@@ -54,13 +54,13 @@
 				</button>
 				<ul id="draft_dropdown" class="dropdown-menu" style="overflow-y:unset;"
 					aria-labelledby="dropdownMenuButton">
-					<li><a class="dropdown-item" onclick="f('oversea','drafts_tb')">WCBA & 旅外</a></li>
+					<li><a class="dropdown-item" onclick="f('oversea')">WCBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item" onclick="f('2023wsbl','drafts_tb')">2023 WSBL 選秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2022wsbl','drafts_tb')">2022 WSBL 選秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2021wsbl','drafts_tb')">2021 WSBL 選秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2020wsbl','drafts_tb')">2020 WSBL 選秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2019wsbl','drafts_tb')">2019 WSBL 選秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2023wsbl')">2023 WSBL 選秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2022wsbl')">2022 WSBL 選秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2021wsbl')">2021 WSBL 選秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2020wsbl')">2020 WSBL 選秀</a></li>
+					<li><a class="dropdown-item" onclick="f('2019wsbl')">2019 WSBL 選秀</a></li>
 				</ul>
 				</li>
 				</ul>
@@ -71,10 +71,10 @@
 					<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 				</button>
 				<ul id="team-dropdown_w" class="dropdown-menu">
-					<li><a id="menu_cathay" class="dropdown-item" onclick="f('cathay','drafts_tb')"></a></li>
-					<li><a id="menu_taipower" class="dropdown-item" onclick="f('taipower','drafts_tb')"></a></li>
-					<li><a id="menu_cht" class="dropdown-item" onclick="f('cht','drafts_tb')"></a></li>
-					<li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen','drafts_tb')"></a></li>
+					<li><a id="menu_cathay" class="dropdown-item" onclick="f('cathay')"></a></li>
+					<li><a id="menu_taipower" class="dropdown-item" onclick="f('taipower')"></a></li>
+					<li><a id="menu_cht" class="dropdown-item" onclick="f('cht')"></a></li>
+					<li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen')"></a></li>
 				</ul>
 
 			</div>
@@ -124,7 +124,7 @@
 				draftbtn.innerHTML = this.innerHTML;
 				teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
 
-				f('filter','drafts_tb');
+				f('filter');
 			});
 		}
 
@@ -140,7 +140,7 @@
 				teambtn.innerHTML = this.innerHTML;
 				draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
 
-				f('filter','drafts_tb');
+				f('filter');
 			});
 		}
 	</script>
