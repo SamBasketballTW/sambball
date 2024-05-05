@@ -3,7 +3,7 @@ $(document).ready(function () {
     // test = ".html"
 
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.05.04</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.05.05</b>`
 
     if (document.getElementById("index_page")) {
         men_path = "./men"
