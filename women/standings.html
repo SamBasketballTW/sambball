@@ -48,7 +48,15 @@
 		<div class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x:auto">
-			<div class="col" style="width:490px">
+			<div class="col" style="width:460px">
+
+				<button id="leaguebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false">WSBL 超級籃球聯賽
+				</button>
+				<ul id="league-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item active" onclick="f('')">WSBL 超級籃球聯賽</a></li>
+				</ul>
+
 				<a><b>&nbsp;&nbsp;戰績篩選: </b></a>
 				<button id="standingbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:160px">綜合戰績
@@ -57,7 +65,7 @@
 					<li><a class="dropdown-item active">綜合戰績</a></li>
                     <li><a class="dropdown-item">球隊得分</a></li>
                     <li><a class="dropdown-item">領先 / 落後</a></li>
-					<li><a class="dropdown-item">對戰組合</a></li>
+					<li><a class="dropdown-item">對戰 (淨勝分)</a></li>
 					<li><a class="dropdown-item">月份</a></li>
 				</ul>
 			</div>
@@ -81,6 +89,7 @@
                         <th style="width:70px">OT</th>
                         <th style="width:60px">得分</th>
                         <th style="width:60px">失分</th>
+						<th style="width:60px">淨勝分</th>
                     </thead>
                     <tbody id="overall_tbody">
 
@@ -142,7 +151,7 @@
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="wsbl_tb" class="table table-hover table-fix2 filterTb">
-		
+
 				</table>
 			</div>
 
@@ -179,9 +188,23 @@
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
+		var leagues = document.getElementById("league-dropdown").getElementsByClassName("dropdown-item");
 		var standings = document.getElementById("standing-dropdown").getElementsByClassName("dropdown-item");
+		var leaguebtn = document.getElementById("leaguebtn");
 		var standingbtn = document.getElementById("standingbtn");
         var tables = document.getElementsByClassName("filterTb");
+
+		for (var i = 0; i < leagues.length; i++) {
+			leagues[i].addEventListener("click", function () {
+				var currentLeague = document.getElementById("league-dropdown").getElementsByClassName("active");
+				currentLeague[0].className = currentLeague[0].className.replace(" active", "");
+				this.className += " active";
+				leaguebtn.innerHTML = this.innerHTML;
+
+				var currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
+				currentStanding[0].click();
+			});
+		}
 
 		for (var i = 0; i < standings.length; i++) {
 			standings[i].addEventListener("click", function () {

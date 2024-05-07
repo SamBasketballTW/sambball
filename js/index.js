@@ -11,12 +11,12 @@ $(document).ready(function () {
 	for (let i = 0; i < league_teams['wsbl']; i++) wsbl_rank.push(wsbl_teams[i + 1]);
 	all_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 
-	for (let j = 0; j < all_rank.length; j++) {
-		fetch(`../data/standings-${league[j]}.csv`)
+	for (let lgue = 0; lgue < all_rank.length; lgue++) {
+		fetch(`../data/standings-${league[lgue]}.csv`)
 			.then((response) => response.text())
 			.then((result) => {
 
-				if (league[j] == 'wsbl') {
+				if (league[lgue] == 'wsbl') {
 					gender = "women"
 				} else {
 					gender = "men"
@@ -25,9 +25,9 @@ $(document).ready(function () {
 				lines = result.split('\n');
 				lines = lines.slice(2);
 
-				table = document.getElementById(`${league[j]}_tbody`)
+				table = document.getElementById(`${league[lgue]}_tbody`)
 
-				rank = all_rank[j];
+				rank = all_rank[lgue];
 
 				teams_info = [];
 				for (let i = 0; i < rank.length; i++) {
@@ -78,89 +78,55 @@ $(document).ready(function () {
 
 				});
 				SortStandings(teams_info);
-				if (league[j] == 'plg') {
-                    games = 40;
-                    po_t = 4;
-                } else if (league[j] == 't1') {
-                    games = 28;
-                    po_t = 4;
-                } else if (league[j] == 'sbl' | league[j] == 'wsbl') {
-                    games = 30;
-                    po_t = 3;
-                }
-                temp_w = (games / (teams_info.length - 1)) / 2;
+				if (league[lgue] == 'plg') {
+					games = 40;
+					po_t = 4;
+				} else if (league[lgue] == 't1') {
+					games = 28;
+					po_t = 4;
+				} else if (league[lgue] == 'sbl' | league[lgue] == 'wsbl') {
+					games = 30;
+					po_t = 3;
+				}
+				temp_w = (games / (teams_info.length - 1)) / 2;
 
-                for (let i = 0; i < teams_info.length; i++) {
-                    if (i < teams_info.length - 1) {
-                        if (teams_info[i][2][0] > (games - teams_info[i + 1][2][1])) {
-                            if (i == 0) teams_info[i][1] += 'p';
-                            teams_info[i][1] += 'p';
-                        } else if (teams_info[i][2][0] == (games - teams_info[i + 1][2][1])) {
-                            if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] > temp_w) {
-                                if (i == 0) teams_info[i][1] += 'p';
-                                teams_info[i][1] += 'p';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][i + 1][2] == temp_w) {
-                                if (teams_info[i][findIndex(tI, 'matchup')][i + 1][3] > 0) {
-                                    if (i == 0) teams_info[i][1] += 'p';
-                                    teams_info[i][1] += 'p';
-                                }
-                            }
-                        }
-                    }
-                    if (i > 0) {
-                        if (teams_info[i - 1][2][0] > (games - teams_info[i][2][1])) {
-                            if (i == teams_info.length - 1) teams_info[i][1] += 'p';
-                            teams_info[i][1] += 'p';
-                        } else if (teams_info[i - 1][2][0] == (games - teams_info[i][2][1])) {
-                            if (teams_info[i][findIndex(tI, 'matchup')][i - 1][2] > temp_w) {
-                                if (i == teams_info.length - 1) teams_info[i][1] += 'p';
-                                teams_info[i][1] += 'p';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][i - 1][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][i - 1][2] == temp_w) {
-                                if (teams_info[i][findIndex(tI, 'matchup')][i - 1][3] < 0) {
-                                    if (i == teams_info.length - 1) teams_info[i][1] += 'p';
-                                    teams_info[i][1] += 'p';
-                                }
-                            }
-                        }
-                    }
-                    if (i < po_t) {
-                        if (teams_info[i][2][0] > (games - teams_info[po_t][2][1])) {
-                            teams_info[i][1] += 'x';
-                        } else if (teams_info[i][2][0] == (games - teams_info[po_t][2][1])) {
-                            if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] > temp_w) {
-                                teams_info[i][1] += 'x';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][po_t][2] == temp_w) {
-                                if (teams_info[i][findIndex(tI, 'matchup')][po_t][3] > 0) {
-                                    teams_info[i][1] += 'x';
-                                }
-                            }
-                        }
-                    } else {
-                        if ((games - teams_info[i][2][1]) < teams_info[po_t - 1][2][0]) {
-                            teams_info[i][1] += 'o';
-                        } else if ((games - teams_info[i][2][1]) == teams_info[po_t - 1][2][0]) {
-                            if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] > temp_w) {
-                                teams_info[i][1] += 'o';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] == temp_w) {
-                                if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][3] < 0) {
-                                    teams_info[i][1] += 'o';
-                                }
-                            }
-                        }
-                    }
-
-                    if (teams_info[i][1] == 'ppx') {
-                        teams_info[i][1] = '- px';
-                    } else if (teams_info[i][1] == 'px' | teams_info[i][1] == 'x') {
-                        teams_info[i][1] = '- x';
-                    } else if (teams_info[i][1] == 'ppo') {
-                        teams_info[i][1] = '- po';
-                    } else if (teams_info[i][1] == 'po' | teams_info[i][1] == 'o') {
-                        teams_info[i][1] = '- o';
-                    } else {
-                        teams_info[i][1] = '';
-                    }
-                }
+				for (let i = 0; i < teams_info.length; i++) {
+					stand_behind = 0;
+					stand_ahead = 0;
+					for (let j = 0; j < teams_info.length; j++) {
+						if (i < j) {
+							if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
+								stand_ahead += 1;
+							} else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
+								if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
+									stand_ahead += 1;
+								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
+									if (teams_info[i][findIndex(tI, 'matchup')][j][3] > 0) {
+										stand_ahead += 1;
+									}
+								}
+							}
+						} else if (i > j) {
+							if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
+								stand_behind += 1;
+							} else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
+								if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
+									stand_behind += 1;
+								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
+									if (teams_info[i][findIndex(tI, 'matchup')][j][3] < 0) {
+										stand_behind += 1;
+									}
+								}
+							}
+						}
+					}
+					if ((stand_behind + stand_ahead + 1) == league_teams[league[lgue]]) teams_info[i][1] += 'p';
+					if (stand_ahead >= (league_teams[league[lgue]] - po_t)) teams_info[i][1] += 'x';
+					if (stand_behind >= po_t) teams_info[i][1] += 'o';
+					if (teams_info[i][1] != '') {
+						teams_info[i][1] = '- ' + teams_info[i][1];
+					}
+				}
 
 				for (let i = 0; i < rank.length; i++) {
 					if (i == 0) {
@@ -248,52 +214,52 @@ $(document).ready(function () {
 		})
 });
 function SortStandings(list) {
-    m = findIndex(tI, 'matchup');
-    needSort = 0;
-    for (let i = 0; i < list.length - 1; i++) {
-        team1 = list[i][2][0] / (list[i][2][0] + list[i][2][1]);
-        team2 = list[i + 1][2][0] / (list[i + 1][2][0] + list[i + 1][2][1]);
-        if (team1 < team2) {
-            needSort = 1;
-            temp = list[i];
-            list[i] = list[i + 1];
-            list[i + 1] = temp;
-            for (let j = 0; j < list.length; j++) {
-                temp2 = list[j][m][i];
-                list[j][m][i] = list[j][m][i + 1];
-                list[j][m][i + 1] = temp2;
-            }
-        } else if (team1 == team2) {
-            matchup_w = list[i][m][findIndex(rank, list[i + 1][0])][1];
-            matchup_l = list[i][m][findIndex(rank, list[i + 1][0])][2];
-            if (matchup_l > matchup_w) {
-                needSort = 1;
-                temp = list[i];
-                list[i] = list[i + 1];
-                list[i + 1] = temp;
-                for (let j = 0; j < list.length; j++) {
-                    temp2 = list[j][m][i];
-                    list[j][m][i] = list[j][m][i + 1];
-                    list[j][m][i + 1] = temp2;
-                }
-            } else if (matchup_l == matchup_w) {
-                if (list[i][m][findIndex(rank, list[i + 1][0])][3] < 0) {
-                    needSort = 1;
-                    temp = list[i];
-                    list[i] = list[i + 1];
-                    list[i + 1] = temp;
-                    for (let j = 0; j < list.length; j++) {
-                        temp2 = list[j][m][i];
-                        list[j][m][i] = list[j][m][i + 1];
-                        list[j][m][i + 1] = temp2;
-                    }
-                }
-            }
+	m = findIndex(tI, 'matchup');
+	needSort = 0;
+	for (let i = 0; i < list.length - 1; i++) {
+		team1 = list[i][2][0] / (list[i][2][0] + list[i][2][1]);
+		team2 = list[i + 1][2][0] / (list[i + 1][2][0] + list[i + 1][2][1]);
+		if (team1 < team2) {
+			needSort = 1;
+			temp = list[i];
+			list[i] = list[i + 1];
+			list[i + 1] = temp;
+			for (let j = 0; j < list.length; j++) {
+				temp2 = list[j][m][i];
+				list[j][m][i] = list[j][m][i + 1];
+				list[j][m][i + 1] = temp2;
+			}
+		} else if (team1 == team2) {
+			matchup_w = list[i][m][findIndex(rank, list[i + 1][0])][1];
+			matchup_l = list[i][m][findIndex(rank, list[i + 1][0])][2];
+			if (matchup_l > matchup_w) {
+				needSort = 1;
+				temp = list[i];
+				list[i] = list[i + 1];
+				list[i + 1] = temp;
+				for (let j = 0; j < list.length; j++) {
+					temp2 = list[j][m][i];
+					list[j][m][i] = list[j][m][i + 1];
+					list[j][m][i + 1] = temp2;
+				}
+			} else if (matchup_l == matchup_w) {
+				if (list[i][m][findIndex(rank, list[i + 1][0])][3] < 0) {
+					needSort = 1;
+					temp = list[i];
+					list[i] = list[i + 1];
+					list[i + 1] = temp;
+					for (let j = 0; j < list.length; j++) {
+						temp2 = list[j][m][i];
+						list[j][m][i] = list[j][m][i + 1];
+						list[j][m][i + 1] = temp2;
+					}
+				}
+			}
 
-        }
-    }
-    if (needSort == 1) {
-        SortStandings(list);
-    }
-    return list;
+		}
+	}
+	if (needSort == 1) {
+		SortStandings(list);
+	}
+	return list;
 }
