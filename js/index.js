@@ -38,8 +38,8 @@ $(document).ready(function () {
 					matchup = [];
 					for (let i = 0; i < rank.length; i++) matchup.push([rank[i], 0, 0, 0]);
 
-					temp = [team, w_l, gb, streak, matchup];
-					tI = ['team', 'w_l', 'gb', 'streak', 'matchup']
+					temp = [team, w_l, gb, streak, matchup, ''];
+					tI = ['team', 'w_l', 'gb', 'streak', 'matchup', 'playoff'];
 					teams_info.push(temp);
 				}
 				lines.forEach(player => {
@@ -79,6 +79,89 @@ $(document).ready(function () {
 
 				});
 				SortStandings(teams_info);
+				if (league[j] == 'plg') {
+                    games = 40;
+                    po_t = 4;
+                } else if (league[j] == 't1') {
+                    games = 28;
+                    po_t = 4;
+                } else if (league[j] == 'sbl' | league[j] == 'wsbl') {
+                    games = 30;
+                    po_t = 3;
+                }
+                temp_w = (games / (teams_info.length - 1)) / 2;
+
+                for (let i = 0; i < teams_info.length; i++) {
+                    if(i < teams_info.length - 1){
+                        if (teams_info[i][1][0] > (games - teams_info[i + 1][1][1])) {
+                            if(i==0) teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                            teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                        } else if (teams_info[i][1][0] == (games - teams_info[i + 1][1][1])) {
+                            if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] > temp_w) {
+                                if(i==0) teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                                teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] == temp_w) {
+                                if (teams_info[i][findIndex(tI, 'matchup')][i + 1][3] > 0) {
+                                    if(i==0) teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                                    teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                                }
+                            }
+                        }
+                    }
+                    if(i > 0){
+                        if (teams_info[i - 1][1][0] > (games - teams_info[i][1][1])) {
+                            if(i==teams_info.length-1) teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                            teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                        } else if (teams_info[i - 1][1][0] == (games - teams_info[i][1][1])) {
+                            if (teams_info[i][findIndex(tI, 'matchup')][i - 1][2] > temp_w) {
+                                if(i==teams_info.length-1) teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                                teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][i - 1][2] == temp_w) {
+                                if (teams_info[i][findIndex(tI, 'matchup')][i - 1][3] < 0) {
+                                    if(i==teams_info.length-1) teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                                    teams_info[i][findIndex(tI, 'playoff')] += 'p';
+                                }
+                            }
+                        }
+                    }
+                    if (i < po_t) {
+                        if (teams_info[i][1][0] > (games - teams_info[po_t][1][1])) {
+                            teams_info[i][findIndex(tI, 'playoff')] += 'x';
+                        } else if (teams_info[i][1][0] == (games - teams_info[po_t][1][1])) {
+                            if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] > temp_w) {
+                                teams_info[i][findIndex(tI, 'playoff')] += 'x';
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] == temp_w) {
+                                if (teams_info[i][findIndex(tI, 'matchup')][po_t][3] > 0) {
+                                    teams_info[i][findIndex(tI, 'playoff')] += 'x';
+                                }
+                            }
+                        }
+                    } else {
+                        if ((games - teams_info[i][1][1]) < teams_info[po_t - 1][1][0]) {
+                            teams_info[i][findIndex(tI, 'playoff')] += 'o';
+                        } else if ((games - teams_info[i][1][1]) == teams_info[po_t - 1][1][0]) {
+                            if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] > temp_w) {
+                                teams_info[i][findIndex(tI, 'playoff')] += 'o';
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] == temp_w) {
+                                if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][3] < 0) {
+                                    teams_info[i][findIndex(tI, 'playoff')] += 'o';
+                                }
+                            }
+                        }
+                    }
+
+                    if(teams_info[i][findIndex(tI, 'playoff')] == 'ppx'){
+                        teams_info[i][findIndex(tI, 'playoff')] = '- px';
+                    }else if(teams_info[i][findIndex(tI, 'playoff')] == 'px' | teams_info[i][findIndex(tI, 'playoff')] == 'x'){
+                        teams_info[i][findIndex(tI, 'playoff')] = '- x';
+                    }else if(teams_info[i][findIndex(tI, 'playoff')] == 'ppo'){
+                        teams_info[i][findIndex(tI, 'playoff')] = '- po';
+                    }else if(teams_info[i][findIndex(tI, 'playoff')] == 'po' | teams_info[i][findIndex(tI, 'playoff')] == 'o'){
+                        teams_info[i][findIndex(tI, 'playoff')] = '- o';
+                    }else {
+                        teams_info[i][findIndex(tI, 'playoff')] = '';
+                    }
+                }
 
 				for (let i = 0; i < rank.length; i++) {
 					if (i == 0) {
@@ -93,8 +176,9 @@ $(document).ready(function () {
 					table.innerHTML += `
 					<tr>
 						<td class="borderR">${i + 1}</td>
-						<td class="textL">
-							${team_name("full", '', teams_info[i][0], gender)}<a style="font-size:12px"><b>${playoff[teams_info[i][0]]}</a></b>
+						<td class="textL" style="font-size:14px">
+							${team_name("full", '', teams_info[i][0], gender)}
+							<a style="font-size:12px"><b>${teams_info[i][findIndex(tI, 'playoff')]}</a></b>
 						</td>
 						<td>${teams_info[i][1][0] + teams_info[i][1][1]}</td>
 						<td>${teams_info[i][1][0]}</td>

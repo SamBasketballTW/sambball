@@ -153,28 +153,6 @@ wsbl_teams = {
     3: 'cht',
     4: 'taiyuen'
 }
-playoff = {
-    "braves": "",
-    "kings": "",
-    "pilots": "- x",
-    "lioneers": "",
-    "dreamers": "- x",
-    "steelers": "- o",
-    "dea": "- x",
-    "mars": "- x",
-    "leopards": "- x",
-    "ghosthawks": "- o",
-    "aquas": "- x",
-    "beer": "- f",
-    "bank": "- x",
-    "yulon": "- x",
-    "bll": "- o",
-
-    "cathay": "- x",
-    "taipower": "- x",
-    "cht": "- o",
-    "taiyuen": "- f"
-}
 coach_EN_name = {
     "braves": "",
     "kings": " Ryan Marchand",
