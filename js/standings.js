@@ -228,7 +228,7 @@ $(document).ready(function () {
                             if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] > temp_w) {
                                 if (i == 0) teams_info[i][1] += 'p';
                                 teams_info[i][1] += 'p';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] == temp_w) {
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][i + 1][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][i + 1][2] == temp_w) {
                                 if (teams_info[i][findIndex(tI, 'matchup')][i + 1][3] > 0) {
                                     if (i == 0) teams_info[i][1] += 'p';
                                     teams_info[i][1] += 'p';
@@ -244,7 +244,7 @@ $(document).ready(function () {
                             if (teams_info[i][findIndex(tI, 'matchup')][i - 1][2] > temp_w) {
                                 if (i == teams_info.length - 1) teams_info[i][1] += 'p';
                                 teams_info[i][1] += 'p';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][i - 1][2] == temp_w) {
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][i - 1][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][i - 1][2] == temp_w) {
                                 if (teams_info[i][findIndex(tI, 'matchup')][i - 1][3] < 0) {
                                     if (i == teams_info.length - 1) teams_info[i][1] += 'p';
                                     teams_info[i][1] += 'p';
@@ -258,7 +258,7 @@ $(document).ready(function () {
                         } else if (teams_info[i][2][0] == (games - teams_info[po_t][2][1])) {
                             if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] > temp_w) {
                                 teams_info[i][1] += 'x';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] == temp_w) {
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][po_t][2] == temp_w) {
                                 if (teams_info[i][findIndex(tI, 'matchup')][po_t][3] > 0) {
                                     teams_info[i][1] += 'x';
                                 }
@@ -270,7 +270,7 @@ $(document).ready(function () {
                         } else if ((games - teams_info[i][2][1]) == teams_info[po_t - 1][2][0]) {
                             if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] > temp_w) {
                                 teams_info[i][1] += 'o';
-                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] == temp_w) {
+                            } else if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][po_t - 1][2] == temp_w) {
                                 if (teams_info[i][findIndex(tI, 'matchup')][po_t - 1][3] < 0) {
                                     teams_info[i][1] += 'o';
                                 }
