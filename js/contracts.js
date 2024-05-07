@@ -21,7 +21,7 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa" & infos[9] != "代理總教練") {
+				if (infos[0] == gender & infos[4] != "" & infos[4] !=  "fa") {
 					filter = `${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}`;
 
 					if (infos[7] == "coach") {
