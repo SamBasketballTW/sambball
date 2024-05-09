@@ -42,6 +42,7 @@ $(document).ready(function () {
                 rank = all_rank[lgue];
 
                 teams_info = [];
+                matchup_thead = '';
                 for (let i = 0; i < rank.length; i++) {
                     team = rank[i];
                     w_l = [0, 0, "W-L"];
@@ -219,57 +220,62 @@ $(document).ready(function () {
                 }
 
                 temp_w = (games / (teams_info.length - 1)) / 2;
-                for (let i = 0; i < teams_info.length; i++) {
-                    stand_behind = 0;
-                    stand_ahead = 0;
-                    for (let j = 0; j < teams_info.length; j++) {
-                        if (i < j) {
-                            if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
-                                stand_ahead += 1;
-                            } else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
-                                if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
-                                    stand_ahead += 1;
-                                } else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
-                                    if (teams_info[i][findIndex(tI, 'matchup')][j][3] > 0) {
-                                        stand_ahead += 1;
-                                    }
-                                }
-                            }
-                        } else if (i > j) {
-                            if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
-                                stand_behind += 1;
-                            } else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
-                                if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
-                                    stand_behind += 1;
-                                } else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
-                                    if (teams_info[i][findIndex(tI, 'matchup')][j][3] < 0) {
-                                        stand_behind += 1;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if ((stand_behind + stand_ahead + 1) == league_teams[league[lgue]]) teams_info[i][1] += 'p';
-                    if (stand_ahead >= (league_teams[league[lgue]] - po_t)) teams_info[i][1] += 'x';
-                    if (stand_behind >= po_t) teams_info[i][1] += 'o';
-                    if (teams_info[i][1] != '') {
-                        teams_info[i][1] = '- ' + teams_info[i][1];
-                    }
-                }
+				for (let i = 0; i < teams_info.length; i++) {
+					stand_behind = 0;
+					stand_ahead = 0;
+					for (let j = 0; j < teams_info.length; j++) {
+						if (i < j) {
+							if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
+								stand_ahead += 1;
+							} else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
+								if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
+									stand_ahead += 1;
+								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
+									if (teams_info[i][findIndex(tI, 'matchup')][j][3] > 0) {
+										stand_ahead += 1;
+									}
+								}
+							}
+						} else if (i > j) {
+							if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
+								stand_behind += 1;
+							} else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
+								if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
+									stand_behind += 1;
+								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
+									if (teams_info[i][findIndex(tI, 'matchup')][j][3] < 0) {
+										stand_behind += 1;
+									}
+								}
+							}
+						}
+					}
+					if ((stand_behind + stand_ahead + 1) == league_teams[league[lgue]]) teams_info[i][1] += 'p';
+					if (stand_ahead >= (league_teams[league[lgue]] - po_t)) teams_info[i][1] += 'x';
+					if (stand_behind >= po_t) teams_info[i][1] += 'o';
+					if (teams_info[i][1] != '') {
+						teams_info[i][1] = '- ' + teams_info[i][1];
+					}
 
-                matchup_thead = `
+                    if(teams_info[i][1].includes('p')){
+                        matchup_thead += `<th colspan = 2 style="width:80px">${teamName_short_CN[teams_info[i][0]]}</th>`
+                    } else {
+                        matchup_thead += `<th colspan = 2 style="width:110px">${teamName_short_CN[teams_info[i][0]]}</th>`
+                    }
+				}
+
+                table.innerHTML += `
                 <thead>
                     <th style="width:50px">排名</th>
                     <th style="width:120px">球隊</th>
                     <th style="width:50px">已賽</th>
                     <th style="width:50px">勝場</th>
                     <th style="width:50px">敗場</th>
-                    <th style="width:60px">勝率</th>`
+                    <th style="width:60px">勝率</th>
+                    ${matchup_thead}
+                </thead>`;
 
-                for (let i = 0; i < rank.length; i++) matchup_thead += `<th colspan = 2 style="width:110px">${teamName_short_CN[teams_info[i][0]]}</th>`
-                table.innerHTML += matchup_thead + `</thead>`;
-
-                for (let i = 0; i < rank.length; i++) {
+                for (let i = 0; i < teams_info.length; i++) {
                     if (teams_info[i][findIndex(tI, 'ot')][0] + teams_info[i][findIndex(tI, 'ot')][1] == 0) teams_info[i][findIndex(tI, 'ot')] = ['', ''];
                     if (teams_info[i][findIndex(tI, 'q2_tied')][0] + teams_info[i][findIndex(tI, 'q2_tied')][1] == 0) teams_info[i][findIndex(tI, 'q2_tied')] = ['', ''];
                     if (teams_info[i][findIndex(tI, 'q3_tied')][0] + teams_info[i][findIndex(tI, 'q3_tied')][1] == 0) teams_info[i][findIndex(tI, 'q3_tied')] = ['', ''];
@@ -303,7 +309,7 @@ $(document).ready(function () {
                         <td>${((teams_info[i][findIndex(tI, 'total_pts_t')][0] + teams_info[i][findIndex(tI, 'total_pts_t')][1]) / total_games).toFixed(1)}</td>
                         <td class="borderR">${((teams_info[i][findIndex(tI, 'total_pts_a')][0] + teams_info[i][findIndex(tI, 'total_pts_a')][1]) / total_games).toFixed(1)}</td>
                         <td>${(((teams_info[i][findIndex(tI, 'total_pts_t')][0] + teams_info[i][findIndex(tI, 'total_pts_t')][1])
-                        - (teams_info[i][findIndex(tI, 'total_pts_a')][0] + teams_info[i][findIndex(tI, 'total_pts_a')][1])) / total_games).toFixed(1)}</td>
+                            - (teams_info[i][findIndex(tI, 'total_pts_a')][0] + teams_info[i][findIndex(tI, 'total_pts_a')][1])) / total_games).toFixed(1)}</td>
                     </tr>`
 
                     table_points.innerHTML += `
@@ -351,20 +357,21 @@ $(document).ready(function () {
 
 
                     match_standings = ""
-                    for (let j = 0; j < rank.length; j++) {
+                    for (let j = 0; j < teams_info.length; j++) {
                         if (j == i) {
                             teams_info[i][findIndex(tI, 'matchup')][j][1] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][2] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][3] = ""
-                            match_standings += `
-                            <td colspan = 2>-</td>`
+                            match_standings += `<td colspan = 2>-</td>`
+                        } else if(teams_info[i][1].includes('p') | teams_info[j][1].includes('p') | 
+                            teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
+                                match_standings += `
+                                <td colspan=2>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
 
-                        }else {
-                            teams_info[i][findIndex(tI, 'matchup')][j][3] = "("+teams_info[i][findIndex(tI, 'matchup')][j][3]+")";
+                        } else {
                             match_standings += `
-                            <td>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
-                            <td class="textL">${teams_info[i][findIndex(tI, 'matchup')][j][3]}</td>`
-                            
+                            <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
+                            <td class="textL">(${teams_info[i][findIndex(tI, 'matchup')][j][3]})</td>`
                         }
                     }
                     table.innerHTML += `

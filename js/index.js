@@ -88,8 +88,8 @@ $(document).ready(function () {
 					games = 30;
 					po_t = 3;
 				}
-				temp_w = (games / (teams_info.length - 1)) / 2;
 
+				temp_w = (games / (teams_info.length - 1)) / 2;
 				for (let i = 0; i < teams_info.length; i++) {
 					stand_behind = 0;
 					stand_ahead = 0;
@@ -128,7 +128,7 @@ $(document).ready(function () {
 					}
 				}
 
-				for (let i = 0; i < rank.length; i++) {
+				for (let i = 0; i < teams_info.length; i++) {
 					if (i == 0) {
 						no1_w = teams_info[0][2][0];
 						no1_l = teams_info[0][2][1];

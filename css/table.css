@@ -39,6 +39,9 @@ a:hover{
 .textL{
 	text-align: left;
 }
+.textR{
+	text-align: right;
+}
 .text-white{
 	color: white;
 }
