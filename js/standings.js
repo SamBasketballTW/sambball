@@ -272,6 +272,7 @@ $(document).ready(function () {
                     <th style="width:50px">勝場</th>
                     <th style="width:50px">敗場</th>
                     <th style="width:60px">勝率</th>
+                    <th style="width:50px">勝差</th>
                     ${matchup_thead}
                 </thead>`;
 
@@ -321,7 +322,8 @@ $(document).ready(function () {
                         <td>${teams_info[i][2][0] + teams_info[i][2][1]}</td>
                         <td>${teams_info[i][2][0]}</td>
                         <td>${teams_info[i][2][1]}</td>
-                        <td class="borderR">${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                        <td>${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                        <td class="borderR">${teams_info[i][3]}</td>
                         <td>${((teams_info[i][findIndex(tI, 'total_pts_t')][0] + teams_info[i][findIndex(tI, 'total_pts_t')][1]) / total_games).toFixed(1)}</td>
                         <td class="borderR">${((teams_info[i][findIndex(tI, 'total_pts_a')][0] + teams_info[i][findIndex(tI, 'total_pts_a')][1]) / total_games).toFixed(1)}</td>
                         <td>${(teams_info[i][findIndex(tI, 'q_points')][0] / total_games).toFixed(1)}</td>
@@ -332,6 +334,7 @@ $(document).ready(function () {
                         <td class="borderR">${(teams_info[i][findIndex(tI, 'total_pts_t')][1] / teams_info[i][2][1]).toFixed(1)}</td>
                         <td>${(teams_info[i][findIndex(tI, 'total_pts_a')][0] / teams_info[i][2][0]).toFixed(1)}</td>
                         <td>${(teams_info[i][findIndex(tI, 'total_pts_a')][1] / teams_info[i][2][1]).toFixed(1)}</td>
+                        
                     </tr>`
 
                     table_ahead.innerHTML += `
@@ -343,15 +346,16 @@ $(document).ready(function () {
                         <td>${teams_info[i][2][0] + teams_info[i][2][1]}</td>
                         <td>${teams_info[i][2][0]}</td>
                         <td>${teams_info[i][2][1]}</td>
-                        <td class="borderR">${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                        <td>${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                        <td class="borderR">${teams_info[i][3]}</td>
                         <td>${teams_info[i][findIndex(tI, 'q2_ahead')][0]}-${teams_info[i][findIndex(tI, 'q2_ahead')][1]}</td>
                         <td>${teams_info[i][findIndex(tI, 'q2_behind')][0]}-${teams_info[i][findIndex(tI, 'q2_behind')][1]}</td>
                         <td class="borderR">${teams_info[i][findIndex(tI, 'q2_tied')][0]}-${teams_info[i][findIndex(tI, 'q2_tied')][1]}</td>
                         <td>${teams_info[i][findIndex(tI, 'q3_ahead')][0]}-${teams_info[i][findIndex(tI, 'q3_ahead')][1]}</td>
                         <td>${teams_info[i][findIndex(tI, 'q3_behind')][0]}-${teams_info[i][findIndex(tI, 'q3_behind')][1]}</td>
                         <td class="borderR">${teams_info[i][findIndex(tI, 'q3_tied')][0]}-${teams_info[i][findIndex(tI, 'q3_tied')][1]}</td>
+                        <td class="borderR">${teams_info[i][findIndex(tI, 'ot')][0]}-${teams_info[i][findIndex(tI, 'ot')][1]}</td>
                         <td>${teams_info[i][findIndex(tI, 'more_less')][0][0]}-${teams_info[i][findIndex(tI, 'more_less')][0][1]}</td>
-                        <td>${teams_info[i][findIndex(tI, 'more_less')][1][0]}-${teams_info[i][findIndex(tI, 'more_less')][1][1]}</td>
                         <td>${teams_info[i][findIndex(tI, 'more_less')][2][0]}-${teams_info[i][findIndex(tI, 'more_less')][2][1]}</td>
                     </tr>`
 
@@ -384,7 +388,8 @@ $(document).ready(function () {
                             <td>${teams_info[i][2][0] + teams_info[i][2][1]}</td>
                             <td>${teams_info[i][2][0]}</td>
                             <td>${teams_info[i][2][1]}</td>
-                            <td class="borderR">${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                            <td>${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                            <td class="borderR">${teams_info[i][3]}</td>
                             ${match_standings}
                         </tr>
                     </tbody>`
@@ -408,7 +413,8 @@ $(document).ready(function () {
                         <td>${teams_info[i][2][0] + teams_info[i][2][1]}</td>
                         <td>${teams_info[i][2][0]}</td>
                         <td>${teams_info[i][2][1]}</td>
-                        <td class="borderR">${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                        <td>${((teams_info[i][2][0] / total_games) * 100).toFixed(0)}%</td>
+                        <td class="borderR">${teams_info[i][3]}</td>
                         <td>${teams_info[i][findIndex(tI, 'lunar')][0][0]}-${teams_info[i][findIndex(tI, 'lunar')][0][1]}</td>
                         <td class="borderR">${teams_info[i][findIndex(tI, 'lunar')][1][0]}-${teams_info[i][findIndex(tI, 'lunar')][1][1]}</td>
                         ${temp_cal_stand}
