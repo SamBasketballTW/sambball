@@ -83,6 +83,7 @@ $(document).ready(function () {
                             } else {
                                 oversea_team = ""
                             }
+                            if (infos[5] == '') infos[5] = team_link[infos[4]];
 
                             if (infos[9] == "註銷" | infos[9] == "未註冊") {
                                 id_color = `<a style="color:white">${infos[9]}</a>`

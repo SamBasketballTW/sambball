@@ -30,6 +30,7 @@ $(document).ready(function () {
                     if (infos[4] == "fa") {
                         infos[16] = `${infos[3]} ${team_name("short", infos[3], infos[16])}`
                     }
+                    if (infos[5] == '') infos[5] = team_link[infos[4]];
 
                     if (infos[1] == "布拉" | infos[1] == "布銳克曼" | infos[1] == "阿拉薩" | infos[1] == "辛特力" | infos[1] == "夏普" | infos[1] == "安尼奎") {
                         infos[9] = `洋將`;

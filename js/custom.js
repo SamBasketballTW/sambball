@@ -24,7 +24,10 @@ function team_name(value, league, team, gender = "") {
 		return `${league} ${team}`
 
 	} else if (team != "fa" & gender != "") {
-		return `<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon"><b>${teamName}</b>`
+		return `
+		<a href = "${team_link[team]}" target = "_blank">
+		<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon"><b>${teamName}</b>
+		</a>`
 
 	} else {
 		return teamName

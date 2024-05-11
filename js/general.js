@@ -37,8 +37,8 @@ $(document).ready(function () {
         }
         navbar_dropdown.innerHTML += `
             <li class="nav-item dropdown">
-                <button class="nav-link dropdown-toggle dropdown-toggle-no-caret" style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">
-                    ${nav[i][1]}</button>
+                <button class="nav-link dropdown-toggle dropdown-toggle-no-caret" 
+                style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">${nav[i][1]}</button>
                 <ul class="dropdown-menu" style="margin:0">
                     ${nav_men}
                     ${nav_women}
@@ -74,7 +74,7 @@ $(document).ready(function () {
                     </a>
                     <br>
                     <a style="color:white;"
-                        href="https://www.instagram.com/sam_basketball_tw/" target="blank">
+                        href="https://www.instagram.com/sam_basketball_tw/" target="_blank">
                         <i class="bi bi-instagram" style="color:white; font-size: 18px;"></i>
                         sam_basketball_tw&nbsp;
                     </a>
@@ -141,6 +141,28 @@ coach_EN_name = {
     "taipower": "",
     "cht": "",
     "taiyuen": ""
+}
+team_link = {
+    "braves": "https://pleagueofficial.com/team/1",
+    "kings": "https://pleagueofficial.com/team/6",
+    "pilots": "https://pleagueofficial.com/team/2",
+    "lioneers": "https://pleagueofficial.com/team/3",
+    "dreamers": "https://pleagueofficial.com/team/4",
+    "steelers": "https://pleagueofficial.com/team/5",
+    "dea": "https://ctbcdea.com.tw/",
+    "mars": "https://taipeimars.com.tw/",
+    "leopards": "https://t-leopards.com/",
+    "ghosthawks": "https://ghosthawks.tw/",
+    "aquas": "https://ktown-aquas.com/",
+    "beer": "https://sleague.tw/team/1/76/714",
+    "bank": "https://sleague.tw/team/1/76/713",
+    "yulon": "https://sleague.tw/team/1/76/712",
+    "bll": "https://sleague.tw/team/1/76/711",
+
+    "cathay": "https://wsbl.meetagile.com/team/2/77/715",
+    "taipower": "https://wsbl.meetagile.com/team/2/77/716",
+    "cht": "https://wsbl.meetagile.com/team/2/77/717",
+    "taiyuen": "https://wsbl.meetagile.com/team/2/77/718"
 }
 order = {
     "本土": 1,
