@@ -382,16 +382,6 @@ $(document).ready(function () {
                             teams_info[i][findIndex(tI, 'matchup')][j][2] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][3] = ""
                             match_standings += `<td colspan=2><img src="../asset/images/logo_round.png" alt="all" class="teamicon"></a></td>`
-                        // } else if(teams_info[j][findIndex(tI, 'matchup')][i][4] != '' | 
-                        //     teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
-                        //         match_standings += `
-                        //         <td colspan=2>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
-
-                        // } else {
-                        //     match_standings += `
-                        //     <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
-                        //     <td class="textL">(${teams_info[i][findIndex(tI, 'matchup')][j][3]})</td>`
-                        // }
                         } else if (teams_info[i][findIndex(tI, 'matchup')][j][4] == 'show') {
                             match_standings += `
                             <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
@@ -443,7 +433,7 @@ $(document).ready(function () {
                         ${temp_cal_stand}
                     </tr>`
                 }
-                console.log(teams_info);
+                // console.log(teams_info);
             });
     }
 });
