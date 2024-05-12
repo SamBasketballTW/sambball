@@ -48,7 +48,7 @@ $(document).ready(function () {
                     w_l = [0, 0, "W-L"];
                     streak = ["", 0];
                     matchup = [];
-                    for (let i = 0; i < rank.length; i++) matchup.push([rank[i], 0, 0, 0, '']);
+                    for (let i = 0; i < rank.length; i++) matchup.push([rank[i], 0, 0, 0, 'show']);
 
                     recent5 = [0, 0, "recent5"];
                     if (league[lgue] == "sbl" | league[lgue] == "wsbl") {
@@ -227,33 +227,35 @@ $(document).ready(function () {
 						if (i < j) {
 							if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
 								stand_ahead += 1;
-                                teams_info[i][findIndex(tI, 'matchup')][j][4] = 'ahead';
 							} else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
 								if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
 									stand_ahead += 1;
-                                    teams_info[i][findIndex(tI, 'matchup')][j][4] = 'ahead';
 								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
 									if (teams_info[i][findIndex(tI, 'matchup')][j][3] > 0) {
 										stand_ahead += 1;
-                                        teams_info[i][findIndex(tI, 'matchup')][j][4] = 'ahead';
 									}
 								}
 							}
-						} else if (i > j) {
+                            if (teams_info[i][2][0] > (games - teams_info[j][2][1]) |
+                            teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
+                                teams_info[i][findIndex(tI, 'matchup')][j][4] = '';
+                            }
+                        } else if (i > j) {
 							if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
 								stand_behind += 1;
-                                teams_info[i][findIndex(tI, 'matchup')][j][4] = 'behind';
 							} else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
 								if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
 									stand_behind += 1;
-                                    teams_info[i][findIndex(tI, 'matchup')][j][4] = 'behind';
 								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
 									if (teams_info[i][findIndex(tI, 'matchup')][j][3] < 0) {
 										stand_behind += 1;
-                                        teams_info[i][findIndex(tI, 'matchup')][j][4] = 'behind';
 									}
 								}
 							}
+                            if (teams_info[j][2][0] > (games - teams_info[i][2][1]) |
+                            teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
+                                teams_info[i][findIndex(tI, 'matchup')][j][4] = '';
+                            }
 						}
 					}
 					if ((stand_behind + stand_ahead + 1) == league_teams[league[lgue]]) teams_info[i][1] += 'p';
@@ -267,8 +269,7 @@ $(document).ready(function () {
                 for(let i = 0; i< teams_info.length;i++){
                     show_win_points = 0;
                     for(let j = 0; j<teams_info.length;j++){
-                        if( i != j & teams_info[j][findIndex(tI, 'matchup')][i][4] == '' & 
-                        teams_info[j][findIndex(tI, 'matchup')][i][1] <= temp_w & teams_info[j][findIndex(tI, 'matchup')][i][2] <= temp_w){
+                        if( i != j & teams_info[j][findIndex(tI, 'matchup')][i][4] == 'show'){
                             show_win_points = 1;
                         }
                     }
@@ -381,15 +382,23 @@ $(document).ready(function () {
                             teams_info[i][findIndex(tI, 'matchup')][j][2] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][3] = ""
                             match_standings += `<td colspan=2><img src="../asset/images/logo_round.png" alt="all" class="teamicon"></a></td>`
-                        } else if(teams_info[j][findIndex(tI, 'matchup')][i][4] != '' | 
-                            teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
-                                match_standings += `
-                                <td colspan=2>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
+                        // } else if(teams_info[j][findIndex(tI, 'matchup')][i][4] != '' | 
+                        //     teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
+                        //         match_standings += `
+                        //         <td colspan=2>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
 
-                        } else {
+                        // } else {
+                        //     match_standings += `
+                        //     <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
+                        //     <td class="textL">(${teams_info[i][findIndex(tI, 'matchup')][j][3]})</td>`
+                        // }
+                        } else if (teams_info[i][findIndex(tI, 'matchup')][j][4] == 'show') {
                             match_standings += `
                             <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
                             <td class="textL">(${teams_info[i][findIndex(tI, 'matchup')][j][3]})</td>`
+                        } else {
+                            match_standings += `
+                            <td colspan=2>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
                         }
                     }
                     table.innerHTML += `
@@ -434,7 +443,7 @@ $(document).ready(function () {
                         ${temp_cal_stand}
                     </tr>`
                 }
-                // console.log(teams_info);
+                console.log(teams_info);
             });
     }
 });
