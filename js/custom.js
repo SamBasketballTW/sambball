@@ -63,15 +63,6 @@ function num_order(num) {
 		return 100
 	}
 }
-function school(s) {
-	if (s.includes("HBL") | s == "-") {
-		return ""
-	} else if (college[s] == undefined) {
-		return "college-us"
-	} else {
-		return college[s]
-	}
-}
 function age(bday) {
 	const birthday = new Date(bday);
 	const today = new Date();
@@ -135,19 +126,6 @@ function findIndex(array, team) {
 	}
 	return -1;
 }
-
-function rankArray(array) {
-	temp = [];
-	for (let i = 0; i < array.length; i++) {
-		count = 0;
-		for (let j = 0; j < array.length; j++) {
-			if (array[i] < array[j]) count += 1;
-		}
-		temp.push(count + 1);
-	}
-	return temp;
-}
-
 function w3AddClass(element, name) {
 	var i, arr1, arr2;
 	arr1 = element.className.split(" ");

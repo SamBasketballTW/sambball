@@ -107,7 +107,7 @@ $(document).ready(function () {
                     } else if (teams_info[teamW_index][4][0] == "W") {
                         teams_info[teamW_index][4][1] += 1;
                     } else if (teams_info[teamW_index][4][0] == "L") {
-                        teams_info[teamW_index][4][0] = `L${teams_info[teamW_index][4][1]}`;
+                        teams_info[teamW_index][4][0] = 'L'+teams_info[teamW_index][4][1];
                     }
                     if (teams_info[teamL_index][4][0] == "") {
                         teams_info[teamL_index][4][0] = "L"
@@ -115,7 +115,7 @@ $(document).ready(function () {
                     } else if (teams_info[teamL_index][4][0] == "L") {
                         teams_info[teamL_index][4][1] += 1;
                     } else if (teams_info[teamL_index][4][0] == "W") {
-                        teams_info[teamL_index][4][0] = `W${teams_info[teamL_index][4][1]}`
+                        teams_info[teamL_index][4][0] = 'W'+teams_info[teamL_index][4][1];
                     }
                     // recent5
                     if (teams_info[teamW_index][findIndex(tI, 'recent5')][0] + teams_info[teamW_index][findIndex(tI, 'recent5')][1] < 5) teams_info[teamW_index][findIndex(tI, 'recent5')][0] += 1;
@@ -274,9 +274,9 @@ $(document).ready(function () {
                         }
                     }
                     if(show_win_points == 1){
-                        matchup_thead += `<th colspan=2 style="width:110px">${teamName_short_CN[teams_info[i][0]]}</th>`
+                        matchup_thead += `<th colspan="2" style="width:110px">${teamName_short_CN[teams_info[i][0]]}</th>`
                     }else {
-                        matchup_thead += `<th colspan=2 style="width:80px">${teamName_short_CN[teams_info[i][0]]}</th>`
+                        matchup_thead += `<th colspan="2" style="width:80px">${teamName_short_CN[teams_info[i][0]]}</th>`
                     }
                 }
                 table.innerHTML += `
@@ -381,14 +381,15 @@ $(document).ready(function () {
                             teams_info[i][findIndex(tI, 'matchup')][j][1] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][2] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][3] = ""
-                            match_standings += `<td colspan=2><img src="../asset/images/logo_round.png" alt="all" class="teamicon"></a></td>`
+                            match_standings += `
+                            <td colspan="2"><img src="../asset/images/logo_round.png" alt="all" class="teamicon"></a></td>`
                         } else if (teams_info[i][findIndex(tI, 'matchup')][j][4] == 'show') {
                             match_standings += `
                             <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>
                             <td class="textL">(${teams_info[i][findIndex(tI, 'matchup')][j][3]})</td>`
                         } else {
                             match_standings += `
-                            <td colspan=2>${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
+                            <td colspan="2">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>`
                         }
                     }
                     table.innerHTML += `

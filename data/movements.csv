@@ -53,6 +53,7 @@ men,pilots,fa,李學林
 men,pilots,fa,陳昱翰
 men,pilots,trade,周儀翔 (from 鋼鐵人)
 men,pilots,draft,喬楚瑜 (總順位: 2)
+men,pilots,loan back,施顏宗 (已離隊)
 men,pilots,lost,施顏宗 (加盟 攻城獅)
 men,pilots,lost,黃泓瀚 (加盟 T1特攻)
 men,pilots,lost,成力煥
@@ -92,6 +93,8 @@ men,dreamers,extend,楊盛硯 (延長 2 年)
 men,dreamers,extend,簡浩 (延長 2 年)
 men,dreamers,extend,吳松蔚 (續約 1 年)
 men,dreamers,draft,丁冠皓 (總順位: 3)
+men,dreamers,loan back,鄭子洋 (已離隊)
+men,dreamers,loan back,王振原 (註冊大限後)
 men,dreamers,lost,吳永盛 (加盟 勇士)
 men,dreamers,lost,王振原 (加盟 SBL柏力力)
 men,dreamers,lost,鄭子洋
@@ -103,8 +106,8 @@ men,dreamers,import lost,貝札尼什維利 Giorgi Bezhanishvili
 ,dreamers,,
 men,steelers,extend,盧哲毅 (續約)
 men,steelers,fa,李睿麒
-men,steelers,trade,施晉堯 (from 領航猿: 2023/06/19)
-men,steelers,trade,陳冠全 (from 領航猿: 2023/06/19)
+men,steelers,trade,施晉堯 (from 領航猿)
+men,steelers,trade,陳冠全 (from 領航猿)
 men,steelers,draft,丹尼爾 (總順位: 4)
 men,steelers,draft,劉承彥 (總順位: 8)
 men,steelers,lost,王柏智 (加盟 國王)
@@ -115,7 +118,7 @@ men,steelers,lost,藍少甫 (加盟 T1太陽)
 men,steelers,lost,林均濠 (加盟 SBL臺銀)
 men,steelers,lost,鄭德維 (加盟 SBL裕隆)
 men,steelers,lost,林柏豪 (加盟 SBL台啤)
-men,steelers,lost trade,周儀翔 (交易至 領航猿: 2023/06/19)
+men,steelers,lost trade,周儀翔 (交易至 領航猿)
 men,steelers,import extend,鐵米 Femi Olujobi (續約)
 men,steelers,import extend,悟空 Gokul Natesan (續約 / 已離隊)
 men,steelers,import,塔壁 Hasheem Thabeet

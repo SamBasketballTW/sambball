@@ -1,3 +1,25 @@
+coach_EN_name = {
+    "braves": "",
+    "kings": " Ryan Marchand",
+    "pilots": " Iurgi Caminos",
+    "lioneers": " Milan Mitrović",
+    "dreamers": " Jamie Pearlman",
+    "steelers": "",
+    "dea": "",
+    "mars": "",
+    "leopards": " Charles Dubé-Brais",
+    "ghosthawks": " Raoul Korner",
+    "aquas": " Branden Joyce",
+    "beer": "",
+    "bank": "",
+    "yulon": "",
+    "bll": "",
+
+    "cathay": "",
+    "taipower": "",
+    "cht": "",
+    "taiyuen": ""
+}
 $(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
@@ -231,12 +253,14 @@ $(document).ready(function () {
                             cat_name = "Via 自由球員"
                         } else if (infos[2] == "trade") {
                             cat_name = "Via 交易"
+                        } else if (infos[2] == "loan") {
+                                cat_name = "Via 租借"
                         } else if (infos[2] == "keep") {
                             cat_name = "Via 保留名單"
-                        } else if (infos[2] == "loan") {
-                            cat_name = "Via 租借"
                         } else if (infos[2] == "draft") {
                             cat_name = "Via 選秀"
+                        } else if (infos[2] == "loan back") {
+                            cat_name = "租借回歸"
                         } else if (infos[2] == "lost loan") {
                             cat_name = "Via 租借"
                         } else if (infos[2] == "lost trade") {
@@ -261,6 +285,17 @@ $(document).ready(function () {
             document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
         });
 });
+function rankArray(array) {
+	temp = [];
+	for (let i = 0; i < array.length; i++) {
+		count = 0;
+		for (let j = 0; j < array.length; j++) {
+			if (array[i] < array[j]) count += 1;
+		}
+		temp.push(count + 1);
+	}
+	return temp;
+}
 function updateTables() {
     tableCount = document.getElementById('r_count_tbody');
 

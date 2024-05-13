@@ -60,7 +60,7 @@ $(document).ready(function () {
 					} else if (teams_info[teamW_index][4][0] == "W") {
 						teams_info[teamW_index][4][1] += 1;
 					} else if (teams_info[teamW_index][4][0] == "L") {
-						teams_info[teamW_index][4][0] = `L${teams_info[teamW_index][4][1]}`;
+						teams_info[teamW_index][4][0] = 'L'+teams_info[teamW_index][4][1];
 					}
 					if (teams_info[teamL_index][4][0] == "") {
 						teams_info[teamL_index][4][0] = "L"
@@ -68,7 +68,7 @@ $(document).ready(function () {
 					} else if (teams_info[teamL_index][4][0] == "L") {
 						teams_info[teamL_index][4][1] += 1;
 					} else if (teams_info[teamL_index][4][0] == "W") {
-						teams_info[teamL_index][4][0] = `W${teams_info[teamL_index][4][1]}`
+						teams_info[teamL_index][4][0] = 'W'+teams_info[teamL_index][4][1];
 					}
 					// matchup
 					teams_info[teamW_index][findIndex(tI, 'matchup')][teamL_index][1] += 1;

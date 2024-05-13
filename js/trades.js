@@ -18,7 +18,7 @@ $(document).ready(function () {
                 if (infos[0].includes("index")) {
                     info += `
                         <tr class="filterTr ${infos[0]} player draft showTr">
-                            <td colspan="2" style="font-size:120%; background-color:#1B1B1B;">${infos[4]}</td>
+                            <td colspan="3" style="font-size:120%; background-color:#1B1B1B;">${infos[4]}</td>
                         </tr>`
                 } else {
                     trade = infos[4];
@@ -30,7 +30,8 @@ $(document).ready(function () {
 
                     info += `
                         <tr class="filterTr ${infos[0]} ${infos[1]} showTr">
-                            <td class="borderR">${infos[2]} (${infos[3]})</td>
+                            <td class="textR">${infos[2]}</td>
+                            <td class="textL borderR">(${infos[3]})</td>
                             <td style="text-align:left;">${trade}</td>
                         </tr>`
                 }

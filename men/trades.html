@@ -102,10 +102,15 @@
 		<div class="container-lg">
 			<div class="table-scroll">
 				<table id="trades_tb" class="table table-hover">
+					<colgroup>
+						<col width="90px">
+						<col width="80px">
+						<col width="calc(100vw - 60px)">
+					</colgroup>
 					<thead>
 						<tr class="index">
-							<th style="width:185px">日期</th>
-							<th style="width:calc(100vw - 40px); max-width:630px;">內容</th>
+							<th colspan="2" style="width:185px">日期</th>
+							<th style="width:calc(100vw - 60px); max-width:630px;">內容</th>
 						</tr>
 					</thead>
 					<tbody id="trades_tbody">
