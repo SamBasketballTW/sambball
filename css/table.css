@@ -58,7 +58,7 @@ table {
 	border-collapse: separate;
 	border-spacing: 0px;
 	--bs-border-width: 0px;
-	background-color: #EEEEEE;
+	/* background-color: #EEEEEE; */
 	width:100%;
 }
 

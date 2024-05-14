@@ -1,32 +1,18 @@
 $(document).ready(function () {
-    men_html = document.getElementById("men_page");
-    women_html = document.getElementById("women_page");
+    plg_rank = [];
+    t1_rank = [];
+    sbl_rank = [];
+    wsbl_rank = [];
+    league = ['plg', 't1', 'sbl', 'wsbl'];
 
-    if (men_html) {
-        gender = "men"
-
-        plg_rank = [];
-        t1_rank = [];
-        sbl_rank = [];
-        league = ['plg', 't1', 'sbl'];
-
-        for (let i = 0; i < league_teams['plg']; i++) plg_rank.push(plg_teams[i + 1]);
-        for (let i = 0; i < league_teams['t1']; i++) t1_rank.push(t1_teams[i + 1]);
-        for (let i = 0; i < league_teams['sbl']; i++) sbl_rank.push(sbl_teams[i + 1]);
-        all_rank = [plg_rank, t1_rank, sbl_rank];
-
-    } else if (women_html) {
-        gender = "women"
-
-        wsbl_rank = [];
-        league = ['wsbl']
-
-        for (let i = 0; i < league_teams['wsbl']; i++) wsbl_rank.push(wsbl_teams[i + 1]);
-        all_rank = [wsbl_rank]
-    }
+    for (let i = 0; i < league_teams['plg']; i++) plg_rank.push(plg_teams[i + 1]);
+    for (let i = 0; i < league_teams['t1']; i++) t1_rank.push(t1_teams[i + 1]);
+    for (let i = 0; i < league_teams['sbl']; i++) sbl_rank.push(sbl_teams[i + 1]);
+    for (let i = 0; i < league_teams['wsbl']; i++) wsbl_rank.push(wsbl_teams[i + 1]);
+    all_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 
     for (let lgue = 0; lgue < league.length; lgue++) {
-        fetch(`../data/standings-${league[lgue]}.csv`)
+        fetch(`./data/standings-${league[lgue]}.csv`)
             .then((response) => response.text())
             .then((result) => {
 
@@ -194,27 +180,35 @@ $(document).ready(function () {
                 });
                 SortStandings(teams_info);
                 if (league[lgue] == 'plg') {
+                    fil = 'plg';
+                    gender = 'men';
                     games = 40;
                     po_t = 4;
                     show = 'showTr'
                     cal_start = 10;
                     cal_end = 4;
                 } else if (league[lgue] == 't1') {
+                    fil = 't1';
+                    gender = 'men';
                     games = 28;
                     po_t = 4;
                     show = ''
                     cal_start = 9;
                     cal_end = 3;
                 } else if (league[lgue] == 'sbl') {
+                    fil = 'msbl';
+                    gender = 'men';
                     games = 30;
                     po_t = 3;
                     show = ''
                     cal_start = 0;
                     cal_end = 3;
                 } else if (league[lgue] == 'wsbl') {
+                    fil = 'wsbl';
+                    gender = 'women';
                     games = 30;
                     po_t = 3;
-                    show = 'showTr'
+                    show = ''
                     cal_start = 0;
                     cal_end = 3;
                 }
@@ -307,7 +301,7 @@ $(document).ready(function () {
 
 
                     table_overall.innerHTML += `
-                    <tr class="filterTr ${league[lgue]} ${show}">
+                    <tr class="filterTr ${fil} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
                             ${team_name("short", '', teams_info[i][0], gender)}<a style="font-size:12px"><b>${teams_info[i][1]}</b></a>
@@ -329,7 +323,7 @@ $(document).ready(function () {
                     </tr>`
 
                     table_points.innerHTML += `
-                    <tr class="filterTr ${league[lgue]} ${show}">
+                    <tr class="filterTr ${fil} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
                             ${team_name("short", '', teams_info[i][0], gender)}<a style="font-size:12px"><b>${teams_info[i][1]}</b></a>
@@ -353,7 +347,7 @@ $(document).ready(function () {
                     </tr>`
 
                     table_ahead.innerHTML += `
-                    <tr class="filterTr ${league[lgue]} ${show}">
+                    <tr class="filterTr ${fil} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
                             ${team_name("short", '', teams_info[i][0], gender)}<a style="font-size:12px"><b>${teams_info[i][1]}</b></a>
@@ -382,7 +376,7 @@ $(document).ready(function () {
                             teams_info[i][findIndex(tI, 'matchup')][j][2] = ""
                             teams_info[i][findIndex(tI, 'matchup')][j][3] = ""
                             match_standings += `
-                            <td colspan="2"><img src="../asset/images/logo_round.png" alt="all" class="teamicon"></a></td>`
+                            <td colspan="2"><img src="./asset/images/logo_round.png" alt="all" class="teamicon"></a></td>`
                         } else if (teams_info[i][findIndex(tI, 'matchup')][j][4] == 'show') {
                             match_standings += `
                             <td class="textR">${teams_info[i][findIndex(tI, 'matchup')][j][1]}-${teams_info[i][findIndex(tI, 'matchup')][j][2]}</td>

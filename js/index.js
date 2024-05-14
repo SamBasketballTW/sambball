@@ -165,7 +165,7 @@ $(document).ready(function () {
 			lines = lines.slice(2);
 
 			count = 0;
-			text = "";
+			text = ``;
 			gender = "";
 
 			lines.forEach(player => {

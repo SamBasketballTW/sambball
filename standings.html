@@ -5,24 +5,24 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>戰績 (男) | 山姆籃球</title>
-	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/custom.css">
-	<link rel="stylesheet" href="../css/players.css">
-	<link rel="stylesheet" href="../css/table.css">
+	<title>戰績 | 山姆籃球</title>
+	<link rel="icon" href="./asset/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/custom.css">
+	<link rel="stylesheet" href="./css/players.css">
+	<link rel="stylesheet" href="./css/table.css">
 
-	<script src="../js/tools/popper.min.js"></script>
-	<script src="../js/tools/bootstrap.min.js"></script>
+	<script src="./js/tools/popper.min.js"></script>
+	<script src="./js/tools/bootstrap.min.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-	<script src="../js/general.js"></script>
-	<script src="../js/custom.js"></script>
-	<script src="../js/standings.js"></script>
+	<script src="./js/general.js"></script>
+	<script src="./js/custom.js"></script>
+	<script src="./js/standings.js"></script>
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
 		crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 
 	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
 		<div class="container-fluid">
-			<a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png"
+			<a id="index" class="navbar-brand" href="./">&nbsp;&nbsp;<img src="./asset/images/logo.png"
 					class="icon">&nbsp;山姆籃球</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
 		</div>
 	</nav>
 
-	<div id="men_page" class="content">
+	<div id="mutual_page" class="content">
 		<div class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x:auto">
@@ -55,7 +55,8 @@
 				<ul id="league-dropdown" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('plg')">P. LEAGUE+</a></li>
                     <li><a class="dropdown-item" onclick="f('t1')">T1 LEAGUE</a></li>
-                    <li><a class="dropdown-item" onclick="f('sbl')">SBL 超級籃球聯賽</a></li>
+                    <li><a class="dropdown-item" onclick="f('msbl')">SBL 超級籃球聯賽</a></li>
+					<li><a class="dropdown-item" onclick="f('wsbl')">WSBL 超級籃球聯賽</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;戰績篩選: </b></a>
@@ -71,9 +72,9 @@
 			</div>
 		</div>
 
-        <div class="container-lg">
+		<div class="container-lg">
 			<div class="table-scroll" style="border-bottom:0px">
-				<table id="overall_tb" class="table table-hover table-fix2 filterTb showTb">
+				<table id="overall_tb" class="table table-hover table-fix2 filterTb showTb"> <!--0-->
                     <thead>
                         <th style="width:50px">排名</th>
                         <th style="width:120px">球隊</th>
@@ -98,7 +99,7 @@
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="points_tb" class="table table-hover table-fix2 filterTb">
+				<table id="points_tb" class="table table-hover table-fix2 filterTb"> <!--1-->
                     <thead>
                         <th style="width:50px">排名</th>
                         <th style="width:120px">球隊</th>
@@ -125,7 +126,7 @@
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="ahead_tb" class="table table-hover table-fix2 filterTb">
+				<table id="ahead_tb" class="table table-hover table-fix2 filterTb"> <!--2-->
                     <thead>
                         <th style="width:50px">排名</th>
                         <th style="width:120px">球隊</th>
@@ -151,25 +152,31 @@
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="plg_tb" class="table table-hover table-fix2 filterTb">
+				<table id="plg_tb" class="table table-hover table-fix2 filterTb"> <!--3-->
 		
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="t1_tb" class="table table-hover table-fix2 filterTb">
+				<table id="t1_tb" class="table table-hover table-fix2 filterTb"> <!--4-->
 		
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="sbl_tb" class="table table-hover table-fix2 filterTb">
+				<table id="sbl_tb" class="table table-hover table-fix2 filterTb"> <!--5-->
 		
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="calendar_plg_tb" class="table table-hover table-fix2 filterTb">
+				<table id="wsbl_tb" class="table table-hover table-fix2 filterTb"> <!--6-->
+		
+				</table>
+			</div>
+
+			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
+				<table id="calendar_plg_tb" class="table table-hover table-fix2 filterTb"> <!--7-->
                     <thead>
                         <th style="width:50px">排名</th>
                         <th style="width:120px">球隊</th>
@@ -195,7 +202,7 @@
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
-				<table id="calendar_t1_tb" class="table table-hover table-fix2 filterTb">
+				<table id="calendar_t1_tb" class="table table-hover table-fix2 filterTb"> <!--8-->
                     <thead>
                         <th style="width:50px">排名</th>
                         <th style="width:120px">球隊</th>
@@ -220,8 +227,8 @@
 				</table>
 			</div>
 
-			<div class="table-scroll" style="border-top:0px;">
-				<table id="calendar_sbl_tb" class="table table-hover table-fix2 filterTb">
+			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
+				<table id="calendar_sbl_tb" class="table table-hover table-fix2 filterTb"> <!--9-->
                     <thead>
                         <th style="width:50px">排名</th>
                         <th style="width:120px">球隊</th>
@@ -242,11 +249,34 @@
                     </tbody>
 				</table>
 			</div>
+
+			<div class="table-scroll" style="border-top:0px;">
+				<table id="calendar_wsbl_tb" class="table table-hover table-fix2 filterTb"> <!--10-->
+                    <thead>
+                        <th style="width:50px">排名</th>
+                        <th style="width:120px">球隊</th>
+                        <th style="width:50px">已賽</th>
+                        <th style="width:50px">勝場</th>
+                        <th style="width:50px">敗場</th>
+                        <th style="width:60px">勝率</th>
+                        <th style="width:50px">勝差</th>
+						<th style="width:70px">年前</th>
+						<th style="width:70px">年後</th>
+						<th style="width:70px">1月</th>
+						<th style="width:70px">2月</th>
+						<th style="width:70px">3月</th>
+						<th style="width:70px">4月</th>
+                    </thead>
+                    <tbody id="calendar_wsbl_tbody">
+
+                    </tbody>
+				</table>
+			</div>
 			<a style="font-size:13px"><b>p-例行賽排名確定&nbsp;&nbsp;&nbsp;x-晉級季後賽&nbsp;&nbsp;&nbsp;o-無緣季後賽<br></b></a>
 			<a id="timeStamp"style="font-size:13px"></a>
 		</div>
 
-		<img id="loader" class="spinner" src="../asset/images/logo.png">
+		<img id="loader" class="spinner" src="./asset/images/logo.png">
 	</div>
 
 	<footer id="footerContent" class="bg-dark" style="color:white;"></footer>
@@ -288,20 +318,24 @@
                 } else if (this.innerHTML == standings[2].innerHTML){
                     tables[2].className += " showTb";
                 } else if (this.innerHTML == standings[3].innerHTML){
-                    if (leaguebtn.innerHTML.includes("P. LEAGUE+")){
+                    if (leaguebtn.innerHTML == leagues[0].innerHTML){
                         tables[3].className += " showTb";
-                    } else if (leaguebtn.innerHTML.includes("T1 LEAGUE")){
+                    } else if (leaguebtn.innerHTML == leagues[1].innerHTML){
                         tables[4].className += " showTb";
-                    } else if (leaguebtn.innerHTML.includes("SBL")){
+                    } else if (leaguebtn.innerHTML == leagues[2].innerHTML){
                         tables[5].className += " showTb";
+                    } else if (leaguebtn.innerHTML == leagues[3].innerHTML){
+                        tables[6].className += " showTb";
                     }
                 } else if (this.innerHTML == standings[4].innerHTML){
-                    if (leaguebtn.innerHTML.includes("P. LEAGUE+")){
-                        tables[6].className += " showTb";
-                    } else if (leaguebtn.innerHTML.includes("T1 LEAGUE")){
+                    if (leaguebtn.innerHTML == leagues[0].innerHTML){
                         tables[7].className += " showTb";
-                    } else if (leaguebtn.innerHTML.includes("SBL")){
+                    } else if (leaguebtn.innerHTML == leagues[1].innerHTML){
                         tables[8].className += " showTb";
+                    } else if (leaguebtn.innerHTML == leagues[2].innerHTML){
+                        tables[9].className += " showTb";
+                    } else if (leaguebtn.innerHTML == leagues[3].innerHTML){
+                        tables[10].className += " showTb";
                     }
 				}
 

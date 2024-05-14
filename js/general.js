@@ -1,23 +1,27 @@
 $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.05.12</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.05.14</b>`
 
     test = ""
-    // test = ".html"
+    test = ".html"
 
-    if (document.getElementById("index_page")) {
+    if (document.getElementById("mutual_page")) {
+        mutual_path = "."
         men_path = "./men"
         women_path = "./women"
     } else if (document.getElementById("men_page")) {
+        mutual_path = ".."
         men_path = "."
         women_path = "../women"
     } else if (document.getElementById("women_page")) {
+        mutual_path = ".."
         men_path = "../men"
         women_path = "."
     }
     navbar_dropdown = document.getElementById("navbar-dropdown");
     nav = [
-        ['standings', '戰績', 'm w'],
+        ['playoffs', '季後賽', ''],
+        ['standings', '戰績', ''],
         ['rosters', '球隊陣容', 'm w'],
         ['players', '現役球員', 'm w'],
         ['contracts', '合約', 'm'],
@@ -27,23 +31,30 @@ $(document).ready(function () {
         ['us-players', '旅美學生', 'm w']
     ]
     for (let i = 0; i < nav.length; i++) {
-        nav_men = '';
-        nav_women = '';
-        if (nav[i][2].includes('m')) {
-            nav_men = `<li><a class="nav-link" href="${men_path}/${nav[i][0]}${test}">&nbsp;${nav[i][1]} (男)</a></li>`
-        }
-        if (nav[i][2].includes('w')) {
-            nav_women = `<li><a class="nav-link" href="${women_path}/${nav[i][0]}${test}">&nbsp;${nav[i][1]} (女)</a></li>`
-        }
-        navbar_dropdown.innerHTML += `
+        nav_li = '';
+        if (nav[i][2] == '') {
+            navbar_dropdown.innerHTML += `
+            <li class="nav-item">
+                <a class="nav-link" href="${mutual_path}/${nav[i][0]}${test}">${nav[i][1]}</a>
+            </li>`
+        } else {
+            if (nav[i][2].includes('m')) {
+                nav_li += `<li><a class="nav-link" href="${men_path}/${nav[i][0]}${test}">&nbsp;${nav[i][1]} (男)</a></li>`
+            }
+            if (nav[i][2].includes('w')) {
+                nav_li += `<li><a class="nav-link" href="${women_path}/${nav[i][0]}${test}">&nbsp;${nav[i][1]} (女)</a></li>`
+            }
+            navbar_dropdown.innerHTML += `
             <li class="nav-item dropdown">
                 <button class="nav-link dropdown-toggle dropdown-toggle-no-caret" 
                 style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">${nav[i][1]}</button>
                 <ul class="dropdown-menu" style="margin:0">
-                    ${nav_men}
-                    ${nav_women}
+                    ${nav_li}
                 </ul>
             </li>`
+        }
+
+        
     }
 
     if (document.getElementById('team-dropdown_m')) {
