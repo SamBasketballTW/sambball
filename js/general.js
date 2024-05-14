@@ -3,7 +3,7 @@ $(document).ready(function () {
     timeStamp.innerHTML = `<b>最後更新: 2024.05.14</b>`
 
     test = ""
-    test = ".html"
+    // test = ".html"
 
     if (document.getElementById("mutual_page")) {
         mutual_path = "."
