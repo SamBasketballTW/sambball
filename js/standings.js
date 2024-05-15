@@ -23,7 +23,7 @@ $(document).ready(function () {
                 table_points = document.getElementById('points_tbody');
                 table_ahead = document.getElementById('ahead_tbody');
                 table = document.getElementById(`${league[lgue]}_tb`);
-                table_calendar = document.getElementById(`calendar_${league[lgue]}_tbody`);
+                table_calendar = document.getElementById(`calendar_tbody`);
 
                 rank = all_rank[lgue];
 
@@ -185,32 +185,37 @@ $(document).ready(function () {
                     games = 40;
                     po_t = 4;
                     show = 'showTr'
-                    cal_start = 10;
-                    cal_end = 4;
+                    cal_start = 11;
+                    cal_end = 5;
                 } else if (league[lgue] == 't1') {
                     fil = 't1';
                     gender = 'men';
                     games = 28;
                     po_t = 4;
                     show = ''
-                    cal_start = 9;
-                    cal_end = 3;
+                    cal_start = 10;
+                    cal_end = 4;
                 } else if (league[lgue] == 'sbl') {
                     fil = 'msbl';
                     gender = 'men';
                     games = 30;
                     po_t = 3;
                     show = ''
-                    cal_start = 0;
-                    cal_end = 3;
+                    cal_start = 1;
+                    cal_end = 4;
                 } else if (league[lgue] == 'wsbl') {
                     fil = 'wsbl';
                     gender = 'women';
                     games = 30;
                     po_t = 3;
                     show = ''
-                    cal_start = 0;
-                    cal_end = 3;
+                    cal_start = 1;
+                    cal_end = 4;
+                }
+                for(let i=0;i<teams_info.length;i++){
+                    if (cal_start < 7) cal_start = 13;
+                    for (let c = 6; c < cal_start - 1; c++) teams_info[i][findIndex(tI, 'cal')][c] = ['',''];
+                    for (let c = cal_end; c < 6 ; c++) teams_info[i][findIndex(tI, 'cal')][c] = ['',''];
                 }
 
                 temp_w = (games / (teams_info.length - 1)) / 2;
@@ -402,18 +407,8 @@ $(document).ready(function () {
                         </tr>
                     </tbody>`
 
-
-                    temp_cal_stand = ''
-                    if (cal_start > 6) {
-                        for (let c = cal_start; c < 12; c++) {
-                            temp_cal_stand += `<td>${teams_info[i][findIndex(tI, 'cal')][c][0]}-${teams_info[i][findIndex(tI, 'cal')][c][1]}</td>`
-                        }
-                    }
-                    for (let c = 0; c <= cal_end; c++) {
-                        temp_cal_stand += `<td>${teams_info[i][findIndex(tI, 'cal')][c][0]}-${teams_info[i][findIndex(tI, 'cal')][c][1]}</td>`
-                    }
                     table_calendar.innerHTML += `
-                    <tr>
+                    <tr class="filterTr ${fil} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
                             ${team_name("short", '', teams_info[i][0], gender)}<a style="font-size:12px"><b>${teams_info[i][1]}</b></a>
@@ -425,7 +420,14 @@ $(document).ready(function () {
                         <td class="borderR">${teams_info[i][3]}</td>
                         <td>${teams_info[i][findIndex(tI, 'lunar')][0][0]}-${teams_info[i][findIndex(tI, 'lunar')][0][1]}</td>
                         <td class="borderR">${teams_info[i][findIndex(tI, 'lunar')][1][0]}-${teams_info[i][findIndex(tI, 'lunar')][1][1]}</td>
-                        ${temp_cal_stand}
+                        <td>${teams_info[i][findIndex(tI, 'cal')][9][0]}-${teams_info[i][findIndex(tI, 'cal')][9][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][10][0]}-${teams_info[i][findIndex(tI, 'cal')][10][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][11][0]}-${teams_info[i][findIndex(tI, 'cal')][11][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][0][0]}-${teams_info[i][findIndex(tI, 'cal')][0][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][1][0]}-${teams_info[i][findIndex(tI, 'cal')][1][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][2][0]}-${teams_info[i][findIndex(tI, 'cal')][2][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][3][0]}-${teams_info[i][findIndex(tI, 'cal')][3][1]}</td>
+                        <td>${teams_info[i][findIndex(tI, 'cal')][4][0]}-${teams_info[i][findIndex(tI, 'cal')][4][1]}</td>
                     </tr>`
                 }
                 // console.log(teams_info);
