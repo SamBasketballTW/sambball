@@ -22,9 +22,9 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender & infos[17] != "") {
-                    if(infos[4] == "fa") {
+                    if (infos[4] == "fa") {
                         team = infos[16]
-                    } else if(infos[6] == "active"){
+                    } else if (infos[6] == "active") {
                         team = infos[4]
                     } else {
                         team = infos[16]
@@ -53,7 +53,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [5,'asc'],
+                order: [5, 'asc'],
             });
 
         });

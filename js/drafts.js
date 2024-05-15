@@ -52,15 +52,15 @@ $(document).ready(function () {
 		plg_draft = document.getElementById('plg_draft');
 		t1_draft = document.getElementById('t1_draft');
 		sbl_draft = document.getElementById('sbl_draft');
-		for(let i = year['season']; i>= 2020; i--){
-			if(i > 2020) plg_draft.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}plg')">${i} PLG 選秀</a></li>`
-			if(i > 2020) t1_draft.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}t1')">${i} T1 選秀</a></li>`
+		for (let i = year['season']; i >= 2020; i--) {
+			if (i > 2020) plg_draft.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}plg')">${i} PLG 選秀</a></li>`
+			if (i > 2020) t1_draft.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}t1')">${i} T1 選秀</a></li>`
 			sbl_draft.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}sbl')">${i} SBL 選秀</a></li>`
 		}
-		
+
 	} else if (women_html) {
 		wsbl_draft = document.getElementById('draft-dropdown');
-		for(let i = year['season']; i>= 2019; i--){
+		for (let i = year['season']; i >= 2019; i--) {
 			wsbl_draft.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}wsbl')">${i} WSBL 選秀</a></li>`
 		}
 	}

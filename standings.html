@@ -47,15 +47,15 @@
 	<div id="mutual_page" class="content">
 		<div class="jumbotron"></div>
 
-        <div class="container-lg" style="overflow-x:auto">
+		<div class="container-lg" style="overflow-x:auto">
 			<div class="col" style="width:460px">
 
 				<button id="leaguebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false">P. LEAGUE+</button>
 				<ul id="league-dropdown" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('plg')">P. LEAGUE+</a></li>
-                    <li><a class="dropdown-item" onclick="f('t1')">T1 LEAGUE</a></li>
-                    <li><a class="dropdown-item" onclick="f('msbl')">SBL 超級籃球聯賽</a></li>
+					<li><a class="dropdown-item" onclick="f('t1')">T1 LEAGUE</a></li>
+					<li><a class="dropdown-item" onclick="f('msbl')">SBL 超級籃球聯賽</a></li>
 					<li><a class="dropdown-item" onclick="f('wsbl')">WSBL 超級籃球聯賽</a></li>
 				</ul>
 
@@ -64,8 +64,8 @@
 					aria-expanded="false" style="width:160px">綜合戰績</button>
 				<ul id="standing-dropdown" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('')">綜合戰績</a></li>
-                    <li><a class="dropdown-item" onclick="f('')">球隊得分</a></li>
-                    <li><a class="dropdown-item" onclick="f('')">領先 / 落後</a></li>
+					<li><a class="dropdown-item" onclick="f('')">球隊得分</a></li>
+					<li><a class="dropdown-item" onclick="f('')">領先 / 落後</a></li>
 					<li><a class="dropdown-item" onclick="f('')">對戰 (淨勝分)</a></li>
 					<li><a class="dropdown-item" onclick="f('')">月份</a></li>
 				</ul>
@@ -75,134 +75,134 @@
 		<div class="container-lg">
 			<div class="table-scroll" style="border-bottom:0px">
 				<table id="overall_tb" class="table table-hover table-fix2 filterTb showTb"> <!--0-->
-                    <thead>
-                        <th style="width:50px">排名</th>
-                        <th style="width:120px">球隊</th>
-                        <th style="width:50px">已賽</th>
-                        <th style="width:50px">勝場</th>
-                        <th style="width:50px">敗場</th>
-                        <th style="width:60px">勝率</th>
-                        <th style="width:50px">勝差</th>
-                        <th style="width:50px">連勝</th>
-                        <th style="width:70px">近5場</th>
-                        <th style="width:70px">主場</th>
-                        <th style="width:70px">客場</th>
-                        <th style="width:70px">OT</th>
-                        <th style="width:60px">得分</th>
-                        <th style="width:60px">失分</th>
+					<thead>
+						<th style="width:50px">排名</th>
+						<th style="width:120px">球隊</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
+						<th style="width:50px">連勝</th>
+						<th style="width:70px">近5場</th>
+						<th style="width:70px">主場</th>
+						<th style="width:70px">客場</th>
+						<th style="width:70px">OT</th>
+						<th style="width:60px">得分</th>
+						<th style="width:60px">失分</th>
 						<th style="width:60px">淨勝分</th>
-                    </thead>
-                    <tbody id="overall_tbody">
+					</thead>
+					<tbody id="overall_tbody">
 
-                    </tbody>
+					</tbody>
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="points_tb" class="table table-hover table-fix2 filterTb"> <!--1-->
-                    <thead>
-                        <th style="width:50px">排名</th>
-                        <th style="width:120px">球隊</th>
-                        <th style="width:50px">已賽</th>
-                        <th style="width:50px">勝場</th>
-                        <th style="width:50px">敗場</th>
-                        <th style="width:60px">勝率</th>
-                        <th style="width:50px">勝差</th>
+					<thead>
+						<th style="width:50px">排名</th>
+						<th style="width:120px">球隊</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
 						<th style="width:60px">得分</th>
-                        <th style="width:60px">失分</th>
-                        <th style="width:60px">Q1 勝分</th>
-                        <th style="width:60px">Q2 勝分</th>
-                        <th style="width:60px">Q3 勝分</th>
-                        <th style="width:60px">Q4 勝分</th>
+						<th style="width:60px">失分</th>
+						<th style="width:60px">Q1 勝分</th>
+						<th style="width:60px">Q2 勝分</th>
+						<th style="width:60px">Q3 勝分</th>
+						<th style="width:60px">Q4 勝分</th>
 						<th style="width:60px">勝場得分</th>
-                        <th style="width:60px">敗場得分</th>
-                        <th style="width:60px">勝場失分</th>
-                        <th style="width:60px">敗場失分</th>
-                    </thead>
-                    <tbody id="points_tbody">
+						<th style="width:60px">敗場得分</th>
+						<th style="width:60px">勝場失分</th>
+						<th style="width:60px">敗場失分</th>
+					</thead>
+					<tbody id="points_tbody">
 
-                    </tbody>
+					</tbody>
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="ahead_tb" class="table table-hover table-fix2 filterTb"> <!--2-->
-                    <thead>
-                        <th style="width:50px">排名</th>
-                        <th style="width:120px">球隊</th>
-                        <th style="width:50px">已賽</th>
-                        <th style="width:50px">勝場</th>
-                        <th style="width:50px">敗場</th>
-                        <th style="width:60px">勝率</th>
-                        <th style="width:50px">勝差</th>
-                        <th style="width:70px">半場領先</th>
-                        <th style="width:70px">半場落後</th>
-                        <th style="width:70px">半場平手</th>
-                        <th style="width:70px">第三節領先</th>
-                        <th style="width:70px">第三節落後</th>
-                        <th style="width:70px">第三節平手</th>
-                        <th style="width:70px">OT</th>
-                        <th style="width:85px">3分(含)差以內</th>
-                        <th style="width:85px">10分(含)差以外</th>
-                    </thead>
-                    <tbody id="ahead_tbody">
+					<thead>
+						<th style="width:50px">排名</th>
+						<th style="width:120px">球隊</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
+						<th style="width:70px">半場領先</th>
+						<th style="width:70px">半場落後</th>
+						<th style="width:70px">半場平手</th>
+						<th style="width:70px">第三節領先</th>
+						<th style="width:70px">第三節落後</th>
+						<th style="width:70px">第三節平手</th>
+						<th style="width:70px">OT</th>
+						<th style="width:85px">3分(含)差以內</th>
+						<th style="width:85px">10分(含)差以外</th>
+					</thead>
+					<tbody id="ahead_tbody">
 
-                    </tbody>
+					</tbody>
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="calendar_tb" class="table table-hover table-fix2 filterTb"> <!--3-->
-                    <thead>
-                        <th style="width:50px">排名</th>
-                        <th style="width:120px">球隊</th>
-                        <th style="width:50px">已賽</th>
-                        <th style="width:50px">勝場</th>
-                        <th style="width:50px">敗場</th>
-                        <th style="width:60px">勝率</th>
-                        <th style="width:50px">勝差</th>
+					<thead>
+						<th style="width:50px">排名</th>
+						<th style="width:120px">球隊</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
 						<th style="width:70px">年前</th>
 						<th style="width:70px">年後</th>
 						<th style="width:70px">10月</th>
-                        <th style="width:70px">11月</th>
+						<th style="width:70px">11月</th>
 						<th style="width:70px">12月</th>
 						<th style="width:70px">1月</th>
 						<th style="width:70px">2月</th>
 						<th style="width:70px">3月</th>
 						<th style="width:70px">4月</th>
 						<th style="width:70px">5月</th>
-                    </thead>
-                    <tbody id="calendar_tbody">
+					</thead>
+					<tbody id="calendar_tbody">
 
-                    </tbody>
+					</tbody>
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="plg_tb" class="table table-hover table-fix2 filterTb"> <!--4-->
-		
+
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="t1_tb" class="table table-hover table-fix2 filterTb"> <!--5-->
-		
+
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px; border-bottom:0px">
 				<table id="sbl_tb" class="table table-hover table-fix2 filterTb"> <!--6-->
-		
+
 				</table>
 			</div>
 
 			<div class="table-scroll" style="border-top:0px">
 				<table id="wsbl_tb" class="table table-hover table-fix2 filterTb"> <!--7-->
-		
+
 				</table>
 			</div>
 			<a style="font-size:13px"><b>p-例行賽排名確定&nbsp;&nbsp;&nbsp;x-晉級季後賽&nbsp;&nbsp;&nbsp;o-無緣季後賽<br></b></a>
-			<a id="timeStamp"style="font-size:13px"></a>
+			<a id="timeStamp" style="font-size:13px"></a>
 		</div>
 
 		<img id="loader" class="spinner" src="./asset/images/logo.png">
@@ -213,11 +213,11 @@
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
-        var leagues = document.getElementById("league-dropdown").getElementsByClassName("dropdown-item");
+		var leagues = document.getElementById("league-dropdown").getElementsByClassName("dropdown-item");
 		var standings = document.getElementById("standing-dropdown").getElementsByClassName("dropdown-item");
 		var leaguebtn = document.getElementById("leaguebtn");
 		var standingbtn = document.getElementById("standingbtn");
-        var tables = document.getElementsByClassName("filterTb");
+		var tables = document.getElementsByClassName("filterTb");
 
 		for (var i = 0; i < leagues.length; i++) {
 			leagues[i].addEventListener("click", function () {
@@ -238,26 +238,26 @@
 				this.className += " active";
 				standingbtn.innerHTML = this.innerHTML
 
-                var currentTable = document.getElementsByClassName("showTb");
+				var currentTable = document.getElementsByClassName("showTb");
 				currentTable[0].className = currentTable[0].className.replace(" showTb", "");
-                if(this.innerHTML == standings[0].innerHTML){
-                    tables[0].className += " showTb";
-				} else if (this.innerHTML == standings[1].innerHTML){
-                    tables[1].className += " showTb";
-                } else if (this.innerHTML == standings[2].innerHTML){
-                    tables[2].className += " showTb";
-                } else if (this.innerHTML == standings[4].innerHTML){
-                    tables[3].className += " showTb";
-				} else if (this.innerHTML == standings[3].innerHTML){
-                    if (leaguebtn.innerHTML == leagues[0].innerHTML){
-                        tables[4].className += " showTb";
-                    } else if (leaguebtn.innerHTML == leagues[1].innerHTML){
-                        tables[5].className += " showTb";
-                    } else if (leaguebtn.innerHTML == leagues[2].innerHTML){
-                        tables[6].className += " showTb";
-                    } else if (leaguebtn.innerHTML == leagues[3].innerHTML){
-                        tables[7].className += " showTb";
-                    }
+				if (this.innerHTML == standings[0].innerHTML) {
+					tables[0].className += " showTb";
+				} else if (this.innerHTML == standings[1].innerHTML) {
+					tables[1].className += " showTb";
+				} else if (this.innerHTML == standings[2].innerHTML) {
+					tables[2].className += " showTb";
+				} else if (this.innerHTML == standings[4].innerHTML) {
+					tables[3].className += " showTb";
+				} else if (this.innerHTML == standings[3].innerHTML) {
+					if (leaguebtn.innerHTML == leagues[0].innerHTML) {
+						tables[4].className += " showTb";
+					} else if (leaguebtn.innerHTML == leagues[1].innerHTML) {
+						tables[5].className += " showTb";
+					} else if (leaguebtn.innerHTML == leagues[2].innerHTML) {
+						tables[6].className += " showTb";
+					} else if (leaguebtn.innerHTML == leagues[3].innerHTML) {
+						tables[7].className += " showTb";
+					}
 				}
 
 				f('filter');

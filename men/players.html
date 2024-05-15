@@ -51,13 +51,16 @@
 			<div class="col" style="width:700px">
 
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></button>
+					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
+						class="teamicon">全部球隊</a></button>
 				<ul id="team-dropdown_men" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('all')">
 							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 					<li><a class="dropdown-item" onclick="f('oversea')">
 							<img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-					<li><hr class="dropdown-divider"></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球員篩選: </b></a>
@@ -66,7 +69,9 @@
 				<ul id="player-dropdown" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
 					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
-					<li><hr class="dropdown-divider"></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;學校篩選: </b></a>
@@ -106,37 +111,33 @@
 					<li><a class="dropdown-item" onclick="f('hwu')">醒吾科大</a></li>
 				</ul>
 			</div>
-				
+
 
 			<div class="col" style="width:560px; padding-top:3px;">
 
 				<div class="form-check form-switch" style="width:90px; display: inline-block">
-					<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked onchange="toggleCheckboxes()">
+					<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked
+						onchange="toggleCheckboxes()">
 					<label class="form-check-label" for="flexSwitchCheckChecked">全勾</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('local'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('local'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">本土</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('taiwanese'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('taiwanese'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">華裔</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('studentImport'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('studentImport'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">外籍生</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('naturalized'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('naturalized'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">歸化</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						onclick="f('import'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" onclick="f('import'); f('filter')" checked>
 					<label class="form-check-label" for="inlineCheckbox1">洋將</label>
 				</div>
 
@@ -165,7 +166,7 @@
 				</table>
 			</div>
 			<a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網<br></b></a>
-			<a id="timeStamp"style="font-size:13px"></a>
+			<a id="timeStamp" style="font-size:13px"></a>
 		</div>
 
 		<img id="loader" class="spinner" src="../asset/images/logo.png">
