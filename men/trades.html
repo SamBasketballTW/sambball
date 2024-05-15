@@ -52,27 +52,10 @@
 
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></button>
-				<ul id="team-dropdown_m" class="dropdown-menu">
+				<ul id="team-dropdown_men" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('all')">
 							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves')"></a></li>
-					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings')"></a></li>
-					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots')"></a></li>
-					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers')"></a></li>
-					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers')"></a></li>
-					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers')"></a></li>
-					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea')"></a></li>
-					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars')"></a></li>
-					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards')"></a></li>
-					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks')"></a></li>
-					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas')"></a></li>
-					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer')"></a></li>
-					<li><a id="menu_bank" class="dropdown-item" onclick="f('bank')"></a></li>
-					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon')"></a></li>
-					<li><a id="menu_bll" class="dropdown-item" onclick="f('bll')"></a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;交易篩選: </b></a>
@@ -128,33 +111,6 @@
 
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
-
-		var teams = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item");
-		var trades = document.getElementById("trade-dropdown").getElementsByClassName("dropdown-item");
-		var teambtn = document.getElementById("teambtn");
-		var tradebtn = document.getElementById("tradebtn");
-
-		for (var i = 0; i < teams.length; i++) {
-			teams[i].addEventListener("click", function () {
-				var currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("active");
-				currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-				this.className += " active";
-				teambtn.innerHTML = this.innerHTML;
-
-				trades[0].click();
-			});
-		}
-
-		for (var i = 0; i < trades.length; i++) {
-			trades[i].addEventListener("click", function () {
-				currentTrade = document.getElementById("trade-dropdown").getElementsByClassName("active");
-				currentTrade[0].className = currentTrade[0].className.replace(" active", "");
-				this.className += " active";
-				tradebtn.innerHTML = this.innerHTML;
-
-				f('filter');
-			});
-		}
 	</script>
 
 </body>

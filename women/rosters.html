@@ -51,16 +51,10 @@
             <div class="col" style="width:450px">
                 <button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></button>
-                <ul id="team-dropdown_w" class="dropdown-menu">
+                <ul id="team-dropdown_women" class="dropdown-menu">
                     <li><a class="dropdown-item active" onclick="f('oversea')">
                             <img src="../asset/images/women/wcba.png" alt="wcba" class="teamicon">WCBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>
-                    <li><a id="menu_cathay" class="dropdown-item" onclick="f('cathay')"></a></li>
-                    <li><a id="menu_taipower" class="dropdown-item" onclick="f('taipower')"></a></li>
-                    <li><a id="menu_cht" class="dropdown-item" onclick="f('cht')"></a>
-                    </li>
-                    <li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen')"></a>
-                    </li>
                 </ul>
                 &nbsp;&nbsp;&nbsp;
                 <div id = "move_check" class="form-check form-check-inline">
@@ -139,38 +133,6 @@
 
     <script>
         window.onload = function () { document.getElementById('loader').style.display = 'none'; }
-        window.addEventListener('resize', updateTables);
-        window.addEventListener('resize', updateMovements);
-
-        var teams = document.getElementById("team-dropdown_w").getElementsByClassName("dropdown-item");
-        var teambtn = document.getElementById("teambtn");
-        var roster_tbs = document.getElementsByClassName("filterTb");
-        var move_check = document.getElementById("move_check").querySelector("input[type='checkbox']");
-
-        for (var i = 0; i < teams.length; i++) {
-            teams[i].addEventListener("click", function () {
-                if (this.innerHTML.includes("旅外")) {
-                    roster_tbs[1].className = roster_tbs[1].className.replace(" showTb", "");
-                    roster_tbs[2].className += " showTb";
-                } else if (roster_tbs[2].className.includes("showTb")) {
-                    roster_tbs[2].className = roster_tbs[2].className.replace(" showTb", "");
-                    roster_tbs[1].className += " showTb";
-                }
-                var currentTeam = document.getElementsByClassName("dropdown-item active");
-                currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-                this.className += " active";
-                teambtn.innerHTML = this.innerHTML;
-
-                f('filter');
-            });
-        }
-        move_check.addEventListener("click", function () {
-            if(move_check.checked){
-                roster_tbs[0].className += " showTb";
-            } else {
-                roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
-            }
-        });
     </script>
 
 </body>

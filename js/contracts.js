@@ -58,4 +58,33 @@ $(document).ready(function () {
 				table.innerHTML += info;
 			});
 		});
+
+
+
+	var teams = document.getElementById("team-dropdown_" + gender).getElementsByClassName("dropdown-item");
+	var contracts = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item");
+	var teambtn = document.getElementById("teambtn");
+	var contractbtn = document.getElementById("contractbtn");
+
+	for (let i = 0; i < teams.length; i++) {
+		teams[i].addEventListener("click", function () {
+			var currentTeam = document.getElementById("team-dropdown_" + gender).getElementsByClassName("active");
+			currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+			this.className += " active";
+			teambtn.innerHTML = this.innerHTML;
+
+			f('filter');
+		});
+	}
+
+	for (let i = 0; i < contracts.length; i++) {
+		contracts[i].addEventListener("click", function () {
+			var currentContract = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item active");
+			currentContract[0].className = currentContract[0].className.replace(" active", "");
+			this.className += " active";
+			contractbtn.innerHTML = this.innerHTML;
+
+			f('filter');
+		});
+	}
 });

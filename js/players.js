@@ -73,15 +73,79 @@ $(document).ready(function () {
 
 
         });
+
+    
+
+    player_dropdown = document.getElementById("player-dropdown");
+
+    if(men_html){
+        for(let i = year['season'];i >= 2020;i--){
+            player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}Rookie')">${i}'新秀</a></li>`
+        }
+    }else if(women_html){
+        for(let i = year['season'];i >= 2019;i--){
+            player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}Rookie')">${i+1}'新秀</a></li>`
+        }
+    }
+    var teams = document.getElementById("team-dropdown_" + gender).getElementsByClassName("dropdown-item");
+    var players = document.getElementById("player-dropdown").getElementsByClassName("dropdown-item");
+    var schools = document.getElementById("school-dropdown").getElementsByClassName("dropdown-item");
+    var teambtn = document.getElementById("teambtn");
+    var playerbtn = document.getElementById("playerbtn");
+    var schoolbtn = document.getElementById("schoolbtn");
+
+    for (let i = 0; i < teams.length; i++) {
+        teams[i].addEventListener("click", function () {
+            var currentTeam = document.getElementById("team-dropdown_" + gender).getElementsByClassName("active");
+            currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+            this.className += " active";
+            teambtn.innerHTML = this.innerHTML;
+
+            f('filter');
+        });
+    }
+
+    for (let i = 0; i < players.length; i++) {
+        players[i].addEventListener("click", function () {
+            var currentPlayer = document.getElementById("player-dropdown").getElementsByClassName("active");
+            currentPlayer[0].className = currentPlayer[0].className.replace(" active", "");
+            this.className += " active";
+            playerbtn.innerHTML = this.innerHTML;
+
+            f('filter');
+        });
+    }
+
+    for (let i = 0; i < schools.length; i++) {
+        schools[i].addEventListener("click", function () {
+            var currentSchool = document.getElementById("school-dropdown").getElementsByClassName("active");
+            currentSchool[0].className = currentSchool[0].className.replace(" active", "");
+            this.className += " active";
+            schoolbtn.innerHTML = this.innerHTML;
+
+            f('filter');
+        });
+    }
+
+
 });
+function toggleCheckboxes() {
+    var checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]');
+    var checkSwitch = document.getElementById('checkSwitch');
+
+    checkboxes.forEach(function (checkbox) {
+        checkbox.checked = checkSwitch.checked;
+        f('filter');
+    });
+}
 function school(s) {
-	if (s.includes("HBL") | s == "-") {
-		return ""
-	} else if (college[s] == undefined) {
-		return "college-us"
-	} else {
-		return college[s]
-	}
+    if (s.includes("HBL") | s == "-") {
+        return ""
+    } else if (college[s] == undefined) {
+        return "college-us"
+    } else {
+        return college[s]
+    }
 }
 college = {
     "中州科大": "ccut",

@@ -51,33 +51,23 @@
 
 				<button id="draftbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:180px">全部選秀</button>
-				<ul id="draft_dropdown" class="dropdown-menu" style="overflow-y:unset;"
+				<ul id="draft-dropdown" class="dropdown-menu" style="overflow-y:unset;"
 					aria-labelledby="dropdownMenuButton">
 					<li><a class="dropdown-item" onclick="f('oversea')">CBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">PLG</a>
 						<ul id="plg_draft" class="dropdown-menu dropdown-submenu">
-							<li><a class="dropdown-item" onclick="f('2023plg')">2023 PLG 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2022plg')">2022 PLG 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2021plg')">2021 PLG 選秀</a></li>
 						</ul>
 					</li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">T1</a>
 						<ul id="t1_draft" class="dropdown-menu dropdown-submenu">
-							<li><a class="dropdown-item" onclick="f('2023t1')">2023 T1 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2022t1')">2022 T1 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2021t1')">2021 T1 選秀</a></li>
 						</ul>
 					</li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">SBL</a>
 						<ul id="sbl_draft" class="dropdown-menu dropdown-submenu">
-							<li><a class="dropdown-item" onclick="f('2023sbl')">2023 SBL 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2022sbl')">2022 SBL 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2021sbl')">2021 SBL 選秀</a></li>
-							<li><a class="dropdown-item" onclick="f('2020sbl')">2020 SBL 選秀</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -85,25 +75,7 @@
 				<a><b>&nbsp;&nbsp;球隊篩選: </b></a>
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></button>
-				<ul id="team-dropdown_m" class="dropdown-menu">
-					<li><a id="menu_braves" class="dropdown-item" onclick="f('braves')"></a></li>
-					<li><a id="menu_kings" class="dropdown-item" onclick="f('kings')"></a></li>
-					<li><a id="menu_pilots" class="dropdown-item" onclick="f('pilots')"></a></li>
-					<li><a id="menu_lioneers" class="dropdown-item" onclick="f('lioneers')"></a></li>
-					<li><a id="menu_dreamers" class="dropdown-item" onclick="f('dreamers')"></a></li>
-					<li><a id="menu_steelers" class="dropdown-item" onclick="f('steelers')"></a></li>
-					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_dea" class="dropdown-item" onclick="f('dea')"></a></li>
-					<li><a id="menu_mars" class="dropdown-item" onclick="f('mars')"></a></li>
-					<li><a id="menu_leopards" class="dropdown-item" onclick="f('leopards')"></a></li>
-					<li><a id="menu_ghosthawks" class="dropdown-item" onclick="f('ghosthawks')"></a>
-					</li>
-					<li><a id="menu_aquas" class="dropdown-item" onclick="f('aquas')"></a></li>
-					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_beer" class="dropdown-item" onclick="f('beer')"></a></li>
-					<li><a id="menu_bank" class="dropdown-item" onclick="f('bank')"></a></li>
-					<li><a id="menu_yulon" class="dropdown-item" onclick="f('yulon')"></a></li>
-					<li><a id="menu_bll" class="dropdown-item" onclick="f('bll')"></a></li>
+				<ul id="team-dropdown_men" class="dropdown-menu">
 				</ul>
 
 			</div>
@@ -135,43 +107,6 @@
 
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
-
-		var drafts = document.getElementById("draft_dropdown").getElementsByClassName("dropdown-item");
-		var teams = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item");
-		var draftbtn = document.getElementById("draftbtn");
-		var teambtn = document.getElementById("teambtn");
-
-		for (let i = 0; i < drafts.length; i++) {
-			drafts[i].addEventListener("click", function () {
-				currentDraft = document.getElementById("draft_dropdown").getElementsByClassName("active");
-				if (currentDraft.length != 0 ) currentDraft[0].className = currentDraft[0].className.replace(" active", "");
-
-				currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("dropdown-item active");
-				if (currentTeam.length != 0 ) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-
-				this.className += " active";
-				draftbtn.innerHTML = this.innerHTML;
-				teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
-
-				f('filter');
-			});
-		}
-
-		for (let i = 0; i < teams.length; i++) {
-			teams[i].addEventListener("click", function () {
-				currentTeam = document.getElementById("team-dropdown_m").getElementsByClassName("active");
-				if(currentTeam.length != 0) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-
-				currentDraft = document.getElementById("draft_dropdown").getElementsByClassName("active");
-				if (currentDraft.length != 0 ) currentDraft[0].className = currentDraft[0].className.replace(" active", "");
-
-				this.className += " active";
-				teambtn.innerHTML = this.innerHTML;
-				draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
-
-				f('filter');
-			});
-		}
 	</script>
 
 </body>

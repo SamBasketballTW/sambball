@@ -15,9 +15,9 @@ men,braves,draft,蔡鎮嶽 (總順位: 6)
 men,braves,lost,張耕淯 (加盟 T1戰神)
 men,braves,lost,呂宗霖 (加盟 SBL台啤)
 men,braves,lost,伊波卡 (加盟 SBL裕隆)
-men,braves,import extend,辛特力 Michael Singletary (續約 / 註銷)
-men,braves,import extend,塞瑟夫 Ihor Zaytsev (續約)
-men,braves,import extend,強森 Chris Johnson (續約)
+men,braves,import extend,辛特力 Michael Singletary (註銷)
+men,braves,import extend,塞瑟夫 Ihor Zaytsev
+men,braves,import extend,強森 Chris Johnson
 men,braves,import,伊貝 Prince Ibeh
 men,braves,import,泰勒 Tyler Bey
 men,braves,import lost,巴爾菲特 Sedrick Barefield
@@ -29,7 +29,7 @@ men,braves,import lost,賽爾登 Wayne Selden Jr.
 men,kings,extend,簡祐哲 (提前續約)
 men,kings,extend,洪志善 (續約 2 年)
 men,kings,extend,陳俊男 (提前續約)
-men,kings,extend,林力仁 (續約)
+men,kings,extend,林力仁
 men,kings,fa,王柏智
 men,kings,fa,林書豪
 men,kings,fa,翟振皓
@@ -41,13 +41,13 @@ men,kings,lost,林仕軒 (加盟 SBL裕隆)
 men,kings,lost,曾于豪
 men,kings,lost,楊興治
 men,kings,import extend,牧倫斯 Byron Mullens (合約期內 / 已離隊)
-men,kings,import extend,曼尼高 Kenny Manigault (續約)
+men,kings,import extend,曼尼高 Kenny Manigault
 men,kings,import,米歇爾 Tony Mitchell
 men,kings,import,海登 Hayden Blankley (EASL亞外 / 註銷)
 men,kings,import,安尼奎 Christian Anigwe (註銷)
 men,kings,import,奧帝 Austin Daye
 men,kings,import,路易士 Wendell Lewis
-men,kings,import lost,比利 Billy Preston (熱身賽)
+men,kings,import lost,比利 Billy Preston (季前離隊)
 men,kings,import lost,牧倫斯 Byron Mullens
 men,pilots,fa,李學林
 men,pilots,fa,陳昱翰
@@ -59,7 +59,7 @@ men,pilots,lost,黃泓瀚 (加盟 T1特攻)
 men,pilots,lost,成力煥
 men,pilots,lost trade,施晉堯 (交易至 鋼鐵人)
 men,pilots,lost trade,陳冠全 (交易至 鋼鐵人)
-men,pilots,import extend,沃許本 Jason Washburn (續約)
+men,pilots,import extend,沃許本 Jason Washburn
 men,pilots,import,密克斯 Kennedy Meeks
 men,pilots,import,伯朗 Alec Brown
 men,pilots,import,葛拉漢 Trevon Graham
@@ -83,7 +83,7 @@ men,lioneers,import,克拉 Earl Clark
 men,lioneers,import,艾夫伯 Michael Efevberha
 men,lioneers,import,霍立飛 Michael Holyfield
 men,lioneers,import,狄帝 Deyonta Davis
-men,lioneers,import lost,伯朗 Taylor Braun (熱身賽)
+men,lioneers,import lost,伯朗 Taylor Braun (季前離隊)
 men,lioneers,import lost,歐獅傅 Daniel Ochefu
 men,lioneers,import lost,伊凡 Ivan Marinković
 men,lioneers,import lost,阿提諾 William Artino
@@ -99,12 +99,11 @@ men,dreamers,lost,吳永盛 (加盟 勇士)
 men,dreamers,lost,王振原 (加盟 SBL柏力力)
 men,dreamers,lost,鄭子洋
 men,dreamers,import extend,麥卡洛 Chris McCullough (合約期內)
-men,dreamers,import extend,吉爾貝克 Brandon Gilbeck (延長)
+men,dreamers,import extend,吉爾貝克 Brandon Gilbeck
 men,dreamers,import,布依德 Julian Boyd
 men,dreamers,import,德文馬布爾 Devyn Marble
 men,dreamers,import lost,貝札尼什維利 Giorgi Bezhanishvili
-,dreamers,,
-men,steelers,extend,盧哲毅 (續約)
+men,steelers,extend,盧哲毅
 men,steelers,fa,李睿麒
 men,steelers,trade,施晉堯 (from 領航猿)
 men,steelers,trade,陳冠全 (from 領航猿)
@@ -119,8 +118,8 @@ men,steelers,lost,林均濠 (加盟 SBL臺銀)
 men,steelers,lost,鄭德維 (加盟 SBL裕隆)
 men,steelers,lost,林柏豪 (加盟 SBL台啤)
 men,steelers,lost trade,周儀翔 (交易至 領航猿)
-men,steelers,import extend,鐵米 Femi Olujobi (續約)
-men,steelers,import extend,悟空 Gokul Natesan (續約 / 已離隊)
+men,steelers,import extend,鐵米 Femi Olujobi
+men,steelers,import extend,悟空 Gokul Natesan (已離隊)
 men,steelers,import,塔壁 Hasheem Thabeet
 men,steelers,import,銳米 Rayvonte Rice
 men,steelers,import,卡麥龍 Cameron Clark
@@ -133,8 +132,8 @@ men,dea,draft,李沛澄 (總順位: 6)
 men,dea,lost,林秉聖 (加盟 戰神)
 men,dea,lost,李學林 (加盟 PLG領航猿)
 men,dea,lost,東方譯慷 (加盟 SBL裕隆)
-men,dea,import extend,艾德 Edgaras Želionis (續約)
-men,dea,import extend,克力斯 Kristijan Krajina (續約)
+men,dea,import extend,艾德 Edgaras Želionis
+men,dea,import extend,克力斯 Kristijan Krajina
 men,dea,import,傑卡 Dragan Zeković
 men,dea,import,柯丹 Cody Demps
 men,dea,import lost,飛克 Victor Gaddefors
@@ -149,7 +148,7 @@ men,mars,fa,劉彥廷
 men,mars,fa,許敬恩
 men,mars,fa,林勵
 men,mars,fa,林秉聖
-men,mars,trade,黃聰翰 (from 英熊: 2023/07/12)
+men,mars,trade,黃聰翰 (from 英熊)
 men,mars,draft,張兆辰 (總順位: 3)
 men,mars,draft,簡賀宇 (總順位: 4 / 已離隊)
 men,mars,lost,簡賀宇 (解約 / 回UBA)
@@ -157,7 +156,7 @@ men,mars,import,強森 Jaylen Johnson
 men,mars,import,恩多 Youssoupha Ndoye
 men,mars,import,科倫紐克 Vladyslav Koreniuk
 men,mars,import,赫里斯-傑佛森 Rahlir Hollis-Jefferson
-men,mars,import lost,莫布利 Matt Mobley (熱身賽)
+men,mars,import lost,莫布利 Matt Mobley (季前熱身)
 men,mars,import lost,皮朋 Danny Pippen
 men,mars,import lost,麥卡利 Erik McCree
 men,leopards,merge,黃鎮 (from 英熊)
@@ -179,7 +178,7 @@ men,leopards,lost,黃奕勝
 men,leopards,lost,張舜丞
 men,leopards,lost,尤楚翔
 men,leopards,lost,羅振峰 (涉賭)
-men,leopards,lost trade,黃聰翰 (交易至 戰神: 2023/07/12)
+men,leopards,lost trade,黃聰翰 (交易至 戰神)
 men,leopards,import,阿拉薩 (未註冊)
 men,leopards,import,克羅馬 Lasan Kromah
 men,leopards,import,威廉斯 Devin Williams
@@ -187,8 +186,8 @@ men,leopards,import,特威 DeAndre Williams
 men,leopards,import,卡森斯 DeMarcus Cousins
 men,leopards,import lost,漢密爾頓 Justyn Hamilton
 men,leopards,import lost,強森 Daniel Johnson
-men,ghosthawks,extend,吳彥侖 (續約 / 被租借)
-men,ghosthawks,extend,吳岱豪 (續約 / 被租借)
+men,ghosthawks,extend,吳彥侖 (被租借)
+men,ghosthawks,extend,吳岱豪 (被租借)
 men,ghosthawks,fa,張博勝
 men,ghosthawks,fa,高承恩 (被租借)
 men,ghosthawks,fa,郭少傑
@@ -205,9 +204,9 @@ men,ghosthawks,lost loan,吳彥侖 (租借至 SBL裕隆)
 men,ghosthawks,lost loan,高承恩 (租借至 SBL裕隆)
 men,ghosthawks,lost loan,藍少甫 (租借至 SBL裕隆)
 men,ghosthawks,lost loan,吳岱豪 (租借至 SBL裕隆)
-men,ghosthawks,import extend,布拉 Sim Bhullar (續約 / 註銷)
-men,ghosthawks,import extend,德古拉 Samuel Deguara (續約 / 已離隊)
-men,ghosthawks,import extend,阿修羅 Robert Upshaw III (續約 / 已離隊)
+men,ghosthawks,import extend,布拉 Sim Bhullar (註銷)
+men,ghosthawks,import extend,德古拉 Samuel Deguara (已離隊)
+men,ghosthawks,import extend,阿修羅 Robert Upshaw III (已離隊)
 men,ghosthawks,import,金恩 Nick King
 men,ghosthawks,import,米可 Milko Bjelica
 men,ghosthawks,import,鷹吉 Egidijus Mockevičius
@@ -216,12 +215,12 @@ men,ghosthawks,import lost,阿修羅 Robert Upshaw III
 men,ghosthawks,import lost,葛瑞飛 Eric Griffin
 men,ghosthawks,import lost,德古拉 Samuel Deguara
 men,ghosthawks,import lost,威力 Willie Reed
-men,aquas,extend,吳曉瑾 (續約)
-men,aquas,extend,勤明慶 (續約)
-men,aquas,extend,吳怡斌 (續約)
+men,aquas,extend,吳曉瑾
+men,aquas,extend,勤明慶
+men,aquas,extend,吳怡斌
 men,aquas,draft,唐維傑 (總順位: 5)
-men,aquas,import extend,布銳克曼 Jason Brickman (續約 / 註銷)
-men,aquas,import extend,庫薩斯 Mindaugas Kupšas (續約)
+men,aquas,import extend,布銳克曼 Jason Brickman (註銷)
+men,aquas,import extend,庫薩斯 Mindaugas Kupšas
 men,aquas,import,艾倫 Aaron Geramipoor
 men,aquas,import,瓊斯 Perry Jones III
 men,aquas,import,史考特 Shannon Scott
@@ -253,7 +252,7 @@ men,bank,draft,郭振復 (總順位: 3)
 men,bank,lost,張博勝 (加盟 T1獵鷹)
 men,bank,lost,曾開暄
 men,bank,lost,沈睿洋
-men,bank,import extend,瑪哈尼 Max Mahoney (續約 / 已離隊)
+men,bank,import extend,瑪哈尼 Max Mahoney (已離隊)
 men,bank,import,卡魯 Maurice Calloo
 men,bank,import lost,瑪哈尼 Max Mahoney
 men,yulon,fa,林明毅
@@ -279,14 +278,14 @@ men,yulon,lost,斑霸 (涉賭)
 men,yulon,lost,陳品銓 (涉賭)
 men,yulon,lost,黃鉉閔 (涉賭)
 men,yulon,lost,翁嘉鴻 (疑涉賭)
-men,yulon,import extend,夏普 Walter Sharpe (續約 / 註銷)
+men,yulon,import extend,夏普 Walter Sharpe (註銷)
 men,yulon,import,布蘭登 Brandon Moss
 men,yulon,import lost,喬丹 Jordan Tolbert
-men,bll,extend,陳奕綸 (續約)
+men,bll,extend,陳奕綸
 men,bll,fa,陳昶宏
 men,bll,fa,林梓峰
 men,bll,fa,楊浩之
-men,bll,fa,王振原
+men,bll,fa,王振原 (季後離隊)
 men,bll,draft,蘇格爾 (總順位: 1)
 men,bll,draft,謝承諳 (總順位: 5)
 men,bll,draft,蔡紘揚 (總順位: 8)
@@ -301,6 +300,7 @@ men,bll,lost,林俊恩
 men,bll,lost,朱恩麟
 men,bll,lost,邱家佑
 men,bll,lost,莊又齊
+men,bll,lost,王振原 (季後離隊)
 men,bll,import,葛萊斯 Tevin Glass
 men,herobears,lost,黃鎮 (合併至 雲豹)
 men,herobears,lost,黃聰翰 (合併至 雲豹)
@@ -313,7 +313,7 @@ men,herobears,lost,呂蔡瑜倫 (調度至 SBL台啤)
 men,herobears,lost,曹薰襄 (加盟 戰神)
 men,herobears,lost,周伯勳 (加盟 PLG攻城獅)
 men,herobears,lost,梁浩真
-men,suns,extend,楊承翰 (續約2年)
+men,suns,extend,楊承翰 (續約 2 年)
 men,suns,fa,蘇柏彰
 men,suns,fa,曾品富
 men,suns,fa,藍少甫

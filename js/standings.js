@@ -1,14 +1,12 @@
 $(document).ready(function () {
-    plg_rank = [];
-    t1_rank = [];
-    sbl_rank = [];
-    wsbl_rank = [];
+    plg_rank = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers'];
+    t1_rank = ['dea', 'mars', 'leopards', 'ghosthawks', 'aquas'];
+    sbl_rank = ['beer', 'bank', 'yulon', 'bll'];
+    wsbl_rank = ['cathay', 'taipower', 'cht', 'taiyuen'];
     league = ['plg', 't1', 'sbl', 'wsbl'];
 
-    for (let i = 0; i < league_teams['plg']; i++) plg_rank.push(plg_teams[i + 1]);
-    for (let i = 0; i < league_teams['t1']; i++) t1_rank.push(t1_teams[i + 1]);
-    for (let i = 0; i < league_teams['sbl']; i++) sbl_rank.push(sbl_teams[i + 1]);
-    for (let i = 0; i < league_teams['wsbl']; i++) wsbl_rank.push(wsbl_teams[i + 1]);
+    teams_count = [6, 5, 4, 4];
+
     all_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 
     for (let lgue = 0; lgue < league.length; lgue++) {
@@ -93,7 +91,7 @@ $(document).ready(function () {
                     } else if (teams_info[teamW_index][4][0] == "W") {
                         teams_info[teamW_index][4][1] += 1;
                     } else if (teams_info[teamW_index][4][0] == "L") {
-                        teams_info[teamW_index][4][0] = 'L'+teams_info[teamW_index][4][1];
+                        teams_info[teamW_index][4][0] = 'L' + teams_info[teamW_index][4][1];
                     }
                     if (teams_info[teamL_index][4][0] == "") {
                         teams_info[teamL_index][4][0] = "L"
@@ -101,7 +99,7 @@ $(document).ready(function () {
                     } else if (teams_info[teamL_index][4][0] == "L") {
                         teams_info[teamL_index][4][1] += 1;
                     } else if (teams_info[teamL_index][4][0] == "W") {
-                        teams_info[teamL_index][4][0] = 'W'+teams_info[teamL_index][4][1];
+                        teams_info[teamL_index][4][0] = 'W' + teams_info[teamL_index][4][1];
                     }
                     // recent5
                     if (teams_info[teamW_index][findIndex(tI, 'recent5')][0] + teams_info[teamW_index][findIndex(tI, 'recent5')][1] < 5) teams_info[teamW_index][findIndex(tI, 'recent5')][0] += 1;
@@ -212,69 +210,69 @@ $(document).ready(function () {
                     cal_start = 1;
                     cal_end = 4;
                 }
-                for(let i=0;i<teams_info.length;i++){
+                for (let i = 0; i < teams_info.length; i++) {
                     if (cal_start < 7) cal_start = 13;
-                    for (let c = 6; c < cal_start - 1; c++) teams_info[i][findIndex(tI, 'cal')][c] = ['',''];
-                    for (let c = cal_end; c < 6 ; c++) teams_info[i][findIndex(tI, 'cal')][c] = ['',''];
+                    for (let c = 6; c < cal_start - 1; c++) teams_info[i][findIndex(tI, 'cal')][c] = ['', ''];
+                    for (let c = cal_end; c < 6; c++) teams_info[i][findIndex(tI, 'cal')][c] = ['', ''];
                 }
 
                 temp_w = (games / (teams_info.length - 1)) / 2;
-				for (let i = 0; i < teams_info.length; i++) {
-					stand_behind = 0;
-					stand_ahead = 0;
-					for (let j = 0; j < teams_info.length; j++) {
-						if (i < j) {
-							if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
-								stand_ahead += 1;
-							} else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
-								if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
-									stand_ahead += 1;
-								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
-									if (teams_info[i][findIndex(tI, 'matchup')][j][3] > 0) {
-										stand_ahead += 1;
-									}
-								}
-							}
+                for (let i = 0; i < teams_info.length; i++) {
+                    stand_behind = 0;
+                    stand_ahead = 0;
+                    for (let j = 0; j < teams_info.length; j++) {
+                        if (i < j) {
+                            if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
+                                stand_ahead += 1;
+                            } else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
+                                if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
+                                    stand_ahead += 1;
+                                } else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
+                                    if (teams_info[i][findIndex(tI, 'matchup')][j][3] > 0) {
+                                        stand_ahead += 1;
+                                    }
+                                }
+                            }
                             if (teams_info[i][2][0] > (games - teams_info[j][2][1]) |
-                            teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
+                                teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
                                 teams_info[i][findIndex(tI, 'matchup')][j][4] = '';
                             }
                         } else if (i > j) {
-							if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
-								stand_behind += 1;
-							} else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
-								if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
-									stand_behind += 1;
-								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
-									if (teams_info[i][findIndex(tI, 'matchup')][j][3] < 0) {
-										stand_behind += 1;
-									}
-								}
-							}
+                            if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
+                                stand_behind += 1;
+                            } else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
+                                if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
+                                    stand_behind += 1;
+                                } else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
+                                    if (teams_info[i][findIndex(tI, 'matchup')][j][3] < 0) {
+                                        stand_behind += 1;
+                                    }
+                                }
+                            }
                             if (teams_info[j][2][0] > (games - teams_info[i][2][1]) |
-                            teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w){
+                                teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w | teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
                                 teams_info[i][findIndex(tI, 'matchup')][j][4] = '';
                             }
-						}
-					}
-					if ((stand_behind + stand_ahead + 1) == league_teams[league[lgue]]) teams_info[i][1] += 'p';
-					if (stand_ahead >= (league_teams[league[lgue]] - po_t)) teams_info[i][1] += 'x';
-					if (stand_behind >= po_t) teams_info[i][1] += 'o';
-					if (teams_info[i][1] != '') {
-						teams_info[i][1] = '- ' + teams_info[i][1];
-					}
+                        }
+                    }
+                    if ((stand_behind + stand_ahead + 1) == teams_count[lgue]) teams_info[i][1] += 'p';
+                    if (stand_ahead >= (teams_count[lgue] - po_t)) teams_info[i][1] += 'x';
+                    if (stand_behind >= po_t) teams_info[i][1] += 'o';
+                    if (teams_info[i][1] != '') {
+                        teams_info[i][1] = '- ' + teams_info[i][1];
+                    }
 
-				}
-                for(let i = 0; i< teams_info.length;i++){
+                }
+                for (let i = 0; i < teams_info.length; i++) {
                     show_win_points = 0;
-                    for(let j = 0; j<teams_info.length;j++){
-                        if( i != j & teams_info[j][findIndex(tI, 'matchup')][i][4] == 'show'){
+                    for (let j = 0; j < teams_info.length; j++) {
+                        if (i != j & teams_info[j][findIndex(tI, 'matchup')][i][4] == 'show') {
                             show_win_points = 1;
                         }
                     }
-                    if(show_win_points == 1){
+                    if (show_win_points == 1) {
                         matchup_thead += `<th colspan="2" style="width:110px">${teamName_short_CN[teams_info[i][0]]}</th>`
-                    }else {
+                    } else {
                         matchup_thead += `<th colspan="2" style="width:80px">${teamName_short_CN[teams_info[i][0]]}</th>`
                     }
                 }

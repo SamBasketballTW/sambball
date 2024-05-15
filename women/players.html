@@ -52,16 +52,12 @@
 
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></button>
-				<ul id="team-dropdown_w" class="dropdown-menu">
+				<ul id="team-dropdown_women" class="dropdown-menu">
 					<li><a class="dropdown-item active" onclick="f('all')">
 							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
 					<li><a class="dropdown-item" onclick="f('oversea')">
 							<img src="../asset/images/women/wcba.png" alt="oversea" class="teamicon">WCBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a id="menu_cathay" class="dropdown-item" onclick="f('cathay')"></a></li>
-					<li><a id="menu_taipower" class="dropdown-item" onclick="f('taipower')"></a></li>
-					<li><a id="menu_cht" class="dropdown-item" onclick="f('cht')"></a></li>
-					<li><a id="menu_taiyuen" class="dropdown-item" onclick="f('taiyuen')"></a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球員篩選: </b></a>
@@ -71,11 +67,6 @@
 					<li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
 					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item" onclick="f('2023Rookie')">2024'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2022Rookie')">2023'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2021Rookie')">2022'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2020Rookie')">2021'新秀</a></li>
-					<li><a class="dropdown-item" onclick="f('2019Rookie')">2020'新秀</a></li>
 				</ul>
 
 
@@ -153,56 +144,6 @@
 
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
-
-		var teams = document.getElementById("team-dropdown_w").getElementsByClassName("dropdown-item");
-		var players = document.getElementById("player-dropdown").getElementsByClassName("dropdown-item");
-		var schools = document.getElementById("school-dropdown").getElementsByClassName("dropdown-item");
-		var teambtn = document.getElementById("teambtn");
-		var playerbtn = document.getElementById("playerbtn");
-		var schoolbtn = document.getElementById("schoolbtn");
-
-		for (let i = 0; i < teams.length; i++) {
-			teams[i].addEventListener("click", function () {
-				var currentTeam = document.getElementById("team-dropdown_w").getElementsByClassName("active");
-				currentTeam[0].className = currentTeam[0].className.replace(" active", "");
-				this.className += " active";
-				teambtn.innerHTML = this.innerHTML;
-
-				f('filter');
-			});
-		}
-
-		for (let i = 0; i < players.length; i++) {
-			players[i].addEventListener("click", function () {
-				var currentPlayer = document.getElementById("player-dropdown").getElementsByClassName("active");
-				currentPlayer[0].className = currentPlayer[0].className.replace(" active", "");
-				this.className += " active";
-				playerbtn.innerHTML = this.innerHTML;
-
-				f('filter');
-			});
-		}
-
-		for (let i = 0; i < schools.length; i++) {
-			schools[i].addEventListener("click", function () {
-				var currentSchool = document.getElementById("school-dropdown").getElementsByClassName("active");
-				currentSchool[0].className = currentSchool[0].className.replace(" active", "");
-				this.className += " active";
-				schoolbtn.innerHTML = this.innerHTML;
-
-				f('filter');
-			});
-		}
-
-		function toggleCheckboxes() {
-        	var checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]');
-        	var checkSwitch = document.getElementById('checkSwitch');
-
-        	checkboxes.forEach(function(checkbox) {
-            	checkbox.checked = checkSwitch.checked;
-				f('filter');
-       		});
-		}
 	</script>
 
 </body>

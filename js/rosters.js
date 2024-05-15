@@ -1,25 +1,3 @@
-coach_EN_name = {
-    "braves": "",
-    "kings": " Ryan Marchand",
-    "pilots": " Iurgi Caminos",
-    "lioneers": " Milan Mitrović",
-    "dreamers": " Jamie Pearlman",
-    "steelers": "",
-    "dea": "",
-    "mars": "",
-    "leopards": " Charles Dubé-Brais",
-    "ghosthawks": " Raoul Korner",
-    "aquas": " Branden Joyce",
-    "beer": "",
-    "bank": "",
-    "yulon": "",
-    "bll": "",
-
-    "cathay": "",
-    "taipower": "",
-    "cht": "",
-    "taiyuen": ""
-}
 $(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
@@ -32,23 +10,21 @@ $(document).ready(function () {
 
     if (men_html) {
         gender = "men"
-        team_dropdown = 'team-dropdown_m';
-        teams = ['oversea'];
-        for (let i = 0; i < league_teams['plg']; i++) teams.push(plg_teams[i + 1]);
-        for (let i = 0; i < league_teams['t1']; i++) teams.push(t1_teams[i + 1]);
-        for (let i = 0; i < league_teams['sbl']; i++) teams.push(sbl_teams[i + 1]);
+        all_teams = ['oversea'];
+        for (let i = 0; i < league_teams['plg']; i++) all_teams.push(plg_teams[i + 1]);
+        for (let i = 0; i < league_teams['t1']; i++) all_teams.push(t1_teams[i + 1]);
+        for (let i = 0; i < league_teams['sbl']; i++) all_teams.push(sbl_teams[i + 1]);
 
         teams_info = [];
-        for (let i = 0; i < teams.length; i++) teams_info.push([teams[i], 0, 0, 0, 0]);
+        for (let i = 0; i < all_teams.length; i++) teams_info.push([all_teams[i], 0, 0, 0, 0]);
 
     } else if (women_html) {
         gender = "women"
-        team_dropdown = 'team-dropdown_w';
-        teams = ['oversea'];
-        for (let i = 0; i < league_teams['wsbl']; i++) teams.push(wsbl_teams[i + 1]);
+        all_teams = ['oversea'];
+        for (let i = 0; i < league_teams['wsbl']; i++) all_teams.push(wsbl_teams[i + 1]);
 
         teams_info = [];
-        for (let i = 0; i < teams.length; i++) teams_info.push([teams[i], 0, 0, 0, 0]);
+        for (let i = 0; i < all_teams.length; i++) teams_info.push([all_teams[i], 0, 0, 0, 0]);
     }
 
     fetch('../data/rosters.csv')
@@ -59,7 +35,7 @@ $(document).ready(function () {
             lines = lines.slice(2);
 
             team_coach_info = [];
-            for (let i = 0; i < teams.length; i++) team_coach_info.push('');
+            for (let i = 0; i < all_teams.length; i++) team_coach_info.push('');
 
             lines.forEach(player => {
                 infos = player.split(',');
@@ -77,7 +53,7 @@ $(document).ready(function () {
                 if (infos[0] == gender & infos[6] == "active" & infos[4] != "fa") {
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
 
-                        team_index = findIndex(teams, infos[4]);
+                        team_index = findIndex(all_teams, infos[4]);
                         team_coach_info[team_index] += `${infos[9]}: ${infos[1]}`;
 
                     } else {
@@ -86,7 +62,7 @@ $(document).ready(function () {
                             is_local = 1;
                             is_import = infos[7] != "local";
                         } else {
-                            team_index = findIndex(teams, infos[4]);
+                            team_index = findIndex(all_teams, infos[4]);
                             is_local = identity(infos[9]) == "local";
                             is_import = identity(infos[9]) == "import";
                         }
@@ -209,7 +185,7 @@ $(document).ready(function () {
             });
 
             updateTables();
-            document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
+            document.getElementById("team-dropdown_" + gender).getElementsByClassName('dropdown-item')[1].click();
         });
 
     fetch('../data/movements.csv')
@@ -220,11 +196,18 @@ $(document).ready(function () {
             lines = lines.slice(2);
 
             if (men_html) {
-                teams.push('herobears');
-                teams.push('suns');
+                all_teams = ['oversea'];
+                for (let i = 0; i < league_teams['plg']; i++) all_teams.push(plg_teams[i + 1]);
+                for (let i = 0; i < league_teams['t1']; i++) all_teams.push(t1_teams[i + 1]);
+                for (let i = 0; i < league_teams['sbl']; i++) all_teams.push(sbl_teams[i + 1]);
+                all_teams.push('herobears');
+                all_teams.push('suns');
+            } else if (women_html) {
+                all_teams = ['oversea'];
+                for (let i = 0; i < league_teams['wsbl']; i++) all_teams.push(wsbl_teams[i + 1]);
             }
             teams_movement_info = [];
-            for (let i = 0; i < teams.length; i++) teams_movement_info.splice(i, 0, [teams[i], '', '', '']);
+            for (let i = 0; i < all_teams.length; i++) teams_movement_info.splice(i, 0, [all_teams[i], '', '', '']);
 
             cur_cat = "";
 
@@ -233,7 +216,7 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[0] == gender) {
-                    team_index = findIndex(teams, infos[1]);
+                    team_index = findIndex(all_teams, infos[1]);
 
                     if (infos[2].includes("extend")) {
                         i = 1
@@ -254,7 +237,7 @@ $(document).ready(function () {
                         } else if (infos[2] == "trade") {
                             cat_name = "Via 交易"
                         } else if (infos[2] == "loan") {
-                                cat_name = "Via 租借"
+                            cat_name = "Via 租借"
                         } else if (infos[2] == "keep") {
                             cat_name = "Via 保留名單"
                         } else if (infos[2] == "draft") {
@@ -282,19 +265,61 @@ $(document).ready(function () {
                 }
             });
             updateMovements();
-            document.getElementById(team_dropdown).getElementsByClassName('dropdown-item')[1].click();
+            document.getElementById("team-dropdown_" + gender).getElementsByClassName('dropdown-item')[1].click();
         });
+
+
+    if (men_html) {
+        team_dropdown = document.getElementById("team-dropdown_men");
+        team_dropdown.innerHTML += `
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" onclick="f('herobears')">台灣啤酒英熊(已解散)</a></li>
+            <li><a class="dropdown-item" onclick="f('suns')">臺中太陽(已解散)</a></li>`
+    }
+
+    window.addEventListener('resize', updateTables);
+    window.addEventListener('resize', updateMovements);
+
+    var teams = document.getElementById("team-dropdown_" + gender).getElementsByClassName("dropdown-item");
+    var teambtn = document.getElementById("teambtn");
+    var roster_tbs = document.getElementsByClassName("filterTb");
+    var move_check = document.getElementById("move_check").querySelector("input[type='checkbox']");
+
+    for (var i = 0; i < teams.length; i++) {
+        teams[i].addEventListener("click", function () {
+            if (this.innerHTML.includes("旅外")) {
+                roster_tbs[1].className = roster_tbs[1].className.replace(" showTb", "");
+                roster_tbs[2].className += " showTb";
+            } else if (roster_tbs[2].className.includes("showTb")) {
+                roster_tbs[2].className = roster_tbs[2].className.replace(" showTb", "");
+                roster_tbs[1].className += " showTb";
+            }
+            var currentTeam = document.getElementsByClassName("dropdown-item active");
+            currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+            this.className += " active";
+            teambtn.innerHTML = this.innerHTML;
+
+            f('filter');
+        });
+    }
+    move_check.addEventListener("click", function () {
+        if (move_check.checked) {
+            roster_tbs[0].className += " showTb";
+        } else {
+            roster_tbs[0].className = roster_tbs[0].className.replace(" showTb", "");
+        }
+    });
 });
 function rankArray(array) {
-	temp = [];
-	for (let i = 0; i < array.length; i++) {
-		count = 0;
-		for (let j = 0; j < array.length; j++) {
-			if (array[i] < array[j]) count += 1;
-		}
-		temp.push(count + 1);
-	}
-	return temp;
+    temp = [];
+    for (let i = 0; i < array.length; i++) {
+        count = 0;
+        for (let j = 0; j < array.length; j++) {
+            if (array[i] < array[j]) count += 1;
+        }
+        temp.push(count + 1);
+    }
+    return temp;
 }
 function updateTables() {
     tableCount = document.getElementById('r_count_tbody');
@@ -332,7 +357,7 @@ function updateTables() {
     }
 
     for (let i = 1; i < teams_info.length; i++) {
-        if (coach_EN_name[teams[i]] != "" & window.innerWidth <= 600) {
+        if (coach_EN_name[all_teams[i]] != "" & window.innerWidth <= 600) {
             blank = `<br>`
         } else if (window.innerWidth <= 495) {
             blank = '<br>'
@@ -342,7 +367,7 @@ function updateTables() {
         tableCount.innerHTML += `
         <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][0]}-bg showTr">
             <td>
-                ${team_coach_info[i]}${coach_EN_name[teams[i]]}${blank}
+                ${team_coach_info[i]}${coach_EN_name[all_teams[i]]}${blank}
                 本土球員:&nbsp;&nbsp;${teams_info[i][3]}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 外籍球員:&nbsp;&nbsp;${teams_info[i][4]}&nbsp;&nbsp;人
             </td>
@@ -373,7 +398,7 @@ function updateTables() {
             </td>
         </tr>`
     }
-    document.getElementById(team_dropdown).getElementsByClassName('active')[0].click();
+    document.getElementById("team-dropdown_" + gender).getElementsByClassName('active')[0].click();
 }
 function updateMovements() {
     table_movements.innerHTML = ""
@@ -422,5 +447,5 @@ function updateMovements() {
             </tr>`
         }
     }
-    document.getElementById(team_dropdown).getElementsByClassName('active')[0].click();
+    document.getElementById("team-dropdown_" + gender).getElementsByClassName('active')[0].click();
 }

@@ -52,28 +52,39 @@ $(document).ready(function () {
                     ${nav_li}
                 </ul>
             </li>`
-        }
-
-        
+        }      
     }
 
-    if (document.getElementById('team-dropdown_m')) {
-        teams = [];
-        for (let i = 0; i < league_teams['plg']; i++) teams.push(plg_teams[i + 1]);
-        for (let i = 0; i < league_teams['t1']; i++) teams.push(t1_teams[i + 1]);
-        for (let i = 0; i < league_teams['sbl']; i++) teams.push(sbl_teams[i + 1]);
-
-        for (let i = 0; i < teams.length; i++) {
-            menu = document.getElementById("menu_" + teams[i]);
-            menu.innerHTML += `<img src="../asset/images/men/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${teamName_full_CN[teams[i]]}</a></li>`
+    if (document.getElementById('team-dropdown_men')) {
+        team_dropdown = document.getElementById('team-dropdown_men');
+        for(let i=0; i<league_teams['plg'];i++){
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${plg_teams[i+1]}')">
+            <img src="../asset/images/men/${plg_teams[i+1]}.png" alt="${plg_teams[i+1]}" class="teamicon">${teamName_full_CN[plg_teams[i+1]]}</a>
+            </li>`
         }
-    } else if (document.getElementById('team-dropdown_w')) {
-        teams = [];
-        for (let i = 0; i < league_teams['wsbl']; i++) teams.push(wsbl_teams[i + 1]);
+        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
+        for(let i=0; i<league_teams['t1'];i++){
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${t1_teams[i+1]}')">
+            <img src="../asset/images/men/${t1_teams[i+1]}.png" alt="${t1_teams[i+1]}" class="teamicon">${teamName_full_CN[t1_teams[i+1]]}</a>
+            </li>`
+        }
+        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
+        for(let i=0; i<league_teams['sbl'];i++){
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${sbl_teams[i+1]}')">
+            <img src="../asset/images/men/${sbl_teams[i+1]}.png" alt="${sbl_teams[i+1]}" class="teamicon">${teamName_full_CN[sbl_teams[i+1]]}</a>
+            </li>`
+        }
 
-        for (let i = 0; i < teams.length; i++) {
-            menu = document.getElementById("menu_" + teams[i]);
-            menu.innerHTML += `<img src="../asset/images/women/${teams[i]}.png" alt="${teams[i]}" class="teamicon">${teamName_full_CN[teams[i]]}</a></li>`
+    } else if (document.getElementById('team-dropdown_women')) {
+        team_dropdown = document.getElementById('team-dropdown_women');
+        for(let i=0; i<league_teams['wsbl'];i++){
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${wsbl_teams[i+1]}')">
+            <img src="../asset/images/women/${wsbl_teams[i+1]}.png" alt="${wsbl_teams[i+1]}" class="teamicon">${teamName_full_CN[wsbl_teams[i+1]]}</a>
+            </li>`
         }
     }
 
@@ -98,38 +109,76 @@ $(document).ready(function () {
                     <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
     </div>`
 });
-league_teams = {
-    'plg': 6,
-    't1': 5,
-    'sbl': 4,
-    'wsbl': 4
+coach_EN_name = {
+    "braves": "",
+    "kings": " Ryan Marchand",
+    "pilots": " Iurgi Caminos",
+    "lioneers": " Milan Mitrović",
+    "dreamers": " Jamie Pearlman",
+    "steelers": "",
+    "dea": "",
+    "mars": "",
+    "leopards": " Charles Dubé-Brais",
+    "ghosthawks": " Raoul Korner",
+    "aquas": " Branden Joyce",
+    "beer": "",
+    "bank": "",
+    "yulon": "",
+    "bll": "",
+
+    "cathay": "",
+    "taipower": "",
+    "cht": "",
+    "taiyuen": ""
 }
-plg_teams = {
-    1: 'braves',
-    2: 'kings',
-    3: 'pilots',
-    4: 'lioneers',
-    5: 'dreamers',
-    6: 'steelers'
+teamName_full_CN = {
+    "braves":       "臺北富邦勇士",
+    "kings":        "新北國王",
+    "pilots":       "桃園璞園領航猿",
+    "lioneers":     "新竹御頂攻城獅",
+    "dreamers":     "福爾摩沙夢想家",
+    "steelers":     "高雄17直播鋼鐵人",
+    "dea":          "新北中信特攻",
+    "mars":         "臺北戰神",
+    "leopards":     "台啤永豐雲豹",
+    "ghosthawks":   "臺南台鋼獵鷹",
+    "aquas":        "高雄全家海神",
+    "beer":         "台灣啤酒",
+    "bank":         "臺灣銀行",
+    "yulon":        "裕隆納智捷",
+    "bll":          "彰化柏力力",
+
+    "cathay":       "國泰人壽",
+    "taiyuen":      "台元紡織",
+    "taipower":     "台灣電力",
+    "cht":          "中華電信",
+
+    "fa":           "自由球員",
+
+    "suns":         "臺中太陽",
+    "herobears":    "台灣啤酒英熊"
 }
-t1_teams = {
-    1: 'dea',
-    2: 'mars',
-    3: 'leopards',
-    4: 'ghosthawks',
-    5: 'aquas'
-}
-sbl_teams = {
-    1: 'beer',
-    2: 'bank',
-    3: 'yulon',
-    4: 'bll'
-}
-wsbl_teams = {
-    1: 'cathay',
-    2: 'taipower',
-    3: 'cht',
-    4: 'taiyuen'
+teamName_short_CN = {
+    "braves":       "勇士",
+    "kings":        "國王",
+    "pilots":       "領航猿",
+    "lioneers":     "攻城獅",
+    "dreamers":     "夢想家",
+    "steelers":     "鋼鐵人",
+    "dea":          "特攻",
+    "mars":         "戰神",
+    "leopards":     "雲豹",
+    "ghosthawks":   "獵鷹",
+    "aquas":        "海神",
+    "beer":         "台啤",
+    "bank":         "臺銀",
+    "yulon":        "裕隆",
+    "bll":          "柏力力",
+
+    "cathay":       "國泰",
+    "taiyuen":      "台元",
+    "taipower":     "台電",
+    "cht":          "電信"
 }
 team_link = {
     "braves":       "https://pleagueofficial.com/team/1",
@@ -190,52 +239,39 @@ order = {
 
     "fa": 40
 }
-teamName_full_CN = {
-    "braves":       "臺北富邦勇士",
-    "kings":        "新北國王",
-    "pilots":       "桃園璞園領航猿",
-    "lioneers":     "新竹御頂攻城獅",
-    "dreamers":     "福爾摩沙夢想家",
-    "steelers":     "高雄17直播鋼鐵人",
-    "dea":          "新北中信特攻",
-    "mars":         "臺北戰神",
-    "leopards":     "台啤永豐雲豹",
-    "ghosthawks":   "臺南台鋼獵鷹",
-    "aquas":        "高雄全家海神",
-    "beer":         "台灣啤酒",
-    "bank":         "臺灣銀行",
-    "yulon":        "裕隆納智捷",
-    "bll":          "彰化柏力力",
-
-    "cathay":       "國泰人壽",
-    "taiyuen":      "台元紡織",
-    "taipower":     "台灣電力",
-    "cht":          "中華電信",
-
-    "fa":           "自由球員",
-
-    "suns":         "臺中太陽",
-    "herobears":    "台灣啤酒英熊"
+year = {
+    "season": 2023
 }
-teamName_short_CN = {
-    "braves":       "勇士",
-    "kings":        "國王",
-    "pilots":       "領航猿",
-    "lioneers":     "攻城獅",
-    "dreamers":     "夢想家",
-    "steelers":     "鋼鐵人",
-    "dea":          "特攻",
-    "mars":         "戰神",
-    "leopards":     "雲豹",
-    "ghosthawks":   "獵鷹",
-    "aquas":        "海神",
-    "beer":         "台啤",
-    "bank":         "臺銀",
-    "yulon":        "裕隆",
-    "bll":          "柏力力",
-
-    "cathay":       "國泰",
-    "taiyuen":      "台元",
-    "taipower":     "台電",
-    "cht":          "電信"
+league_teams = {
+    'plg': 6,
+    't1': 5,
+    'sbl': 4,
+    'wsbl': 4
+}
+plg_teams = {
+    1: 'braves',
+    2: 'kings',
+    3: 'pilots',
+    4: 'lioneers',
+    5: 'dreamers',
+    6: 'steelers'
+}
+t1_teams = {
+    1: 'dea',
+    2: 'mars',
+    3: 'leopards',
+    4: 'ghosthawks',
+    5: 'aquas'
+}
+sbl_teams = {
+    1: 'beer',
+    2: 'bank',
+    3: 'yulon',
+    4: 'bll'
+}
+wsbl_teams = {
+    1: 'cathay',
+    2: 'taipower',
+    3: 'cht',
+    4: 'taiyuen'
 }

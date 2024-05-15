@@ -2,6 +2,12 @@ $(document).ready(function () {
     men_html = document.getElementById("men_page");
     women_html = document.getElementById("women_page");
 
+    if (men_page) {
+        gender = "men";
+    } else if (women_page) {
+        gender = "women";
+    }
+
     fetch('../data/trades.csv')
         .then((response) => response.text())
         .then((result) => {
@@ -39,4 +45,31 @@ $(document).ready(function () {
                 table.innerHTML += info;
             });
         });
+
+    var teams = document.getElementById("team-dropdown_" + gender).getElementsByClassName("dropdown-item");
+    var trades = document.getElementById("trade-dropdown").getElementsByClassName("dropdown-item");
+    var teambtn = document.getElementById("teambtn");
+    var tradebtn = document.getElementById("tradebtn");
+
+    for (var i = 0; i < teams.length; i++) {
+        teams[i].addEventListener("click", function () {
+            var currentTeam = document.getElementById("team-dropdown_" + gender).getElementsByClassName("active");
+            currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+            this.className += " active";
+            teambtn.innerHTML = this.innerHTML;
+
+            trades[0].click();
+        });
+    }
+
+    for (var i = 0; i < trades.length; i++) {
+        trades[i].addEventListener("click", function () {
+            currentTrade = document.getElementById("trade-dropdown").getElementsByClassName("active");
+            currentTrade[0].className = currentTrade[0].className.replace(" active", "");
+            this.className += " active";
+            tradebtn.innerHTML = this.innerHTML;
+
+            f('filter');
+        });
+    }
 });

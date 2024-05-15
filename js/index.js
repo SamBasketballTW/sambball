@@ -1,14 +1,12 @@
 $(document).ready(function () {
-	plg_rank = [];
-	t1_rank = [];
-	sbl_rank = [];
-	wsbl_rank = [];
+	plg_rank = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers'];
+	t1_rank = ['dea', 'mars', 'leopards', 'ghosthawks', 'aquas'];
+	sbl_rank = ['beer', 'bank', 'yulon', 'bll'];
+	wsbl_rank = ['cathay', 'taipower', 'cht', 'taiyuen'];
 	league = ['plg', 't1', 'sbl', 'wsbl'];
 
-	for (let i = 0; i < league_teams['plg']; i++) plg_rank.push(plg_teams[i + 1]);
-	for (let i = 0; i < league_teams['t1']; i++) t1_rank.push(t1_teams[i + 1]);
-	for (let i = 0; i < league_teams['sbl']; i++) sbl_rank.push(sbl_teams[i + 1]);
-	for (let i = 0; i < league_teams['wsbl']; i++) wsbl_rank.push(wsbl_teams[i + 1]);
+	teams_count = [6, 5, 4, 4]
+
 	all_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 
 	for (let lgue = 0; lgue < all_rank.length; lgue++) {
@@ -60,7 +58,7 @@ $(document).ready(function () {
 					} else if (teams_info[teamW_index][4][0] == "W") {
 						teams_info[teamW_index][4][1] += 1;
 					} else if (teams_info[teamW_index][4][0] == "L") {
-						teams_info[teamW_index][4][0] = 'L'+teams_info[teamW_index][4][1];
+						teams_info[teamW_index][4][0] = 'L' + teams_info[teamW_index][4][1];
 					}
 					if (teams_info[teamL_index][4][0] == "") {
 						teams_info[teamL_index][4][0] = "L"
@@ -68,7 +66,7 @@ $(document).ready(function () {
 					} else if (teams_info[teamL_index][4][0] == "L") {
 						teams_info[teamL_index][4][1] += 1;
 					} else if (teams_info[teamL_index][4][0] == "W") {
-						teams_info[teamL_index][4][0] = 'W'+teams_info[teamL_index][4][1];
+						teams_info[teamL_index][4][0] = 'W' + teams_info[teamL_index][4][1];
 					}
 					// matchup
 					teams_info[teamW_index][findIndex(tI, 'matchup')][teamL_index][1] += 1;
@@ -120,8 +118,8 @@ $(document).ready(function () {
 							}
 						}
 					}
-					if ((stand_behind + stand_ahead + 1) == league_teams[league[lgue]]) teams_info[i][1] += 'p';
-					if (stand_ahead >= (league_teams[league[lgue]] - po_t)) teams_info[i][1] += 'x';
+					if ((stand_behind + stand_ahead + 1) == teams_count[lgue]) teams_info[i][1] += 'p';
+					if (stand_ahead >= (teams_count[lgue] - po_t)) teams_info[i][1] += 'x';
 					if (stand_behind >= po_t) teams_info[i][1] += 'o';
 					if (teams_info[i][1] != '') {
 						teams_info[i][1] = '- ' + teams_info[i][1];
