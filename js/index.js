@@ -1,15 +1,13 @@
 $(document).ready(function () {
+	league = ['plg', 't1', 'sbl', 'wsbl'];
 	plg_rank = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers'];
 	t1_rank = ['dea', 'mars', 'leopards', 'ghosthawks', 'aquas'];
 	sbl_rank = ['beer', 'bank', 'yulon', 'bll'];
 	wsbl_rank = ['cathay', 'taipower', 'cht', 'taiyuen'];
-	league = ['plg', 't1', 'sbl', 'wsbl'];
-
-	teams_count = [6, 5, 4, 4]
-
+	teams_count = [6, 5, 4, 4];
 	all_rank = [plg_rank, t1_rank, sbl_rank, wsbl_rank];
 
-	for (let lgue = 0; lgue < all_rank.length; lgue++) {
+	for (let lgue = 0; lgue < league.length; lgue++) {
 		fetch(`../data/standings-${league[lgue]}.csv`)
 			.then((response) => response.text())
 			.then((result) => {
@@ -76,26 +74,16 @@ $(document).ready(function () {
 
 				});
 				SortStandings(teams_info);
-				if (league[lgue] == 'plg') {
-					games = 40;
-					po_t = 4;
-				} else if (league[lgue] == 't1') {
-					games = 28;
-					po_t = 4;
-				} else if (league[lgue] == 'sbl' | league[lgue] == 'wsbl') {
-					games = 30;
-					po_t = 3;
-				}
 
-				temp_w = (games / (teams_info.length - 1)) / 2;
+				temp_w = (games[league[lgue]] / (teams_info.length - 1)) / 2;
 				for (let i = 0; i < teams_info.length; i++) {
 					stand_behind = 0;
 					stand_ahead = 0;
 					for (let j = 0; j < teams_info.length; j++) {
 						if (i < j) {
-							if (teams_info[i][2][0] > (games - teams_info[j][2][1])) {
+							if (teams_info[i][2][0] > (games[league[lgue]] - teams_info[j][2][1])) {
 								stand_ahead += 1;
-							} else if (teams_info[i][2][0] == (games - teams_info[j][2][1])) {
+							} else if (teams_info[i][2][0] == (games[league[lgue]] - teams_info[j][2][1])) {
 								if (teams_info[i][findIndex(tI, 'matchup')][j][1] > temp_w) {
 									stand_ahead += 1;
 								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
@@ -105,9 +93,9 @@ $(document).ready(function () {
 								}
 							}
 						} else if (i > j) {
-							if (teams_info[j][2][0] > (games - teams_info[i][2][1])) {
+							if (teams_info[j][2][0] > (games[league[lgue]] - teams_info[i][2][1])) {
 								stand_behind += 1;
-							} else if (teams_info[j][2][0] == (games - teams_info[i][2][1])) {
+							} else if (teams_info[j][2][0] == (games[league[lgue]] - teams_info[i][2][1])) {
 								if (teams_info[i][findIndex(tI, 'matchup')][j][2] > temp_w) {
 									stand_behind += 1;
 								} else if (teams_info[i][findIndex(tI, 'matchup')][j][1] == temp_w & teams_info[i][findIndex(tI, 'matchup')][j][2] == temp_w) {
@@ -119,8 +107,8 @@ $(document).ready(function () {
 						}
 					}
 					if ((stand_behind + stand_ahead + 1) == teams_count[lgue]) teams_info[i][1] += 'p';
-					if (stand_ahead >= (teams_count[lgue] - po_t)) teams_info[i][1] += 'x';
-					if (stand_behind >= po_t) teams_info[i][1] += 'o';
+					if (stand_ahead >= (teams_count[lgue] - po_teams[league[lgue]])) teams_info[i][1] += 'x';
+					if (stand_behind >= po_teams[league[lgue]]) teams_info[i][1] += 'o';
 					if (teams_info[i][1] != '') {
 						teams_info[i][1] = '- ' + teams_info[i][1];
 					}
