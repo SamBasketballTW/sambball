@@ -10,7 +10,7 @@ $(document).ready(function () {
     table_wsbl_2_3 = document.getElementById("wsbl_2_3");
     table_wsbl_finals = document.getElementById("wsbl_finals");
 
-    plg_teams = ['', '', 'kings', ''];
+    plg_teams = ['pilots', 'dreamers', 'kings', 'lioneers'];
     plg_w_l = ['', '', '', ''];
     table_plg_1_4.innerHTML = `<td class="textL">系列賽 0-0</td>`
     table_plg_2_3.innerHTML = `<td class="textL">系列賽 0-0</td>`
