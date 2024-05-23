@@ -6,20 +6,17 @@ $(document).ready(function () {
 
     t1_t = [[1,'dea',''],[2,'leopards',''],[3,'aquas',''],[4,'mars','']];
     t1_playoffs = [['1_4',2,3],['2_3',3,0]];
-    t1_f = [[2,'leopards',''],[4,'mars','']];
-    // t1_f = [];
+    t1_f = [];
     t1_finals = [0,0];
 
     sbl_t = [[2,'bank',''],[3,'yulon','']];
     sbl_playoffs = [['2_3',1,2]];
-    sbl_f = [[1,'beer',''],[3,'yulon','']];
-    // sbl_f = [[1,'beer','']];
+    sbl_f = [[1,'beer','']];
     sbl_finals = [1,2];
 
     wsbl_t = [[2,'cathay',''],[3,'taipower','']];
     wsbl_playoffs = [['2_3',2,0]];
-    wsbl_f = [[1,'taiyuen',''],[3,'cathay','']];
-    // wsbl_f = [[1,'taiyuen','']];
+    wsbl_f = [[1,'taiyuen','']];
     wsbl_finals = [1,2];
 
     league = ['plg','t1','sbl','wsbl'];
@@ -36,6 +33,7 @@ $(document).ready(function () {
         }else{
             gender = 'men'
         }
+
         for(let j = 0;j<all_p[i].length;j++){
             table = document.getElementById(`${league[i]}_${all_p[i][j][0]}`);
 
@@ -48,17 +46,15 @@ $(document).ready(function () {
                         all_t[i][(all_t[i].length-1)-j][2] = 'L';
                         lead = '贏下'
 
-                        // if(all_f[i].length == 0){
-                        //     all_f[i].splice(0,0,[all_t[i][j][0],all_t[i][j][1],'']);
-                        // }else{
-                        //     for(let k = 0; k <all_f[i].length;k++){
-                        //         if(all_f[i][k][0] > all_p[i][j][0]){
-                        //             all_f[i].splice(k,0,[all_t[i][j][0],all_t[i][j][1],'']);
-                        //         }else if(k==all_f[i].length-1){
-                        //             all_f[i].splice(k+1,0,[all_t[i][j][0],all_t[i][j][1],'']);
-                        //         }
-                        //     }
-                        // }
+                        if(all_f[i].length == 0){
+                            all_f[i].splice(0,0,[all_t[i][j][0],all_t[i][j][1],'']);
+                        }else{
+                            if(all_f[i][0][0] > all_t[i][j][0]){
+                                all_f[i].splice(0,0,[all_t[i][j][0],all_t[i][j][1],'']);
+                            }else{
+                                all_f[i].splice(1,0,[all_t[i][j][0],all_t[i][j][1],'']);
+                            }
+                        }
                     }else{
                         lead = '領先'
                     }
@@ -69,17 +65,15 @@ $(document).ready(function () {
                         all_t[i][(all_t[i].length-1)-j][2] = 'W';
                         lead = '贏下'
 
-                        // if(all_f[i].length == 0){
-                        //     all_f[i].splice(0,0,[all_t[i][(all_t[i].length-1)-j][0],all_t[i][(all_t[i].length-1)-j][1],'']);
-                        // }else{
-                        //     for(let k = 0; k <all_f[i].length;k++){
-                        //         if(all_f[i][k][0] > all_p[i][(all_t[i].length-1)-j][0]){
-                        //             all_f[i].splice(k,0,[all_t[i][(all_t[i].length-1)-j][0],all_t[i][(all_t[i].length-1)-j][1],'']);
-                        //         }else if(k==all_f[i].length-1){
-                        //             all_f[i].splice(k+1,0,[all_t[i][(all_t[i].length-1)-j][0],all_t[i][(all_t[i].length-1)-j][1],'']);
-                        //         }
-                        //     }
-                        // }
+                        if(all_f[i].length == 0){
+                            all_f[i].splice(0,0,[all_t[i][(all_t[i].length-1)-j][0],all_t[i][(all_t[i].length-1)-j][1],'']);
+                        }else{
+                            if(all_f[i][0][0] > all_t[i][(all_t[i].length-1)-j][0]){
+                                all_f[i].splice(0,0,[all_t[i][(all_t[i].length-1)-j][0],all_t[i][(all_t[i].length-1)-j][1],'']);
+                            }else{
+                                all_f[i].splice(1,0,[all_t[i][(all_t[i].length-1)-j][0],all_t[i][(all_t[i].length-1)-j][1],'']);
+                            }
+                        }
                     }else{
                         lead = '領先'
                     }
