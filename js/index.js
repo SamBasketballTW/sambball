@@ -73,7 +73,7 @@ $(document).ready(function () {
 					teams_info[teamL_index][findIndex(tI, 'matchup')][teamW_index][3] += pts_l - pts_w
 
 				});
-				SortStandings(teams_info);
+				SortStandings();
 
 				temp_w = (games[league[lgue]] / (teams_info.length - 1)) / 2;
 				for (let i = 0; i < teams_info.length; i++) {
@@ -199,45 +199,45 @@ $(document).ready(function () {
 			table_bday.innerHTML += text;
 		})
 });
-function SortStandings(list) {
+function SortStandings() {
 	m = findIndex(tI, 'matchup');
 	needSort = 0;
-	for (let i = 0; i < list.length - 1; i++) {
-		team1 = list[i][2][0] / (list[i][2][0] + list[i][2][1]);
-		team2 = list[i + 1][2][0] / (list[i + 1][2][0] + list[i + 1][2][1]);
+	for (let i = 0; i < teams_info.length - 1; i++) {
+		team1 = teams_info[i][2][0] / (teams_info[i][2][0] + teams_info[i][2][1]);
+		team2 = teams_info[i + 1][2][0] / (teams_info[i + 1][2][0] + teams_info[i + 1][2][1]);
 		if (team1 < team2) {
 			needSort = 1;
-			temp = list[i];
-			list[i] = list[i + 1];
-			list[i + 1] = temp;
-			for (let j = 0; j < list.length; j++) {
-				temp2 = list[j][m][i];
-				list[j][m][i] = list[j][m][i + 1];
-				list[j][m][i + 1] = temp2;
+			temp = teams_info[i];
+			teams_info[i] = teams_info[i + 1];
+			teams_info[i + 1] = temp;
+			for (let j = 0; j < teams_info.length; j++) {
+				temp2 = teams_info[j][m][i];
+				teams_info[j][m][i] = teams_info[j][m][i + 1];
+				teams_info[j][m][i + 1] = temp2;
 			}
 		} else if (team1 == team2) {
-			matchup_w = list[i][m][findIndex(rank, list[i + 1][0])][1];
-			matchup_l = list[i][m][findIndex(rank, list[i + 1][0])][2];
+			matchup_w = teams_info[i][m][findIndex(rank, teams_info[i + 1][0])][1];
+			matchup_l = teams_info[i][m][findIndex(rank, teams_info[i + 1][0])][2];
 			if (matchup_l > matchup_w) {
 				needSort = 1;
-				temp = list[i];
-				list[i] = list[i + 1];
-				list[i + 1] = temp;
-				for (let j = 0; j < list.length; j++) {
-					temp2 = list[j][m][i];
-					list[j][m][i] = list[j][m][i + 1];
-					list[j][m][i + 1] = temp2;
+				temp = teams_info[i];
+				teams_info[i] = teams_info[i + 1];
+				teams_info[i + 1] = temp;
+				for (let j = 0; j < teams_info.length; j++) {
+					temp2 = teams_info[j][m][i];
+					teams_info[j][m][i] = teams_info[j][m][i + 1];
+					teams_info[j][m][i + 1] = temp2;
 				}
 			} else if (matchup_l == matchup_w) {
-				if (list[i][m][findIndex(rank, list[i + 1][0])][3] < 0) {
+				if (teams_info[i][m][findIndex(rank, teams_info[i + 1][0])][3] < 0) {
 					needSort = 1;
-					temp = list[i];
-					list[i] = list[i + 1];
-					list[i + 1] = temp;
-					for (let j = 0; j < list.length; j++) {
-						temp2 = list[j][m][i];
-						list[j][m][i] = list[j][m][i + 1];
-						list[j][m][i + 1] = temp2;
+					temp = teams_info[i];
+					teams_info[i] = teams_info[i + 1];
+					teams_info[i + 1] = temp;
+					for (let j = 0; j < teams_info.length; j++) {
+						temp2 = teams_info[j][m][i];
+						teams_info[j][m][i] = teams_info[j][m][i + 1];
+						teams_info[j][m][i + 1] = temp2;
 					}
 				}
 			}
@@ -245,7 +245,6 @@ function SortStandings(list) {
 		}
 	}
 	if (needSort == 1) {
-		SortStandings(list);
+		SortStandings();
 	}
-	return list;
 }

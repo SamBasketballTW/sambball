@@ -21,7 +21,7 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == gender & infos[4] != "" & infos[4] != "fa") {
+				if (infos[0] == gender & infos[1] != "" & infos[4] != "" & infos[4] != "fa") {
 					filter = `${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}`;
 
 					if (infos[7] == "coach") {

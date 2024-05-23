@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.05.19</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.05.24</b>`
 
     test = ""
     // test = ".html"
@@ -133,7 +133,7 @@ coach_EN_name = {
     "mars": "",
     "leopards": " Charles Dubé-Brais",
     "ghosthawks": " Raoul Korner",
-    "aquas": " Branden Joyce",
+    "aquas": "",
     "beer": "",
     "bank": "",
     "yulon": "",
