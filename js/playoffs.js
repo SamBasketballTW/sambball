@@ -1,13 +1,13 @@
 $(document).ready(function () {
     plg_t = [[1,'pilots',''],[2,'dreamers',''],[3,'kings',''],[4,'lioneers','']];
-    plg_playoffs = [['1_4',1,0],['2_3',0,0]];
+    plg_playoffs = [['1_4',1,0],['2_3',1,0]];
     plg_f = [];
     plg_finals = [0,0];
 
     t1_t = [[1,'dea',''],[2,'leopards',''],[3,'aquas',''],[4,'mars','']];
     t1_playoffs = [['1_4',2,3],['2_3',3,0]];
     t1_f = [];
-    t1_finals = [0,0];
+    t1_finals = [1,0];
 
     sbl_t = [[2,'bank',''],[3,'yulon','']];
     sbl_playoffs = [['2_3',1,2]];
