@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.05.27</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.05.28</b>`
 
     test = ""
     // test = ".html"
@@ -251,9 +251,6 @@ order = {
     "taiyuen": 7,
 
     "fa": 40
-}
-year = {
-    "season": 2023
 }
 league_teams = {
     'plg': 6,

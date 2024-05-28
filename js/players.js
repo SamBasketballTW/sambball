@@ -79,11 +79,11 @@ $(document).ready(function () {
     player_dropdown = document.getElementById("player-dropdown");
 
     if (men_html) {
-        for (let i = year['season']; i >= 2020; i--) {
+        for (let i = 2023; i >= 2020; i--) {
             player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}Rookie')">${i}'新秀</a></li>`
         }
     } else if (women_html) {
-        for (let i = year['season']; i >= 2019; i--) {
+        for (let i = 2023; i >= 2019; i--) {
             player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${i}Rookie')">${i + 1}'新秀</a></li>`
         }
     }

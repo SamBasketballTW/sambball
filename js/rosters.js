@@ -329,8 +329,7 @@ function updateTables() {
         <tr class="filterTr oversea CBA-bg">
             <td>
                 CBA:&nbsp;&nbsp;5&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                日本:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                其他:&nbsp;&nbsp;1&nbsp;&nbsp;人
+                日本:&nbsp;&nbsp;1&nbsp;&nbsp;人
             </td>
         </tr>
         <tr class="filterTr oversea CBA-bg">
