@@ -76,7 +76,9 @@ function f(value, table = "") {
 		checkboxes = []
 		var actives = document.getElementsByClassName("active");
 		for (let i = 0; i < actives.length; i++) {
-			var fil = actives[i].getAttribute('onclick').split('\'')[1];
+			if(actives[i].getAttribute('onclick') != ""){
+				var fil = actives[i].getAttribute('onclick').split('\'')[1];
+			}
 			if (table == "") {
 				tab = ""
 			} else {
@@ -99,10 +101,10 @@ function f(value, table = "") {
 
 			}
 		}
-
+		console.log(filters);
 		for (let i = 0; i < rows.length; i++) {
 			var text = rows[i].className.split(' ');
-			show = 1
+			show = 1;
 			for (let j = 0; j < filters.length; j++) {
 				if (findIndex(text, filters[j]) == -1) show = 0
 			}
