@@ -44,7 +44,7 @@
 		</div>
 	</nav>
 
-	<div id="mutual_page" class="content">
+	<div class="content">
 		<div class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x:auto">
@@ -202,7 +202,7 @@
 				</table>
 			</div>
 			<a style="font-size:13px"><b>p-例行賽排名確定&nbsp;&nbsp;&nbsp;x-晉級季後賽&nbsp;&nbsp;&nbsp;o-無緣季後賽<br></b></a>
-			<a style="font-size:13px"><b>註1: 對戰組合若有例行賽排名異動或平手可能性，則括號顯示淨勝分<br></b></a>
+			<a style="font-size:13px"><b>註: 對戰組合若有例行賽排名異動或平手可能性，則括號顯示淨勝分<br></b></a>
 			<a id="timeStamp" style="font-size:13px"></a>
 		</div>
 
@@ -214,56 +214,56 @@
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
 
-		var leagues = document.getElementById("league-dropdown").getElementsByClassName("dropdown-item");
-		var standings = document.getElementById("standing-dropdown").getElementsByClassName("dropdown-item");
-		var leaguebtn = document.getElementById("leaguebtn");
-		var standingbtn = document.getElementById("standingbtn");
-		var tables = document.getElementsByClassName("filterTb");
+		// var leagues = document.getElementById("league-dropdown").getElementsByClassName("dropdown-item");
+		// var standings = document.getElementById("standing-dropdown").getElementsByClassName("dropdown-item");
+		// var leaguebtn = document.getElementById("leaguebtn");
+		// var standingbtn = document.getElementById("standingbtn");
+		// var tables = document.getElementsByClassName("filterTb");
 
-		for (var i = 0; i < leagues.length; i++) {
-			leagues[i].addEventListener("click", function () {
-				var currentLeague = document.getElementById("league-dropdown").getElementsByClassName("active");
-				currentLeague[0].className = currentLeague[0].className.replace(" active", "");
-				this.className += " active";
-				leaguebtn.innerHTML = this.innerHTML;
+		// for (var i = 0; i < leagues.length; i++) {
+		// 	leagues[i].addEventListener("click", function () {
+		// 		var currentLeague = document.getElementById("league-dropdown").getElementsByClassName("active");
+		// 		currentLeague[0].className = currentLeague[0].className.replace(" active", "");
+		// 		this.className += " active";
+		// 		leaguebtn.innerHTML = this.innerHTML;
 
-				var currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
-				currentStanding[0].click();
-			});
-		}
+		// 		var currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
+		// 		currentStanding[0].click();
+		// 	});
+		// }
 
-		for (var i = 0; i < standings.length; i++) {
-			standings[i].addEventListener("click", function () {
-				currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
-				currentStanding[0].className = currentStanding[0].className.replace(" active", "");
-				this.className += " active";
-				standingbtn.innerHTML = this.innerHTML
+		// for (var i = 0; i < standings.length; i++) {
+		// 	standings[i].addEventListener("click", function () {
+		// 		currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
+		// 		currentStanding[0].className = currentStanding[0].className.replace(" active", "");
+		// 		this.className += " active";
+		// 		standingbtn.innerHTML = this.innerHTML
 
-				var currentTable = document.getElementsByClassName("showTb");
-				currentTable[0].className = currentTable[0].className.replace(" showTb", "");
-				if (this.innerHTML == standings[0].innerHTML) {
-					tables[0].className += " showTb";
-				} else if (this.innerHTML == standings[1].innerHTML) {
-					tables[1].className += " showTb";
-				} else if (this.innerHTML == standings[2].innerHTML) {
-					tables[2].className += " showTb";
-				} else if (this.innerHTML == standings[4].innerHTML) {
-					tables[3].className += " showTb";
-				} else if (this.innerHTML == standings[3].innerHTML) {
-					if (leaguebtn.innerHTML == leagues[0].innerHTML) {
-						tables[4].className += " showTb";
-					} else if (leaguebtn.innerHTML == leagues[1].innerHTML) {
-						tables[5].className += " showTb";
-					} else if (leaguebtn.innerHTML == leagues[2].innerHTML) {
-						tables[6].className += " showTb";
-					} else if (leaguebtn.innerHTML == leagues[3].innerHTML) {
-						tables[7].className += " showTb";
-					}
-				}
+		// 		var currentTable = document.getElementsByClassName("showTb");
+		// 		currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+		// 		if (this.innerHTML == standings[0].innerHTML) {
+		// 			tables[0].className += " showTb";
+		// 		} else if (this.innerHTML == standings[1].innerHTML) {
+		// 			tables[1].className += " showTb";
+		// 		} else if (this.innerHTML == standings[2].innerHTML) {
+		// 			tables[2].className += " showTb";
+		// 		} else if (this.innerHTML == standings[4].innerHTML) {
+		// 			tables[3].className += " showTb";
+		// 		} else if (this.innerHTML == standings[3].innerHTML) {
+		// 			if (leaguebtn.innerHTML == leagues[0].innerHTML) {
+		// 				tables[4].className += " showTb";
+		// 			} else if (leaguebtn.innerHTML == leagues[1].innerHTML) {
+		// 				tables[5].className += " showTb";
+		// 			} else if (leaguebtn.innerHTML == leagues[2].innerHTML) {
+		// 				tables[6].className += " showTb";
+		// 			} else if (leaguebtn.innerHTML == leagues[3].innerHTML) {
+		// 				tables[7].className += " showTb";
+		// 			}
+		// 		}
 
-				f('filter');
-			});
-		}
+		// 		f('filter');
+		// 	});
+		// }
 	</script>
 
 </body>

@@ -1,13 +1,4 @@
 $(document).ready(function () {
-	men_html = document.getElementById("men_page");
-	women_html = document.getElementById("women_page");
-
-	if (men_html) {
-		gender = "men"
-	} else if (women_html) {
-		gender = "women"
-	}
-
 	fetch('../data/rosters.csv')
 		.then((response) => response.text())
 		.then((result) => {
@@ -21,7 +12,7 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == gender & infos[1] != "" & infos[4] != "" & infos[4] != "fa") {
+				if (infos[0] == "men" & infos[1] != "" & infos[4] != "" & infos[4] != "fa") {
 					filter = `${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}`;
 
 					if (infos[7] == "coach") {
@@ -43,8 +34,8 @@ $(document).ready(function () {
 					}
 
 					info += `
-						<tr class="filterTr ${filter_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]} showTr">
-							<td class="${bg_team(infos[3], infos[4])} borderR">${team_name("short", infos[3], infos[4], gender)}</td>
+						<tr class="filterTr ${infos[0]} ${filter_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]}">
+							<td class="${bg_team(infos[3], infos[4])} borderR">${team_name("short", infos[3], infos[4], infos[0])}</td>
 							<td class="borderR">${infos[2]}</td>
 							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
 							<td>${infos[23]}</td>
@@ -57,18 +48,40 @@ $(document).ready(function () {
 
 				table.innerHTML += info;
 			});
+			document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
 		});
 
+	var team_dropdown = document.getElementById("team-dropdown");
+	team_dropdown.innerHTML = `
+	<li><a class="dropdown-item active" onclick="f('all')">
+		<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
+    <li><a class="dropdown-item" onclick="f('oversea')">
+        <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
+    <li><hr class="dropdown-divider"></li>`
 
+	add_team_dropdown("team-dropdown", "men");
 
-	var teams = document.getElementById("team-dropdown_" + gender).getElementsByClassName("dropdown-item");
+	var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
+	var genderbtn = document.getElementById("genderbtn");
+	var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");
 	var contracts = document.getElementById("contract-dropdown").getElementsByClassName("dropdown-item");
 	var teambtn = document.getElementById("teambtn");
 	var contractbtn = document.getElementById("contractbtn");
 
+	for (var i = 0; i < genders.length; i++) {
+		genders[i].addEventListener("click", function () {
+			var currentGender = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item active");
+			currentGender[0].className = currentGender[0].className.replace(" active", "");
+			this.className += " active";
+			genderbtn.innerHTML = this.innerHTML;
+
+			f('filter');
+		});
+	}
+
 	for (let i = 0; i < teams.length; i++) {
 		teams[i].addEventListener("click", function () {
-			var currentTeam = document.getElementById("team-dropdown_" + gender).getElementsByClassName("active");
+			var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
 			currentTeam[0].className = currentTeam[0].className.replace(" active", "");
 			this.className += " active";
 			teambtn.innerHTML = this.innerHTML;

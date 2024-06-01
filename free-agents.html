@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>自由球員 (男) | 山姆籃球</title>
+    <title>自由球員 | 山姆籃球</title>
     <link rel="icon" href="../asset/images/logo.png" type="image/icon">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/custom.css">
@@ -44,13 +44,20 @@
         </div>
     </nav>
 
-    <div id="men_page" class="content">
+    <div class="content">
         <div class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x: auto;">
-            <div class="col" style="width:380px;">
-                <a><b>&nbsp;&nbsp;自由球員 - 2023-24賽季</b></a>
+            <div class="col" style="width:530px;">
+                
+                <button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width:150px">男籃</button>
+                <ul id="gender-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item active" onclick="f('men')">男籃</a></li>
+                    <li><a class="dropdown-item disabled" onclick="f('women')">女籃</a></li>
+                </ul>
 
+                <a><b>&nbsp;&nbsp;自由球員 - 2024-25賽季</b></a>
             </div>
         </div>
 

@@ -1,13 +1,4 @@
 $(document).ready(function () {
-    men_html = document.getElementById("men_page");
-    women_html = document.getElementById("women_page");
-
-    if (men_html) {
-        gender = "men"
-    } else if (women_html) {
-        gender = "women"
-    }
-
     fetch('../data/us-players.csv')
         .then((response) => response.text())
         .then((result) => {
@@ -22,15 +13,14 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[0] == gender) {
-                    if (infos[5] == "本土") {
-                        filter = "local";
-                    } else {
-                        filter = "taiwanese";
-                    }
+                if (infos[5] == "本土") {
+                    filter = "local";
+                } else {
+                    filter = "taiwanese";
+                }
 
-                    info += `
-                    <tr class="filterTr ${filter} showTr">
+                info += `
+                    <tr class="filterTr ${infos[0]} ${filter}">
                         <td class="borderR">${infos[2]}</td>
                         <td class="borderR">${infos[3]}</td>
                         <td class="borderR textL">
@@ -47,16 +37,53 @@ $(document).ready(function () {
                     </tr>`
 
 
-                    if (infos[1] == "c") {
-                        tableC.innerHTML += info;
-                    } else if (infos[1] == "hs") {
-                        tableHS.innerHTML += info;
-                    }
+                if (infos[1] == "c") {
+                    tableC.innerHTML += info;
+                } else if (infos[1] == "hs") {
+                    tableHS.innerHTML += info;
                 }
             });
+            document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
+        });
 
-            if (men_html) {
-                document.getElementById('us-btngroup').getElementsByClassName('btn')[1].click();
+    var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
+    var genderbtn = document.getElementById("genderbtn");
+    var btns = document.getElementById("us-btngroup").getElementsByClassName("btn");
+
+    for (var i = 0; i < genders.length; i++) {
+        genders[i].addEventListener("click", function () {
+            switch_gender = 0;
+            if (this.className != "dropdown-item active") {
+                switch_gender = 1;
+            }
+            var currentGender = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item active");
+            currentGender[0].className = currentGender[0].className.replace(" active", "");
+            this.className += " active";
+            genderbtn.innerHTML = this.innerHTML;
+
+            if (switch_gender == 1) {
+                if (this.innerHTML == "男籃") {
+                    btns[0].className = "btn btn-light"
+                    btns[1].className = "btn btn-light active"
+                    btns[2].className = "btn btn-light"
+                } else if (this.innerHTML == "女籃") {
+                    btns[0].className = "btn btn-light disabled"
+                    btns[1].className = "btn btn-light active"
+                    btns[2].className = "btn btn-light disabled"
+                }
+                btns[1].click();
             }
         });
+    }
+
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var currentBtn = document.getElementsByClassName("btn btn-light active");
+            currentBtn[0].className = currentBtn[0].className.replace(" active", "");
+            this.className += " active";
+
+            f('filter');
+        });
+    }
 });

@@ -5,7 +5,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>現役球員 (男) | 山姆籃球</title>
+	<title>現役球員 | 山姆籃球</title>
 	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/custom.css">
@@ -44,71 +44,35 @@
 		</div>
 	</nav>
 
-	<div id="men_page" class="content">
+	<div class="content">
 		<div class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x: auto;">
-			<div class="col" style="width:700px">
+			<div class="col" style="width:850px">
+
+				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width:150px">男籃</button>
+                <ul id="gender-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item" onclick="f('men')">男籃</a></li>
+                    <li><a class="dropdown-item active" onclick="f('women')">女籃</a></li>
+                </ul>
 
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
 						class="teamicon">全部球隊</a></button>
-				<ul id="team-dropdown_men" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all')">
-							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-					<li><a class="dropdown-item" onclick="f('oversea')">
-							<img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
+				<ul id="team-dropdown" class="dropdown-menu">
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球員篩選: </b></a>
 				<button id="playerbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:160px">全部球員</button>
 				<ul id="player-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
-					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;學校篩選: </b></a>
 				<button id="schoolbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:160px">全部學校</button>
 				<ul id="school-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>
-					<li><a class="dropdown-item" onclick="f('ccut')">中州科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ctbcbs')">中信學院</a></li>
-					<li><a class="dropdown-item" onclick="f('pccu')">文化大學</a></li>
-					<li><a class="dropdown-item" onclick="f('shu')">世新大學</a></li>
-					<li><a class="dropdown-item" onclick="f('utaipei')">北市大學</a></li>
-					<li><a class="dropdown-item" onclick="f('hdut')">宏國德霖</a></li>
-					<li><a class="dropdown-item" onclick="f('asiau')">亞洲大學</a></li>
-					<li><a class="dropdown-item" onclick="f('mdu')">明道大學</a></li>
-					<li><a class="dropdown-item" onclick="f('tungnanu')">東南科大</a></li>
-					<li><a class="dropdown-item" onclick="f('nfu')">虎尾科大</a></li>
-					<li><a class="dropdown-item" onclick="f('nccu')">政治大學</a></li>
-					<li><a class="dropdown-item" onclick="f('shoufuu')">首府大學</a></li>
-					<li><a class="dropdown-item" onclick="f('nknu')">高雄師大</a></li>
-					<li><a class="dropdown-item" onclick="f('uch')">健行科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntsu')">國立體大</a></li>
-					<li><a class="dropdown-item" onclick="f('ukn')">康寧大學</a></li>
-					<li><a class="dropdown-item" onclick="f('nycu')">陽明交通</a></li>
-					<li><a class="dropdown-item" onclick="f('vnu')">萬能科大</a></li>
-					<li><a class="dropdown-item" onclick="f('isu')">義守大學</a></li>
-					<li><a class="dropdown-item" onclick="f('ocu')">僑光科大</a></li>
-					<li><a class="dropdown-item" onclick="f('usc')">實踐大學</a></li>
-					<li><a class="dropdown-item" onclick="f('ncue')">彰化師大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntut')">臺北科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntust')">臺灣科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntnu')">臺灣師大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntua')">臺灣藝大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntusport')">臺灣體大</a></li>
-					<li><a class="dropdown-item" onclick="f('fjcu')">輔仁大學</a></li>
-					<li><a class="dropdown-item" onclick="f('hwu')">醒吾科大</a></li>
 				</ul>
 			</div>
 

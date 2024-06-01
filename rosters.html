@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>球隊陣容 (男) | 山姆籃球</title>
+    <title>球隊陣容 | 山姆籃球</title>
     <link rel="icon" href="../asset/images/logo.png" type="image/icon">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/custom.css">
@@ -44,25 +44,29 @@
         </div>
     </nav>
 
-    <div id="men_page" class="content">
+    <div class="content">
         <div class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x:auto;">
-            <div class="col" style="width:450px">
+            <div class="col" style="width:600px">
+
+                <button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width:150px">男籃</button>
+                <ul id="gender-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item" onclick="f('men')">男籃</a></li>
+                    <li><a class="dropdown-item active" onclick="f('women')">女籃</a></li>
+                </ul>
+
                 <button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
-                        class="teamicon">全部球隊</a></button>
-                <ul id="team-dropdown_men" class="dropdown-menu">
-                    <li><a class="dropdown-item active" onclick="f('oversea')">
-                            <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+                    aria-expanded="false"></button>
+                <ul id="team-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item active" onclick="f('')">
+                            <img src="../asset/images/logo.png" alt="all" class="teamicon">全部球隊</a></li>
                 </ul>
                 &nbsp;&nbsp;&nbsp;
                 <div id="move_check" class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" checked>
-                    <label class="form-check-label" for="inlineCheckbox1"><b>顯示 2023-24 球員異動</b></label>
+                    <label class="form-check-label" for="inlineCheckbox1"><b>顯示 2024-25 球員異動</b></label>
                 </div>
 
             </div>

@@ -101,13 +101,13 @@ function f(value, table = "") {
 		}
 
 		for (let i = 0; i < rows.length; i++) {
-			var text = rows[i].className;
+			var text = rows[i].className.split(' ');
 			show = 1
 			for (let j = 0; j < filters.length; j++) {
-				if (text.indexOf(filters[j]) == -1) show = 0
+				if (findIndex(text, filters[j]) == -1) show = 0
 			}
 			for (let j = 0; j < checkboxes.length; j++) {
-				if (text.indexOf(checkboxes[j]) > -1) show = 0
+				if (findIndex(text, checkboxes[j]) != -1) show = 0
 			}
 			if (show == 1) w3AddClass(rows[i], " showTr");
 			if (show == 0) w3RemoveClass(rows[i], " showTr");

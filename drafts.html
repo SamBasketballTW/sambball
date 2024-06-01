@@ -5,7 +5,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>旅美學生 (女) | 山姆籃球</title>
+	<title>選秀 | 山姆籃球</title>
 	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/custom.css">
@@ -22,7 +22,7 @@
 
 	<script src="../js/general.js"></script>
 	<script src="../js/custom.js"></script>
-	<script src="../js/us-players.js"></script>
+	<script src="../js/drafts.js"></script>
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
 		crossorigin="anonymous"></script>
@@ -43,53 +43,54 @@
 		</div>
 	</nav>
 
-	<div id="women_page" class="content">
+	<div class="content">
 		<div class="jumbotron"></div>
 
-		<div class="container-lg" style="max-width:1230px; overflow-x: auto;">
-			<div class="col" style="width:335px;">
-				<a><b>&nbsp;&nbsp;身份篩選: </b></a>
-				<div id="us-btngroup" class="btn-group">
-					<a class="btn btn-light active" onclick="f('all')">全部</a>
-					<a class="btn btn-light disabled" onclick="f('local')">本土身份</a>
-					<a class="btn btn-light disabled" onclick="f('taiwanese')">華裔 / 未知</a>
-				</div>
+		<div class="container-lg" style="overflow-x:auto;">
+			<div class="col" style="width:630px">
+
+				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width:150px">男籃</button>
+                <ul id="gender-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item" onclick="f('men')">男籃</a></li>
+                    <li><a class="dropdown-item active" onclick="f('women')">女籃</a></li>
+                </ul>
+
+				<button id="draftbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:180px">全部選秀</button>
+				<ul id="draft-dropdown" class="dropdown-menu" style="overflow-y:unset;"
+					aria-labelledby="dropdownMenuButton">
+				</ul>
+
+				<a><b>&nbsp;&nbsp;球隊篩選: </b></a>
+				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
+						class="teamicon">全部球隊</a></button>
+				<ul id="team-dropdown" class="dropdown-menu">
+				</ul>
+
 			</div>
 		</div>
-		<div class="container-lg" style="max-width:1230px">
+
+		<div class="container-lg">
 			<div class="table-scroll">
-				<table id="college_tb" class="table table-hover table-fix2">
-					<colgroup>
-						<col width="60px">
-						<col width="120px">
-						<col width="180px">
-						<col width="60px">
-						<col width="60px">
-						<col width="100px">
-						<col width="60px">
-						<col width="220px">
-						<col width="100px">
-						<col width="170px">
-					</colgroup>
+				<table id="drafts_tb" class="table table-hover">
 					<thead>
 						<tr>
-							<th>位置</th>
-							<th>球員</th>
-							<th>Instagram</th>
-							<th>身份</th>
-							<th>身高</th>
-							<th>Class</th>
-							<th>#</th>
-							<th>大學</th>
-							<th>聯盟</th>
-							<th>賽區</th>
+							<th>選秀</th>
+							<th>總順位</th>
+							<th>球隊</th>
+							<th>新秀球員</th>
 						</tr>
 					</thead>
-					<tbody id="college_tbody">
-
+					<tbody id="drafts_tbody">
+						<tr class="filterTr women cathay">
+							<td colspan="4">無</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
+            <a style="font-size:13px"><b>註: SBL 僅有自 2020年後的選秀結果</b></a><br>
 			<a id="timeStamp" style="font-size:13px"></a>
 		</div>
 
@@ -100,18 +101,6 @@
 
 	<script>
 		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
-
-		var btns = document.getElementById("us-btngroup").getElementsByClassName("btn");
-
-		for (let i = 0; i < btns.length; i++) {
-			btns[i].addEventListener("click", function () {
-				var currentBtn = document.getElementsByClassName("btn btn-light active");
-				currentBtn[0].className = currentBtn[0].className.replace(" active", "");
-				this.className += " active";
-
-				f('filter');
-			});
-		}
 	</script>
 
 </body>

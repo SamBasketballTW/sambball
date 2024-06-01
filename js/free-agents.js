@@ -1,13 +1,4 @@
 $(document).ready(function () {
-    men_html = document.getElementById("men_page");
-    women_html = document.getElementById("women_page");
-
-    if (men_html) {
-        gender = "men"
-    } else if (women_html) {
-        gender = "women"
-    }
-
     fetch('../data/rosters.csv')
         .then((response) => response.text())
         .then((result) => {
@@ -21,7 +12,7 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[0] == gender & infos[17] != "") {
+                if (infos[17] != "") {
                     if (infos[4] == "fa") {
                         team = infos[16]
                     } else if (infos[6] == "active") {
@@ -31,7 +22,7 @@ $(document).ready(function () {
                     }
 
                     info += `
-                    <tr>
+                    <tr class="filterTr ${infos[0]}">
                         <td><a style="text-decoration:underline; color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
                         <td>${infos[10]}</td>
                         <td>${age(infos[13])}</td>
@@ -55,6 +46,20 @@ $(document).ready(function () {
                 ordering: true,
                 order: [5, 'asc'],
             });
-
+            document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });
+
+    var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
+    var genderbtn = document.getElementById("genderbtn");
+
+    for (var i = 0; i < genders.length; i++) {
+        genders[i].addEventListener("click", function () {
+            var currentGender = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item active");
+            currentGender[0].className = currentGender[0].className.replace(" active", "");
+            this.className += " active";
+            genderbtn.innerHTML = this.innerHTML;
+
+            f('filter');
+        });
+    }
 });

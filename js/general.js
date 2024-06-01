@@ -1,91 +1,27 @@
 $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.05.29</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.06.01</b>`
 
     test = ""
     // test = ".html"
 
-    if (document.getElementById("mutual_page")) {
-        mutual_path = "."
-        men_path = "./men"
-        women_path = "./women"
-    } else if (document.getElementById("men_page")) {
-        mutual_path = ".."
-        men_path = "."
-        women_path = "../women"
-    } else if (document.getElementById("women_page")) {
-        mutual_path = ".."
-        men_path = "../men"
-        women_path = "."
-    }
     navbar_dropdown = document.getElementById("navbar-dropdown");
     nav = [
         ['playoffs', '季後賽', ''],
         ['standings', '戰績', ''],
-        ['rosters', '球隊陣容', 'm w'],
-        ['players', '現役球員', 'm w'],
-        ['contracts', '合約', 'm'],
-        ['drafts', '選秀', 'm w'],
-        ['trades', '交易', 'm'],
-        ['free-agents', '自由球員', 'm'],
-        ['us-players', '旅美學生', 'm w']
+        ['rosters', '球隊陣容', ''],
+        ['players', '現役球員', ''],
+        ['contracts', '合約', ''],
+        ['drafts', '選秀', ''],
+        ['trades', '交易', ''],
+        ['free-agents', '自由球員', ''],
+        ['us-players', '旅美學生', '']
     ]
     for (let i = 0; i < nav.length; i++) {
-        nav_li = '';
-        if (nav[i][2] == '') {
-            navbar_dropdown.innerHTML += `
-            <li class="nav-item">
-                <a class="nav-link" href="${mutual_path}/${nav[i][0]}${test}">${nav[i][1]}</a>
-            </li>`
-        } else {
-            if (nav[i][2].includes('m')) {
-                nav_li += `<li><a class="nav-link" href="${men_path}/${nav[i][0]}${test}">&nbsp;${nav[i][1]} (男)</a></li>`
-            }
-            if (nav[i][2].includes('w')) {
-                nav_li += `<li><a class="nav-link" href="${women_path}/${nav[i][0]}${test}">&nbsp;${nav[i][1]} (女)</a></li>`
-            }
-            navbar_dropdown.innerHTML += `
-            <li class="nav-item dropdown">
-                <button class="nav-link dropdown-toggle dropdown-toggle-no-caret" 
-                style="width:auto; border:0px" data-bs-toggle="dropdown" aria-expanded="false">${nav[i][1]}</button>
-                <ul class="dropdown-menu" style="margin:0">
-                    ${nav_li}
-                </ul>
-            </li>`
-        }
-    }
-
-    if (document.getElementById('team-dropdown_men')) {
-        team_dropdown = document.getElementById('team-dropdown_men');
-        for (let i = 0; i < league_teams['plg']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${plg_teams[i + 1]}')">
-            <img src="../asset/images/men/${plg_teams[i + 1]}.png" alt="${plg_teams[i + 1]}" class="teamicon">${teamName_full_CN[plg_teams[i + 1]]}</a>
-            </li>`
-        }
-        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
-        for (let i = 0; i < league_teams['t1']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${t1_teams[i + 1]}')">
-            <img src="../asset/images/men/${t1_teams[i + 1]}.png" alt="${t1_teams[i + 1]}" class="teamicon">${teamName_full_CN[t1_teams[i + 1]]}</a>
-            </li>`
-        }
-        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
-        for (let i = 0; i < league_teams['sbl']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${sbl_teams[i + 1]}')">
-            <img src="../asset/images/men/${sbl_teams[i + 1]}.png" alt="${sbl_teams[i + 1]}" class="teamicon">${teamName_full_CN[sbl_teams[i + 1]]}</a>
-            </li>`
-        }
-
-    } else if (document.getElementById('team-dropdown_women')) {
-        team_dropdown = document.getElementById('team-dropdown_women');
-        for (let i = 0; i < league_teams['wsbl']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${wsbl_teams[i + 1]}')">
-            <img src="../asset/images/women/${wsbl_teams[i + 1]}.png" alt="${wsbl_teams[i + 1]}" class="teamicon">${teamName_full_CN[wsbl_teams[i + 1]]}</a>
-            </li>`
-        }
+        navbar_dropdown.innerHTML += `
+        <li class="nav-item">
+            <a class="nav-link" href="./${nav[i][0]}${test}">${nav[i][1]}</a>
+        </li>`
     }
 
     footerBody = document.getElementById("footerContent");
@@ -110,6 +46,38 @@ $(document).ready(function () {
     </div>`
 });
 
+function add_team_dropdown(dropdown, gender) {
+    var team_dropdown = document.getElementById(dropdown);
+    if (gender == "men") {
+        for (let i = 0; i < league_teams['plg']; i++) {
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${plg_teams[i + 1]}')">
+            <img src="../asset/images/men/${plg_teams[i + 1]}.png" alt="${plg_teams[i + 1]}" class="teamicon">${teamName_full_CN[plg_teams[i + 1]]}</a>
+            </li>`
+        }
+        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
+        for (let i = 0; i < league_teams['t1']; i++) {
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${t1_teams[i + 1]}')">
+            <img src="../asset/images/men/${t1_teams[i + 1]}.png" alt="${t1_teams[i + 1]}" class="teamicon">${teamName_full_CN[t1_teams[i + 1]]}</a>
+            </li>`
+        }
+        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
+        for (let i = 0; i < league_teams['sbl']; i++) {
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${sbl_teams[i + 1]}')">
+            <img src="../asset/images/men/${sbl_teams[i + 1]}.png" alt="${sbl_teams[i + 1]}" class="teamicon">${teamName_full_CN[sbl_teams[i + 1]]}</a>
+            </li>`
+        }
+    } else if (gender == "women") {
+        for (let i = 0; i < league_teams['wsbl']; i++) {
+            team_dropdown.innerHTML += `
+            <li><a class="dropdown-item" onclick="f('${wsbl_teams[i + 1]}')">
+            <img src="../asset/images/women/${wsbl_teams[i + 1]}.png" alt="${wsbl_teams[i + 1]}" class="teamicon">${teamName_full_CN[wsbl_teams[i + 1]]}</a>
+            </li>`
+        }
+    }
+}
 games = {
     "plg": 40,
     "t1": 28,
@@ -167,9 +135,6 @@ teamName_full_CN = {
     "cht": "中華電信",
 
     "fa": "自由球員",
-
-    "suns": "臺中太陽",
-    "herobears": "台灣啤酒英熊"
 }
 teamName_short_CN = {
     "braves": "勇士",
@@ -235,8 +200,6 @@ order = {
     "leopards": 23,
     "ghosthawks": 24,
     "aquas": 25,
-    "herobears": 26,
-    "suns": 27,
     "beer": 31,
     "bank": 32,
     "yulon": 33,

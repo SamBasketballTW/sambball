@@ -418,9 +418,60 @@ $(document).ready(function () {
                         <td>${teams_info[i][findIndex(tI, 'cal')][4][0]}-${teams_info[i][findIndex(tI, 'cal')][4][1]}</td>
                     </tr>`
                 }
-                // console.log(teams_info);
             });
     }
+    document.getElementById('league-dropdown').getElementsByClassName('dropdown-item')[0].click();
+
+    var leagues = document.getElementById("league-dropdown").getElementsByClassName("dropdown-item");
+		var standings = document.getElementById("standing-dropdown").getElementsByClassName("dropdown-item");
+		var leaguebtn = document.getElementById("leaguebtn");
+		var standingbtn = document.getElementById("standingbtn");
+		var tables = document.getElementsByClassName("filterTb");
+
+		for (var i = 0; i < leagues.length; i++) {
+			leagues[i].addEventListener("click", function () {
+				var currentLeague = document.getElementById("league-dropdown").getElementsByClassName("active");
+				currentLeague[0].className = currentLeague[0].className.replace(" active", "");
+				this.className += " active";
+				leaguebtn.innerHTML = this.innerHTML;
+
+				var currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
+				currentStanding[0].click();
+			});
+		}
+
+		for (var i = 0; i < standings.length; i++) {
+			standings[i].addEventListener("click", function () {
+				currentStanding = document.getElementById("standing-dropdown").getElementsByClassName("active");
+				currentStanding[0].className = currentStanding[0].className.replace(" active", "");
+				this.className += " active";
+				standingbtn.innerHTML = this.innerHTML
+
+				var currentTable = document.getElementsByClassName("showTb");
+				currentTable[0].className = currentTable[0].className.replace(" showTb", "");
+				if (this.innerHTML == standings[0].innerHTML) {
+					tables[0].className += " showTb";
+				} else if (this.innerHTML == standings[1].innerHTML) {
+					tables[1].className += " showTb";
+				} else if (this.innerHTML == standings[2].innerHTML) {
+					tables[2].className += " showTb";
+				} else if (this.innerHTML == standings[4].innerHTML) {
+					tables[3].className += " showTb";
+				} else if (this.innerHTML == standings[3].innerHTML) {
+					if (leaguebtn.innerHTML == leagues[0].innerHTML) {
+						tables[4].className += " showTb";
+					} else if (leaguebtn.innerHTML == leagues[1].innerHTML) {
+						tables[5].className += " showTb";
+					} else if (leaguebtn.innerHTML == leagues[2].innerHTML) {
+						tables[6].className += " showTb";
+					} else if (leaguebtn.innerHTML == leagues[3].innerHTML) {
+						tables[7].className += " showTb";
+					}
+				}
+
+				f('filter');
+			});
+		}
 });
 function SortStandings() {
     m = findIndex(tI, 'matchup');

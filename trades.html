@@ -5,7 +5,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>選秀 (女) | 山姆籃球</title>
+	<title>交易 | 山姆籃球</title>
 	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/custom.css">
@@ -22,13 +22,14 @@
 
 	<script src="../js/general.js"></script>
 	<script src="../js/custom.js"></script>
-	<script src="../js/drafts.js"></script>
+	<script src="../js/trades.js"></script>
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
 		crossorigin="anonymous"></script>
 </head>
 
 <body>
+
 	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
 		<div class="container-fluid">
 			<a id="index" class="navbar-brand" href="../">&nbsp;&nbsp;<img src="../asset/images/logo.png"
@@ -43,50 +44,67 @@
 		</div>
 	</nav>
 
-	<div id="women_page" class="content">
+	<div class="content">
 		<div class="jumbotron"></div>
 
-		<div class="container-lg" style="overflow-x:auto;">
-			<div class="col" style="width:480px">
+		<div class="container-lg" style="overflow-x:auto">
+			<div class="col" style="width:750px">
 
-				<button id="draftbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-					aria-expanded="false" style="width:180px">全部選秀</button>
-				<ul id="draft-dropdown" class="dropdown-menu" style="overflow-y:unset;"
-					aria-labelledby="dropdownMenuButton">
-					<li><a class="dropdown-item" onclick="f('oversea')">WCBA & 旅外</a></li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
-				</ul>
-				</li>
-				</ul>
+				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width:150px">男籃</button>
+                <ul id="gender-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item active" onclick="f('men')">男籃</a></li>
+                    <li><a class="dropdown-item disabled" onclick="f('women')">女籃</a></li>
+                </ul>
 
-				<a><b>&nbsp;&nbsp;球隊篩選: </b></a>
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
 						class="teamicon">全部球隊</a></button>
-				<ul id="team-dropdown_women" class="dropdown-menu">
+				<ul id="team-dropdown" class="dropdown-menu">
 				</ul>
 
+				<a><b>&nbsp;&nbsp;交易篩選: </b></a>
+				<button id="tradebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:160px">全部交易</button>
+				<ul id="trade-dropdown" class="dropdown-menu">
+					<li><a class="dropdown-item active" onclick="f('all')">全部交易</a></li>
+					<li><a class="dropdown-item" onclick="f('futurePick')">含未來選秀籤</a></li>
+					<li><a class="dropdown-item" onclick="f('draft')">含選秀籤</a></li>
+					<li><a class="dropdown-item" onclick="f('player')">含球員</a></li>
+				</ul>
+
+				&nbsp;
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" onclick="f('plgtrade'); f('filter')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">PLG</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="checkbox" onclick="f('t1trade'); f('filter')" checked>
+					<label class="form-check-label" for="inlineCheckbox1">T1</label>
+				</div>
 			</div>
 		</div>
 
 		<div class="container-lg">
 			<div class="table-scroll">
-				<table id="drafts_tb" class="table table-hover">
+				<table id="trades_tb" class="table table-hover">
+					<colgroup>
+						<col width="90px">
+						<col width="80px">
+						<col width="calc(100vw - 60px)">
+					</colgroup>
 					<thead>
-						<tr>
-							<th>選秀</th>
-							<th>總順位</th>
-							<th>球隊</th>
-							<th>新秀球員</th>
+						<tr class="index">
+							<th colspan="2" style="width:185px">日期</th>
+							<th style="width:calc(100vw - 60px); max-width:630px;">內容</th>
 						</tr>
 					</thead>
-					<tbody id="drafts_tbody">
+					<tbody id="trades_tbody">
 
 					</tbody>
 				</table>
 			</div>
+            <a style="font-size:13px"><b>註: 僅有自 2021-22賽季 後的交易資訊</b></a><br>
 			<a id="timeStamp" style="font-size:13px"></a>
 		</div>
 
