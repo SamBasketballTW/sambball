@@ -419,7 +419,7 @@ function updateMovements() {
     table_movements.innerHTML = ""
 
     if (window.innerWidth <= 576) {
-        table_movements_th.innerHTML = `<th>2023-24 球員異動</th>`
+        table_movements_th.innerHTML = `<th>2024-25 球員異動</th>`
 
         for (let i = 0; i < teams_movement_info.length; i++) {
             if (teams_movement_info[i][2] == "") teams_movement_info[i][2] = "無 / 未知"
