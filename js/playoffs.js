@@ -1,7 +1,7 @@
 $(document).ready(function () {
     plg_t = [[1, 'pilots', ''], [2, 'dreamers', ''], [3, 'kings', ''], [4, 'lioneers', '']];
-    plg_playoffs = [['1_4', 3, 2], ['2_3', 2, 3]];
-    plg_f = [];
+    plg_playoffs = [['1_4', 4, 2], ['2_3', 2, 3]];
+    plg_f = [[1, 'pilots', ''],''];
     plg_finals = [0, 0];
 
     t1_t = [[1, 'dea', ''], [2, 'leopards', ''], [3, 'aquas', ''], [4, 'mars', '']];
