@@ -8,6 +8,8 @@ $(document).ready(function () {
 
             table = document.getElementById('players_tbody');
 
+            men_uni = [];
+            women_uni = [];
 
             lines.forEach(player => {
                 infos = player.split(',');
@@ -48,12 +50,19 @@ $(document).ready(function () {
                         <td class="borderR textL">${infos[14]}</td>
                         <td>${infos[16]}</td>                
                     </tr>`
+
+                    if(school(infos[14]) != "" & school(infos[14]) != "college-us"){
+                        if(infos[0] == 'men' & findIndex(men_uni,infos[14]) == -1) men_uni.push(infos[14]);
+                        if(infos[0] == 'women' & findIndex(women_uni,infos[14]) == -1) women_uni.push(infos[14]);
+                    }
                 }
 
 
                 table.innerHTML += info;
             });
 
+            men_uni.sort();
+            women_uni.sort();
             var dataTable = $('#players_tb').DataTable({
                 dom: 't',
                 paging: false,
@@ -68,7 +77,7 @@ $(document).ready(function () {
 
     var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
     var genderbtn = document.getElementById("genderbtn");
-
+ 
     for (var i = 0; i < genders.length; i++) {
         genders[i].addEventListener("click", function () {
             switch_gender = 0;
@@ -105,36 +114,12 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>
-					<li><a class="dropdown-item" onclick="f('ccut')">中州科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ctbcbs')">中信學院</a></li>
-					<li><a class="dropdown-item" onclick="f('pccu')">文化大學</a></li>
-					<li><a class="dropdown-item" onclick="f('shu')">世新大學</a></li>
-					<li><a class="dropdown-item" onclick="f('utaipei')">北市大學</a></li>
-					<li><a class="dropdown-item" onclick="f('hdut')">宏國德霖</a></li>
-					<li><a class="dropdown-item" onclick="f('asiau')">亞洲大學</a></li>
-					<li><a class="dropdown-item" onclick="f('mdu')">明道大學</a></li>
-					<li><a class="dropdown-item" onclick="f('tungnanu')">東南科大</a></li>
-					<li><a class="dropdown-item" onclick="f('nfu')">虎尾科大</a></li>
-					<li><a class="dropdown-item" onclick="f('nccu')">政治大學</a></li>
-					<li><a class="dropdown-item" onclick="f('shoufuu')">首府大學</a></li>
-					<li><a class="dropdown-item" onclick="f('nknu')">高雄師大</a></li>
-					<li><a class="dropdown-item" onclick="f('uch')">健行科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntsu')">國立體大</a></li>
-					<li><a class="dropdown-item" onclick="f('ukn')">康寧大學</a></li>
-					<li><a class="dropdown-item" onclick="f('nycu')">陽明交通</a></li>
-					<li><a class="dropdown-item" onclick="f('vnu')">萬能科大</a></li>
-					<li><a class="dropdown-item" onclick="f('isu')">義守大學</a></li>
-					<li><a class="dropdown-item" onclick="f('ocu')">僑光科大</a></li>
-					<li><a class="dropdown-item" onclick="f('usc')">實踐大學</a></li>
-					<li><a class="dropdown-item" onclick="f('ncue')">彰化師大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntut')">臺北科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntust')">臺灣科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntnu')">臺灣師大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntua')">臺灣藝大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntusport')">臺灣體大</a></li>
-					<li><a class="dropdown-item" onclick="f('fjcu')">輔仁大學</a></li>
-					<li><a class="dropdown-item" onclick="f('hwu')">醒吾科大</a></li>`
+					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>`
+
+                    for(let i = 0; i<men_uni.length;i++){
+                        school_dropdown.innerHTML += `
+                        <li><a class="dropdown-item" onclick="f('${school(men_uni[i])}')">${men_uni[i]}</a></li>`
+                    }
 
                 } else if (this.innerHTML == "女籃") {
                     team_dropdown.innerHTML = `
@@ -157,15 +142,12 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>
-					<li><a class="dropdown-item" onclick="f('pccu')">文化大學</a></li>
-					<li><a class="dropdown-item" onclick="f('shu')">世新大學</a></li>
-					<li><a class="dropdown-item" onclick="f('utaipei')">北市大學</a></li>
-					<li><a class="dropdown-item" onclick="f('fgu')">佛光大學</a></li>
-					<li><a class="dropdown-item" onclick="f('ntust')">臺灣科大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntnu')">臺灣師大</a></li>
-					<li><a class="dropdown-item" onclick="f('ntusport')">臺灣體大</a></li>
-					<li><a class="dropdown-item" onclick="f('fjcu')">輔仁大學</a></li>`
+					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>`
+
+                    for(let i = 0; i<women_uni.length;i++){
+                        school_dropdown.innerHTML += `
+                        <li><a class="dropdown-item" onclick="f('${school(women_uni[i])}')">${women_uni[i]}</a></li>`
+                    }
 
                 }
                 var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");

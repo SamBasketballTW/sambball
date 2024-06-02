@@ -3,7 +3,7 @@ $(document).ready(function () {
     timeStamp.innerHTML = `<b>最後更新: 2024.06.02</b>`
 
     test = ""
-    test = ".html"
+    // test = ".html"
 
     navbar_dropdown = document.getElementById("navbar-dropdown");
     nav = [
@@ -45,39 +45,6 @@ $(document).ready(function () {
         <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
     </div>`
 });
-
-function add_team_dropdown(dropdown, gender) {
-    var team_dropdown = document.getElementById(dropdown);
-    if (gender == "men") {
-        for (let i = 0; i < league_teams['plg']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${plg_teams[i + 1]}')">
-            <img src="../asset/images/men/${plg_teams[i + 1]}.png" alt="${plg_teams[i + 1]}" class="teamicon">${teamName_full_CN[plg_teams[i + 1]]}</a>
-            </li>`
-        }
-        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
-        for (let i = 0; i < league_teams['t1']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${t1_teams[i + 1]}')">
-            <img src="../asset/images/men/${t1_teams[i + 1]}.png" alt="${t1_teams[i + 1]}" class="teamicon">${teamName_full_CN[t1_teams[i + 1]]}</a>
-            </li>`
-        }
-        team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
-        for (let i = 0; i < league_teams['sbl']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${sbl_teams[i + 1]}')">
-            <img src="../asset/images/men/${sbl_teams[i + 1]}.png" alt="${sbl_teams[i + 1]}" class="teamicon">${teamName_full_CN[sbl_teams[i + 1]]}</a>
-            </li>`
-        }
-    } else if (gender == "women") {
-        for (let i = 0; i < league_teams['wsbl']; i++) {
-            team_dropdown.innerHTML += `
-            <li><a class="dropdown-item" onclick="f('${wsbl_teams[i + 1]}')">
-            <img src="../asset/images/women/${wsbl_teams[i + 1]}.png" alt="${wsbl_teams[i + 1]}" class="teamicon">${teamName_full_CN[wsbl_teams[i + 1]]}</a>
-            </li>`
-        }
-    }
-}
 games = {
     "plg": 40,
     "t1": 28,
