@@ -450,9 +450,9 @@ function updateMovements() {
         <th style="font-size:18px"><b>Lost</b></th>`
 
         for (let i = 0; i < teams_movement_info.length; i++) {
-            if (teams_movement_info[i][2] == "") teams_movement_info[i][2] = "無 / 未知"
-            if (teams_movement_info[i][3] == "") teams_movement_info[i][3] = "無"
-            if (teams_movement_info[i][4] == "") teams_movement_info[i][4] = "無"
+            if (teams_movement_info[i][2] == "") teams_movement_info[i][2] = "<br>無 / 未知<br><br>"
+            if (teams_movement_info[i][3] == "") teams_movement_info[i][3] = "<br>無<br><br>"
+            if (teams_movement_info[i][4] == "") teams_movement_info[i][4] = "<br>無<br><br>"
 
             table_movements.innerHTML += `
             <tr class="filterTr ${teams_movement_info[i][0]} ${teams_movement_info[i][1]}">

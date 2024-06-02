@@ -3,19 +3,19 @@ $(document).ready(function () {
     timeStamp.innerHTML = `<b>最後更新: 2024.06.02</b>`
 
     test = ""
-    // test = ".html"
+    test = ".html"
 
     navbar_dropdown = document.getElementById("navbar-dropdown");
     nav = [
-        ['playoffs', '季後賽', ''],
-        ['standings', '戰績', ''],
-        ['rosters', '球隊陣容', ''],
-        ['players', '現役球員', ''],
-        ['contracts', '合約', ''],
-        ['drafts', '選秀', ''],
-        ['trades', '交易', ''],
-        ['free-agents', '自由球員', ''],
-        ['us-players', '旅美學生', '']
+        ['playoffs', '季後賽'],
+        ['standings', '戰績'],
+        ['rosters', '球隊陣容'],
+        ['players', '現役球員'],
+        ['contracts', '合約'],
+        ['drafts', '選秀'],
+        ['trades', '交易'],
+        ['free-agents', '自由球員'],
+        ['us-players', '旅美學生']
     ]
     for (let i = 0; i < nav.length; i++) {
         navbar_dropdown.innerHTML += `
