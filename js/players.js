@@ -10,6 +10,7 @@ $(document).ready(function () {
 
             men_uni = [];
             women_uni = [];
+            us_uni = [0, 0];
 
             lines.forEach(player => {
                 infos = player.split(',');
@@ -51,9 +52,31 @@ $(document).ready(function () {
                         <td>${infos[16]}</td>                
                     </tr>`
 
-                    if(school(infos[14]) != "" & school(infos[14]) != "college-us"){
-                        if(infos[0] == 'men' & findIndex(men_uni,infos[14]) == -1) men_uni.push(infos[14]);
-                        if(infos[0] == 'women' & findIndex(women_uni,infos[14]) == -1) women_uni.push(infos[14]);
+
+                    if (school(infos[14]) != "") {
+                        if (infos[0] == 'men') {
+                            if (school(infos[14]) == 'college-us') {
+                                us_uni[0] += 1;
+                            } else {
+                                temp_index = findIndex(men_uni, infos[14], 0);
+                                if (temp_index == -1) {
+                                    men_uni.push([infos[14], 1]);
+                                } else if (temp_index > -1) {
+                                    men_uni[temp_index][1] += 1;
+                                }
+                            }
+                        } else if (infos[0] == 'women') {
+                            if (school(infos[14]) == 'college-us') {
+                                us_uni[1] += 1;
+                            } else {
+                                temp_index = findIndex(women_uni, infos[14], 0);
+                                if (temp_index == -1) {
+                                    women_uni.push([infos[14], 1]);
+                                } else if (temp_index > -1) {
+                                    women_uni[temp_index][1] += 1;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -61,8 +84,10 @@ $(document).ready(function () {
                 table.innerHTML += info;
             });
 
+            console.log(men_uni);
             men_uni.sort();
             women_uni.sort();
+
             var dataTable = $('#players_tb').DataTable({
                 dom: 't',
                 paging: false,
@@ -77,7 +102,7 @@ $(document).ready(function () {
 
     var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
     var genderbtn = document.getElementById("genderbtn");
- 
+
     for (var i = 0; i < genders.length; i++) {
         genders[i].addEventListener("click", function () {
             switch_gender = 0;
@@ -114,11 +139,11 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>`
+					<li><a class="dropdown-item" onclick="f('college-us')">旅外: ${us_uni[0]} 人</a></li>`
 
-                    for(let i = 0; i<men_uni.length;i++){
+                    for (let i = 0; i < men_uni.length; i++) {
                         school_dropdown.innerHTML += `
-                        <li><a class="dropdown-item" onclick="f('${school(men_uni[i])}')">${men_uni[i]}</a></li>`
+                        <li><a class="dropdown-item" onclick="f('${school(men_uni[i][0])}')">${men_uni[i][0]}: ${men_uni[i][1]} 人</a></li>`
                     }
 
                 } else if (this.innerHTML == "女籃") {
@@ -142,11 +167,11 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外</a></li>`
+					<li><a class="dropdown-item" onclick="f('college-us')">旅外: ${us_uni[1]} 人</a></li>`
 
-                    for(let i = 0; i<women_uni.length;i++){
+                    for (let i = 0; i < women_uni.length; i++) {
                         school_dropdown.innerHTML += `
-                        <li><a class="dropdown-item" onclick="f('${school(women_uni[i])}')">${women_uni[i]}</a></li>`
+                        <li><a class="dropdown-item" onclick="f('${school(women_uni[i][0])}')">${women_uni[i][0]}: ${women_uni[i][1]} 人</a></li>`
                     }
 
                 }

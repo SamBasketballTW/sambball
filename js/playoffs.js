@@ -1,7 +1,7 @@
 $(document).ready(function () {
     all_p = [
         ['plg', 1, 4, '1_4', 4, 4, 2, 'finals', 1],
-        ['plg', 2, 3, '2_3', 4, 2, 3, 'finals', 2],
+        ['plg', 2, 3, '2_3', 4, 2, 4, 'finals', 2],
         ['plg', 0, 0, 'finals', 4, 0, 0],
 
         ['t1', 1, 4, '1_4', 3, 2, 3, 'finals', 1],

@@ -6,21 +6,11 @@ $(document).ready(function () {
     table_movements_th = document.getElementById('roster_movements_thead')
     table_movements = document.getElementById('roster_movements_tbody')
 
-    all_teams = ['oversea'];
-    all_teams.push('oversea');
-    for (let i = 0; i < league_teams['plg']; i++) all_teams.push(plg_teams[i + 1]);
-    for (let i = 0; i < league_teams['t1']; i++) all_teams.push(t1_teams[i + 1]);
-    for (let i = 0; i < league_teams['sbl']; i++) all_teams.push(sbl_teams[i + 1]);
-    for (let i = 0; i < league_teams['wsbl']; i++) all_teams.push(wsbl_teams[i + 1]);
-
-    teams_info = [];
-    for (let i = 0; i < all_teams.length; i++) {
-        if (i != 1 & i < (2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl'])) {
-            teams_info.push(['men', all_teams[i], 0, 0, 0, 0]);
-        } else {
-            teams_info.push(['women', all_teams[i], 0, 0, 0, 0]);
-        }
-    }
+    teams_info = [['men', 'oversea', 0,0,0,0],['women','oversea',0,0,0,0]]
+    for (let i = 0; i < league_teams['plg']; i++) teams_info.push(['men',plg_teams[i + 1],0,0,0,0]);
+    for (let i = 0; i < league_teams['t1']; i++) teams_info.push(['men',t1_teams[i + 1],0,0,0,0]);
+    for (let i = 0; i < league_teams['sbl']; i++) teams_info.push(['men',sbl_teams[i + 1],0,0,0,0]);
+    for (let i = 0; i < league_teams['wsbl']; i++) teams_info.push(['women',wsbl_teams[i + 1],0,0,0,0]);
 
     fetch('../data/rosters.csv')
         .then((response) => response.text())
@@ -30,7 +20,7 @@ $(document).ready(function () {
             lines = lines.slice(2);
 
             team_coach_info = [];
-            for (let i = 0; i < all_teams.length; i++) team_coach_info.push('');
+            for (let i = 0; i < teams_info.length; i++) team_coach_info.push('');
 
             lines.forEach(player => {
                 infos = player.split(',');
@@ -48,7 +38,7 @@ $(document).ready(function () {
                 if (infos[0] != "" & infos[6] == "active" & infos[4] != "fa") {
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
 
-                        team_index = findIndex(all_teams, infos[4]);
+                        team_index = findIndex(teams_info, infos[4],1);
                         team_coach_info[team_index] += `${infos[9]}: ${infos[1]}`;
 
                     } else {
@@ -58,7 +48,7 @@ $(document).ready(function () {
                             is_local = 1;
                             is_import = infos[7] != "local";
                         } else {
-                            team_index = findIndex(all_teams, infos[4]);
+                            team_index = findIndex(teams_info, infos[4],1);
                             is_local = identity(infos[9]) == "local";
                             is_import = identity(infos[9]) == "import";
                         }
@@ -181,20 +171,11 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(5);
 
-            all_teams = ['oversea', 'oversea'];
-            for (let i = 0; i < league_teams['plg']; i++) all_teams.push(plg_teams[i + 1]);
-            for (let i = 0; i < league_teams['t1']; i++) all_teams.push(t1_teams[i + 1]);
-            for (let i = 0; i < league_teams['sbl']; i++) all_teams.push(sbl_teams[i + 1]);
-            for (let i = 0; i < league_teams['wsbl']; i++) all_teams.push(wsbl_teams[i + 1]);
-
-            teams_movement_info = [];
-            for (let i = 0; i < all_teams.length; i++) {
-                if (i != 1 & i < (2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl'])) {
-                    teams_movement_info.push(['men', all_teams[i], '', '', '']);
-                } else {
-                    teams_movement_info.push(['women', all_teams[i], '', '', '']);
-                }
-            }
+            teams_movement_info = [['men','oversea','','',''],['women','oversea','','','']];
+            for (let i = 0; i < league_teams['plg']; i++) teams_movement_info.push(['men',plg_teams[i + 1],'','','']);
+            for (let i = 0; i < league_teams['t1']; i++) teams_movement_info.push(['men',t1_teams[i + 1],'','','']);
+            for (let i = 0; i < league_teams['sbl']; i++) teams_movement_info.push(['men',sbl_teams[i + 1],'','','']);
+            for (let i = 0; i < league_teams['wsbl']; i++) teams_movement_info.push(['women',wsbl_teams[i + 1],'','','']);
 
             cur_cat = "";
 
@@ -206,7 +187,7 @@ $(document).ready(function () {
                     if (infos[0] == 'men') team_index = 0
                     if (infos[0] == 'women') team_index = 1
                 } else {
-                    team_index = findIndex(all_teams, infos[1]);
+                    team_index = findIndex(teams_movement_info, infos[1],1);
                 }
 
                 if (infos[2] == "extend" | infos[2] == "import extend") {
@@ -373,7 +354,7 @@ function updateTables() {
 
 
     for (let i = 2; i < teams_info.length; i++) {
-        if (coach_EN_name[all_teams[i]] != "" & window.innerWidth <= 600) {
+        if (coach_EN_name[teams_info[i][1]] != "" & window.innerWidth <= 600) {
             blank = `<br>`
         } else if (window.innerWidth <= 495) {
             blank = '<br>'
@@ -383,7 +364,7 @@ function updateTables() {
         tableCount.innerHTML += `
         <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][1]} ${teams_info[i][1]}-bg">
             <td>
-                ${team_coach_info[i]}${coach_EN_name[all_teams[i]]}${blank}
+                ${team_coach_info[i]}${coach_EN_name[teams_info[i][1]]}${blank}
                 本土球員:&nbsp;&nbsp;${teams_info[i][4]}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 外籍球員:&nbsp;&nbsp;${teams_info[i][5]}&nbsp;&nbsp;人
             </td>

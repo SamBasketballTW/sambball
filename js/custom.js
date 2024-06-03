@@ -151,10 +151,12 @@ function f(value, table = "") {
 
 }
 
-function findIndex(array, team) {
+function findIndex(array, team, index = -1) {
 	for (let i = 0; i < array.length; i++) {
-		if (array[i] == team) {
-			return i;
+		if (index == -1){
+			if(array[i] == team) return i;
+		}else{
+			if(array[i][index] == team) return i;
 		}
 	}
 	return -1;

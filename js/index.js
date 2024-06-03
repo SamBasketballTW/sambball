@@ -188,10 +188,10 @@ $(document).ready(function () {
 
 			if (count == 0) {
 				text += `今天沒有球員生日，祝你有美好的一天！`
-			} else if (count == 1 & gender == "men") {
-				text += `，祝他生日快樂！`
-			} else if (count == 1) {
+			} else if (count == 1 & gender == "women") {
 				text += `，祝她生日快樂！`
+			} else if (count == 1) {
+				text += `，祝他生日快樂！`
 			} else if (count > 1) {
 				text += `，祝他們生日快樂！`
 			}
