@@ -17,11 +17,9 @@ $(document).ready(function () {
                 info = ""
 
                 if (infos[6] == "active" & infos[7] != "headCoach" & infos[7] != "coach") {
-                    if (infos[16] == "") {
-                        filter = ""
-                    } else {
-                        filter = "change"
-                    }
+                    filter = '';
+                    if (infos[16] != "" & infos[4] != "fa") filter += "change"
+
                     if (infos[4] == "fa") {
                         infos[16] = `${infos[3]} ${team_name("short", infos[3], infos[16])}`
                     }
@@ -128,6 +126,10 @@ $(document).ready(function () {
 
                     add_team_dropdown('team-dropdown', 'men');
 
+                    team_dropdown.innerHTML += `
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" onclick="f('fa')">自由球員</li>`
+
                     player_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
 					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
@@ -188,6 +190,10 @@ $(document).ready(function () {
                         this.className += " active";
                         teambtn.innerHTML = this.innerHTML;
 
+                        if(this.innerHTML == "自由球員"){
+                            players[0].click();
+                            schools[0].click();
+                        }
                         f('filter');
                     });
                 }
