@@ -12,14 +12,8 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[17] != "") {
-                    if (infos[4] == "fa") {
-                        team = infos[16]
-                    } else if (infos[6] == "active") {
-                        team = infos[4]
-                    } else {
-                        team = infos[16]
-                    }
+                if (infos[24] != "") {
+                    team = infos[16];
 
                     info += `
                     <tr class="filterTr ${infos[0]}">
@@ -27,11 +21,12 @@ $(document).ready(function () {
                         <td>${infos[10]}</td>
                         <td>${age(infos[13])}</td>
                         <td class="borderR">${infos[11]}</td>
-                        <td>${infos[17]}</td>
+                        <td>${infos[24]}</td>
                         <td class="${bg_team(infos[3], team)} borderR" data-order="${team_order(infos[3], team)}">${team_name("full", infos[3], team)}</td>
-                        <td>${infos[18]}</td>
-                        <td>${infos[19]}</td>
-                        <td>${infos[20]}</td>                
+                        <td data-order="${infos[25]}">${time(infos[25])}</td>
+                        <td>${infos[26]}</td>
+                        <td>${infos[27]}</td>
+                        <td>${infos[28]}</td>              
                     </tr>`
                 }
 
@@ -44,7 +39,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [5, 'asc'],
+                order: [],
             });
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });

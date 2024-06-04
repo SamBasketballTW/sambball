@@ -183,59 +183,61 @@ $(document).ready(function () {
                 infos = player.split(',');
                 info = ""
 
-                if (infos[1] == 'oversea') {
-                    if (infos[0] == 'men') team_index = 0
-                    if (infos[0] == 'women') team_index = 1
-                } else {
-                    team_index = findIndex(teams_movement_info, infos[1],1);
-                }
-
-                if (infos[2] == "extend" | infos[2] == "import extend") {
-                    i = 2
-                } else if (infos[2] == "lost" | infos[2] == "lost loan" | infos[2] == "lost trade" | infos[2] == "import lost") {
-                    i = 4
-                } else {
-                    i = 3
-                }
-                if (cur_cat != infos[2]) {
-                    cur_cat = infos[2];
-
-                    if (infos[2] == "change") {
-                        cat_name = "轉隊"
-                    } else if (infos[2] == "merge") {
-                        cat_name = "Via 合併"
-                    } else if (infos[2] == "fa") {
-                        cat_name = "Via 自由球員"
-                    } else if (infos[2] == "trade") {
-                        cat_name = "Via 交易"
-                    } else if (infos[2] == "loan") {
-                        cat_name = "Via 租借"
-                    } else if (infos[2] == "keep") {
-                        cat_name = "Via 保留名單"
-                    } else if (infos[2] == "draft") {
-                        cat_name = "Via 選秀"
-                    } else if (infos[2] == "loan back") {
-                        cat_name = "租借回歸"
-                    } else if (infos[2] == "lost loan") {
-                        cat_name = "Via 租借"
-                    } else if (infos[2] == "lost trade") {
-                        cat_name = "Via 交易"
-                    } else if (infos[2] == "import extend") {
-                        cat_name = "續留洋將"
-                    } else if (infos[2] == "import") {
-                        cat_name = "加盟洋將"
-                    } else if (infos[2] == "import lost") {
-                        cat_name = "離隊洋將"
+                if(infos[0] != ""){
+                    if (infos[1] == 'oversea') {
+                        if (infos[0] == 'men') team_index = 0
+                        if (infos[0] == 'women') team_index = 1
+                    } else {
+                        team_index = findIndex(teams_movement_info, infos[1],1);
                     }
 
-                    if (infos[2] != "extend" & infos[2] != "lost") {
-                        if (teams_movement_info[team_index][i] != "") {
-                            teams_movement_info[team_index][i] += `<br>`
+                    if (infos[2] == "extend" | infos[2] == "import extend") {
+                        i = 2
+                    } else if (infos[2] == "lost" | infos[2] == "lost loan" | infos[2] == "lost trade" | infos[2] == "import lost") {
+                        i = 4
+                    } else {
+                        i = 3
+                    }
+                    if (cur_cat != infos[2]) {
+                        cur_cat = infos[2];
+
+                        if (infos[2] == "change") {
+                            cat_name = "轉隊"
+                        } else if (infos[2] == "merge") {
+                            cat_name = "Via 合併"
+                        } else if (infos[2] == "fa") {
+                            cat_name = "Via 自由球員"
+                        } else if (infos[2] == "trade") {
+                            cat_name = "Via 交易"
+                        } else if (infos[2] == "loan") {
+                            cat_name = "Via 租借"
+                        } else if (infos[2] == "keep") {
+                            cat_name = "Via 保留名單"
+                        } else if (infos[2] == "draft") {
+                            cat_name = "Via 選秀"
+                        } else if (infos[2] == "loan back") {
+                            cat_name = "租借回歸"
+                        } else if (infos[2] == "lost loan") {
+                            cat_name = "Via 租借"
+                        } else if (infos[2] == "lost trade") {
+                            cat_name = "Via 交易"
+                        } else if (infos[2] == "import extend") {
+                            cat_name = "續留洋將"
+                        } else if (infos[2] == "import") {
+                            cat_name = "加盟洋將"
+                        } else if (infos[2] == "import lost") {
+                            cat_name = "離隊洋將"
                         }
-                        teams_movement_info[team_index][i] += `<a style="text-decoration:underline"><i>${cat_name}</i></a><br>`
+
+                        if (infos[2] != "extend" & infos[2] != "lost") {
+                            if (teams_movement_info[team_index][i] != "") {
+                                teams_movement_info[team_index][i] += `<br>`
+                            }
+                            teams_movement_info[team_index][i] += `<a style="text-decoration:underline"><i>${cat_name}</i></a><br>`
+                        }
                     }
+                    teams_movement_info[team_index][i] += `${infos[3]}<br>`
                 }
-                teams_movement_info[team_index][i] += `${infos[3]}<br>`
             });
             updateMovements();
             document.getElementById("gender-dropdown").getElementsByClassName('dropdown-item')[0].click();

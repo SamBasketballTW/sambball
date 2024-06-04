@@ -12,36 +12,40 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[0] == "men" & infos[1] != "" & infos[4] != "" & infos[4] != "fa") {
-					filter = `${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}`;
+				if (infos[0] != "" & infos[4] != "fa" & !(infos[18] == "" & infos[19] == "" & infos[20] == "")) {
+					if (infos[5] == '') infos[5] = team_link[infos[4]];
 
 					if (infos[7] == "coach") {
 						filter = `coach`
-					} else if (is_oversea(infos[3]) | infos[1] == "王振原" | identity(infos[9]) == "local") {
+					} else if (is_oversea(infos[3]) | identity(infos[9]) == "local") {
 						filter = `local`
 					} else {
 						filter = `import`
 					}
-					if (infos[5] == '') infos[5] = team_link[infos[4]];
+					if(infos[17].includes("trade")){
+						if(infos[18] != "") infos[18] = '*'+infos[18]+'*'
+						if(infos[19] != "") infos[19] = '*'+infos[19]+'*'
+						if(infos[20] != "") infos[20] = '*'+infos[20]+'*'
+					}
+					
+					if(infos[20] == "0" | infos[20].includes("0+")) filter += ` 1y`;
 
 					url = ""
-					for (let i = 27; i < 30; i += 2) {
-						if (infos[i] != "") {
+						if (infos[22] != "") {
 							url += `
-							<a style="color:inherit; text-decoration:underline" href="${infos[i + 1]}" target="_blank">
-							<i class="bi bi-link-45deg"></i>${infos[i]}</a>`;
+							<a style="color:inherit; text-decoration:underline" href="${infos[23]}" target="_blank">
+							<i class="bi bi-link-45deg"></i>${infos[22]}</a>`;
 						}
-					}
 
 					info += `
-						<tr class="filterTr ${infos[0]} ${filter_team(infos[3], infos[4])} ${filter} ${infos[21]} ${infos[22]}">
+						<tr class="filterTr ${infos[0]} ${filter_team(infos[3], infos[4])} ${infos[17]} ${filter} ">
 							<td class="${bg_team(infos[3], infos[4])} borderR">${team_name("short", infos[3], infos[4], infos[0])}</td>
 							<td class="borderR">${infos[2]}</td>
 							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
-							<td>${infos[23]}</td>
-							<td class="borderR">${infos[24]}</td>
-							<td class="borderR">${infos[25]}</td>
-							<td class="borderR">${infos[26]}</td>
+							<td>${infos[18]}</td>
+							<td class="borderR">${infos[19]}</td>
+							<td class="borderR">${infos[20]}</td>
+							<td class="borderR">${infos[21]}</td>
 							<td>${url}</td>
 						</tr>`
 				}

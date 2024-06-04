@@ -102,6 +102,11 @@ function age(bday) {
 	const a = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 	return a;
 }
+function time(t) {
+	min = Math.floor(t/60);
+	sec = t%60;
+	return min+':'+sec;
+}
 
 function f(value, table = "") {
 	if (value == "filter") {

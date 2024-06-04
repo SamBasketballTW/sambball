@@ -59,6 +59,7 @@ body {
 
 .btn-group{
 	height: 40.5px;
+	border: 1px solid black;
 }
 
 .dropdown-toggle-no-caret::after {
