@@ -8,13 +8,11 @@ $(document).ready(function () {
         ['t1', 2, 3, '2_3', 3, 3, 0, 'finals', 2],
         ['t1', 0, 0, 'finals', 4, 0, 4],
 
-
         ['sbl', 2, 3, '2_3', 2, 1, 2, 'finals', 2],
-        ['sbl', 1, 0, 'finals', 2, 1, 2],
+        ['sbl', 1, 0, 'finals', 3, 2, 3],
 
         ['wsbl', 2, 3, '2_3', 2, 2, 0, 'finals', 2],
-        ['wsbl', 1, 0, 'finals', 2, 1, 2]
-
+        ['wsbl', 1, 0, 'finals', 3, 1, 3]
     ]
     all_t = [
         ['plg', 1, 'pilots'],
