@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById("timeStamp");
-    timeStamp.innerHTML = `<b>最後更新: 2024.06.09</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.06.11</b>`
 
     test = ""
     // test = ".html"
@@ -154,8 +154,9 @@ order = {
     "亞外": 5,
 
     "CBA": 1,
-    "日本 B2": 2,
-    "TAT": 3,
+    "B1": 2,
+    "B2": 3,
+    "B3": 4,
     "braves": 11,
     "kings": 12,
     "pilots": 13,
