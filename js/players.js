@@ -81,8 +81,6 @@ $(document).ready(function () {
 
                 table.innerHTML += info;
             });
-
-            console.log(men_uni);
             men_uni.sort();
             women_uni.sort();
 

@@ -19,7 +19,7 @@
 	color:#FAF0F0;
 	--bs-table-hover-color: #FAF0F0;
 }
-.B1-bg , .B2-bg{
+.B1-bg , .B2-bg , .B3-bg{
 	background-color: #434343;
 	color:#FAF0F0;
 	--bs-table-hover-color: #FAF0F0;
@@ -53,14 +53,8 @@
 .mars-bg{
 	background-color: #BB9E5E;
 }
-.herobears-bg{
-	background-color: #267A31;
-}
 .leopards-bg{
 	background-color: #44984F;
-}
-.suns-bg{
-	background-color: #DD5F58;
 }
 .ghosthawks-bg{
 	background-color: #C27D80;
