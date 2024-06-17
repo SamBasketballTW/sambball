@@ -48,7 +48,7 @@
 		<div class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x: auto;">
-			<div class="col" style="width:880px;">
+			<div class="col" style="width:900px;">
 
 				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" style="width:150px">男籃</button>
@@ -57,6 +57,7 @@
                     <li><a class="dropdown-item disabled" onclick="f('women')">女籃</a></li>
                 </ul>
 
+				<a><b>&nbsp;&nbsp;球隊: </b></a>
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
 						class="teamicon">全部球隊</a></button>
@@ -77,6 +78,8 @@
 					<li><a class="dropdown-item" onclick="f('2022Draft')">22'新秀合約</a></li>
 					<li><a class="dropdown-item" onclick="f('2023Draft')">23'新秀合約</a></li>
 				</ul>
+			</div>		
+			<div class="col" style="width:240px; padding-top:3px;">
 
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox" onclick="f('local'); f('filter')" checked>
@@ -110,7 +113,7 @@
 					<thead>
 						<tr>
 							<th>球隊</th>
-							<th>背號</th>
+							<th>#</th>
 							<th>球員</th>
 							<th colspan="2">合約</th>
 							<th>剩餘年限</th>
@@ -124,7 +127,7 @@
 				</table>
 			</div>
 			<a style="font-size:13px">
-				<b> 註1: 合約年限皆依照最勁 官宣/新聞 發布，皆附上 官宣/新聞 連結<br>
+				<b> 註1: 合約年限皆依照 官宣/新聞 發布，並附上連結<br>
 					註2: 被交易球員因不知是否有重新簽約，皆假設為承接合約，將原合約及年限以*標注<br>
 					註3: 因新秀合約實際年限未知，皆不放上剩餘年限<br>
 				</b>
