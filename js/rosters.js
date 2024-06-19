@@ -1,3 +1,24 @@
+class team_rosters {
+
+    constructor(gender = "", league = "", filter = "", coach = "", local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0){
+        this.gender = gender;
+        this.league = league;
+        this.filter = filter;
+        this.coach = coach;
+        this.local_age_sum = local_age_sum;
+        this.local_height_sum = local_height_sum;
+        this.local_count = local_count;
+        this.import_count = import_count;
+    }
+
+    avg(value){
+        if(value == "age"){
+            return (this.local_age_sum / this.local_count).toFixed(1);
+        }else if(value = "height"){
+            return (this.local_height_sum / this.local_count).toFixed(1);
+        }
+    }
+}
 $(document).ready(function () {
 
     tableCount = document.getElementById('r_count_tbody');
@@ -11,6 +32,28 @@ $(document).ready(function () {
     for (let i = 0; i < league_teams['t1']; i++) teams_info.push(['men',t1_teams[i + 1],0,0,0,0]);
     for (let i = 0; i < league_teams['sbl']; i++) teams_info.push(['men',sbl_teams[i + 1],0,0,0,0]);
     for (let i = 0; i < league_teams['wsbl']; i++) teams_info.push(['women',wsbl_teams[i + 1],0,0,0,0]);
+
+
+    temp_info = [];
+    temp_teams = [];
+    temp_info.push(new team_rosters('men','oversea','oversea'));
+    temp_info.push(new team_rosters('women','oversea','oversea'));
+    for (let i = 1; i <= league_teams['plg']; i++){
+        temp_info.push(new team_rosters('men','plg',plg_teams[i]));
+        temp_teams.push(plg_teams[i]);
+    }
+    for (let i = 1; i <= league_teams['t1']; i++){
+        temp_info.push(new team_rosters('men','t1',t1_teams[i]));
+        temp_teams.push(t1_teams[i]);
+    }
+    for (let i = 1; i <= league_teams['sbl']; i++){
+        temp_info.push(new team_rosters('men','sbl',sbl_teams[i]));
+        temp_teams.push(sbl_teams[i]);
+    }
+    for (let i = 1; i <= league_teams['wsbl']; i++){
+        temp_info.push(new team_rosters('women','wsbl',wsbl_teams[i]));
+        temp_teams.push(wsbl_teams[i]);
+    }
 
     fetch('../data/rosters.csv')
         .then((response) => response.text())
@@ -41,24 +84,40 @@ $(document).ready(function () {
                         team_index = findIndex(teams_info, infos[4],1);
                         team_coach_info[team_index] += `${infos[9]}: ${infos[1]}`;
 
+                        temp_team_i = 2 + findIndex(temp_teams,infos[4]);
+                        temp_info[temp_team_i].coach = `${infos[9]}: ${infos[1]}`;
+
                     } else {
                         if (is_oversea(infos[3])) {
                             if (infos[0] == "men") team_index = 0;
                             if (infos[0] == "women") team_index = 1;
                             is_local = 1;
                             is_import = infos[7] != "local";
+
+                            if (infos[0] == "men") temp_team_i = 0;
+                            if (infos[0] == "women") temp_team_i = 1;
+                            is_local = 1;
+                            is_import = infos[7] != "local";
                         } else {
                             team_index = findIndex(teams_info, infos[4],1);
                             is_local = identity(infos[9]) == "local";
                             is_import = identity(infos[9]) == "import";
+
+                            temp_team_i = 2 + findIndex(temp_teams,infos[4])
                         }
 
                         if (is_local) {
                             teams_info[team_index][2] += age(infos[13]);
                             teams_info[team_index][3] += parseInt(infos[11]);
                             teams_info[team_index][4] += 1;
+
+                            temp_info[temp_team_i].local_age_sum += age(infos[13]);
+                            temp_info[temp_team_i].local_height_sum += parseInt(infos[11]);
+                            temp_info[temp_team_i].local_count += 1;
                         } else if (is_import) {
                             teams_info[team_index][5] += 1;
+
+                            temp_info[temp_team_i].import_count += 1;
                         }
 
                         if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
@@ -116,17 +175,29 @@ $(document).ready(function () {
 
                 if (i > 1) {
                     if (i < 2 + league_teams['plg']) {
-                        a_plg.push(teams_info[i][6])
-                        h_plg.push(teams_info[i][7])
+                        // a_plg.push(teams_info[i][6])
+                        // h_plg.push(teams_info[i][7])
+
+                        a_plg.push(temp_info[i].avg("age"));
+                        h_plg.push(temp_info[i].avg("height"));
                     } else if (i < 2 + league_teams['plg'] + league_teams['t1']) {
-                        a_t1.push(teams_info[i][6])
-                        h_t1.push(teams_info[i][7])
+                        // a_t1.push(teams_info[i][6])
+                        // h_t1.push(teams_info[i][7])
+
+                        a_t1.push(temp_info[i].avg("age"));
+                        h_t1.push(temp_info[i].avg("height"));
                     } else if (i < 2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl']) {
-                        a_sbl.push(teams_info[i][6])
-                        h_sbl.push(teams_info[i][7])
+                        // a_sbl.push(teams_info[i][6])
+                        // h_sbl.push(teams_info[i][7])
+
+                        a_sbl.push(temp_info[i].avg("age"));
+                        h_sbl.push(temp_info[i].avg("height"));
                     } else {
-                        a_wsbl.push(teams_info[i][6])
-                        h_wsbl.push(teams_info[i][7])
+                        // a_wsbl.push(teams_info[i][6])
+                        // h_wsbl.push(teams_info[i][7])
+
+                        a_wsbl.push(temp_info[i].avg("age"));
+                        h_wsbl.push(temp_info[i].avg("height"));
                     }
                 }
             }
