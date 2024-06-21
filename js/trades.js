@@ -41,7 +41,7 @@ $(document).ready(function () {
         });
 
 
-    add_team_dropdown("team-dropdown", "men",'all');
+    add_team_dropdown("team-dropdown", "men", 'all');
 
     var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
     var genderbtn = document.getElementById("genderbtn");

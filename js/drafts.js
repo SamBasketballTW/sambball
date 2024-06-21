@@ -12,7 +12,7 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				if (infos[5] == "") infos[5] = teamName('full','',infos[4]);
+				if (infos[5] == "") infos[5] = teamName('full', '', infos[4]);
 
 				info += `
 					<tr class="filterTr ${infos[0]} ${infos[1]}${infos[2]} ${infos[4]}">	

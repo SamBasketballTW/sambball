@@ -1,17 +1,17 @@
 function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
-    var team_dropdown = document.getElementById(dropdown);
+	var team_dropdown = document.getElementById(dropdown);
 	team_dropdown.innerHTML = ''
 
 	active = 'active'
-	if(all != "" | oversea != ""){
-		if(all != ""){
+	if (all != "" | oversea != "") {
+		if (all != "") {
 			team_dropdown.innerHTML += `
 			<li><a class="dropdown-item active" onclick="f('all')">
 				<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
 			</li>`
 			active = ''
 		}
-		if(oversea != ""){
+		if (oversea != "") {
 			team_dropdown.innerHTML += `
 			<li><a class="dropdown-item ${active}" onclick="f('oversea')">
 				<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
@@ -22,11 +22,11 @@ function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
 	}
 
 	lastLeague = ''
-	for(let i = 0;i<allTeams.length;i++){
+	for (let i = 0; i < allTeams.length; i++) {
 		team = allTeams[i];
-		if(team.gender == gender){
-			if(lastLeague == '') lastLeague = team.league;
-			if(lastLeague != team.league){
+		if (team.gender == gender) {
+			if (lastLeague == '') lastLeague = team.league;
+			if (lastLeague != team.league) {
 				team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
 				lastLeague = team.league;
 			}
@@ -34,22 +34,14 @@ function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
 			<li><a class="dropdown-item" onclick="f('${team.id}')">
 				<img src="../asset/images/${team.gender}/${team.id}.png" alt="${team.id}" class="teamicon">${team.full_name_CN}</a>
 			</li>`
-			
+
 		}
 	}
 }
-
-function is_oversea(league) {
-	if (league != "PLG" & league != "T1" & league != "SBL" & league != "WSBL") {
-		return 1
-	} else {
-		return 0
-	}
-}
-function isOversea(id){
-	if(findTeam(id) == -1){
+function isOversea(id) {
+	if (findTeam(id) == -1) {
 		return 1;
-	}else{
+	} else {
 		return 0;
 	}
 }
@@ -62,94 +54,47 @@ function identity(id) {
 		return "unknown"
 	}
 }
-function team_name(value, league, team, gender = "") {
-	if (value == "full") teamName = teamName_full_CN[team];
-	if (value == "short") teamName = teamName_short_CN[team];
-
-	if (team == "fa") {
-		return `自由球員`
-	} else if (league != "" & is_oversea(league)) {
-		return `${league} ${team}`
-
-	} else if (team != "fa" & gender != "") {
-		return `
-		<a href = "${team_link[team]}" target = "_blank">
-		<img src="../asset/images/${gender}/${team}.png" alt="${team}" class="teamicon"><b>${teamName}</b></a>`
-
-	} else {
-		return teamName
-	}
-}
-function teamName(value, league, id, img = ''){
-	if(id == 'fa'){
+function teamName(value, league, id, img = '') {
+	if (id == 'fa') {
 		return '自由球員'
-	}else if(isOversea(id)){
+	} else if (isOversea(id)) {
 		return `${league} ${id}`
-	}else{
+	} else {
 		team = findTeam(id);
-		if(img != ''){
+		if (img != '') {
 			return `
 			<a href = "${team.link}" target = "_blank">
 				<img src="../asset/images/${team.gender}/${team.id}.png" alt="${team.id}" class="teamicon"><b>${team.name_CN(value)}</b></a>`
-		}else{
+		} else {
 			return team.name_CN(value);
 		}
 	}
 }
-function filter_team(league, team) {
-	if (is_oversea(league)) {
-		return `oversea`
-	} else {
-		return team
-	}
-}
-function teamFilter(id){
-	if (isOversea(id)){
+function teamFilter(id) {
+	if (id != 'fa' & isOversea(id)) {
 		return 'oversea';
-	}else{
+	} else {
 		return id;
 	}
 }
-function bg_team(league, team) {
-	if (is_oversea(league)) {
-		return `${league}-bg`
-	} else {
-		return `${team}-bg`
-	}
-}
-function teamBG(league, id){
+function teamBG(league, id) {
 	if (isOversea(id)) {
 		return `${league}-bg`
 	} else {
 		return `${id}-bg`
 	}
 }
-function playerUrl(id,url){
-	if(url == '' & !isOversea(id)){
+function playerUrl(id, url) {
+	if (url == '' & !isOversea(id)) {
 		return findTeam(id).link;
-	}else{
+	} else {
 		return url;
 	}
 }
-function team_order(league, team) {
-	if (is_oversea(league)) {
-		return order[league]
-	} else {
-		return order[team]
-	}
-}
-
-function num_order(num) {
-	if (num != "00") {
-		return num
-	} else {
-		return 100
-	}
-}
-function numOrder(num){
-	if(num != '00'){
+function numOrder(num) {
+	if (num != '00') {
 		return num;
-	}else{
+	} else {
 		return 100;
 	}
 }
@@ -161,9 +106,9 @@ function birthToAge(bday) {
 	return a;
 }
 function secToTime(t) {
-	min = Math.floor(t/60);
-	sec = t%60;
-	return min+':'+sec;
+	min = Math.floor(t / 60);
+	sec = t % 60;
+	return min + ':' + sec;
 }
 
 function f(value, table = "") {
@@ -172,7 +117,7 @@ function f(value, table = "") {
 		checkboxes = []
 		var actives = document.getElementsByClassName("active");
 		for (let i = 0; i < actives.length; i++) {
-			if(actives[i].getAttribute('onclick') != ""){
+			if (actives[i].getAttribute('onclick') != "") {
 				var fil = actives[i].getAttribute('onclick').split('\'')[1];
 			}
 			if (table == "") {
@@ -216,10 +161,10 @@ function f(value, table = "") {
 
 function findIndex(array, team, index = -1) {
 	for (let i = 0; i < array.length; i++) {
-		if (index == -1){
-			if(array[i] == team) return i;
-		}else{
-			if(array[i][index] == team) return i;
+		if (index == -1) {
+			if (array[i] == team) return i;
+		} else {
+			if (array[i][index] == team) return i;
 		}
 	}
 	return -1;

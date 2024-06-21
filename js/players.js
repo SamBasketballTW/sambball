@@ -1,3 +1,26 @@
+
+allSchools = [];
+class School {
+    constructor(id, name, men_count = 0, women_count = 0) {
+        this.id = id;
+        this.name = name;
+        this.men_count = men_count;
+        this.women_count = women_count;
+    }
+
+}
+function findSchool(school) {
+    for (let i = 0; i < allSchools.length; i++) {
+        if (allSchools[i].name == school) {
+            return allSchools[i]
+        }
+    }
+    return -1;
+}
+allSchools = [new School('school0', '旅外')];
+men_uni = [];
+women_uni = [];
+school_id = 1;
 $(document).ready(function () {
     fetch('../data/rosters.csv')
         .then((response) => response.text())
@@ -12,35 +35,72 @@ $(document).ready(function () {
             women_uni = [];
             us_uni = [0, 0];
 
+            oversea_order = 0;
+            current_team = '';
+
             lines.forEach(player => {
                 infos = player.split(',');
                 info = ""
 
                 if (infos[6] == "active" & infos[7] != "headCoach" & infos[7] != "coach") {
+                    if (isOversea(infos[4]) & infos[4] != 'fa') {
+                        if (current_team != infos[4]) {
+                            oversea_order += 1;
+                            current_team = infos[4];
+                        }
+                        team_order = oversea_order;
+                    } else if (infos[4] != 'fa') {
+                        team_order = oversea_order + findTeam(infos[4]).teamIndex() + 1;
+                    } else {
+                        team_order = oversea_order + allTeams.length + 1;
+                    }
+
                     filter = '';
                     if (infos[16] != "" & infos[4] != "fa") filter += "change"
 
                     if (infos[4] == "fa") {
                         infos[16] = `${infos[3]} ${teamName("short", infos[3], infos[16])}`
                     }
-                    if (infos[5] == '') infos[5] = team_link[infos[4]];
 
                     if (infos[1] == "安尼奎") {
                         infos[9] = `洋將`;
                     } else if (infos[1] == "海登") {
                         infos[9] = `亞外`;
-                    } else if (infos[1] == "王振原") {
-                        infos[9] = `本土`;
+                    }
+
+                    if (!infos[14].includes('HBL') & infos[14] != '-') {
+                        if (infos[14].includes(' ')) {
+                            school = findSchool('旅外');
+                            school_filter = 'school0';
+                        } else {
+                            if (findSchool(infos[14]) == -1) {
+                                allSchools.push(new School('school' + school_id, infos[14]));
+                                school_id += 1;
+                            }
+                            school = findSchool(infos[14]);
+                            school_filter = school.id;
+                        }
+                        if (infos[0] == 'men') {
+                            school.men_count += 1;
+                            if (!infos[14].includes(' ') & findIndex(men_uni, infos[14]) == -1) {
+                                men_uni.push(infos[14]);
+                            }
+                        } else if (infos[0] == 'women') {
+                            school.women_count += 1;
+                            if (!infos[14].includes(' ') & findIndex(women_uni, infos[14]) == -1) {
+                                women_uni.push(infos[14]);
+                            }
+                        }
+                    } else {
+                        school_filter = '';
                     }
 
                     info += `
-                    <tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${infos[7]} ${infos[8]} ${school(infos[14])} ${filter}">
-                        <td class="borderR ${teamBG(infos[3], infos[4])}" data-order=${team_order(infos[3], infos[4])}>
-                            ${teamName("short", infos[3], infos[4],'img')}
-                        </td>
+                    <tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${infos[7]} ${infos[8]} ${school_filter} ${filter}">
+                        <td class="borderR ${teamBG(infos[3], infos[4])}" data-order=${team_order}>${teamName("short", infos[3], infos[4], 'img')}</td>
                         <td class="borderR" data-order=${numOrder(infos[2])}>${infos[2]}</td>
-                        <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4],infos[5])}" target="_blank">${infos[1]}</a></td>
-                        <td data-order=${order[infos[9]]}>${infos[9]}</td>
+                        <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4], infos[5])}" target="_blank">${infos[1]}</a></td>
+                        <td>${infos[9]}</td>
                         <td>${infos[10]}</td>
                         <td>${infos[11]}</td>
                         <td>${infos[12]}</td>
@@ -49,33 +109,6 @@ $(document).ready(function () {
                         <td class="borderR textL">${infos[14]}</td>
                         <td>${infos[16]}</td>                
                     </tr>`
-
-
-                    if (school(infos[14]) != "") {
-                        if (infos[0] == 'men') {
-                            if (school(infos[14]) == 'college-us') {
-                                us_uni[0] += 1;
-                            } else {
-                                temp_index = findIndex(men_uni, infos[14], 0);
-                                if (temp_index == -1) {
-                                    men_uni.push([infos[14], 1]);
-                                } else if (temp_index > -1) {
-                                    men_uni[temp_index][1] += 1;
-                                }
-                            }
-                        } else if (infos[0] == 'women') {
-                            if (school(infos[14]) == 'college-us') {
-                                us_uni[1] += 1;
-                            } else {
-                                temp_index = findIndex(women_uni, infos[14], 0);
-                                if (temp_index == -1) {
-                                    women_uni.push([infos[14], 1]);
-                                } else if (temp_index > -1) {
-                                    women_uni[temp_index][1] += 1;
-                                }
-                            }
-                        }
-                    }
                 }
 
 
@@ -116,7 +149,7 @@ $(document).ready(function () {
                 var school_dropdown = document.getElementById('school-dropdown');
                 if (this.innerHTML == "男籃") {
 
-                    add_team_dropdown('team-dropdown', 'men','all','cba');
+                    add_team_dropdown('team-dropdown', 'men', 'all', 'cba');
 
                     team_dropdown.innerHTML += `
                     <li><hr class="dropdown-divider"></li>
@@ -133,16 +166,17 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外: ${us_uni[0]} 人</a></li>`
+					<li><a class="dropdown-item" onclick="f('school0')">旅外: ${allSchools[0].men_count} 人</a></li>`
 
                     for (let i = 0; i < men_uni.length; i++) {
+                        school = findSchool(men_uni[i])
                         school_dropdown.innerHTML += `
-                        <li><a class="dropdown-item" onclick="f('${school(men_uni[i][0])}')">${men_uni[i][0]}: ${men_uni[i][1]} 人</a></li>`
+                        <li><a class="dropdown-item" onclick="f('${school.id}')">${school.name}: ${school.men_count} 人</a></li>`
                     }
 
                 } else if (this.innerHTML == "女籃") {
 
-                    add_team_dropdown('team-dropdown', 'women','all','wcba');
+                    add_team_dropdown('team-dropdown', 'women', 'all', 'wcba');
 
                     player_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
@@ -155,11 +189,12 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college-us')">旅外: ${us_uni[1]} 人</a></li>`
+					<li><a class="dropdown-item" onclick="f('school0')">旅外: ${allSchools[0].women_count} 人</a></li>`
 
                     for (let i = 0; i < women_uni.length; i++) {
+                        school = findSchool(women_uni[i])
                         school_dropdown.innerHTML += `
-                        <li><a class="dropdown-item" onclick="f('${school(women_uni[i][0])}')">${women_uni[i][0]}: ${women_uni[i][1]} 人</a></li>`
+                        <li><a class="dropdown-item" onclick="f('${school.id}')">${school.name}: ${school.women_count} 人</a></li>`
                     }
 
                 }
@@ -176,7 +211,7 @@ $(document).ready(function () {
                         this.className += " active";
                         teambtn.innerHTML = this.innerHTML;
 
-                        if(this.innerHTML == "自由球員"){
+                        if (this.innerHTML == "自由球員") {
                             players[0].click();
                             schools[0].click();
                         }
@@ -218,46 +253,4 @@ function toggleCheckboxes() {
         checkbox.checked = checkSwitch.checked;
         f('filter');
     });
-}
-function school(s) {
-    if (s.includes("HBL") | s == "-") {
-        return ""
-    } else if (college[s] == undefined) {
-        return "college-us"
-    } else {
-        return college[s]
-    }
-}
-college = {
-    "中州科大": "ccut",
-    "中信學院": "ctbcbs",
-    "中原大學": "cycu",
-    "文化大學": "pccu",
-    "世新大學": "shu",
-    "北市大學": "utaipei",
-    "佛光大學": "fgu",
-    "宏國德霖": "hdut",
-    "亞洲大學": "asiau",
-    "明道大學": "mdu",
-    "東南科大": "tungnanu",
-    "虎尾科大": "nfu",
-    "政治大學": "nccu",
-    "首府大學": "shoufuu",
-    "高雄師大": "nknu",
-    "健行科大": "uch",
-    "國立體大": "ntsu",
-    "康寧大學": "ukn",
-    "陽明交通": "nycu",
-    "萬能科大": "vnu",
-    "義守大學": "isu",
-    "僑光科大": "ocu",
-    "實踐大學": "usc",
-    "彰化師大": "ncue",
-    "臺北科大": "ntut",
-    "臺灣科大": "ntust",
-    "臺灣師大": "ntnu",
-    "臺灣藝大": "ntua",
-    "臺灣體大": "ntusport",
-    "輔仁大學": "fjcu",
-    "醒吾科大": "hwu"
 }

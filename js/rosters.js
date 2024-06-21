@@ -1,6 +1,6 @@
 class Rosters {
-    constructor(gender, league, id, coach = "",coach_EN = "", 
-    local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank = 0, height_rank = 0){
+    constructor(gender, league, id, coach = "", coach_EN = "",
+        local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank = 0, height_rank = 0) {
         this.gender = gender;
         this.league = league;
         this.id = id;
@@ -14,24 +14,27 @@ class Rosters {
         this.height_rank = height_rank;
     }
 
-    avg(value){
-        if(value == "age"){
+    avg(value) {
+        if (value == "age") {
             return (this.local_age_sum / this.local_count).toFixed(1);
-        }else if(value = "height"){
+        } else if (value = "height") {
             return (this.local_height_sum / this.local_count).toFixed(1);
         }
     }
 }
 class Movements {
-    constructor(gender, id, resigned = '',
-        change = '', merge = '', fa = '', trade = '', 
-        loan = '', keep = '', draft = '', loan_back = '', 
-        lost = '', lost_trade = '', lost_loan = '',
-        import_extend = '', import_add = '', import_lost = '' ){
+    constructor(gender, id, extension = [], signed = [], lost = []) {
         this.gender = gender;
         this.id = id;
-
-
+        this.extension = extension;
+        this.signed = signed;
+        this.lost = lost;
+    }
+}
+class MovementContent {
+    constructor(move, content = '') {
+        this.move = move;
+        this.content = content;
     }
 }
 $(document).ready(function () {
@@ -43,15 +46,15 @@ $(document).ready(function () {
     table_movements = document.getElementById('roster_movements_tbody')
 
     rosters_info = [];
-    rosters_info.push(new Rosters('men','oversea','oversea'));
-    rosters_info.push(new Rosters('women','oversea','oversea'));
-    movements_info = [];
-    movements_info.push(new Movements('men','oversea'));
-    movements_info.push(new Movements('women','oversea'));
+    rosters_info.push(new Rosters('men', 'oversea', 'oversea'));
+    rosters_info.push(new Rosters('women', 'oversea', 'oversea'));
+    moves_info = [];
+    moves_info.push(new Movements('men', 'oversea'));
+    moves_info.push(new Movements('women', 'oversea'));
 
-    for(let i = 0; i < allTeams.length;i++){
-        rosters_info.push(new Rosters(allTeams[i].gender,allTeams[i].league,allTeams[i].id));
-        movements_info.push(new Movements(allTeams[i].gender,allTeams[i].id))
+    for (let i = 0; i < allTeams.length; i++) {
+        rosters_info.push(new Rosters(allTeams[i].gender, allTeams[i].league, allTeams[i].id));
+        moves_info.push(new Movements(allTeams[i].gender, allTeams[i].id))
     }
 
     fetch('../data/rosters.csv')
@@ -75,20 +78,20 @@ $(document).ready(function () {
                 }
 
                 if (infos[0] != "" & infos[6] == "active" & infos[4] != "fa") {
-                    if(isOversea(infos[4])){
+                    if (isOversea(infos[4])) {
                         if (infos[0] == "men") team_index = 0;
                         if (infos[0] == "women") team_index = 1;
-                    }else{
+                    } else {
                         team_index = 2 + findTeam(infos[4]).teamIndex();
                     }
 
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
 
                         rosters_info[team_index].coach = `${infos[9]}: ${infos[1]}`
-                        rosters_info[team_index].coach_EN = coach_EN_name[infos[4]];
+                        rosters_info[team_index].coach_EN = findTeam(rosters_info[team_index].id).coach_EN;
 
                     } else {
-                        if (is_oversea(infos[3])) {
+                        if (isOversea(infos[4])) {
                             is_local = 1;
                             is_import = infos[7] != "local";
                         } else {
@@ -121,8 +124,8 @@ $(document).ready(function () {
                                 <tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${teamBG(infos[3], infos[4])}" style="font-size:15px">
                                     ${oversea_team}
                                     <td class="borderR" data-order="${numOrder(infos[2])}">${infos[2]}</td>
-                                    <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4],infos[5])}" target="_blank">${infos[1]}</a></td>             
-                                    <td data-order=${order[infos[9]]}>${infos[9]}</td>
+                                    <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4], infos[5])}" target="_blank">${infos[1]}</a></td>             
+                                    <td>${infos[9]}</td>
                                     <td>${infos[10]}</td>
                                     <td>${infos[11]}</td>
                                     <td>${infos[12]}</td>
@@ -145,21 +148,21 @@ $(document).ready(function () {
                 tableOversea.innerHTML += infoOversea;
             });
 
-            for(let i = 2;i<rosters_info.length;i++){
+            for (let i = 2; i < rosters_info.length; i++) {
                 rank_age = 0;
                 rank_height = 0;
-                for(let j = 2;j<rosters_info.length;j++){
-                    if(rosters_info[i].league == rosters_info[j].league){
-                        if(rosters_info[i].avg('age') < rosters_info[j].avg('age')){
+                for (let j = 2; j < rosters_info.length; j++) {
+                    if (rosters_info[i].league == rosters_info[j].league) {
+                        if (rosters_info[i].avg('age') < rosters_info[j].avg('age')) {
                             rank_age += 1;
                         }
-                        if(rosters_info[i].avg('height') < rosters_info[j].avg('height')){
+                        if (rosters_info[i].avg('height') < rosters_info[j].avg('height')) {
                             rank_height += 1;
                         }
                     }
                 }
-                rosters_info[i].age_rank = rank_age+1;
-                rosters_info[i].height_rank = rank_height+1;
+                rosters_info[i].age_rank = rank_age + 1;
+                rosters_info[i].height_rank = rank_height + 1;
             }
 
             var dataTable = $('#rosters_tb').DataTable({
@@ -191,72 +194,74 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(5);
 
-            teams_movement_info = [['men','oversea','','',''],['women','oversea','','','']];
-            for (let i = 0; i < league_teams['plg']; i++) teams_movement_info.push(['men',plg_teams[i + 1],'','','']);
-            for (let i = 0; i < league_teams['t1']; i++) teams_movement_info.push(['men',t1_teams[i + 1],'','','']);
-            for (let i = 0; i < league_teams['sbl']; i++) teams_movement_info.push(['men',sbl_teams[i + 1],'','','']);
-            for (let i = 0; i < league_teams['wsbl']; i++) teams_movement_info.push(['women',wsbl_teams[i + 1],'','','']);
-
-            cur_cat = "";
-
             lines.forEach(player => {
                 infos = player.split(',');
                 info = ""
 
-                if(infos[0] != ""){
+                if (infos[0] != "") {
                     if (infos[1] == 'oversea') {
                         if (infos[0] == 'men') team_index = 0
                         if (infos[0] == 'women') team_index = 1
                     } else {
-                        team_index = findIndex(teams_movement_info, infos[1],1);
+                        team_index = 2 + findTeam(infos[1]).teamIndex();
                     }
 
-                    if (infos[2] == "extend" | infos[2] == "import extend") {
-                        i = 2
-                    } else if (infos[2] == "lost" | infos[2] == "lost loan" | infos[2] == "lost trade" | infos[2] == "import lost") {
-                        i = 4
+
+                    if (infos[2] == 'extend' | infos[2] == 'import extend') {
+                        move = moves_info[team_index].extension;
+                    } else if (infos[2] == 'lost' | infos[2] == "lost loan" | infos[2] == "lost trade" | infos[2] == "import lost" | infos[2] == 'loan end') {
+                        move = moves_info[team_index].lost;
                     } else {
-                        i = 3
+                        move = moves_info[team_index].signed;
                     }
-                    if (cur_cat != infos[2]) {
-                        cur_cat = infos[2];
+
+                    new_move = 0;
+                    for (let i = 0; i < move.length; i++) {
+                        if (move[i].move == infos[2]) {
+                            move[i].content += `${infos[3]}<br>`;
+                            new_move = 1;
+                        }
+                    }
+                    if (new_move == 0) {
+                        temp = '';
+                        content = '';
 
                         if (infos[2] == "change") {
-                            cat_name = "轉隊"
+                            temp = "轉隊"
                         } else if (infos[2] == "merge") {
-                            cat_name = "Via 合併"
+                            temp = "Via 合併"
                         } else if (infos[2] == "fa") {
-                            cat_name = "Via 自由球員"
+                            temp = "Via 自由球員"
                         } else if (infos[2] == "trade") {
-                            cat_name = "Via 交易"
-                        } else if (infos[2] == "loan") {
-                            cat_name = "Via 租借"
+                            temp = "Via 交易"
                         } else if (infos[2] == "keep") {
-                            cat_name = "Via 保留名單"
+                            temp = "Via 保留名單"
                         } else if (infos[2] == "draft") {
-                            cat_name = "Via 選秀"
+                            temp = "Via 選秀"
+                        } else if (infos[2] == "loan") {
+                            temp = "Via 租借"
                         } else if (infos[2] == "loan back") {
-                            cat_name = "租借回歸"
+                            temp = "租借回歸"
                         } else if (infos[2] == "lost loan") {
-                            cat_name = "Via 租借"
+                            temp = "Via 租借"
+                        } else if (infos[2] == 'loan end') {
+                            temp = '租借結束'
                         } else if (infos[2] == "lost trade") {
-                            cat_name = "Via 交易"
+                            temp = "Via 交易"
                         } else if (infos[2] == "import extend") {
-                            cat_name = "續留洋將"
+                            temp = "續留洋將"
                         } else if (infos[2] == "import") {
-                            cat_name = "加盟洋將"
+                            temp = "加盟洋將"
                         } else if (infos[2] == "import lost") {
-                            cat_name = "離隊洋將"
+                            temp = "離隊洋將"
                         }
+                        if (temp != '') {
+                            content += `<a style="text-decoration:underline"><i>${temp}</i></a><br>`;
+                        }
+                        content += `${infos[3]}<br>`
 
-                        if (infos[2] != "extend" & infos[2] != "lost") {
-                            if (teams_movement_info[team_index][i] != "") {
-                                teams_movement_info[team_index][i] += `<br>`
-                            }
-                            teams_movement_info[team_index][i] += `<a style="text-decoration:underline"><i>${cat_name}</i></a><br>`
-                        }
+                        move.push(new MovementContent(infos[2], content));
                     }
-                    teams_movement_info[team_index][i] += `${infos[3]}<br>`
                 }
             });
             updateMovements();
@@ -284,10 +289,10 @@ $(document).ready(function () {
 
             if (switch_gender == 1) {
                 if (this.innerHTML == "男籃") {
-                    add_team_dropdown('team-dropdown', 'men','','cba');
+                    add_team_dropdown('team-dropdown', 'men', '', 'cba');
 
                 } else if (this.innerHTML == "女籃") {
-                    add_team_dropdown('team-dropdown', 'women','','wcba');
+                    add_team_dropdown('team-dropdown', 'women', '', 'wcba');
 
                 }
                 var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");
@@ -322,17 +327,6 @@ $(document).ready(function () {
         }
     });
 });
-function rankArray(array) {
-    temp = [];
-    for (let i = 0; i < array.length; i++) {
-        count = 0;
-        for (let j = 0; j < array.length; j++) {
-            if (array[i] < array[j]) count += 1;
-        }
-        temp.push(count + 1);
-    }
-    return temp;
-}
 function updateTables() {
     tableCount = document.getElementById('r_count_tbody');
 
@@ -380,18 +374,6 @@ function updateTables() {
                 外籍球員:&nbsp;&nbsp;${rosters_info[i].import_count}&nbsp;&nbsp;人
             </td>
         </tr>`
-        // if (i < 2 + league_teams['plg']) {
-        //     league = 'PLG'
-        // } else if (i < 2 + league_teams['plg'] + league_teams['t1']) {
-        //     league = 'T1'
-        // } else if (i < 2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl']) {
-        //     league = 'SBL'
-        // } else {
-        //     league = 'WSBL'
-        // }
-        // age_league_rank = `(${league}第${rankA[i - 2]})`
-        // height_league_rank = `(${league}第${rankH[i - 2]})`
-
         if (window.innerWidth > 510) {
             blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
         } else {
@@ -410,28 +392,49 @@ function updateTables() {
 function updateMovements() {
     table_movements.innerHTML = ""
 
+
     if (window.innerWidth <= 576) {
         table_movements_th.innerHTML = `<th>2024-25 球員異動</th>`
 
-        for (let i = 0; i < teams_movement_info.length; i++) {
-            if (teams_movement_info[i][2] == "") teams_movement_info[i][2] = "無 / 未知"
-            if (teams_movement_info[i][3] == "") teams_movement_info[i][3] = "無"
-            if (teams_movement_info[i][4] == "") teams_movement_info[i][4] = "無"
-
+        for (let i = 0; i < moves_info.length; i++) {
+            extension = '';
+            signed = '';
+            lost = '';
+            if (moves_info[i].extension.length > 0) {
+                for (let j = 0; j < moves_info[i].extension.length; j++) {
+                    extension += moves_info[i].extension[j].content;
+                }
+            } else {
+                extension = '無 / 未知'
+            }
+            if (moves_info[i].signed.length > 0) {
+                for (let j = 0; j < moves_info[i].signed.length; j++) {
+                    signed += moves_info[i].signed[j].content;
+                }
+            } else {
+                signed = '無 / 未知'
+            }
+            if (moves_info[i].lost.length > 0) {
+                for (let j = 0; j < moves_info[i].lost.length; j++) {
+                    lost += moves_info[i].lost[j].content;
+                }
+            } else {
+                lost = '無 / 未知'
+            }
             table_movements.innerHTML += `
-            <tr class="filterTr ${teams_movement_info[i][0]} ${teams_movement_info[i][1]}">
+            <tr class="filterTr ${moves_info[i].gender} ${moves_info[i].id}">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;"><b>Extension</b></a><br>${teams_movement_info[i][2]}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Extension</b></a><br>${extension}
                 </td>
             </tr>
-            <tr class="filterTr ${teams_movement_info[i][0]} ${teams_movement_info[i][1]}">
+            <tr class="filterTr ${moves_info[i].gender} ${moves_info[i].id}">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;"><b>Signed</b></a><br>${teams_movement_info[i][3]}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Signed</b></a><br>${signed}
                 </td>
             </tr>
-            <tr class="filterTr ${teams_movement_info[i][0]} ${teams_movement_info[i][1]}">
+            <tr class="filterTr ${moves_info[i].gender} ${moves_info[i].id}">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;"><b>Lost</b></a><br>${teams_movement_info[i][4]}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Lost</b></a><br>${lost}
                 </td>
             </tr>`
         }
@@ -441,16 +444,37 @@ function updateMovements() {
         <th style="font-size:18px"><b>Signed</b></th>
         <th style="font-size:18px"><b>Lost</b></th>`
 
-        for (let i = 0; i < teams_movement_info.length; i++) {
-            if (teams_movement_info[i][2] == "") teams_movement_info[i][2] = "<br>無 / 未知<br><br>"
-            if (teams_movement_info[i][3] == "") teams_movement_info[i][3] = "<br>無<br><br>"
-            if (teams_movement_info[i][4] == "") teams_movement_info[i][4] = "<br>無<br><br>"
+        for (let i = 0; i < moves_info.length; i++) {
+            extension = '';
+            signed = '';
+            lost = '';
+            if (moves_info[i].extension.length > 0) {
+                for (let j = 0; j < moves_info[i].extension.length; j++) {
+                    extension += moves_info[i].extension[j].content;
+                }
+            } else {
+                extension = '<br>無 / 未知<br><br>'
+            }
+            if (moves_info[i].signed.length > 0) {
+                for (let j = 0; j < moves_info[i].signed.length; j++) {
+                    signed += moves_info[i].signed[j].content;
+                }
+            } else {
+                signed = '<br>無 / 未知<br><br>'
+            }
+            if (moves_info[i].lost.length > 0) {
+                for (let j = 0; j < moves_info[i].lost.length; j++) {
+                    lost += moves_info[i].lost[j].content;
+                }
+            } else {
+                lost = '<br>無 / 未知<br><br>'
+            }
 
             table_movements.innerHTML += `
-            <tr class="filterTr ${teams_movement_info[i][0]} ${teams_movement_info[i][1]}">
-                <td class="borderR textL">${teams_movement_info[i][2]}</td>
-                <td class="borderR textL">${teams_movement_info[i][3]}</td>
-                <td class="textL">${teams_movement_info[i][4]}</td>
+            <tr class="filterTr ${moves_info[i].gender} ${moves_info[i].id}">
+                <td class="borderR textL">${extension}</td>
+                <td class="borderR textL">${signed}</td>
+                <td class="textL">${lost}</td>
             </tr>`
         }
     }
