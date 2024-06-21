@@ -21,7 +21,7 @@ $(document).ready(function () {
                     if (infos[16] != "" & infos[4] != "fa") filter += "change"
 
                     if (infos[4] == "fa") {
-                        infos[16] = `${infos[3]} ${team_name("short", infos[3], infos[16])}`
+                        infos[16] = `${infos[3]} ${teamName("short", infos[3], infos[16])}`
                     }
                     if (infos[5] == '') infos[5] = team_link[infos[4]];
 
@@ -34,17 +34,17 @@ $(document).ready(function () {
                     }
 
                     info += `
-                    <tr class="filterTr ${infos[0]} ${filter_team(infos[3], infos[4])} ${infos[7]} ${infos[8]} ${school(infos[14])} ${filter}">
-                        <td class="borderR ${bg_team(infos[3], infos[4])}" data-order=${team_order(infos[3], infos[4])}>
-                            ${team_name("short", infos[3], infos[4], infos[0])}
+                    <tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${infos[7]} ${infos[8]} ${school(infos[14])} ${filter}">
+                        <td class="borderR ${teamBG(infos[3], infos[4])}" data-order=${team_order(infos[3], infos[4])}>
+                            ${teamName("short", infos[3], infos[4],'img')}
                         </td>
-                        <td class="borderR" data-order=${num_order(infos[2])}>${infos[2]}</td>
-                        <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
+                        <td class="borderR" data-order=${numOrder(infos[2])}>${infos[2]}</td>
+                        <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4],infos[5])}" target="_blank">${infos[1]}</a></td>
                         <td data-order=${order[infos[9]]}>${infos[9]}</td>
                         <td>${infos[10]}</td>
                         <td>${infos[11]}</td>
                         <td>${infos[12]}</td>
-                        <td>${age(infos[13])}</td>
+                        <td>${birthToAge(infos[13])}</td>
                         <td class="borderR">${infos[13]}</td>
                         <td class="borderR textL">${infos[14]}</td>
                         <td>${infos[16]}</td>                
@@ -115,14 +115,8 @@ $(document).ready(function () {
                 var player_dropdown = document.getElementById('player-dropdown');
                 var school_dropdown = document.getElementById('school-dropdown');
                 if (this.innerHTML == "男籃") {
-                    team_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('all')">
-							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-                    <li><a class="dropdown-item" onclick="f('oversea')">
-                        <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-                    <li><hr class="dropdown-divider"></li>`
 
-                    add_team_dropdown('team-dropdown', 'men');
+                    add_team_dropdown('team-dropdown', 'men','all','cba');
 
                     team_dropdown.innerHTML += `
                     <li><hr class="dropdown-divider"></li>
@@ -147,14 +141,8 @@ $(document).ready(function () {
                     }
 
                 } else if (this.innerHTML == "女籃") {
-                    team_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('all')">
-							<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-                    <li><a class="dropdown-item" onclick="f('oversea')">
-                        <img src="../asset/images/women/wcba.png" alt="oversea" class="teamicon">WCBA & 旅外</a></li>
-                    <li><hr class="dropdown-divider"></li>`
 
-                    add_team_dropdown('team-dropdown', 'women');
+                    add_team_dropdown('team-dropdown', 'women','all','wcba');
 
                     player_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
@@ -162,7 +150,7 @@ $(document).ready(function () {
 					<li><hr class="dropdown-divider"></li>`
 
                     for (let j = 2023; j >= 2019; j--) {
-                        player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${j}Rookie')">${j + 1}'新秀</a></li>`
+                        player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${j}Rookie')">${j}'新秀</a></li>`
                     }
 
                     school_dropdown.innerHTML = `

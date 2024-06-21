@@ -12,14 +12,13 @@ $(document).ready(function () {
 				infos = player.split(',');
 				info = ""
 
-				teamName = infos[5];
-				if (infos[5] == "") teamName = teamName_full_CN[infos[4]];
+				if (infos[5] == "") infos[5] = teamName('full','',infos[4]);
 
 				info += `
 					<tr class="filterTr ${infos[0]} ${infos[1]}${infos[2]} ${infos[4]}">	
 						<td class="borderR">${infos[1]} ${infos[2].toUpperCase()} 選秀大會</td>
 						<td class="borderR">${infos[3]}</td>
-						<td class="borderR">${teamName}</td>
+						<td class="borderR">${infos[5]}</td>
 						<td>${infos[6]}</td>
 					</tr>`
 
@@ -79,7 +78,6 @@ $(document).ready(function () {
 					</li>`
 
 					draft_dropdown.innerHTML = temp;
-					team_dropdown.innerHTML = ``
 					add_team_dropdown('team-dropdown', 'men');
 
 				} else if (this.innerHTML == "女籃") {
@@ -91,7 +89,6 @@ $(document).ready(function () {
 					}
 
 					draft_dropdown.innerHTML = temp;
-					team_dropdown.innerHTML = ``
 					add_team_dropdown('team-dropdown', 'women');
 
 				}

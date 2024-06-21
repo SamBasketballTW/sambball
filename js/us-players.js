@@ -62,16 +62,15 @@ $(document).ready(function () {
             genderbtn.innerHTML = this.innerHTML;
 
             if (switch_gender == 1) {
+                btns[0].className = "btn btn-light active"
+                btns[1].className = "btn btn-light"
+                btns[2].className = "btn btn-light"
+
                 if (this.innerHTML == "男籃") {
-                    btns[0].className = "btn btn-light"
-                    btns[1].className = "btn btn-light active"
-                    btns[2].className = "btn btn-light"
+                    btns[1].click();
                 } else if (this.innerHTML == "女籃") {
-                    btns[0].className = "btn btn-light disabled"
-                    btns[1].className = "btn btn-light active"
-                    btns[2].className = "btn btn-light disabled"
+                    btns[0].click();
                 }
-                btns[1].click();
             }
         });
     }

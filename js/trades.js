@@ -40,13 +40,8 @@ $(document).ready(function () {
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });
 
-    var team_dropdown = document.getElementById("team-dropdown");
-    team_dropdown.innerHTML = `
-    <li><a class="dropdown-item active" onclick="f('all')">
-        <img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a></li>
-    <li><hr class="dropdown-divider"></li>`
 
-    add_team_dropdown("team-dropdown", "men");
+    add_team_dropdown("team-dropdown", "men",'all');
 
     var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
     var genderbtn = document.getElementById("genderbtn");

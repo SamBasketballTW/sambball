@@ -1,14 +1,17 @@
-class team_rosters {
-
-    constructor(gender = "", league = "", filter = "", coach = "", local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0){
+class Rosters {
+    constructor(gender, league, id, coach = "",coach_EN = "", 
+    local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank = 0, height_rank = 0){
         this.gender = gender;
         this.league = league;
-        this.filter = filter;
+        this.id = id;
         this.coach = coach;
+        this.coach_EN = coach_EN;
         this.local_age_sum = local_age_sum;
         this.local_height_sum = local_height_sum;
         this.local_count = local_count;
         this.import_count = import_count;
+        this.age_rank = age_rank;
+        this.height_rank = height_rank;
     }
 
     avg(value){
@@ -19,6 +22,18 @@ class team_rosters {
         }
     }
 }
+class Movements {
+    constructor(gender, id, resigned = '',
+        change = '', merge = '', fa = '', trade = '', 
+        loan = '', keep = '', draft = '', loan_back = '', 
+        lost = '', lost_trade = '', lost_loan = '',
+        import_extend = '', import_add = '', import_lost = '' ){
+        this.gender = gender;
+        this.id = id;
+
+
+    }
+}
 $(document).ready(function () {
 
     tableCount = document.getElementById('r_count_tbody');
@@ -27,32 +42,16 @@ $(document).ready(function () {
     table_movements_th = document.getElementById('roster_movements_thead')
     table_movements = document.getElementById('roster_movements_tbody')
 
-    teams_info = [['men', 'oversea', 0,0,0,0],['women','oversea',0,0,0,0]]
-    for (let i = 0; i < league_teams['plg']; i++) teams_info.push(['men',plg_teams[i + 1],0,0,0,0]);
-    for (let i = 0; i < league_teams['t1']; i++) teams_info.push(['men',t1_teams[i + 1],0,0,0,0]);
-    for (let i = 0; i < league_teams['sbl']; i++) teams_info.push(['men',sbl_teams[i + 1],0,0,0,0]);
-    for (let i = 0; i < league_teams['wsbl']; i++) teams_info.push(['women',wsbl_teams[i + 1],0,0,0,0]);
+    rosters_info = [];
+    rosters_info.push(new Rosters('men','oversea','oversea'));
+    rosters_info.push(new Rosters('women','oversea','oversea'));
+    movements_info = [];
+    movements_info.push(new Movements('men','oversea'));
+    movements_info.push(new Movements('women','oversea'));
 
-
-    temp_info = [];
-    temp_teams = [];
-    temp_info.push(new team_rosters('men','oversea','oversea'));
-    temp_info.push(new team_rosters('women','oversea','oversea'));
-    for (let i = 1; i <= league_teams['plg']; i++){
-        temp_info.push(new team_rosters('men','plg',plg_teams[i]));
-        temp_teams.push(plg_teams[i]);
-    }
-    for (let i = 1; i <= league_teams['t1']; i++){
-        temp_info.push(new team_rosters('men','t1',t1_teams[i]));
-        temp_teams.push(t1_teams[i]);
-    }
-    for (let i = 1; i <= league_teams['sbl']; i++){
-        temp_info.push(new team_rosters('men','sbl',sbl_teams[i]));
-        temp_teams.push(sbl_teams[i]);
-    }
-    for (let i = 1; i <= league_teams['wsbl']; i++){
-        temp_info.push(new team_rosters('women','wsbl',wsbl_teams[i]));
-        temp_teams.push(wsbl_teams[i]);
+    for(let i = 0; i < allTeams.length;i++){
+        rosters_info.push(new Rosters(allTeams[i].gender,allTeams[i].league,allTeams[i].id));
+        movements_info.push(new Movements(allTeams[i].gender,allTeams[i].id))
     }
 
     fetch('../data/rosters.csv')
@@ -61,9 +60,6 @@ $(document).ready(function () {
 
             lines = result.split('\n');
             lines = lines.slice(2);
-
-            team_coach_info = [];
-            for (let i = 0; i < teams_info.length; i++) team_coach_info.push('');
 
             lines.forEach(player => {
                 infos = player.split(',');
@@ -79,75 +75,64 @@ $(document).ready(function () {
                 }
 
                 if (infos[0] != "" & infos[6] == "active" & infos[4] != "fa") {
+                    if(isOversea(infos[4])){
+                        if (infos[0] == "men") team_index = 0;
+                        if (infos[0] == "women") team_index = 1;
+                    }else{
+                        team_index = 2 + findTeam(infos[4]).teamIndex();
+                    }
+
                     if (infos[7] == "headCoach" | infos[7] == "coach") {
 
-                        team_index = findIndex(teams_info, infos[4],1);
-                        team_coach_info[team_index] += `${infos[9]}: ${infos[1]}`;
-
-                        temp_team_i = 2 + findIndex(temp_teams,infos[4]);
-                        temp_info[temp_team_i].coach = `${infos[9]}: ${infos[1]}`;
+                        rosters_info[team_index].coach = `${infos[9]}: ${infos[1]}`
+                        rosters_info[team_index].coach_EN = coach_EN_name[infos[4]];
 
                     } else {
                         if (is_oversea(infos[3])) {
-                            if (infos[0] == "men") team_index = 0;
-                            if (infos[0] == "women") team_index = 1;
-                            is_local = 1;
-                            is_import = infos[7] != "local";
-
-                            if (infos[0] == "men") temp_team_i = 0;
-                            if (infos[0] == "women") temp_team_i = 1;
                             is_local = 1;
                             is_import = infos[7] != "local";
                         } else {
-                            team_index = findIndex(teams_info, infos[4],1);
                             is_local = identity(infos[9]) == "local";
                             is_import = identity(infos[9]) == "import";
-
-                            temp_team_i = 2 + findIndex(temp_teams,infos[4])
                         }
 
                         if (is_local) {
-                            teams_info[team_index][2] += age(infos[13]);
-                            teams_info[team_index][3] += parseInt(infos[11]);
-                            teams_info[team_index][4] += 1;
+                            rosters_info[team_index].local_age_sum += birthToAge(infos[13]);
+                            rosters_info[team_index].local_height_sum += parseInt(infos[11]);
+                            rosters_info[team_index].local_count += 1;
 
-                            temp_info[temp_team_i].local_age_sum += age(infos[13]);
-                            temp_info[temp_team_i].local_height_sum += parseInt(infos[11]);
-                            temp_info[temp_team_i].local_count += 1;
                         } else if (is_import) {
-                            teams_info[team_index][5] += 1;
+                            rosters_info[team_index].import_count += 1;
 
-                            temp_info[temp_team_i].import_count += 1;
                         }
 
                         if (is_local | is_import | infos[9] == "註銷" | infos[9] == "未註冊") {
-                            if (is_oversea(infos[3])) {
-                                oversea_team = `<td class="borderR">${team_name("full", infos[3], infos[4])}</td>`;
+                            if (isOversea(infos[4])) {
+                                oversea_team = `<td class="borderR">${infos[3]} ${infos[4]}</td>`;
                             } else {
                                 oversea_team = ""
                             }
-                            if (infos[5] == '') infos[5] = team_link[infos[4]];
 
                             if (infos[9] == "註銷" | infos[9] == "未註冊") {
                                 infos[9] = `<a style="color:white">${infos[9]}</a>`
                             }
 
                             tempInfo = `
-                                <tr class="filterTr ${infos[0]} ${filter_team(infos[3], infos[4])} ${bg_team(infos[3], infos[4])}" style="font-size:15px">
+                                <tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${teamBG(infos[3], infos[4])}" style="font-size:15px">
                                     ${oversea_team}
-                                    <td class="borderR" data-order="${num_order(infos[2])}">${infos[2]}</td>
-                                    <td><a style="text-decoration:underline;color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>             
+                                    <td class="borderR" data-order="${numOrder(infos[2])}">${infos[2]}</td>
+                                    <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4],infos[5])}" target="_blank">${infos[1]}</a></td>             
                                     <td data-order=${order[infos[9]]}>${infos[9]}</td>
                                     <td>${infos[10]}</td>
                                     <td>${infos[11]}</td>
                                     <td>${infos[12]}</td>
-                                    <td>${age(infos[13])}</td>
+                                    <td>${birthToAge(infos[13])}</td>
                                     <td class="borderR">${infos[13]}</td>
                                     <td class="borderR textL" style="font-size:14px">${infos[14]}</td>
                                     <td class="textL" style="font-size:14px">${infos[15]}</td>
                                 </tr>
                             `
-                            if (is_oversea(infos[3])) {
+                            if (isOversea(infos[4])) {
                                 infoOversea += tempInfo;
                             } else {
                                 info += tempInfo;
@@ -160,58 +145,22 @@ $(document).ready(function () {
                 tableOversea.innerHTML += infoOversea;
             });
 
-            a_plg = [];
-            h_plg = [];
-            a_t1 = [];
-            h_t1 = [];
-            a_sbl = [];
-            h_sbl = [];
-            a_wsbl = [];
-            h_wsbl = [];
-
-            for (let i = 0; i < teams_info.length; i++) {
-                teams_info[i].push((teams_info[i][2] / teams_info[i][4]).toFixed(1));
-                teams_info[i].push((teams_info[i][3] / teams_info[i][4]).toFixed(1));
-
-                if (i > 1) {
-                    if (i < 2 + league_teams['plg']) {
-                        // a_plg.push(teams_info[i][6])
-                        // h_plg.push(teams_info[i][7])
-
-                        a_plg.push(temp_info[i].avg("age"));
-                        h_plg.push(temp_info[i].avg("height"));
-                    } else if (i < 2 + league_teams['plg'] + league_teams['t1']) {
-                        // a_t1.push(teams_info[i][6])
-                        // h_t1.push(teams_info[i][7])
-
-                        a_t1.push(temp_info[i].avg("age"));
-                        h_t1.push(temp_info[i].avg("height"));
-                    } else if (i < 2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl']) {
-                        // a_sbl.push(teams_info[i][6])
-                        // h_sbl.push(teams_info[i][7])
-
-                        a_sbl.push(temp_info[i].avg("age"));
-                        h_sbl.push(temp_info[i].avg("height"));
-                    } else {
-                        // a_wsbl.push(teams_info[i][6])
-                        // h_wsbl.push(teams_info[i][7])
-
-                        a_wsbl.push(temp_info[i].avg("age"));
-                        h_wsbl.push(temp_info[i].avg("height"));
+            for(let i = 2;i<rosters_info.length;i++){
+                rank_age = 0;
+                rank_height = 0;
+                for(let j = 2;j<rosters_info.length;j++){
+                    if(rosters_info[i].league == rosters_info[j].league){
+                        if(rosters_info[i].avg('age') < rosters_info[j].avg('age')){
+                            rank_age += 1;
+                        }
+                        if(rosters_info[i].avg('height') < rosters_info[j].avg('height')){
+                            rank_height += 1;
+                        }
                     }
                 }
+                rosters_info[i].age_rank = rank_age+1;
+                rosters_info[i].height_rank = rank_height+1;
             }
-
-            a_plg = rankArray(a_plg);
-            h_plg = rankArray(h_plg);
-            a_t1 = rankArray(a_t1);
-            h_t1 = rankArray(h_t1);
-            a_sbl = rankArray(a_sbl);
-            h_sbl = rankArray(h_sbl);
-            a_wsbl = rankArray(a_wsbl);
-            h_wsbl = rankArray(h_wsbl);
-            rankA = a_plg.concat(a_t1, a_sbl, a_wsbl);
-            rankH = h_plg.concat(h_t1, h_sbl, h_wsbl);
 
             var dataTable = $('#rosters_tb').DataTable({
                 dom: 't',
@@ -334,22 +283,11 @@ $(document).ready(function () {
             genderbtn.innerHTML = this.innerHTML;
 
             if (switch_gender == 1) {
-                var team_dropdown = document.getElementById('team-dropdown');
                 if (this.innerHTML == "男籃") {
-                    team_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('oversea')">
-                        <img src="../asset/images/men/cba.png" alt="oversea" class="teamicon">CBA & 旅外</a></li>
-                    <li><hr class="dropdown-divider"></li>`
-
-                    add_team_dropdown('team-dropdown', 'men');
+                    add_team_dropdown('team-dropdown', 'men','','cba');
 
                 } else if (this.innerHTML == "女籃") {
-                    team_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('oversea')">
-                        <img src="../asset/images/women/wcba.png" alt="oversea" class="teamicon">WCBA & 旅外</a></li>
-                    <li><hr class="dropdown-divider"></li>`
-
-                    add_team_dropdown('team-dropdown', 'women');
+                    add_team_dropdown('team-dropdown', 'women','','wcba');
 
                 }
                 var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");
@@ -407,8 +345,8 @@ function updateTables() {
         </tr>
         <tr class="filterTr men oversea CBA-bg">
             <td>
-                本土平均年齡:&nbsp;${teams_info[0][6]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                本土平均身高:&nbsp;${teams_info[0][7]}
+                本土平均年齡:&nbsp;${rosters_info[0].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                本土平均身高:&nbsp;${rosters_info[0].avg('height')}
             </td>
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
@@ -420,14 +358,14 @@ function updateTables() {
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
             <td>
-                本土平均年齡:&nbsp;${teams_info[1][6]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                本土平均身高:&nbsp;${teams_info[1][7]}
+            本土平均年齡:&nbsp;${rosters_info[1].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            本土平均身高:&nbsp;${rosters_info[1].avg('height')}
             </td>
         </tr>`
 
 
-    for (let i = 2; i < teams_info.length; i++) {
-        if (coach_EN_name[teams_info[i][1]] != "" & window.innerWidth <= 600) {
+    for (let i = 2; i < rosters_info.length; i++) {
+        if (rosters_info[i].coach_EN != "" & window.innerWidth <= 600) {
             blank = `<br>`
         } else if (window.innerWidth <= 495) {
             blank = '<br>'
@@ -435,24 +373,24 @@ function updateTables() {
             blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
         }
         tableCount.innerHTML += `
-        <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][1]} ${teams_info[i][1]}-bg">
+        <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id} ${rosters_info[i].id}-bg">
             <td>
-                ${team_coach_info[i]}${coach_EN_name[teams_info[i][1]]}${blank}
-                本土球員:&nbsp;&nbsp;${teams_info[i][4]}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                外籍球員:&nbsp;&nbsp;${teams_info[i][5]}&nbsp;&nbsp;人
+                ${rosters_info[i].coach}${rosters_info[i].coach_EN}${blank}
+                本土球員:&nbsp;&nbsp;${rosters_info[i].local_count}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                外籍球員:&nbsp;&nbsp;${rosters_info[i].import_count}&nbsp;&nbsp;人
             </td>
         </tr>`
-        if (i < 2 + league_teams['plg']) {
-            league = 'PLG'
-        } else if (i < 2 + league_teams['plg'] + league_teams['t1']) {
-            league = 'T1'
-        } else if (i < 2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl']) {
-            league = 'SBL'
-        } else {
-            league = 'WSBL'
-        }
-        age_league_rank = `(${league}第${rankA[i - 2]})`
-        height_league_rank = `(${league}第${rankH[i - 2]})`
+        // if (i < 2 + league_teams['plg']) {
+        //     league = 'PLG'
+        // } else if (i < 2 + league_teams['plg'] + league_teams['t1']) {
+        //     league = 'T1'
+        // } else if (i < 2 + league_teams['plg'] + league_teams['t1'] + league_teams['sbl']) {
+        //     league = 'SBL'
+        // } else {
+        //     league = 'WSBL'
+        // }
+        // age_league_rank = `(${league}第${rankA[i - 2]})`
+        // height_league_rank = `(${league}第${rankH[i - 2]})`
 
         if (window.innerWidth > 510) {
             blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
@@ -460,10 +398,10 @@ function updateTables() {
             blank = `<br>`
         }
         tableCount.innerHTML += `
-        <tr class="filterTr ${teams_info[i][0]} ${teams_info[i][1]} ${teams_info[i][1]}-bg">
+        <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id} ${rosters_info[i].id}-bg">
             <td>
-                本土平均年齡:&nbsp;${teams_info[i][6]}&nbsp;${age_league_rank}${blank}
-                本土平均身高:&nbsp;${teams_info[i][7]}&nbsp;${height_league_rank}
+                本土平均年齡:&nbsp;${rosters_info[i].avg('age')}&nbsp;(${rosters_info[i].league.toUpperCase()}第${rosters_info[i].age_rank})${blank}
+                本土平均身高:&nbsp;${rosters_info[i].avg('height')}&nbsp;(${rosters_info[i].league.toUpperCase()}第${rosters_info[i].height_rank})
             </td>
         </tr>`
     }

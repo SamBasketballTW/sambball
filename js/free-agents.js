@@ -17,13 +17,13 @@ $(document).ready(function () {
 
                     info += `
                     <tr class="filterTr ${infos[0]}">
-                        <td><a style="text-decoration:underline; color:inherit" href="${infos[5]}" target="_blank">${infos[1]}</a></td>
+                        <td><a style="text-decoration:underline; color:inherit" href="${playerUrl(infos[4],infos[5])}" target="_blank">${infos[1]}</a></td>
                         <td>${infos[10]}</td>
-                        <td>${age(infos[13])}</td>
+                        <td>${birthToAge(infos[13])}</td>
                         <td class="borderR">${infos[11]}</td>
                         <td>${infos[24]}</td>
-                        <td class="${bg_team(infos[3], team)} borderR" data-order="${team_order(infos[3], team)}">${team_name("full", infos[3], team)}</td>
-                        <td data-order="${infos[25]}">${time(infos[25])}</td>
+                        <td class="${teamBG(infos[3], infos[16])} borderR" data-order="${team_order(infos[3], team)}">${teamName('full',infos[3],infos[16])}</td>
+                        <td data-order="${infos[25]}">${secToTime(infos[25])}</td>
                         <td>${infos[26]}</td>
                         <td>${infos[27]}</td>
                         <td>${infos[28]}</td>              
