@@ -1,26 +1,23 @@
 
-allSchools = [];
-class School {
-    constructor(id, name, men_count = 0, women_count = 0) {
-        this.id = id;
+class PlayerCount {
+    static id = 0;
+    constructor(name, men_count = 0, women_count = 0) {
+        this.id = 'college' + PlayerCount.id++;
         this.name = name;
         this.men_count = men_count;
         this.women_count = women_count;
     }
-
 }
 function findSchool(school) {
-    for (let i = 0; i < allSchools.length; i++) {
-        if (allSchools[i].name == school) {
-            return allSchools[i]
+    for (let i = 0; i < allColleges.length; i++) {
+        if (allColleges[i].name == school) {
+            return allColleges[i]
         }
     }
     return -1;
 }
-allSchools = [new School('school0', '旅外')];
-men_uni = [];
-women_uni = [];
-school_id = 1;
+
+allColleges = [new PlayerCount('旅外')];
 $(document).ready(function () {
     fetch('../data/rosters.csv')
         .then((response) => response.text())
@@ -35,87 +32,93 @@ $(document).ready(function () {
             women_uni = [];
             us_uni = [0, 0];
 
-            oversea_order = 0;
+            oversea_team_order = 0;
             current_team = '';
 
             lines.forEach(player => {
                 infos = player.split(',');
-                info = ""
 
-                if (infos[6] == "active" & infos[7] != "headCoach" & infos[7] != "coach") {
-                    if (isOversea(infos[4]) & infos[4] != 'fa') {
-                        if (current_team != infos[4]) {
-                            oversea_order += 1;
-                            current_team = infos[4];
-                        }
-                        team_order = oversea_order;
-                    } else if (infos[4] != 'fa') {
-                        team_order = oversea_order + findTeam(infos[4]).teamIndex() + 1;
-                    } else {
-                        team_order = oversea_order + allTeams.length + 1;
-                    }
+                let [
+                    gender,
+                    name,
+                    jersey_num, league, team, player_url,
+                    status,
+                    identity,
+                    rookie,
+                    league_identity, pos, height, weight, birth,
+                    school,
+                    aquired,
+                    last_team,
+                    contract_filter, contract_season, contract_years, contract_years_left,
+                    contract_note,
+                    contract_link_title, contract_url,
+                    fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg
 
+                ] = infos;
+
+                if (status == 'active' & identity != 'coach') {
                     filter = '';
-                    if (infos[16] != "" & infos[4] != "fa") filter += "change"
-
-                    if (infos[4] == "fa") {
-                        infos[16] = `${infos[3]} ${teamName("short", infos[3], infos[16])}`
-                    }
-
-                    if (infos[1] == "安尼奎") {
-                        infos[9] = `洋將`;
-                    } else if (infos[1] == "海登") {
-                        infos[9] = `亞外`;
-                    }
-
-                    if (!infos[14].includes('HBL') & infos[14] != '-') {
-                        if (infos[14].includes(' ')) {
-                            school = findSchool('旅外');
-                            school_filter = 'school0';
-                        } else {
-                            if (findSchool(infos[14]) == -1) {
-                                allSchools.push(new School('school' + school_id, infos[14]));
-                                school_id += 1;
-                            }
-                            school = findSchool(infos[14]);
-                            school_filter = school.id;
+                    if (isOversea(team) & team != 'fa') {
+                        if (current_team != team) {
+                            oversea_team_order += 1;
+                            current_team = team;
                         }
-                        if (infos[0] == 'men') {
-                            school.men_count += 1;
-                            if (!infos[14].includes(' ') & findIndex(men_uni, infos[14]) == -1) {
-                                men_uni.push(infos[14]);
-                            }
-                        } else if (infos[0] == 'women') {
-                            school.women_count += 1;
-                            if (!infos[14].includes(' ') & findIndex(women_uni, infos[14]) == -1) {
-                                women_uni.push(infos[14]);
-                            }
-                        }
+                        team_order = oversea_team_order;
+                    } else if (team != 'fa') {
+                        team_order = oversea_team_order + 1 + findTeam(team).teamIndex();
                     } else {
-                        school_filter = '';
+                        team_order = oversea_team_order + allTeams.length + 1;
                     }
 
-                    info += `
-                    <tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${infos[7]} ${infos[8]} ${school_filter} ${filter}">
-                        <td class="borderR ${teamBG(infos[3], infos[4])}" data-order=${team_order}>${teamName("short", infos[3], infos[4], 'img')}</td>
-                        <td class="borderR" data-order=${numOrder(infos[2])}>${infos[2]}</td>
-                        <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4], infos[5])}" target="_blank">${infos[1]}</a></td>
-                        <td>${infos[9]}</td>
-                        <td>${infos[10]}</td>
-                        <td>${infos[11]}</td>
-                        <td>${infos[12]}</td>
-                        <td>${birthToAge(infos[13])}</td>
-                        <td class="borderR">${infos[13]}</td>
-                        <td class="borderR textL">${infos[14]}</td>
-                        <td>${infos[16]}</td>                
+                    if (last_team != '' & team != 'fa') {
+                        filter += ' change';
+                    }
+
+                    if (!school.includes('HBL') & school != '-') {
+                        if (school.includes(' ')) {
+                            college = allColleges[0];
+                            filter += ' ' + findSchool('旅外').id;
+                        } else {
+                            if (findSchool(school) == -1) {
+                                allColleges.push(new PlayerCount(school));
+                            }
+                            college = findSchool(school);
+                            filter += ' ' + findSchool(school).id;
+                        }
+
+                        if (gender == 'men') {
+                            college.men_count += 1;
+                        } else if (gender == 'women') {
+                            college.women_count += 1;
+                        }
+                    }
+
+                    former_team = ''
+                    if (last_team != '') {
+                        if (isOversea(last_team)) {
+                            former_team = last_team;
+                        } else {
+                            former_team = teamName('short', '', last_team);
+                        }
+                    }
+
+                    table.innerHTML += `
+                    <tr class="filterTr ${gender} ${teamFilter(team)} ${identity} ${rookie} ${filter}">
+                        <td class="borderR ${teamBG(league, team)}" data-order=${team_order}>${teamName('short', league, team, 'img')}</td>
+                        <td class="borderR" data-order=${numOrder(jersey_num)}>${jersey_num}</td>
+                        <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+                        <td>${league_identity}</td>
+                        <td>${pos}</td>
+                        <td>${height}</td>
+                        <td>${weight}</td>
+                        <td>${birthToAge(birth)}</td>
+                        <td class="borderR">${birth}</td>
+                        <td class="borderR textL">${school}</td>
+                        <td>${former_team}</td>                
                     </tr>`
                 }
-
-
-                table.innerHTML += info;
             });
-            men_uni.sort();
-            women_uni.sort();
+            allColleges.sort((a, b) => a.name.localeCompare(b.name));
 
             var dataTable = $('#players_tb').DataTable({
                 dom: 't',
@@ -160,18 +163,21 @@ $(document).ready(function () {
 					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
 					<li><hr class="dropdown-divider"></li>`
 
-                    for (let j = 2023; j >= 2020; j--) {
+                    for (let j = 2024; j >= 2020; j--) {
                         player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${j}Rookie')">${j}'新秀</a></li>`
                     }
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('school0')">旅外: ${allSchools[0].men_count} 人</a></li>`
+					<li><a class="dropdown-item" onclick="f('${findSchool('旅外').id}')">旅外: ${findSchool('旅外').men_count} 人</a></li>`
 
-                    for (let i = 0; i < men_uni.length; i++) {
-                        school = findSchool(men_uni[i])
-                        school_dropdown.innerHTML += `
-                        <li><a class="dropdown-item" onclick="f('${school.id}')">${school.name}: ${school.men_count} 人</a></li>`
+                    allColleges.sort((a, b) => b.men_count - a.men_count);
+                    for (let i = 0; i < allColleges.length; i++) {
+                        if (allColleges[i].name != '旅外' & allColleges[i].men_count != 0) {
+                            school_dropdown.innerHTML += `
+                            <li><a class="dropdown-item" 
+                            onclick="f('${allColleges[i].id}')">${allColleges[i].name}: ${allColleges[i].men_count} 人</a></li>`
+                        }
                     }
 
                 } else if (this.innerHTML == "女籃") {
@@ -189,12 +195,15 @@ $(document).ready(function () {
 
                     school_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('school0')">旅外: ${allSchools[0].women_count} 人</a></li>`
+					<li><a class="dropdown-item" onclick="f('college0')">旅外: ${findSchool('旅外').women_count} 人</a></li>`
 
-                    for (let i = 0; i < women_uni.length; i++) {
-                        school = findSchool(women_uni[i])
-                        school_dropdown.innerHTML += `
-                        <li><a class="dropdown-item" onclick="f('${school.id}')">${school.name}: ${school.women_count} 人</a></li>`
+                    allColleges.sort((a, b) => b.women_count - a.women_count);
+                    for (let i = 0; i < allColleges.length; i++) {
+                        if (allColleges[i].name != '旅外' & allColleges[i].women_count != 0) {
+                            school_dropdown.innerHTML += `
+                            <li><a class="dropdown-item" 
+                            onclick="f('${allColleges[i].id}')">${allColleges[i].name}: ${allColleges[i].women_count} 人</a></li>`
+                        }
                     }
 
                 }

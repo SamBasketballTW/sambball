@@ -22,7 +22,20 @@ class Matchup {
 }
 
 $(document).ready(function () {
+	document.getElementById('plg-champ').innerHTML = `
+	<td class="${teamBG('kings')}">P. LEAGUE+ 2023-24年度總冠軍: ${teamName('full', '', 'kings')}</td>`
+
+	document.getElementById('t1-champ').innerHTML = `
+	<td class="${teamBG('leopards')}">T1 LEAGUE 2023-24年度總冠軍: ${teamName('full', '', 'leopards')}</td>`
+
+	document.getElementById('sbl-champ').innerHTML = `
+	<td class="${teamBG('yulon')}">第21屆 SBL年度總冠軍: ${teamName('full', '', 'yulon')}</td>`
+
+	document.getElementById('wsbl-champ').innerHTML = `
+	<td class="${teamBG('cathay')}">第21屆 WSBL年度總冠軍: ${teamName('full', '', 'cathay')}</td>`
+
 	league = ['plg', 't1', 'sbl', 'wsbl'];
+	champ = ['kings', 'leopards', 'yulon', 'cathay'];
 	plg_teams = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers'];
 	t1_teams = ['dea', 'mars', 'leopards', 'ghosthawks', 'aquas'];
 	sbl_teams = ['beer', 'bank', 'yulon', 'bll'];
@@ -66,11 +79,34 @@ $(document).ready(function () {
 				lines.forEach(player => {
 					infos = player.split(',');
 
-					teamW_index = findIndex(teams, infos[3]);
-					teamL_index = findIndex(teams, infos[11]);
+					let [
+						league,
+						game,
+						date,
+						teamW,
+						teamW_home_road,
+						teamW_q1,
+						teamW_q2,
+						teamW_q3,
+						teamW_q4,
+						teamW_ot,
+						teamW_pts,
+						teamL,
+						teamL_home_road,
+						teamL_q1,
+						teamL_q2,
+						teamL_q3,
+						teamL_q4,
+						teamL_ot,
+						teamL_pts
 
-					pts_w = parseInt(infos[10]);
-					pts_l = parseInt(infos[18]);
+					] = infos;
+
+					teamW_index = teams.indexOf(teamW);
+					teamL_index = teams.indexOf(teamL);
+
+					teamW_pts = parseInt(teamW_pts);
+					teamL_pts = parseInt(teamL_pts);
 
 					stand_info[teamW_index].w += 1;
 					stand_info[teamL_index].l += 1;
@@ -95,13 +131,12 @@ $(document).ready(function () {
 
 					stand_info[teamW_index].matchup[teamL_index].w += 1;
 					stand_info[teamL_index].matchup[teamW_index].l += 1;
-					stand_info[teamW_index].matchup[teamW_index].win_pts += pts_w - pts_l
-					stand_info[teamW_index].matchup[teamL_index].win_pts += pts_w - pts_l
-					stand_info[teamL_index].matchup[teamW_index].win_pts += pts_l - pts_w
+					stand_info[teamW_index].matchup[teamW_index].win_pts += teamW_pts - teamL_pts
+					stand_info[teamW_index].matchup[teamL_index].win_pts += teamW_pts - teamL_pts
+					stand_info[teamL_index].matchup[teamW_index].win_pts += teamL_pts - teamW_pts
 
 				});
 				sortStandings();
-				console.log(stand_info);
 
 				temp_w = (games / (stand_info.length - 1)) / 2;
 				for (let i = 0; i < stand_info.length; i++) {
@@ -178,53 +213,68 @@ $(document).ready(function () {
 			lines = result.split('\n');
 			lines = lines.slice(2);
 
-			count = 0;
-			text = ``;
-			gender = "";
+			count1_gender = "";
+			bdays = [];
 
 			lines.forEach(player => {
 				infos = player.split(',');
 
+				let [
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, pos, height, weight, birth,
+					school,
+					aquired,
+					last_team,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note,
+					contract_link_title, contract_url,
+					fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg
+
+				] = infos;
+
 				const today = new Date();
-				const sam = new Date('10/11');
 				const blackie = new Date('1977/5/2');
-				if (count == 0 && today.getDate() == sam.getDate() && today.getMonth() == sam.getMonth()) {
-					text += `今天是 山姆 的生日`
-					count += 1;
-					gender = "men";
-				} else if (count == 0 && today.getDate() == blackie.getDate() && today.getMonth() == blackie.getMonth()) {
-					text += `今天是 PLG聯盟副會長-陳建州 ${age(blackie)}歲生日`
-					count += 1;
-					gender = "men";
+				if (bdays.length == 0 & today.getDate() == blackie.getDate() & today.getMonth() == blackie.getMonth()) {
+					bdays.push(['PLG聯盟副會長-陳建州', birthToAge(blackie)]);
+					count1_gender = 'men'
 				}
 
-				if (infos[6] == "active") {
-					birthday = new Date(infos[13]);
+				if (status == 'active' | status == 'unknown') {
+					birthday = new Date(birth);
 
-					if (birthday.getDate() == today.getDate() && birthday.getMonth() == today.getMonth()) {
-						if (count == 0) {
-							text += `今天是 ${teamName('full', infos[3], infos[4])}-${infos[1]} ${birthToAge(infos[13])}歲生日`
-						} else {
-							text += `、${teamName('full', infos[3], infos[4])}-${infos[1]} ${birthToAge(infos[13])}歲生日`;
-						}
-						count += 1;
-						gender = infos[0];
+					if (birthday.getDate() == today.getDate() & birthday.getMonth() == today.getMonth()) {
+						bdays.push([`${teamName('full', league, team)}-${name}`, birthToAge(birth)]);
+						count1_gender = gender;
 					}
 				}
 
 			});
 
-			if (count == 0) {
-				text += `今天沒有球員生日，祝你有美好的一天！`
-			} else if (count == 1 & gender == "women") {
-				text += `，祝她生日快樂！`
-			} else if (count == 1) {
-				text += `，祝他生日快樂！`
-			} else if (count > 1) {
-				text += `，祝他們生日快樂！`
+			if (bdays.length == 0) {
+				table_bday.innerHTML += `今天沒有球員生日，祝你有美好的一天！`
+			} else {
+				bdays.sort((a, b) => b[1] - a[1]);
+				for (let i = 0; i < bdays.length; i++) {
+					if (i == 0) {
+						table_bday.innerHTML += '今天是 '
+					} else {
+						table_bday.innerHTML += '、'
+					}
+					table_bday.innerHTML += ` ${bdays[i][0]} ${bdays[i][1]}歲生日`
+				}
+				if (bdays.length == 1 & count1_gender == 'women') {
+					table_bday.innerHTML += `，祝她生日快樂！`
+				} else if (bdays.length == 1) {
+					table_bday.innerHTML += `，祝他生日快樂！`
+				} else {
+					table_bday.innerHTML += `，祝他們生日快樂！`
+				}
 			}
-
-			table_bday.innerHTML += text;
 		})
 });
 function sortStandings() {

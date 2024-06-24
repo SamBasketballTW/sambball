@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	table = document.getElementById('contracts_tbody');
+
 	fetch('../data/rosters.csv')
 		.then((response) => response.text())
 		.then((result) => {
@@ -10,47 +12,69 @@ $(document).ready(function () {
 
 			lines.forEach(player => {
 				infos = player.split(',');
-				info = ""
 
-				if (infos[0] == "men" & infos[4] != "fa" & !(infos[18] == "" & infos[19] == "" & infos[20] == "")) {
+				let [
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, pos, height, weight, birth,
+					school,
+					aquired,
+					last_team,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note,
+					contract_link_title, contract_url,
+					fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg
 
-					if (infos[7] == "coach") {
-						filter = `coach`
-					} else if (isOversea(infos[4]) | identity(infos[9]) == "local") {
-						filter = `local`
+				] = infos;
+
+				if ((status == 'active' & team != 'fa') | status == 'loan') {
+					filter = contract_filter;
+					contract_link = '';
+					if (filter.includes('trade')) {
+						contract_season = '*' + contract_season + '*';
+						contract_years = '*' + contract_years + '*';
+						contract_years_left = '*' + contract_years_left + '*';
+					}
+
+					if (isOversea(team)) {
+						filter += ' local';
+					} else if (leagueIdFilter(league_identity) == 'import') {
+						filter += ' import';
+					} else if (leagueIdFilter(league_identity) == 'local') {
+						filter += ' local';
+					} else if (identity == 'coach') {
+						filter += ' coach';
 					} else {
-						filter = `import`
+						console.log(name);
+						console.log(league_identity);
 					}
 
-					if (infos[20] == "0" | infos[20].includes("0+")) filter += ` 1y`;
-
-					if (infos[17].includes("trade")) {
-						if (infos[18] != "") infos[18] = '*' + infos[18] + '*'
-						if (infos[19] != "") infos[19] = '*' + infos[19] + '*'
-						if (infos[20] != "") infos[20] = '*' + infos[20] + '*'
+					if (contract_years_left.includes('0')) {
+						filter += ' 1y';
 					}
 
-					contract_url = ""
-					if (infos[22] != "") {
-						contract_url += `
-							<a style="color:inherit; text-decoration:underline" href="${infos[23]}" target="_blank">
-							<i class="bi bi-link-45deg"></i>${infos[22]}</a>`;
+					if (contract_url != '') {
+						contract_link = `
+						<a style="color:inherit; text-decoration:underline" href="${contract_url}" target="_blank">
+							<i class="bi bi-link-45deg"></i>${contract_link_title}</a>`;
 					}
 
-					info += `
-						<tr class="filterTr ${infos[0]} ${teamFilter(infos[4])} ${infos[17]} ${filter} ">
-							<td class="${teamBG(infos[3], infos[4])} borderR">${teamName('short', infos[3], infos[4], 'img')}</td>
-							<td class="borderR">${infos[2]}</td>
-							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(infos[4], infos[5])}" target="_blank">${infos[1]}</a></td>
-							<td>${infos[18]}</td>
-							<td class="borderR">${infos[19]}</td>
-							<td class="borderR">${infos[20]}</td>
-							<td class="borderR">${infos[21]}</td>
-							<td>${contract_url}</td>
-						</tr>`
+					table.innerHTML += `
+					<tr class="filterTr ${gender} ${teamFilter(team)} ${filter} ">
+						<td class="${teamBG(league, team)} borderR">${teamName('short', league, team, 'img')}</td>
+						<td class="borderR">${jersey_num}</td>
+						<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+						<td>${contract_season}</td>
+						<td class="borderR">${contract_years}</td>
+						<td class="borderR">${contract_years_left}</td>
+						<td class="borderR">${contract_note}</td>
+						<td>${contract_link}</td>
+					</tr>`
 				}
-
-				table.innerHTML += info;
 			});
 			document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
 		});

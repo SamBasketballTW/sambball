@@ -10,32 +10,39 @@ $(document).ready(function () {
 
             lines.forEach(trade => {
                 infos = trade.split(',');
-                info = ""
 
-                if (infos[1].includes("index")) {
-                    info += `
-                        <tr class="filterTr ${infos[0]} ${infos[1]} ${infos[2]} player draft">
-                            <td colspan="3" style="font-size:120%; background-color:#1B1B1B;">${infos[5]}</td>
+                let [
+                    gender,
+                    team_filter,
+                    trade_filter,
+                    date,
+                    season,
+                    content,
+                    futurePick_content,
+                    content2
+
+                ] = infos;
+
+                filter = '';
+                if (team_filter.includes("index")) {
+                    table.innerHTML += `
+                        <tr class="filterTr ${gender} ${team_filter} ${trade_filter} player draft">
+                            <td colspan="3" style="font-size:120%; background-color:#1B1B1B;">${content}</td>
                         </tr>`
                 } else {
-                    trade = infos[5];
-                    for (let i = 6; i < infos.length - 1; i += 2) {
-                        if (infos[i] != "") {
-                            trade += `<span style="color:red;"> ${infos[i]} </span>${infos[i + 1]}`;
-                        }
+                    trade = content;
+                    if (futurePick_content != '') {
+                        trade += `<span style="color:red;"> ${futurePick_content} </span>${content2}`
+                        filter += ' futurePick'
                     }
-                    filter = ''
-                    if (infos[6] != "") filter += 'futurePick'
 
-                    info += `
-                        <tr class="filterTr ${infos[0]} ${infos[1]} ${infos[2]} ${filter}">
-                            <td class="textR">${infos[3]}</td>
-                            <td class="textL borderR">(${infos[4]})</td>
+                    table.innerHTML += `
+                        <tr class="filterTr ${gender} ${team_filter} ${trade_filter} ${filter}">
+                            <td class="textR">${date}</td>
+                            <td class="textL borderR">(${season})</td>
                             <td style="text-align:left;">${trade}</td>
                         </tr>`
                 }
-
-                table.innerHTML += info;
             });
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });

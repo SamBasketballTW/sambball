@@ -8,40 +8,55 @@ $(document).ready(function () {
 
             table = document.getElementById('roster_fa_tbody');
 
-            oversea_order = 0;
+            oversea_team_order = 0;
             current_team = '';
 
             lines.forEach(player => {
                 infos = player.split(',');
-                info = ""
 
-                if (infos[24] != "") {
-                    if (isOversea(infos[16])) {
-                        if (current_team != infos[16]) {
-                            oversea_order += 1;
-                            current_team = infos[16];
+                let [
+                    gender,
+                    name,
+                    jersey_num, league, team, player_url,
+                    status,
+                    identity,
+                    rookie,
+                    league_identity, pos, height, weight, birth,
+                    school,
+                    aquired,
+                    last_team,
+                    contract_filter, contract_season, contract_years, contract_years_left,
+                    contract_note,
+                    contract_link_title, contract_url,
+                    fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg
+
+                ] = infos;
+
+                if (team == 'fa') {
+                    if (isOversea(last_team)) {
+                        if (current_team != last_team) {
+                            oversea_team_order += 1;
+                            current_team = last_team;
                         }
-                        team_order = oversea_order;
+                        team_order = oversea_team_order;
                     } else {
-                        team_order = oversea_order + findTeam(infos[16]).teamIndex() + 1;
+                        team_order = oversea_team_order + 1 + findTeam(last_team).teamIndex();
                     }
 
-                    info += `
-                    <tr class="filterTr ${infos[0]}">
-                        <td><a style="text-decoration:underline; color:inherit" href="${playerUrl(infos[4], infos[5])}" target="_blank">${infos[1]}</a></td>
-                        <td>${infos[10]}</td>
-                        <td>${birthToAge(infos[13])}</td>
-                        <td class="borderR">${infos[11]}</td>
-                        <td>${infos[24]}</td>
-                        <td class="${teamBG(infos[3], infos[16])} borderR" data-order="${team_order}">${teamName('full', infos[3], infos[16])}</td>
-                        <td data-order="${infos[25]}">${secToTime(infos[25])}</td>
-                        <td>${infos[26]}</td>
-                        <td>${infos[27]}</td>
-                        <td>${infos[28]}</td>              
+                    table.innerHTML += `
+                    <tr class="filterTr ${gender}">
+                        <td><a style="text-decoration:underline; color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+                        <td>${pos}</td>
+                        <td>${birthToAge(birth)}</td>
+                        <td class="borderR">${height}</td>
+                        <td>${fa_status}</td>
+                        <td class="${teamBG(league, last_team)} borderR" data-order="${team_order}">${teamName('full', league, last_team)}</td>
+                        <td data-order="${fa_total_sec}">${secToTime(fa_total_sec)}</td>
+                        <td>${fa_ppg}</td>
+                        <td>${fa_rpg}</td>
+                        <td>${fa_apg}</td>              
                     </tr>`
                 }
-
-                table.innerHTML += info;
             })
 
             var dataTable = $('#fa_tb').DataTable({

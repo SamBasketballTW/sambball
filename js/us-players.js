@@ -6,42 +6,54 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(2);
 
-            tableC = document.getElementById('college_tbody');
-            tableHS = document.getElementById('hs_tbody');
-
             lines.forEach(player => {
                 infos = player.split(',');
-                info = ""
 
-                if (infos[5] == "本土") {
+                let [
+                    gender,
+                    college_or_hs,
+                    pos,
+                    name,
+                    instagram,
+                    identity,
+                    height,
+                    birth,
+                    class_of,
+                    jersey_num,
+                    school,
+                    division,
+                    conference
+
+                ] = infos;
+
+                if (college_or_hs == "c") {
+                    table = document.getElementById('college_tbody');
+                } else if (college_or_hs == "hs") {
+                    table = document.getElementById('hs_tbody');
+                }
+
+                if (identity == "本土") {
                     filter = "local";
                 } else {
                     filter = "taiwanese";
                 }
 
-                info += `
-                    <tr class="filterTr ${infos[0]} ${filter}">
-                        <td class="borderR">${infos[2]}</td>
-                        <td class="borderR">${infos[3]}</td>
+                table.innerHTML += `
+                    <tr class="filterTr ${gender} ${filter}">
+                        <td class="borderR">${pos}</td>
+                        <td class="borderR">${name}</td>
                         <td class="borderR textL">
-                            <a href="https://www.instagram.com/${infos[4]}/" target="_blank">
-                            <i class="bi bi-instagram"></i> ${infos[4]}</a>
+                            <a href="https://www.instagram.com/${instagram}/" target="_blank">
+                            <i class="bi bi-instagram"></i> ${instagram}</a>
                         </td>
-                        <td>${infos[5]}</td>
-                        <td>${infos[6]}</td>
-                        <td class="borderR">${infos[8]}</td>
-                        <td>${infos[9]}</td>
-                        <td class="borderR">${infos[10]}</td>
-                        <td>${infos[11]}</td>
-                        <td>${infos[12]}</td>
+                        <td>${identity}</td>
+                        <td>${height}</td>
+                        <td class="borderR">${class_of}</td>
+                        <td>${jersey_num}</td>
+                        <td class="borderR">${school}</td>
+                        <td>${division}</td>
+                        <td>${conference}</td>
                     </tr>`
-
-
-                if (infos[1] == "c") {
-                    tableC.innerHTML += info;
-                } else if (infos[1] == "hs") {
-                    tableHS.innerHTML += info;
-                }
             });
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });

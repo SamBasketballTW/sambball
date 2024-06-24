@@ -1,7 +1,6 @@
 function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
 	var team_dropdown = document.getElementById(dropdown);
 	team_dropdown.innerHTML = ''
-
 	active = 'active'
 	if (all != "" | oversea != "") {
 		if (all != "") {
@@ -22,8 +21,7 @@ function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
 	}
 
 	lastLeague = ''
-	for (let i = 0; i < allTeams.length; i++) {
-		team = allTeams[i];
+	allTeams.forEach(team => {
 		if (team.gender == gender) {
 			if (lastLeague == '') lastLeague = team.league;
 			if (lastLeague != team.league) {
@@ -36,7 +34,7 @@ function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
 			</li>`
 
 		}
-	}
+	});
 }
 function isOversea(id) {
 	if (findTeam(id) == -1) {
@@ -45,14 +43,13 @@ function isOversea(id) {
 		return 0;
 	}
 }
-function identity(id) {
+function leagueIdFilter(id) {
 	if (id == "本土" | id == "華裔" | id == "外籍生" | id == "特案外籍生") {
 		return "local"
 	} else if (id == "洋將" | id == "亞外") {
 		return "import"
-	} else {
-		return "unknown"
 	}
+	return -1;
 }
 function teamName(value, league, id, img = '') {
 	if (id == 'fa') {
@@ -63,7 +60,7 @@ function teamName(value, league, id, img = '') {
 		team = findTeam(id);
 		if (img != '') {
 			return `
-			<a href = "${team.link}" target = "_blank">
+			<a href = "${team.url}" target = "_blank">
 				<img src="../asset/images/${team.gender}/${team.id}.png" alt="${team.id}" class="teamicon"><b>${team.name_CN(value)}</b></a>`
 		} else {
 			return team.name_CN(value);
@@ -86,7 +83,7 @@ function teamBG(league, id) {
 }
 function playerUrl(id, url) {
 	if (url == '' & !isOversea(id)) {
-		return findTeam(id).link;
+		return findTeam(id).url;
 	} else {
 		return url;
 	}
@@ -145,29 +142,18 @@ function f(value, table = "") {
 		for (let i = 0; i < rows.length; i++) {
 			var text = rows[i].className.split(' ');
 			show = 1;
-			for (let j = 0; j < filters.length; j++) {
-				if (findIndex(text, filters[j]) == -1) show = 0
-			}
-			for (let j = 0; j < checkboxes.length; j++) {
-				if (findIndex(text, checkboxes[j]) != -1) show = 0
-			}
+			filters.forEach(filter => {
+				if (text.indexOf(filter) == -1) show = 0
+			})
+			checkboxes.forEach(cb => {
+				if (text.indexOf(cb) != -1) show = 0
+			})
 			if (show == 1) w3AddClass(rows[i], " showTr");
 			if (show == 0) w3RemoveClass(rows[i], " showTr");
 		}
 
 	}
 
-}
-
-function findIndex(array, team, index = -1) {
-	for (let i = 0; i < array.length; i++) {
-		if (index == -1) {
-			if (array[i] == team) return i;
-		} else {
-			if (array[i][index] == team) return i;
-		}
-	}
-	return -1;
 }
 function w3AddClass(element, name) {
 	var i, arr1, arr2;

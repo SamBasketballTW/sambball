@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.06.21</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.06.24</b>`
 
     test = ''
     // test = '.html'
@@ -45,9 +45,8 @@ $(document).ready(function () {
         <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
     </div>`
 });
-allTeams = [];
 class Teams {
-    constructor(gender, league, id, full_name_CN = '', short_name_CN = '', full_name_EN = '', short_name_EN = '', coach_EN = '', link = '') {
+    constructor(gender, league, id, full_name_CN = '', short_name_CN = '', full_name_EN = '', short_name_EN = '', coach_EN = '', url = '') {
         this.gender = gender;
         this.league = league;
         this.id = id;
@@ -57,9 +56,7 @@ class Teams {
         this.full_name_EN = full_name_EN;
         this.short_name_EN = short_name_EN;
         this.coach_EN = coach_EN;
-        this.link = link;
-
-        allTeams.push(this);
+        this.url = url;
     }
 
     name_CN(value) {
@@ -72,7 +69,6 @@ class Teams {
     teamIndex() {
         return allTeams.indexOf(this);
     }
-
 }
 braves = new Teams('men', 'plg', 'braves', '臺北富邦勇士', '勇士');
 kings = new Teams('men', 'plg', 'kings', '新北國王', '國王');
@@ -94,6 +90,12 @@ taipower = new Teams('women', 'wsbl', 'taipower', '台灣電力', '台電');
 cht = new Teams('women', 'wsbl', 'cht', '中華電信', '電信');
 taiyuen = new Teams('women', 'wsbl', 'taiyuen', '台元紡織', '台元');
 
+allTeams = [
+    braves, kings, pilots, lioneers, dreamers, steelers,
+    dea, mars, leopards, ghosthawks, aquas,
+    beer, bank, yulon, bll,
+    cathay, taipower, cht, taiyuen
+]
 kings.coach_EN = ' Ryan Marchand'
 pilots.coach_EN = ' Iurgi Caminos'
 lioneers.coach_EN = ' Milan Mitrović'
@@ -101,25 +103,25 @@ dreamers.coach_EN = ' Jamie Pearlman'
 leopards.coach_EN = ' Charles Dubé-Brais'
 ghosthawks.coach_EN = ' Raoul Korner'
 
-braves.link = 'https://pleagueofficial.com/team/1';
-kings.link = 'https://pleagueofficial.com/team/6';
-pilots.link = 'https://pleagueofficial.com/team/2';
-lioneers.link = 'https://pleagueofficial.com/team/3';
-dreamers.link = 'https://pleagueofficial.com/team/4';
-steelers.link = 'https://pleagueofficial.com/team/5';
-dea.link = 'https://ctbcdea.com.tw/';
-mars.link = 'https://taipeimars.com.tw/';
-leopards.link = 'https://t-leopards.com/';
-ghosthawks.link = 'https://ghosthawks.tw/';
-aquas.link = 'https://ktown-aquas.com/';
-beer.link = 'https://sleague.tw/team/1/76/714';
-bank.link = 'https://sleague.tw/team/1/76/713';
-yulon.link = 'https://sleague.tw/team/1/76/712';
-bll.link = 'https://sleague.tw/team/1/76/711';
-cathay.link = 'https://wsbl.meetagile.com/team/2/77/715';
-taipower.link = 'https://wsbl.meetagile.com/team/2/77/716';
-cht.link = 'https://wsbl.meetagile.com/team/2/77/717';
-taiyuen.link = 'https://wsbl.meetagile.com/team/2/77/718';
+braves.url = 'https://pleagueofficial.com/team/1';
+kings.url = 'https://pleagueofficial.com/team/6';
+pilots.url = 'https://pleagueofficial.com/team/2';
+lioneers.url = 'https://pleagueofficial.com/team/3';
+dreamers.url = 'https://pleagueofficial.com/team/4';
+steelers.url = 'https://pleagueofficial.com/team/5';
+dea.url = 'https://ctbcdea.com.tw/';
+mars.url = 'https://taipeimars.com.tw/';
+leopards.url = 'https://t-leopards.com/';
+ghosthawks.url = 'https://ghosthawks.tw/';
+aquas.url = 'https://ktown-aquas.com/';
+beer.url = 'https://sleague.tw/team/1/76/714';
+bank.url = 'https://sleague.tw/team/1/76/713';
+yulon.url = 'https://sleague.tw/team/1/76/712';
+bll.url = 'https://sleague.tw/team/1/76/711';
+cathay.url = 'https://wsbl.meetagile.com/team/2/77/715';
+taipower.url = 'https://wsbl.meetagile.com/team/2/77/716';
+cht.url = 'https://wsbl.meetagile.com/team/2/77/717';
+taiyuen.url = 'https://wsbl.meetagile.com/team/2/77/718';
 
 function findTeam(team) {
     for (let i = 0; i < allTeams.length; i++) {

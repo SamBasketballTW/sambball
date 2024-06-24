@@ -10,19 +10,29 @@ $(document).ready(function () {
 
 			lines.forEach(player => {
 				infos = player.split(',');
-				info = ""
 
-				if (infos[5] == "") infos[5] = teamName('full', '', infos[4]);
+				let [
+					gender,
+					year,
+					league,
+					pick,
+					team_id,
+					team_name,
+					name
 
-				info += `
-					<tr class="filterTr ${infos[0]} ${infos[1]}${infos[2]} ${infos[4]}">	
-						<td class="borderR">${infos[1]} ${infos[2].toUpperCase()} 選秀大會</td>
-						<td class="borderR">${infos[3]}</td>
-						<td class="borderR">${infos[5]}</td>
-						<td>${infos[6]}</td>
-					</tr>`
+				] = infos;
 
-				table.innerHTML += info;
+				if (team_name == "") {
+					team_name = teamName('full', '', team_id);
+				}
+
+				table.innerHTML += `
+				<tr class="filterTr ${gender} ${year}${league} ${team_id}">	
+					<td class="borderR">${year} ${league.toUpperCase()} 選秀大會</td>
+					<td class="borderR">${pick}</td>
+					<td class="borderR">${team_name}</td>
+					<td>${name}</td>
+				</tr>`
 			});
 
 			document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();

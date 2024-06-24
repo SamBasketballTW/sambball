@@ -111,22 +111,45 @@ $(document).ready(function () {
                 lines.forEach(player => {
                     infos = player.split(',');
 
-                    gameDate = new Date(infos[2]);
+                    let [
+                        league,
+                        game,
+                        date,
+                        teamW,
+                        teamW_home_road,
+                        teamW_q1,
+                        teamW_q2,
+                        teamW_q3,
+                        teamW_q4,
+                        teamW_ot,
+                        teamW_pts,
+                        teamL,
+                        teamL_home_road,
+                        teamL_q1,
+                        teamL_q2,
+                        teamL_q3,
+                        teamL_q4,
+                        teamL_ot,
+                        teamL_pts
+
+                    ] = infos;
+
+                    gameDate = new Date(date);
                     lunarDate = new Date('2024/2/9');
 
-                    teamW_index = findIndex(teams, infos[3]);
-                    teamL_index = findIndex(teams, infos[11]);
+                    teamW_index = teams.indexOf(teamW);
+                    teamL_index = teams.indexOf(teamL);
 
-                    q1_w = parseInt(infos[5]);
-                    q2_w = parseInt(infos[6]);
-                    q3_w = parseInt(infos[7]);
-                    q4_w = parseInt(infos[8])
-                    pts_w = parseInt(infos[10]);
-                    q1_l = parseInt(infos[13]);
-                    q2_l = parseInt(infos[14]);
-                    q3_l = parseInt(infos[15]);
-                    q4_l = parseInt(infos[16]);
-                    pts_l = parseInt(infos[18]);
+                    teamW_q1 = parseInt(teamW_q1);
+                    teamW_q2 = parseInt(teamW_q2);
+                    teamW_q3 = parseInt(teamW_q3);
+                    teamW_q4 = parseInt(teamW_q4);
+                    teamW_pts = parseInt(teamW_pts);
+                    teamL_q1 = parseInt(teamL_q1);
+                    teamL_q2 = parseInt(teamL_q2);
+                    teamL_q3 = parseInt(teamL_q3);
+                    teamL_q4 = parseInt(teamL_q4);
+                    teamL_pts = parseInt(teamL_pts);
 
                     stand_info[teamW_index].w += 1;
                     stand_info[teamL_index].l += 1;
@@ -156,24 +179,24 @@ $(document).ready(function () {
                         stand_info[teamL_index].recent5.l += 1;
                     }
 
-                    if (infos[4] == "home") {
+                    if (teamW_home_road == "home") {
                         stand_info[teamW_index].home.w += 1;
                         stand_info[teamL_index].road.l += 1;
-                    } else if (infos[12] == "home") {
+                    } else if (teamL_home_road == "home") {
                         stand_info[teamW_index].road.w += 1;
                         stand_info[teamL_index].home.l += 1;
                     }
 
-                    if (infos[9] != '-' & infos[17] != '-') {
+                    if (teamW_ot != '-' & teamL_ot != '-') {
                         stand_info[teamW_index].ot.w += 1;
                         stand_info[teamL_index].ot.l += 1;
                     }
 
                     stand_info[teamW_index].matchup[teamL_index].w += 1;
                     stand_info[teamL_index].matchup[teamW_index].l += 1;
-                    stand_info[teamW_index].matchup[teamW_index].win_pts += pts_w - pts_l
-                    stand_info[teamW_index].matchup[teamL_index].win_pts += pts_w - pts_l
-                    stand_info[teamL_index].matchup[teamW_index].win_pts += pts_l - pts_w
+                    stand_info[teamW_index].matchup[teamW_index].win_pts += teamW_pts - teamL_pts
+                    stand_info[teamW_index].matchup[teamL_index].win_pts += teamW_pts - teamL_pts
+                    stand_info[teamL_index].matchup[teamW_index].win_pts += teamL_pts - teamW_pts
 
                     stand_info[teamW_index].cal[gameDate.getMonth()].w += 1;
                     stand_info[teamL_index].cal[gameDate.getMonth()].l += 1;
@@ -186,24 +209,24 @@ $(document).ready(function () {
                         stand_info[teamL_index].lunar_after.l += 1;
                     }
 
-                    stand_info[teamW_index].q_points[0] += q1_w - q1_l;
-                    stand_info[teamW_index].q_points[1] += q2_w - q2_l;
-                    stand_info[teamW_index].q_points[2] += q3_w - q3_l;
-                    stand_info[teamW_index].q_points[3] += q4_w - q4_l;
-                    stand_info[teamW_index].total_pts.w += pts_w;
-                    stand_info[teamW_index].total_pts_against.w += pts_l;
+                    stand_info[teamW_index].q_points[0] += teamW_q1 - teamL_q1;
+                    stand_info[teamW_index].q_points[1] += teamW_q2 - teamL_q2;
+                    stand_info[teamW_index].q_points[2] += teamW_q3 - teamL_q3;
+                    stand_info[teamW_index].q_points[3] += teamW_q4 - teamL_q4;
+                    stand_info[teamW_index].total_pts.w += teamW_pts;
+                    stand_info[teamW_index].total_pts_against.w += teamL_pts;
 
-                    stand_info[teamL_index].q_points[0] += q1_l - q1_w;
-                    stand_info[teamL_index].q_points[1] += q2_l - q2_w;
-                    stand_info[teamL_index].q_points[2] += q3_l - q3_w;
-                    stand_info[teamL_index].q_points[3] += q4_l - q4_w;
-                    stand_info[teamL_index].total_pts.l += pts_l;
-                    stand_info[teamL_index].total_pts_against.l += pts_w;
+                    stand_info[teamL_index].q_points[0] += teamL_q1 - teamW_q1;
+                    stand_info[teamL_index].q_points[1] += teamL_q2 - teamW_q2;
+                    stand_info[teamL_index].q_points[2] += teamL_q3 - teamW_q3;
+                    stand_info[teamL_index].q_points[3] += teamL_q4 - teamW_q4;
+                    stand_info[teamL_index].total_pts.l += teamL_pts;
+                    stand_info[teamL_index].total_pts_against.l += teamW_pts;
 
-                    if (q1_w + q2_w > q1_l + q2_l) {
+                    if (teamW_q1 + teamW_q2 > teamL_q1 + teamL_q2) {
                         stand_info[teamW_index].q2_ahead.w += 1;
                         stand_info[teamL_index].q2_behind.l += 1;
-                    } else if (q1_w + q2_w < q1_l + q2_l) {
+                    } else if (teamW_q1 + teamW_q2 < teamL_q1 + teamL_q2) {
                         stand_info[teamW_index].q2_behind.w += 1;
                         stand_info[teamL_index].q2_ahead.l += 1;
                     } else {
@@ -211,10 +234,10 @@ $(document).ready(function () {
                         stand_info[teamL_index].q2_tied.l += 1;
                     }
 
-                    if (q1_w + q2_w + q3_w > q1_l + q2_l + q3_l) {
+                    if (teamW_q1 + teamW_q2 + teamW_q3 > teamL_q1 + teamL_q2 + teamL_q3) {
                         stand_info[teamW_index].q3_ahead.w += 1;
                         stand_info[teamL_index].q3_behind.l += 1;
-                    } else if (q1_w + q2_w + q3_w < q1_l + q2_l + q3_l) {
+                    } else if (teamW_q1 + teamW_q2 + teamW_q3 < teamL_q1 + teamL_q2 + teamL_q3) {
                         stand_info[teamW_index].q3_behind.w += 1;
                         stand_info[teamL_index].q3_ahead.l += 1;
                     } else {
@@ -222,17 +245,16 @@ $(document).ready(function () {
                         stand_info[teamL_index].q3_tied.l += 1;
                     }
 
-                    if (pts_w - pts_l <= 3) {
+                    if (teamW_pts - teamL_pts <= 3) {
                         stand_info[teamW_index].less_3.w += 1;
                         stand_info[teamL_index].less_3.l += 1;
-                    } else if (pts_w - pts_l >= 10) {
+                    } else if (teamW_pts - teamL_pts >= 10) {
                         stand_info[teamW_index].more_10.w += 1;
                         stand_info[teamL_index].more_10.l += 1;
                     }
 
                 });
                 sortStandings();
-                console.log(stand_info);
 
                 temp_w = (games / (stand_info.length - 1)) / 2;
                 for (let i = 0; i < stand_info.length; i++) {
