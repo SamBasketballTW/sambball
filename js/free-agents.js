@@ -11,8 +11,8 @@ $(document).ready(function () {
             oversea_team_order = 0;
             current_team = '';
 
-            lines.forEach(player => {
-                infos = player.split(',');
+            lines.forEach(line => {
+                infos = line.split(',');
 
                 let [
                     gender,
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
                 ] = infos;
 
-                if (team == 'fa') {
+                if (fa_status != '') {
                     if (isOversea(last_team)) {
                         if (current_team != last_team) {
                             oversea_team_order += 1;

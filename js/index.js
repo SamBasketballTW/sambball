@@ -76,8 +76,8 @@ $(document).ready(function () {
 						stand_info[i].matchup.push(new Matchup(teams[j]));
 					}
 				}
-				lines.forEach(player => {
-					infos = player.split(',');
+				lines.forEach(line => {
+					infos = line.split(',');
 
 					let [
 						league,
@@ -216,8 +216,8 @@ $(document).ready(function () {
 			count1_gender = "";
 			bdays = [];
 
-			lines.forEach(player => {
-				infos = player.split(',');
+			lines.forEach(line => {
+				infos = line.split(',');
 
 				let [
 					gender,

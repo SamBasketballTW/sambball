@@ -108,8 +108,8 @@ $(document).ready(function () {
                         stand_info[i].cal.push(new WL);
                     }
                 }
-                lines.forEach(player => {
-                    infos = player.split(',');
+                lines.forEach(line => {
+                    infos = line.split(',');
 
                     let [
                         league,

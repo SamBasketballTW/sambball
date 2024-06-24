@@ -88,7 +88,7 @@ table tr{
 }
 .table-scroll th {
 	position: sticky;
-	top: -1px;
+	top: 0px;
 	border-top: 0;
 	border-bottom: 0;
 	background: #1b1b1b;
@@ -101,44 +101,40 @@ table tr{
 }
 
 /* fix columns */
-.table-fix1 th:first-child{
+.table-fixTeam th:first-child,
+.table-fixTeam th:nth-child(3){
 	position: -webkit-sticky;
 	position: sticky;
 	left: 0;
 	z-index: 4;
-	background-color: #1b1b1b;
 	border-left: inherit;
 	border-right: inherit;
 }
-.table-fix1 td:first-child{
+.table-fixTeam th:nth-child(3) {
+	left:106px;
+	z-index: 4;
+}
+
+.table-fixTeam td:first-child {
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	z-index: 3;
+	border-left: inherit;
+}
+.table-fixTeam td:nth-child(3) {
 	position: -webkit-sticky;
 	position: sticky;
 	left: 0;
 	z-index: 3;
 	background-color: inherit;
 	border-left: inherit;
-	border-right: 3px solid black;
+	left: 106px;
 }
 
-.table-fix2 th:nth-child(2){
-	position: -webkit-sticky;
-	position: sticky;
-	left: 0;
-	z-index: 4;
-	background-color: #1b1b1b;
-	border-left: inherit;
-	border-right: inherit;
-}
-.table-fix2 td:nth-child(2){
-	position: -webkit-sticky;
-	position: sticky;
-	left: 0;
-	z-index: 3;
-	background-color: inherit;
-	border-left: inherit;
-	border-right: 3px solid black;
-}
 
+.table-fix1 th:first-child,
+.table-fix2 th:nth-child(2),
 .table-fix3 th:nth-child(3){
 	position: -webkit-sticky;
 	position: sticky;
@@ -148,6 +144,8 @@ table tr{
 	border-left: inherit;
 	border-right: inherit;
 }
+.table-fix1 td:first-child,
+.table-fix2 td:nth-child(2),
 .table-fix3 td:nth-child(3){
 	position: -webkit-sticky;
 	position: sticky;

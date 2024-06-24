@@ -8,8 +8,8 @@ $(document).ready(function () {
 
             table = document.getElementById('trades_tbody');
 
-            lines.forEach(trade => {
-                infos = trade.split(',');
+            lines.forEach(line => {
+                infos = line.split(',');
 
                 let [
                     gender,

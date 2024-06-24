@@ -35,8 +35,8 @@ $(document).ready(function () {
             oversea_team_order = 0;
             current_team = '';
 
-            lines.forEach(player => {
-                infos = player.split(',');
+            lines.forEach(line => {
+                infos = line.split(',');
 
                 let [
                     gender,
@@ -58,6 +58,13 @@ $(document).ready(function () {
 
                 if (status == 'active' & identity != 'coach') {
                     filter = '';
+
+                    if (isOversea(team)) {
+						team_name = `<a style="font-size:12px">${teamName('short',league,team,'img')}`
+					}else{
+						team_name = `${teamName('short',league,team,'img')}`
+					}
+					
                     if (isOversea(team) & team != 'fa') {
                         if (current_team != team) {
                             oversea_team_order += 1;
@@ -104,9 +111,9 @@ $(document).ready(function () {
 
                     table.innerHTML += `
                     <tr class="filterTr ${gender} ${teamFilter(team)} ${identity} ${rookie} ${filter}">
-                        <td class="borderR ${teamBG(league, team)}" data-order=${team_order}>${teamName('short', league, team, 'img')}</td>
+                        <td class="borderR ${teamBG(league, team)}" data-order=${team_order}>${team_name}</td>
                         <td class="borderR" data-order=${numOrder(jersey_num)}>${jersey_num}</td>
-                        <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+                        <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
                         <td>${league_identity}</td>
                         <td>${pos}</td>
                         <td>${height}</td>

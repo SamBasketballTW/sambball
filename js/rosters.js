@@ -55,8 +55,8 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(2);
 
-            lines.forEach(player => {
-                infos = player.split(',');
+            lines.forEach(line => {
+                infos = line.split(',');
 
                 let [
                     gender,
@@ -91,7 +91,7 @@ $(document).ready(function () {
                             }
                             is_local = 1;
                             is_import = 0;
-                            oversea_team = `<td class="borderR">${league} ${team}</td>`;
+                            oversea_team = `<td class="${teamBG(league, team)} borderR" style='font-size:12px'>${teamName('full', league, team)}</td>`;
                         } else {
                             table = document.getElementById('roster_tbody');
 
@@ -119,7 +119,7 @@ $(document).ready(function () {
                             <tr class="filterTr ${gender} ${teamFilter(team)} ${teamBG(league, team)}" style="font-size:15px">
                                 ${oversea_team}
                                 <td class="borderR" data-order="${numOrder(jersey_num)}">${jersey_num}</td>
-                                <td><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>             
+                                <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>             
                                 <td>${league_identity}</td>
                                 <td>${pos}</td>
                                 <td>${height}</td>
@@ -384,7 +384,7 @@ function updateMovements() {
 
 
     if (window.innerWidth <= 576) {
-        table_movements_th.innerHTML = `<th>2024-25 球員異動</th>`
+        table_movements_th.innerHTML = `<th style="font-size:18px">2024-25 球員異動</th>`
 
         for (let i = 0; i < rosters_info.length; i++) {
             extension = '';

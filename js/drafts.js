@@ -8,8 +8,8 @@ $(document).ready(function () {
 
 			table = document.getElementById('drafts_tbody');
 
-			lines.forEach(player => {
-				infos = player.split(',');
+			lines.forEach(line => {
+				infos = line.split(',');
 
 				let [
 					gender,

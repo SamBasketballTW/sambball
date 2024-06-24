@@ -6,8 +6,8 @@ $(document).ready(function () {
             lines = result.split('\n');
             lines = lines.slice(2);
 
-            lines.forEach(player => {
-                infos = player.split(',');
+            lines.forEach(line => {
+                infos = line.split(',');
 
                 let [
                     gender,

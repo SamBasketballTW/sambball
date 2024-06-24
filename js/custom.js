@@ -37,7 +37,7 @@ function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
 	});
 }
 function isOversea(id) {
-	if (findTeam(id) == -1) {
+	if (findTeam(id) == -1 & id != 'fa') {
 		return 1;
 	} else {
 		return 0;
@@ -55,7 +55,7 @@ function teamName(value, league, id, img = '') {
 	if (id == 'fa') {
 		return '自由球員'
 	} else if (isOversea(id)) {
-		return `${league} ${id}`
+		return `${league}<br>${id}`
 	} else {
 		team = findTeam(id);
 		if (img != '') {

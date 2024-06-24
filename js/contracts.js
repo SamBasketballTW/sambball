@@ -10,8 +10,8 @@ $(document).ready(function () {
 
 			table = document.getElementById('contracts_tbody');
 
-			lines.forEach(player => {
-				infos = player.split(',');
+			lines.forEach(line => {
+				infos = line.split(',');
 
 				let [
 					gender,
@@ -34,6 +34,13 @@ $(document).ready(function () {
 				if ((status == 'active' & team != 'fa') | status == 'loan') {
 					filter = contract_filter;
 					contract_link = '';
+
+					if (isOversea(team)) {
+						team_name = `<a style="font-size:12px">${teamName('short',league,team,'img')}`
+					}else{
+						team_name = `${teamName('short',league,team,'img')}`
+					}
+
 					if (filter.includes('trade')) {
 						contract_season = '*' + contract_season + '*';
 						contract_years = '*' + contract_years + '*';
@@ -65,7 +72,7 @@ $(document).ready(function () {
 
 					table.innerHTML += `
 					<tr class="filterTr ${gender} ${teamFilter(team)} ${filter} ">
-						<td class="${teamBG(league, team)} borderR">${teamName('short', league, team, 'img')}</td>
+						<td class="${teamBG(league, team)} borderR">${team_name}</td>
 						<td class="borderR">${jersey_num}</td>
 						<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
 						<td>${contract_season}</td>
