@@ -1,6 +1,31 @@
+class Players {
+    static player_id = 0;
+
+    constructor(gender, name, league, team, team_order, jersey_num, player_url,
+        league_identity, pos, height, weight, birth, age, school, acquired, filter = '') {
+
+        this.player_id = Players.player_id++;
+        this.gender = gender;
+        this.name = name;
+        this.league = league;
+        this.team = team;
+        this.team_order = team_order;
+        this.jersey_num = jersey_num;
+        this.player_url = player_url;
+        this.league_identity = league_identity;
+        this.pos = pos;
+        this.height = height;
+        this.weight = weight;
+        this.birth = birth;
+        this.age = age;
+        this.school = school;
+        this.acquired = acquired;
+        this.filter = filter;
+    }
+}
 class Rosters {
     constructor(gender, league, id, coach = "", coach_EN = "",
-        local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank = 0, height_rank = 0,
+        local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank, height_rank,
         extension = [], signed = [], lost = []) {
         this.gender = gender;
         this.league = league;
@@ -32,6 +57,12 @@ class Movements {
         this.content = content;
     }
 }
+allPlayers = [];
+
+allRosters = [new Rosters('men', 'oversea', 'oversea'), new Rosters('women', 'oversea', 'oversea')];
+allTeams.forEach(team =>{
+    allRosters.push(new Rosters(team.gender, team.league, team.id))
+});
 $(document).ready(function () {
 
     tableCount = document.getElementById('r_count_tbody');
@@ -40,20 +71,15 @@ $(document).ready(function () {
     table_movements_th = document.getElementById('roster_movements_thead')
     table_movements = document.getElementById('roster_movements_tbody')
 
-    rosters_info = [];
-    rosters_info.push(new Rosters('men', 'oversea', 'oversea'));
-    rosters_info.push(new Rosters('women', 'oversea', 'oversea'));
-
-    for (let i = 0; i < allTeams.length; i++) {
-        rosters_info.push(new Rosters(allTeams[i].gender, allTeams[i].league, allTeams[i].id));
-    }
-
     fetch('../data/rosters.csv')
         .then((response) => response.text())
         .then((result) => {
 
             lines = result.split('\n');
             lines = lines.slice(2);
+
+            oversea_team_order = 0;
+            current_team = '';
 
             lines.forEach(line => {
                 infos = line.split(',');
@@ -67,7 +93,7 @@ $(document).ready(function () {
                     rookie,
                     league_identity, pos, height, weight, birth,
                     school,
-                    aquired,
+                    acquired,
                     last_team,
                     contract_filter, contract_season, contract_years, contract_years_left,
                     contract_note,
@@ -78,11 +104,33 @@ $(document).ready(function () {
 
                 if (status == "active" & team != "fa") {
                     if (identity == "coach") {
-                        rosters_info[team_index].coach = `${league_identity}: ${name}`
-                        rosters_info[team_index].coach_EN = findTeam(rosters_info[team_index].id).coach_EN;
+                        allRosters[team_index].coach = `${league_identity}: ${name}`
+                        allRosters[team_index].coach_EN = findTeam(allRosters[team_index].id).coach_EN;
                     } else {
+                        player = new Players();
+                        allPlayers.push(player);
+
+                        player.gender = gender;
+                        player.name = name;
+                        player.league = league;
+                        player.team = team;
+                        player.jersey_num = jersey_num;
+                        player.player_url = playerUrl(team, player_url);
+                        player.league_identity = league_identity;
+                        player.pos = pos;
+                        player.height = height;
+                        player.weight = weight;
+                        player.birth = birth;
+                        player.age = birthToAge(birth);
+                        player.school = school;
+                        player.acquired = acquired;
+
                         if (isOversea(team)) {
-                            table = document.getElementById('roster_oversea_tbody');
+                            if (current_team != team) {
+                                oversea_team_order += 1;
+                                current_team = team;
+                            }
+                            player.team_order = oversea_team_order;
 
                             if (gender == "men") {
                                 team_index = 0;
@@ -91,64 +139,70 @@ $(document).ready(function () {
                             }
                             is_local = 1;
                             is_import = 0;
-                            oversea_team = `<td class="${teamBG(league, team)} borderR" style='font-size:12px'>${teamName('full', league, team)}</td>`;
-                        } else {
-                            table = document.getElementById('roster_tbody');
 
+                        } else {
                             team_index = 2 + findTeam(team).teamIndex();
                             is_local = leagueIdFilter(league_identity) == "local";
                             is_import = leagueIdFilter(league_identity) == "import";
-                            oversea_team = '';
                         }
 
                         if (is_local | is_import) {
                             if (is_local) {
-                                rosters_info[team_index].local_age_sum += birthToAge(birth);
-                                rosters_info[team_index].local_height_sum += parseInt(height);
-                                rosters_info[team_index].local_count += 1;
+                                allRosters[team_index].local_age_sum += birthToAge(birth);
+                                allRosters[team_index].local_height_sum += parseInt(height);
+                                allRosters[team_index].local_count += 1;
 
                             } else if (is_import) {
-                                rosters_info[team_index].import_count += 1;
+                                allRosters[team_index].import_count += 1;
                             }
-
-                            if (name == '安尼奎') {
-                                league_identity = `<a style="color:white">${league_identity}</a>`
-                            }
-
-                            table.innerHTML += `
-                            <tr class="filterTr ${gender} ${teamFilter(team)} ${teamBG(league, team)}" style="font-size:15px">
-                                ${oversea_team}
-                                <td class="borderR" data-order="${numOrder(jersey_num)}">${jersey_num}</td>
-                                <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>             
-                                <td>${league_identity}</td>
-                                <td>${pos}</td>
-                                <td>${height}</td>
-                                <td>${weight}</td>
-                                <td>${birthToAge(birth)}</td>
-                                <td class="borderR">${birth}</td>
-                                <td class="borderR textL" style="font-size:14px">${school}</td>
-                                <td class="textL" style="font-size:14px">${aquired}</td>
-                            </tr>`
                         }
                     }
                 }
             });
+            allPlayers.forEach(p =>{
+                if(isOversea(p.team)){
+                    table = document.getElementById('roster_oversea_tbody');
+                    oversea_team = 
+                    `<td class="${teamBG(p.league, p.team)} borderR" style='font-size:12px' data-order="${p.team_order}">
+                        ${teamName('short', p.league, p.team)}
+                    </td>`
+                }else{
+                    table = document.getElementById('roster_tbody');
+                    oversea_team = '';
+                }
 
-            for (let i = 2; i < rosters_info.length; i++) {
+                table.innerHTML += 
+                `<tr class="filterTr ${p.gender} ${teamFilter(p.team)} ${teamBG(p.league, p.team)} ${p.filter}">
+                    ${oversea_team}
+                    <td class="borderR" data-order="${numOrder(p.jersey_num)}">${p.jersey_num}</td>
+                    <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${p.player_url}" target="_blank">${p.name}</a></td>             
+                    <td>${p.league_identity}</td>
+                    <td>${p.pos}</td>
+                    <td>${p.height}</td>
+                    <td>${p.weight}</td>
+                    <td>${p.age}</td>
+                    <td class="borderR">${p.birth}</td>
+                    <td class="borderR textL" style="font-size:14px">${p.school}</td>
+                    <td class="textL" style="font-size:14px">${p.acquired}</td>
+                </tr>` 
+            })
+
+
+            for (let i = 2; i < allRosters.length; i++) {
                 rank_age = 1;
                 rank_height = 1;
-                for (let j = 2; j < rosters_info.length; j++) {
-                    if (rosters_info[i].league == rosters_info[j].league) {
-                        if (rosters_info[i].avg('age') < rosters_info[j].avg('age')) {
+                for (let j = 2; j < allRosters.length; j++) {
+                    if (allRosters[i].league == allRosters[j].league) {
+                        if (allRosters[i].avg('age') < allRosters[j].avg('age')) {
                             rank_age += 1;
                         }
-                        if (rosters_info[i].avg('height') < rosters_info[j].avg('height')) {
+                        if (allRosters[i].avg('height') < allRosters[j].avg('height')) {
                             rank_height += 1;
                         }
                     }
                 }
-                rosters_info[i].age_rank = rank_age;
-                rosters_info[i].height_rank = rank_height;
+                allRosters[i].age_rank = rank_age;
+                allRosters[i].height_rank = rank_height;
             }
 
             var dataTable = $('#rosters_tb').DataTable({
@@ -199,11 +253,11 @@ $(document).ready(function () {
                     }
 
                     if (move.includes('extend')) {
-                        current_move = rosters_info[team_index].extension;
+                        current_move = allRosters[team_index].extension;
                     } else if (move.includes('lost') | move == 'loan end') {
-                        current_move = rosters_info[team_index].lost;
+                        current_move = allRosters[team_index].lost;
                     } else {
-                        current_move = rosters_info[team_index].signed;
+                        current_move = allRosters[team_index].signed;
                     }
 
                     new_move = 1;
@@ -329,8 +383,8 @@ function updateTables() {
         </tr>
         <tr class="filterTr men oversea CBA-bg">
             <td>
-                本土平均年齡:&nbsp;${rosters_info[0].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                本土平均身高:&nbsp;${rosters_info[0].avg('height')}
+                本土平均年齡:&nbsp;${allRosters[0].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                本土平均身高:&nbsp;${allRosters[0].avg('height')}
             </td>
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
@@ -342,14 +396,14 @@ function updateTables() {
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
             <td>
-            本土平均年齡:&nbsp;${rosters_info[1].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            本土平均身高:&nbsp;${rosters_info[1].avg('height')}
+            本土平均年齡:&nbsp;${allRosters[1].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            本土平均身高:&nbsp;${allRosters[1].avg('height')}
             </td>
         </tr>`
 
 
-    for (let i = 2; i < rosters_info.length; i++) {
-        if (rosters_info[i].coach_EN != "" & window.innerWidth <= 600) {
+    for (let i = 2; i < allRosters.length; i++) {
+        if (allRosters[i].coach_EN != "" & window.innerWidth <= 600) {
             blank = `<br>`
         } else if (window.innerWidth <= 495) {
             blank = '<br>'
@@ -357,11 +411,11 @@ function updateTables() {
             blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
         }
         tableCount.innerHTML += `
-        <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id} ${rosters_info[i].id}-bg">
+        <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id} ${allRosters[i].id}-bg">
             <td>
-                ${rosters_info[i].coach}${rosters_info[i].coach_EN}${blank}
-                本土球員:&nbsp;&nbsp;${rosters_info[i].local_count}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                外籍球員:&nbsp;&nbsp;${rosters_info[i].import_count}&nbsp;&nbsp;人
+                ${allRosters[i].coach}${allRosters[i].coach_EN}${blank}
+                本土球員:&nbsp;&nbsp;${allRosters[i].local_count}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                外籍球員:&nbsp;&nbsp;${allRosters[i].import_count}&nbsp;&nbsp;人
             </td>
         </tr>`
         if (window.innerWidth > 510) {
@@ -370,10 +424,10 @@ function updateTables() {
             blank = `<br>`
         }
         tableCount.innerHTML += `
-        <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id} ${rosters_info[i].id}-bg">
+        <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id} ${allRosters[i].id}-bg">
             <td>
-                本土平均年齡:&nbsp;${rosters_info[i].avg('age')}&nbsp;(${rosters_info[i].league.toUpperCase()}第${rosters_info[i].age_rank})${blank}
-                本土平均身高:&nbsp;${rosters_info[i].avg('height')}&nbsp;(${rosters_info[i].league.toUpperCase()}第${rosters_info[i].height_rank})
+                本土平均年齡:&nbsp;${allRosters[i].avg('age')}&nbsp;(${allRosters[i].league.toUpperCase()}第${allRosters[i].age_rank})${blank}
+                本土平均身高:&nbsp;${allRosters[i].avg('height')}&nbsp;(${allRosters[i].league.toUpperCase()}第${allRosters[i].height_rank})
             </td>
         </tr>`
     }
@@ -386,43 +440,43 @@ function updateMovements() {
     if (window.innerWidth <= 576) {
         table_movements_th.innerHTML = `<th style="font-size:18px">2024-25 球員異動</th>`
 
-        for (let i = 0; i < rosters_info.length; i++) {
+        for (let i = 0; i < allRosters.length; i++) {
             extension = '';
             signed = '';
             lost = '';
-            if (rosters_info[i].extension.length > 0) {
-                for (let j = 0; j < rosters_info[i].extension.length; j++) {
-                    extension += rosters_info[i].extension[j].content;
+            if (allRosters[i].extension.length > 0) {
+                for (let j = 0; j < allRosters[i].extension.length; j++) {
+                    extension += allRosters[i].extension[j].content;
                 }
             } else {
                 extension = '無 / 未知'
             }
-            if (rosters_info[i].signed.length > 0) {
-                for (let j = 0; j < rosters_info[i].signed.length; j++) {
-                    signed += rosters_info[i].signed[j].content;
+            if (allRosters[i].signed.length > 0) {
+                for (let j = 0; j < allRosters[i].signed.length; j++) {
+                    signed += allRosters[i].signed[j].content;
                 }
             } else {
                 signed = '無 / 未知'
             }
-            if (rosters_info[i].lost.length > 0) {
-                for (let j = 0; j < rosters_info[i].lost.length; j++) {
-                    lost += rosters_info[i].lost[j].content;
+            if (allRosters[i].lost.length > 0) {
+                for (let j = 0; j < allRosters[i].lost.length; j++) {
+                    lost += allRosters[i].lost[j].content;
                 }
             } else {
                 lost = '無 / 未知'
             }
             table_movements.innerHTML += `
-            <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id}">
+            <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id}">
                 <td class="textL">
                     <a style="text-decoration:underline; font-size:20px;"><b>Extension</b></a><br>${extension}
                 </td>
             </tr>
-            <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id}">
+            <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id}">
                 <td class="textL">
                     <a style="text-decoration:underline; font-size:20px;"><b>Signed</b></a><br>${signed}
                 </td>
             </tr>
-            <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id}">
+            <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id}">
                 <td class="textL">
                     <a style="text-decoration:underline; font-size:20px;"><b>Lost</b></a><br>${lost}
                 </td>
@@ -434,34 +488,34 @@ function updateMovements() {
         <th style="font-size:18px"><b>Signed</b></th>
         <th style="font-size:18px"><b>Lost</b></th>`
 
-        for (let i = 0; i < rosters_info.length; i++) {
+        for (let i = 0; i < allRosters.length; i++) {
             extension = '';
             signed = '';
             lost = '';
-            if (rosters_info[i].extension.length > 0) {
-                for (let j = 0; j < rosters_info[i].extension.length; j++) {
-                    extension += rosters_info[i].extension[j].content;
+            if (allRosters[i].extension.length > 0) {
+                for (let j = 0; j < allRosters[i].extension.length; j++) {
+                    extension += allRosters[i].extension[j].content;
                 }
             } else {
                 extension = '<br>無 / 未知<br><br>'
             }
-            if (rosters_info[i].signed.length > 0) {
-                for (let j = 0; j < rosters_info[i].signed.length; j++) {
-                    signed += rosters_info[i].signed[j].content;
+            if (allRosters[i].signed.length > 0) {
+                for (let j = 0; j < allRosters[i].signed.length; j++) {
+                    signed += allRosters[i].signed[j].content;
                 }
             } else {
                 signed = '<br>無 / 未知<br><br>'
             }
-            if (rosters_info[i].lost.length > 0) {
-                for (let j = 0; j < rosters_info[i].lost.length; j++) {
-                    lost += rosters_info[i].lost[j].content;
+            if (allRosters[i].lost.length > 0) {
+                for (let j = 0; j < allRosters[i].lost.length; j++) {
+                    lost += allRosters[i].lost[j].content;
                 }
             } else {
                 lost = '<br>無 / 未知<br><br>'
             }
 
             table_movements.innerHTML += `
-            <tr class="filterTr ${rosters_info[i].gender} ${rosters_info[i].id}">
+            <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id}">
                 <td class="borderR textL">${extension}</td>
                 <td class="borderR textL">${signed}</td>
                 <td class="textL">${lost}</td>

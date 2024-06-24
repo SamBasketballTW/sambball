@@ -1,4 +1,30 @@
+class Players {
+    static player_id = 0;
 
+    constructor(gender, name, league, team, team_order, jersey_num, player_url,
+        identity, rookie, league_identity, pos, height, weight, birth, age, school, last_team, filter = '') {
+
+        this.player_id = Players.player_id++;
+        this.gender = gender;
+        this.name = name;
+        this.league = league;
+        this.team = team;
+        this.team_order = team_order;
+        this.jersey_num = jersey_num;
+        this.player_url = player_url;
+        this.identity = identity;
+        this.rookie = rookie;
+        this.league_identity = league_identity;
+        this.pos = pos;
+        this.height = height;
+        this.weight = weight;
+        this.birth = birth;
+        this.age = age;
+        this.school = school;
+        this.last_team = last_team;
+        this.filter = filter;
+    }
+}
 class PlayerCount {
     static id = 0;
     constructor(name, men_count = 0, women_count = 0) {
@@ -16,7 +42,7 @@ function findSchool(school) {
     }
     return -1;
 }
-
+allPlayers = [];
 allColleges = [new PlayerCount('旅外')];
 $(document).ready(function () {
     fetch('../data/rosters.csv')
@@ -27,10 +53,6 @@ $(document).ready(function () {
             lines = lines.slice(2);
 
             table = document.getElementById('players_tbody');
-
-            men_uni = [];
-            women_uni = [];
-            us_uni = [0, 0];
 
             oversea_team_order = 0;
             current_team = '';
@@ -47,7 +69,7 @@ $(document).ready(function () {
                     rookie,
                     league_identity, pos, height, weight, birth,
                     school,
-                    aquired,
+                    acquired,
                     last_team,
                     contract_filter, contract_season, contract_years, contract_years_left,
                     contract_note,
@@ -57,40 +79,52 @@ $(document).ready(function () {
                 ] = infos;
 
                 if (status == 'active' & identity != 'coach') {
-                    filter = '';
+                    player = new Players();
+                    allPlayers.push(player);
 
-                    if (isOversea(team)) {
-						team_name = `<a style="font-size:12px">${teamName('short',league,team,'img')}`
-					}else{
-						team_name = `${teamName('short',league,team,'img')}`
-					}
-					
+                    player.gender = gender;
+                    player.name = name;
+                    player.league = league;
+                    player.team = team;
+                    player.jersey_num = jersey_num;
+                    player.player_url = playerUrl(team,player_url);
+                    player.identity = identity;
+                    player.rookie = rookie;
+                    player.league_identity = league_identity;
+                    player.pos = pos;
+                    player.height = height;
+                    player.weight = weight;
+                    player.birth = birth;
+                    player.age = birthToAge(birth);
+                    player.school = school;
+                    player.last_team = teamName('short','',last_team);
+
                     if (isOversea(team) & team != 'fa') {
                         if (current_team != team) {
                             oversea_team_order += 1;
                             current_team = team;
                         }
-                        team_order = oversea_team_order;
+                        player.team_order = oversea_team_order;
                     } else if (team != 'fa') {
-                        team_order = oversea_team_order + 1 + findTeam(team).teamIndex();
+                        player.team_order = oversea_team_order + 1 + findTeam(team).teamIndex();
                     } else {
-                        team_order = oversea_team_order + allTeams.length + 1;
+                        player.team_order = oversea_team_order + allTeams.length + 1;
                     }
 
                     if (last_team != '' & team != 'fa') {
-                        filter += ' change';
+                        player.filter += ' change';
                     }
 
                     if (!school.includes('HBL') & school != '-') {
                         if (school.includes(' ')) {
                             college = allColleges[0];
-                            filter += ' ' + findSchool('旅外').id;
+                            player.filter += ` ${findSchool('旅外').id}`;
                         } else {
                             if (findSchool(school) == -1) {
                                 allColleges.push(new PlayerCount(school));
                             }
                             college = findSchool(school);
-                            filter += ' ' + findSchool(school).id;
+                            player.filter += ` ${findSchool(school).id}`;
                         }
 
                         if (gender == 'men') {
@@ -99,33 +133,32 @@ $(document).ready(function () {
                             college.women_count += 1;
                         }
                     }
-
-                    former_team = ''
-                    if (last_team != '') {
-                        if (isOversea(last_team)) {
-                            former_team = last_team;
-                        } else {
-                            former_team = teamName('short', '', last_team);
-                        }
-                    }
-
-                    table.innerHTML += `
-                    <tr class="filterTr ${gender} ${teamFilter(team)} ${identity} ${rookie} ${filter}">
-                        <td class="borderR ${teamBG(league, team)}" data-order=${team_order}>${team_name}</td>
-                        <td class="borderR" data-order=${numOrder(jersey_num)}>${jersey_num}</td>
-                        <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
-                        <td>${league_identity}</td>
-                        <td>${pos}</td>
-                        <td>${height}</td>
-                        <td>${weight}</td>
-                        <td>${birthToAge(birth)}</td>
-                        <td class="borderR">${birth}</td>
-                        <td class="borderR textL">${school}</td>
-                        <td>${former_team}</td>                
-                    </tr>`
                 }
             });
             allColleges.sort((a, b) => a.name.localeCompare(b.name));
+
+            allPlayers.forEach(p => {
+				if (isOversea(p.team)) {
+					team_name = `<a style="font-size:12px">${teamName('short', p.league, p.team, 'img')}`
+				} else {
+					team_name = `${teamName('short', p.league, p.team, 'img')}`
+				}
+
+				table.innerHTML += `
+                    <tr class="filterTr ${p.gender} ${teamFilter(p.team)} ${p.identity} ${p.rookie} ${p.filter}">
+                        <td class="borderR ${teamBG(p.league, p.team)}" data-order=${p.team_order}>${team_name}</td>
+                        <td class="borderR" data-order=${numOrder(p.jersey_num)}>${p.jersey_num}</td>
+                        <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${p.player_url}" target="_blank">${p.name}</a></td>
+                        <td>${p.league_identity}</td>
+                        <td>${p.pos}</td>
+                        <td>${p.height}</td>
+                        <td>${p.weight}</td>
+                        <td>${p.age}</td>
+                        <td class="borderR">${p.birth}</td>
+                        <td class="borderR textL">${p.school}</td>
+                        <td>${p.last_team}</td>                
+                    </tr>`
+			});
 
             var dataTable = $('#players_tb').DataTable({
                 dom: 't',

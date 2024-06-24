@@ -20,7 +20,6 @@ class Matchup {
 		this.win_pts = win_pts;
 	}
 }
-
 $(document).ready(function () {
 	document.getElementById('plg-champ').innerHTML = `
 	<td class="${teamBG('kings')}">P. LEAGUE+ 2023-24年度總冠軍: ${teamName('full', '', 'kings')}</td>`

@@ -36,18 +36,18 @@ $(document).ready(function () {
     wsbl_rank3 = new PlayoffTeams(3, taipower);
 
     allGames = [
-        plg_1_4 = new PlayoffGames(plg_rank1, plg_rank4, 'plg_1_4', 4, 4, 2, 'plg_finals', 1),
-        plg_2_3 = new PlayoffGames(plg_rank2, plg_rank3, 'plg_2_3', 4, 2, 4, 'plg_finals', 2),
+        plg_1_4 = new PlayoffGames(plg_rank1, plg_rank4, 'plg_1-4', 4, 4, 2, 'plg_finals', 1),
+        plg_2_3 = new PlayoffGames(plg_rank2, plg_rank3, 'plg_2-3', 4, 2, 4, 'plg_finals', 2),
         plg_finals = new PlayoffGames('', '', 'plg_finals', 4, 1, 4),
 
-        t1_1_4 = new PlayoffGames(t1_rank1, t1_rank4, 't1_1_4', 3, 2, 3, 't1_finals', 1),
-        t1_2_3 = new PlayoffGames(t1_rank2, t1_rank3, 't1_2_3', 3, 3, 0, 't1_finals', 2),
+        t1_1_4 = new PlayoffGames(t1_rank1, t1_rank4, 't1_1-4', 3, 2, 3, 't1_finals', 1),
+        t1_2_3 = new PlayoffGames(t1_rank2, t1_rank3, 't1_2-3', 3, 3, 0, 't1_finals', 2),
         t1_finals = new PlayoffGames('', '', 't1_finals', 4, 0, 4),
 
-        sbl_2_3 = new PlayoffGames(sbl_rank2, sbl_rank3, 'sbl_2_3', 2, 1, 2, 'sbl_finals', 2),
+        sbl_2_3 = new PlayoffGames(sbl_rank2, sbl_rank3, 'sbl_2-3', 2, 1, 2, 'sbl_finals', 2),
         sbl_finals = new PlayoffGames(sbl_rank1, '', 'sbl_finals', 3, 2, 3),
 
-        wsbl_2_3 = new PlayoffGames(wsbl_rank2, wsbl_rank3, 'wsbl_2_3', 2, 2, 0, 'wsbl_finals', 2),
+        wsbl_2_3 = new PlayoffGames(wsbl_rank2, wsbl_rank3, 'wsbl_2-3', 2, 2, 0, 'wsbl_finals', 2),
         wsbl_finals = new PlayoffGames(wsbl_rank1, '', 'wsbl_finals', 3, 1, 3)
     ]
 

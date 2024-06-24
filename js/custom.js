@@ -55,7 +55,11 @@ function teamName(value, league, id, img = '') {
 	if (id == 'fa') {
 		return '自由球員'
 	} else if (isOversea(id)) {
-		return `${league}<br>${id}`
+		if(value == 'full'){
+			return `${league} ${id}`
+		}else if(value == 'short'){
+			return `${league}<br>${id}`
+		}
 	} else {
 		team = findTeam(id);
 		if (img != '') {
