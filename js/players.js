@@ -149,7 +149,7 @@ $(document).ready(function () {
                         <td class="borderR ${teamBG(p.league, p.team)}" data-order=${p.team_order}>${team_name}</td>
                         <td class="borderR" data-order=${numOrder(p.jersey_num)}>${p.jersey_num}</td>
                         <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${p.player_url}" target="_blank">${p.name}</a></td>
-                        <td>${p.league_identity}</td>
+                        <td data-order=${order[p.league_identity]}>${p.league_identity}</td>
                         <td>${p.pos}</td>
                         <td>${p.height}</td>
                         <td>${p.weight}</td>

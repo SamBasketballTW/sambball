@@ -176,7 +176,7 @@ $(document).ready(function () {
                     ${oversea_team}
                     <td class="borderR" data-order="${numOrder(p.jersey_num)}">${p.jersey_num}</td>
                     <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${p.player_url}" target="_blank">${p.name}</a></td>             
-                    <td>${p.league_identity}</td>
+                    <td data-order=${order[p.league_identity]}>${p.league_identity}</td>
                     <td>${p.pos}</td>
                     <td>${p.height}</td>
                     <td>${p.weight}</td>
@@ -232,7 +232,7 @@ $(document).ready(function () {
         .then((result) => {
 
             lines = result.split('\n');
-            lines = lines.slice(5);
+            lines = lines.slice(2);
 
             lines.forEach(player => {
                 infos = player.split(',');
@@ -240,11 +240,15 @@ $(document).ready(function () {
                 let [
                     gender,
                     team,
+                    move_id,
                     move,
-                    content
+                    player_name,
+                    content,
+                    none
+
                 ] = infos;
 
-                if (move != "") {
+                if (move_id != "") {
                     if (team == 'oversea') {
                         if (gender == 'men') team_index = 0
                         if (gender == 'women') team_index = 1
@@ -252,60 +256,37 @@ $(document).ready(function () {
                         team_index = 2 + findTeam(team).teamIndex();
                     }
 
-                    if (move.includes('extend')) {
+                    if (move_id == 'extension') {
                         current_move = allRosters[team_index].extension;
-                    } else if (move.includes('lost') | move == 'loan end') {
-                        current_move = allRosters[team_index].lost;
-                    } else {
+                    } else if (move_id == 'signed') {
                         current_move = allRosters[team_index].signed;
+                    } else if (move_id == 'lost') {
+                        current_move = allRosters[team_index].lost;
                     }
 
                     new_move = 1;
                     for (let i = 0; i < current_move.length; i++) {
                         if (current_move[i].move == move) {
-                            current_move[i].content += `${content}<br>`;
+                            if(content != ''){
+                                current_move[i].content += `${player_name} (${content})<br>`;
+                            }else{
+                                current_move[i].content += `${player_name}<br>`;
+                            }
                             new_move = 0;
                         }
                     }
                     if (new_move == 1) {
-                        move_title = '';
-                        move_content = '';
-
-                        if (move == "change") {
-                            move_title = "轉隊"
-                        } else if (move == "merge") {
-                            move_title = "Via 合併"
-                        } else if (move == "fa") {
-                            move_title = "Via 自由球員"
-                        } else if (move == "trade") {
-                            move_title = "Via 交易"
-                        } else if (move == "keep") {
-                            move_title = "Via 保留名單"
-                        } else if (move == "draft") {
-                            move_title = "Via 選秀"
-                        } else if (move == "loan") {
-                            move_title = "Via 租借"
-                        } else if (move == "loan back") {
-                            move_title = "租借回歸"
-                        } else if (move == "lost loan") {
-                            move_title = "Via 租借"
-                        } else if (move == 'loan end') {
-                            move_title = '租借結束'
-                        } else if (move == "lost trade") {
-                            move_title = "Via 交易"
-                        } else if (move == "import extend") {
-                            move_title = "續留洋將"
-                        } else if (move == "import") {
-                            move_title = "加盟洋將"
-                        } else if (move == "import lost") {
-                            move_title = "離隊洋將"
+                        movement = new Movements(move);
+                        current_move.push(movement);
+                        if(move != '續約' & move != '離隊'){
+                            movement.content = `<a style="text-decoration:underline"><i>${move}</i></a><br>`
                         }
-                        if (move_title != '') {
-                            move_content += `<a style="text-decoration:underline"><i>${move_title}</i></a><br>`;
-                        }
-                        move_content += `${content}<br>`
 
-                        current_move.push(new Movements(move, move_content));
+                        if(content != ''){
+                            movement.content += `${player_name} (${content})<br>`;
+                        }else{
+                            movement.content += `${player_name}<br>`;
+                        }
                     }
                 }
             });

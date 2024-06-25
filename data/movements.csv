@@ -1,33 +1,30 @@
-0,1,2,3
-性別,球隊,class,異動
-"extend / import extend
-change / keep / merge / fa / trade / loan / draft / import
-lost / lost trade / lost loan / import lost",,,
-men,oversea,fa,阿巴西 (日本 B1 LEAGUE)
-men,oversea,fa,游艾喆 (日本 B1 LEAGUE)
-men,braves,extend,林志傑 (續約 1 年)
-,kings,,
-,pilots,,
-men,lioneers,lost,張傑瑋
-men,dreamers,loan back,王振原
-men,dreamers,lost,林耀宗
-men,steelers,lost,施晉堯
-men,steelers,lost,陳冠全
-men,dea,lost,阿巴西 (旅外 日本 B1)
-,mars,,
-men,leopards,import extend,阿拉薩 (合約期內)
-men,ghosthawks,loan back,吳岱豪
-men,ghosthawks,loan back,藍少甫
-men,aquas,extend,蘇文儒
-men,aquas,extend,呂威霆
-men,aquas,extend,胡瓏貿 (續約 3 年)
-,beer,,
-,bank,,
-men,yulon,loan end,吳岱豪 (回歸 T1獵鷹)
-men,yulon,loan end,藍少甫 (回歸 T1獵鷹)
-men,bll,loan end,王振原 (回歸 PLG夢想家)
-,oversea,,
-,cathay,,
-,taipower,,
-,cht,,
-,taiyuen,,
+0,1,2,3,4,5,6
+性別,球隊,class,,球員,異動,
+men,braves,extension,續約,林志傑,續約 1 年,
+men,aquas,extension,續約,蘇文儒,,
+men,aquas,extension,續約,呂威霆,,
+men,aquas,extension,續約,胡瓏貿,續約 3 年,
+men,leopards,extension,續留洋將,阿拉薩,合約期內,
+men,oversea,signed,Via 自由球員,阿巴西,日本 B1 LEAGUE,
+men,oversea,signed,Via 自由球員,游艾喆,日本 B1 LEAGUE,
+men,dreamers,signed,租借回歸,王振原,,
+men,ghosthawks,signed,租借回歸,吳岱豪,,
+men,ghosthawks,signed,租借回歸,藍少甫,,
+men,lioneers,lost,離隊,張傑瑋,,
+men,dreamers,lost,離隊,林耀宗,,
+men,steelers,lost,離隊,施晉堯,,
+men,steelers,lost,離隊,陳冠全,,
+men,dea,lost,離隊,阿巴西,旅外 日本 B1,
+men,yulon,lost,租借結束,吳岱豪,回歸 T1獵鷹,
+men,yulon,lost,租借結束,藍少甫,回歸 T1獵鷹,
+men,bll,lost,租借結束,王振原,回歸 PLG夢想家,
+men,kings,,,,,
+men,pilots,,,,,
+men,mars,,,,,
+men,beer,,,,,
+men,bank,,,,,
+women,oversea,,,,,
+women,cathay,,,,,
+women,taipower,,,,,
+women,cht,,,,,
+women,taiyuen,,,,,
