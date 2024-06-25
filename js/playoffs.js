@@ -145,7 +145,7 @@ $(document).ready(function () {
                 table.innerHTML += `
                 <tr>
                     <td class="textL" ${temp1}>
-                        <a href="${currentTeam.team.link}" target="_blank" ${temp2}>${currentTeam.rank} -
+                        <a href="${currentTeam.team.url}" target="_blank" ${temp2}>${currentTeam.rank} -
                             <img src="./asset/images/${currentTeam.team.gender}/${currentTeam.team.id}.png" alt="${currentTeam.team.id}"
                                 class="teamicon" ${temp3}>${teamName('full', '', currentTeam.team.id)}</a>
                     </td>
