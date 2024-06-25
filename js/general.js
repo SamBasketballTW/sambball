@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.06.24</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.06.25</b>`
 
     test = ''
     // test = '.html'
@@ -130,4 +130,12 @@ function findTeam(team) {
         }
     }
     return -1;
+}
+order = {
+    '本土': 1,
+    '華裔': 2,
+    '外籍生': 3,
+    '特案外籍生': 4,
+    '亞外': 5,
+    '洋將': 6
 }
