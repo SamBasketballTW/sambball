@@ -59,8 +59,11 @@ class Movements {
 }
 allPlayers = [];
 
+men_oversea = [['CBA', 0], ['日本', 0]];
+women_oversea = [['WCBA', 0], ['韓國', 0], ['其他', 0]];
+
 allRosters = [new Rosters('men', 'oversea', 'oversea'), new Rosters('women', 'oversea', 'oversea')];
-allTeams.forEach(team =>{
+allTeams.forEach(team => {
     allRosters.push(new Rosters(team.gender, team.league, team.id))
 });
 $(document).ready(function () {
@@ -126,6 +129,23 @@ $(document).ready(function () {
                         player.acquired = acquired;
 
                         if (isOversea(team)) {
+                            if (gender == 'men') {
+                                oversea_count = men_oversea;
+                            } else if (gender == 'women') {
+                                oversea_count = women_oversea;
+                            }
+
+                            if (league.includes('CBA') | league.includes('日本') | league.includes('韓國')) {
+                                oversea_count.forEach(oversea => {
+                                    if (league.includes(oversea[0])) {
+                                        oversea[1] += 1;
+                                    }
+                                })
+                            } else {
+                                oversea_count[oversea_count.length - 1][1] += 1;
+                            }
+
+
                             if (current_team != team) {
                                 oversea_team_order += 1;
                                 current_team = team;
@@ -159,20 +179,20 @@ $(document).ready(function () {
                     }
                 }
             });
-            allPlayers.forEach(p =>{
-                if(isOversea(p.team)){
+            allPlayers.forEach(p => {
+                if (isOversea(p.team)) {
                     table = document.getElementById('roster_oversea_tbody');
-                    oversea_team = 
-                    `<td class="${teamBG(p.league, p.team)} borderR" style='font-size:12px' data-order="${p.team_order}">
+                    oversea_team =
+                        `<td class="${teamBG(p.league, p.team)} borderR" style='font-size:12px' data-order="${p.team_order}">
                         ${teamName('short', p.league, p.team)}
                     </td>`
-                }else{
+                } else {
                     table = document.getElementById('roster_tbody');
                     oversea_team = '';
                 }
 
-                table.innerHTML += 
-                `<tr class="filterTr ${p.gender} ${teamFilter(p.team)} ${teamBG(p.league, p.team)} ${p.filter}">
+                table.innerHTML +=
+                    `<tr class="filterTr ${p.gender} ${teamFilter(p.team)} ${teamBG(p.league, p.team)} ${p.filter}">
                     ${oversea_team}
                     <td class="borderR" data-order="${numOrder(p.jersey_num)}">${p.jersey_num}</td>
                     <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${p.player_url}" target="_blank">${p.name}</a></td>             
@@ -184,7 +204,7 @@ $(document).ready(function () {
                     <td class="borderR">${p.birth}</td>
                     <td class="borderR textL" style="font-size:14px">${p.school}</td>
                     <td class="textL" style="font-size:14px">${p.acquired}</td>
-                </tr>` 
+                </tr>`
             })
 
 
@@ -267,9 +287,9 @@ $(document).ready(function () {
                     new_move = 1;
                     for (let i = 0; i < current_move.length; i++) {
                         if (current_move[i].move == move) {
-                            if(content != ''){
+                            if (content != '') {
                                 current_move[i].content += `${player_name} (${content})<br>`;
-                            }else{
+                            } else {
                                 current_move[i].content += `${player_name}<br>`;
                             }
                             new_move = 0;
@@ -278,13 +298,13 @@ $(document).ready(function () {
                     if (new_move == 1) {
                         movement = new Movements(move);
                         current_move.push(movement);
-                        if(move != '續約' & move != '離隊'){
+                        if (move != '續約' & move != '離隊') {
                             movement.content = `<a style="text-decoration:underline"><i>${move}</i></a><br>`
                         }
 
-                        if(content != ''){
+                        if (content != '') {
                             movement.content += `${player_name} (${content})<br>`;
-                        }else{
+                        } else {
                             movement.content += `${player_name}<br>`;
                         }
                     }
@@ -354,13 +374,21 @@ $(document).ready(function () {
     });
 });
 function updateTables() {
+    count_men = '';
+    count_women = '';
+    blank = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
+    for (let i = 0; i < men_oversea.length; i++) {
+        if (i != 0) count_men += `${blank}`;
+        count_men += `${men_oversea[i][0]}:&nbsp;&nbsp;${men_oversea[i][1]}&nbsp;&nbsp;人`
+    }
+    for (let i = 0; i < women_oversea.length; i++) {
+        if (i != 0) count_women += `${blank}`;
+        count_women += `${women_oversea[i][0]}:&nbsp;&nbsp;${women_oversea[i][1]}&nbsp;&nbsp;人`
+    }
     tableCount.innerHTML = `
         <tr class="filterTr men oversea CBA-bg">
-            <td>
-                CBA:&nbsp;&nbsp;5&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                日本:&nbsp;&nbsp;3&nbsp;&nbsp;人
-            </td>
+            <td>${count_men}</td>
         </tr>
         <tr class="filterTr men oversea CBA-bg">
             <td>
@@ -369,11 +397,7 @@ function updateTables() {
             </td>
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
-            <td>
-                WCBA:&nbsp;&nbsp;6&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                WKBL:&nbsp;&nbsp;1&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                其他:&nbsp;&nbsp;1&nbsp;&nbsp;人
-            </td>
+            <td>${count_women}</td>
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
             <td>

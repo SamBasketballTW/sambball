@@ -55,9 +55,9 @@ function teamName(value, league, id, img = '') {
 	if (id == 'fa') {
 		return '自由球員'
 	} else if (isOversea(id)) {
-		if(value == 'full'){
+		if (value == 'full') {
 			return `${league} ${id}`
-		}else if(value == 'short'){
+		} else if (value == 'short') {
 			return `${league}<br>${id}`
 		}
 	} else {
@@ -86,10 +86,12 @@ function teamBG(league, id) {
 	}
 }
 function playerUrl(id, url) {
-	if (url == '' & !isOversea(id)) {
+	if (url != '') {
+		return url;
+	} else if (!isOversea(id)) {
 		return findTeam(id).url;
 	} else {
-		return url;
+		return '';
 	}
 }
 function numOrder(num) {

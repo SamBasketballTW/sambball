@@ -1,16 +1,16 @@
 class Players {
-	static player_id = 0;
+    static player_id = 0;
 
-	constructor(gender, name, league, team, team_order, player_url, pos,height,age,
-		fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg, filter = '') {
+    constructor(gender, name, league, team, team_order, player_url, pos, height, age,
+        fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg, filter = '') {
 
-		this.player_id = Players.player_id++;
-		this.gender = gender;
-		this.name = name;
-		this.league = league;
-		this.team = team;
+        this.player_id = Players.player_id++;
+        this.gender = gender;
+        this.name = name;
+        this.league = league;
+        this.team = team;
         this.team_order = team_order;
-		this.player_url = player_url;
+        this.player_url = player_url;
         this.pos = pos;
         this.height = height;
         this.age = age;
@@ -19,8 +19,8 @@ class Players {
         this.fa_ppg = fa_ppg;
         this.fa_rpg = fa_rpg;
         this.fa_apg = fa_apg;
-		this.filter = filter;
-	}
+        this.filter = filter;
+    }
 }
 allPlayers = [];
 $(document).ready(function () {

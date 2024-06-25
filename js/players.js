@@ -87,7 +87,7 @@ $(document).ready(function () {
                     player.league = league;
                     player.team = team;
                     player.jersey_num = jersey_num;
-                    player.player_url = playerUrl(team,player_url);
+                    player.player_url = playerUrl(team, player_url);
                     player.identity = identity;
                     player.rookie = rookie;
                     player.league_identity = league_identity;
@@ -97,7 +97,7 @@ $(document).ready(function () {
                     player.birth = birth;
                     player.age = birthToAge(birth);
                     player.school = school;
-                    player.last_team = teamName('short','',last_team);
+                    player.last_team = teamName('short', '', last_team);
 
                     if (isOversea(team) & team != 'fa') {
                         if (current_team != team) {
@@ -138,13 +138,13 @@ $(document).ready(function () {
             allColleges.sort((a, b) => a.name.localeCompare(b.name));
 
             allPlayers.forEach(p => {
-				if (isOversea(p.team)) {
-					team_name = `<a style="font-size:12px">${teamName('short', p.league, p.team, 'img')}`
-				} else {
-					team_name = `${teamName('short', p.league, p.team, 'img')}`
-				}
+                if (isOversea(p.team)) {
+                    team_name = `<a style="font-size:12px">${teamName('short', p.league, p.team, 'img')}`
+                } else {
+                    team_name = `${teamName('short', p.league, p.team, 'img')}`
+                }
 
-				table.innerHTML += `
+                table.innerHTML += `
                     <tr class="filterTr ${p.gender} ${teamFilter(p.team)} ${p.identity} ${p.rookie} ${p.filter}">
                         <td class="borderR ${teamBG(p.league, p.team)}" data-order=${p.team_order}>${team_name}</td>
                         <td class="borderR" data-order=${numOrder(p.jersey_num)}>${p.jersey_num}</td>
@@ -158,7 +158,7 @@ $(document).ready(function () {
                         <td class="borderR textL">${p.school}</td>
                         <td>${p.last_team}</td>                
                     </tr>`
-			});
+            });
 
             var dataTable = $('#players_tb').DataTable({
                 dom: 't',

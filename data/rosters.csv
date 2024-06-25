@@ -240,10 +240,10 @@ men,郭翰,14,SBL,bll,https://sleague.tw/player/oldRoster/5928,active,local,2022
 men,蘇格爾,22,SBL,bll,https://sleague.tw/player/oldRoster/6999,active,studentImport,2023Rookie,外籍生,-,200,-,1999/07/02,中信學院,#1 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,蔡紘揚,24,SBL,bll,https://sleague.tw/player/oldRoster/7000,active,local,2023Rookie,本土,-,181,-,2000/09/13,輔仁大學,#8 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,徐仕宏,77,SBL,bll,https://sleague.tw/player/oldRoster/7002,active,local,2023Rookie,本土,-,188,-,1998/03/23,HBL 來義高中,#11 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
-men,施晉堯,28,PLG,fa,https://pleagueofficial.com/player/65,active,local,,本土,G,188,86,1990/10/28,文化大學,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,合約到期,1432,7.0,2.7,2.6
-men,陳冠全,30,PLG,fa,https://pleagueofficial.com/player/67,active,local,,本土,C,197,110,1993/12/30,國立體大,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,合約到期,796,2.2,1.9,0.7
-men,林耀宗,7,PLG,fa,https://pleagueofficial.com/player/59,active,local,,本土,C,194,100,1990/09/07,明道大學,交易 from 領航猿: 2022/07/14,dreamers,,,,,,,,合約到期,101,0,0.5,0
-men,張傑瑋,0,PLG,fa,https://pleagueofficial.com/player/282,active,studentImport,2022Rookie,外籍生,G,184,87,1997/09/06,萬能科大,加盟: 2023-24賽季,lioneers,,,,,,,,已離隊,646,4.70,2.50,1.80
+men,施晉堯,28,PLG,fa,https://pleagueofficial.com/player/65,active,local,,本土,G,188,86,1990/10/28,文化大學,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,-,1432,7.0,2.7,2.6
+men,陳冠全,30,PLG,fa,https://pleagueofficial.com/player/67,active,local,,本土,C,197,110,1993/12/30,國立體大,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,-,796,2.2,1.9,0.7
+men,林耀宗,7,PLG,fa,https://pleagueofficial.com/player/59,active,local,,本土,C,194,100,1990/09/07,明道大學,交易 from 領航猿: 2022/07/14,dreamers,,,,,,,,-,101,0,0.5,0
+men,張傑瑋,0,PLG,fa,https://pleagueofficial.com/player/282,active,studentImport,2022Rookie,外籍生,G,184,87,1997/09/06,萬能科大,加盟: 2023-24賽季,lioneers,,,,,,,,-,646,4.70,2.50,1.80
 ,馬克斯,,,,,,studentImport,2024Rookie,外籍生,F,198,98,2000/05/10,虎尾科大,,,,,,,,,,,,,,
 ,李允傑,,,,,,local,2024Rookie,本土,G,190,84,2000/08/21,政治大學,,,,,,,,,,,,,,
 ,莫巴耶,,,,,,studentImport,2024Rookie,外籍生,F,205,105,2001/01/01,政治大學,,,,,,,,,,,,,,
