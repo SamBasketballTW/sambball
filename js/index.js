@@ -1,8 +1,6 @@
 class Standings {
-	constructor(gender, league, id, playoff = '', w = 0, l = 0, gb = '', streak = '', streak_count = 0, matchup = []) {
-		this.gender = gender;
-		this.league = league;
-		this.id = id;
+	constructor(team, playoff = '', w = 0, l = 0, gb = '-', streak = '', streak_count = 0, matchup = []) {
+		this.team = team;
 		this.playoff = playoff;
 		this.w = w;
 		this.l = l;
@@ -13,32 +11,31 @@ class Standings {
 	}
 }
 class Matchup {
-	constructor(id, w = 0, l = 0, win_pts = 0) {
-		this.id = id;
+	constructor(team, w = 0, l = 0, win_pts = 0) {
+		this.team = team;
 		this.w = w;
 		this.l = l;
 		this.win_pts = win_pts;
 	}
 }
+
 $(document).ready(function () {
-	document.getElementById('plg-champ').innerHTML = `
-	<td class="${teamBG('kings')}">P. LEAGUE+ 2023-24年度總冠軍: ${teamName('full', '', 'kings')}</td>`
-
-	document.getElementById('t1-champ').innerHTML = `
-	<td class="${teamBG('leopards')}">T1 LEAGUE 2023-24年度總冠軍: ${teamName('full', '', 'leopards')}</td>`
-
-	document.getElementById('sbl-champ').innerHTML = `
-	<td class="${teamBG('yulon')}">第21屆 SBL年度總冠軍: ${teamName('full', '', 'yulon')}</td>`
-
-	document.getElementById('wsbl-champ').innerHTML = `
-	<td class="${teamBG('cathay')}">第21屆 WSBL年度總冠軍: ${teamName('full', '', 'cathay')}</td>`
+	champs = [
+		['plg', 'P. LEAGUE+ 2023-24年度總冠軍:', kings],
+		['t1', 'T1 LEAGUE 2023-24年度總冠軍:', leopards],
+		['sbl', '第21屆 SBL年度總冠軍:', yulon],
+		['wsbl', '第21屆 WSBL年度總冠軍:', cathay],
+	]
+	champs.forEach(champ =>{
+		document.getElementById(`${champ[0]}-champ`).innerHTML = `
+		<tr class="${teamBG('',champ[2].id)}"><td>${champ[1]} ${teamName('full', '', champ[2].id)}</td></tr>`
+	});
 
 	league = ['plg', 't1', 'sbl', 'wsbl'];
-	champ = ['kings', 'leopards', 'yulon', 'cathay'];
-	plg_teams = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers'];
-	t1_teams = ['dea', 'mars', 'leopards', 'ghosthawks', 'aquas'];
-	sbl_teams = ['beer', 'bank', 'yulon', 'bll'];
-	wsbl_teams = ['cathay', 'taipower', 'cht', 'taiyuen'];
+	plg_teams = [braves, kings, pilots, lioneers, dreamers, steelers];
+	t1_teams = [dea, mars, leopards, ghosthawks, aquas];
+	sbl_teams = [beer, bank, yulon, bll];
+	wsbl_teams = [cathay, taipower, cht, taiyuen];
 
 	for (let lg = 0; lg < 4; lg++) {
 		fetch(`../data/standings-${league[lg]}.csv`)
@@ -68,11 +65,11 @@ $(document).ready(function () {
 					games = 30;
 					po_teams = 3;
 				}
-				for (let i = 0; i < teams.length; i++) stand_info.push(new Standings('men', league[lg], teams[i]));
+				for (let i = 0; i < teams.length; i++) stand_info.push(new Standings(teams[i].id));
 
 				for (let i = 0; i < stand_info.length; i++) {
 					for (let j = 0; j < teams.length; j++) {
-						stand_info[i].matchup.push(new Matchup(teams[j]));
+						stand_info[i].matchup.push(new Matchup(teams[j].id));
 					}
 				}
 				lines.forEach(line => {
@@ -101,8 +98,8 @@ $(document).ready(function () {
 
 					] = infos;
 
-					teamW_index = teams.indexOf(teamW);
-					teamL_index = teams.indexOf(teamL);
+					teamW_index = teams.indexOf(findTeam(teamW));
+					teamL_index = teams.indexOf(findTeam(teamL));
 
 					teamW_pts = parseInt(teamW_pts);
 					teamL_pts = parseInt(teamL_pts);
@@ -180,7 +177,6 @@ $(document).ready(function () {
 					if (i == 0) {
 						no1_w = stand_info[0].w;
 						no1_l = stand_info[0].l;
-						stand_info[0].gb = "-"
 					} else {
 						stand_info[i].gb = ((no1_w - stand_info[i].w) + (stand_info[i].l - no1_l)) / 2
 					}
@@ -190,7 +186,7 @@ $(document).ready(function () {
 					<tr>
 						<td class="borderR">${i + 1}</td>
 						<td class="textL" style="font-size:14px">
-							${teamName('full', '', stand_info[i].id, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</a></b>
+							${teamName('full', '', stand_info[i].team, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</a></b>
 						</td>
 						<td>${total_games}</td>
 						<td>${stand_info[i].w}</td>

@@ -1,10 +1,10 @@
 class Standings {
-    constructor(id, playoff = '', w = 0, l = 0, gb = '', streak = '', streak_count = 0, matchup = [],
+    constructor(team, playoff = '', w = 0, l = 0, gb = '-', streak = '', streak_count = 0, matchup = [],
         recent5 = new WL, home = new WL, road = new WL, ot = new WL, total_pts = new WL, total_pts_against = new WL,
         q_points = [0, 0, 0, 0], q2_ahead = new WL, q2_behind = new WL, q2_tied = new WL,
         q3_ahead = new WL, q3_behind = new WL, q3_tied = new WL, less_3 = new WL, more_10 = new WL,
         lunar_before = new WL, lunar_after = new WL, cal = []) {
-        this.id = id;
+        this.team = team;
         this.playoff = playoff;
         this.w = w;
         this.l = l;
@@ -33,8 +33,8 @@ class Standings {
     }
 }
 class Matchup {
-    constructor(id, w = 0, l = 0, win_pts = 0, show_win_pts = 'show') {
-        this.id = id;
+    constructor(team, w = 0, l = 0, win_pts = 0, show_win_pts = 'show') {
+        this.team = team;
         this.w = w;
         this.l = l;
         this.win_pts = win_pts;
@@ -50,10 +50,10 @@ class WL {
 
 $(document).ready(function () {
     league = ['plg', 't1', 'sbl', 'wsbl'];
-    plg_teams = ['braves', 'kings', 'pilots', 'lioneers', 'dreamers', 'steelers'];
-    t1_teams = ['dea', 'mars', 'leopards', 'ghosthawks', 'aquas'];
-    sbl_teams = ['beer', 'bank', 'yulon', 'bll'];
-    wsbl_teams = ['cathay', 'taipower', 'cht', 'taiyuen'];
+    plg_teams = [braves, kings, pilots, lioneers, dreamers, steelers];
+    t1_teams = [dea, mars, leopards, ghosthawks, aquas];
+    sbl_teams = [beer, bank, yulon, bll];
+    wsbl_teams = [cathay, taipower, cht, taiyuen];
 
     for (let lg = 0; lg < 4; lg++) {
         fetch(`../data/standings-${league[lg]}.csv`)
@@ -98,11 +98,11 @@ $(document).ready(function () {
                     po_teams = 3;
                 }
 
-                for (let i = 0; i < teams.length; i++) stand_info.push(new Standings(teams[i]));
+                for (let i = 0; i < teams.length; i++) stand_info.push(new Standings(teams[i].id));
 
                 for (let i = 0; i < stand_info.length; i++) {
                     for (let j = 0; j < teams.length; j++) {
-                        stand_info[i].matchup.push(new Matchup(teams[j]));
+                        stand_info[i].matchup.push(new Matchup(teams[j].id));
                     }
                     for (let j = 0; j < 12; j++) {
                         stand_info[i].cal.push(new WL);
@@ -137,8 +137,8 @@ $(document).ready(function () {
                     gameDate = new Date(date);
                     lunarDate = new Date('2024/2/9');
 
-                    teamW_index = teams.indexOf(teamW);
-                    teamL_index = teams.indexOf(teamL);
+                    teamW_index = teams.indexOf(findTeam(teamW));
+                    teamL_index = teams.indexOf(findTeam(teamL));
 
                     teamW_q1 = parseInt(teamW_q1);
                     teamW_q2 = parseInt(teamW_q2);
@@ -313,7 +313,7 @@ $(document).ready(function () {
                     } else {
                         width = 80;
                     }
-                    matchup_thead += `<th colspan="2" style="width:${width}px">${teamName('short', '', stand_info[i].id)}</th>`
+                    matchup_thead += `<th colspan="2" style="width:${width}px">${teamName('short', '', stand_info[i].team)}</th>`
                 }
                 table_matchup.innerHTML += `<thead>${matchup_thead}</thead>`;
 
@@ -339,7 +339,6 @@ $(document).ready(function () {
                     if (i == 0) {
                         no1_w = stand_info[0].w;
                         no1_l = stand_info[0].l;
-                        stand_info[0].gb = "-"
                     } else {
                         stand_info[i].gb = ((no1_w - stand_info[i].w) + (stand_info[i].l - no1_l)) / 2
                     }
@@ -349,7 +348,7 @@ $(document).ready(function () {
                     <tr class="filterTr ${league[lg]} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
-                            ${teamName('short', '', stand_info[i].id, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
+                            ${teamName('short', '', stand_info[i].team, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
                         </td>
                         <td>${total_games}</td>
                         <td>${stand_info[i].w}</td>
@@ -371,7 +370,7 @@ $(document).ready(function () {
                     <tr class="filterTr ${league[lg]} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
-                            ${teamName('short', '', stand_info[i].id, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
+                            ${teamName('short', '', stand_info[i].team, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
                         </td>
                         <td>${total_games}</td>
                         <td>${stand_info[i].w}</td>
@@ -394,7 +393,7 @@ $(document).ready(function () {
                     <tr class="filterTr ${league[lg]} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
-                            ${teamName('short', '', stand_info[i].id, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
+                            ${teamName('short', '', stand_info[i].team, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
                         </td>
                         <td>${total_games}</td>
                         <td>${stand_info[i].w}</td>
@@ -431,7 +430,7 @@ $(document).ready(function () {
                         <tr>
                             <td class="borderR">${i + 1}</td>
                             <td class="textL">
-                                ${teamName('short', '', stand_info[i].id, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
+                                ${teamName('short', '', stand_info[i].team, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
                             </td>
                             <td>${total_games}</td>
                             <td>${stand_info[i].w}</td>
@@ -447,7 +446,7 @@ $(document).ready(function () {
                     <tr class="filterTr ${league[lg]} ${show}">
                         <td class="borderR">${i + 1}</td>
                         <td class="textL">
-                            ${teamName('short', '', stand_info[i].id, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
+                            ${teamName('short', '', stand_info[i].team, 'img')}<a style="font-size:12px"><b>${stand_info[i].playoff}</b></a>
                         </td>
                         <td>${total_games}</td>
                         <td>${stand_info[i].w}</td>

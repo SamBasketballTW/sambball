@@ -24,14 +24,13 @@ class Players {
     }
 }
 class Rosters {
-    constructor(gender, league, id, coach = "", coach_EN = "",
+    constructor(gender, league, id, coach = '',
         local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank, height_rank,
         extension = [], signed = [], lost = []) {
         this.gender = gender;
         this.league = league;
         this.id = id;
         this.coach = coach;
-        this.coach_EN = coach_EN;
         this.local_age_sum = local_age_sum;
         this.local_height_sum = local_height_sum;
         this.local_count = local_count;
@@ -59,13 +58,15 @@ class Movements {
 }
 allPlayers = [];
 
-men_oversea = [['CBA', 0], ['日本', 0]];
-women_oversea = [['WCBA', 0], ['韓國', 0], ['其他', 0]];
 
 allRosters = [new Rosters('men', 'oversea', 'oversea'), new Rosters('women', 'oversea', 'oversea')];
 allTeams.forEach(team => {
     allRosters.push(new Rosters(team.gender, team.league, team.id))
 });
+
+men_oversea = [['CBA', 0], ['日本', 0]];
+women_oversea = [['WCBA', 0], ['韓國', 0], ['其他', 0]];
+
 $(document).ready(function () {
 
     tableCount = document.getElementById('r_count_tbody');
@@ -106,9 +107,14 @@ $(document).ready(function () {
                 ] = infos;
 
                 if (status == "active" & team != "fa") {
+
                     if (identity == "coach") {
-                        allRosters[team_index].coach = `${league_identity}: ${name}`
-                        allRosters[team_index].coach_EN = findTeam(allRosters[team_index].id).coach_EN;
+                        team_index = 2 + findTeam(team).teamIndex();
+
+                        allRosters[team_index].coach = `${league_identity}: ${name}`;
+                        if (findTeam(team).coach_EN != '') {
+                            allRosters[team_index].coach += ' ' + findTeam(team).coach_EN;
+                        }
                     } else {
                         player = new Players();
                         allPlayers.push(player);
@@ -408,17 +414,15 @@ function updateTables() {
 
 
     for (let i = 2; i < allRosters.length; i++) {
-        if (allRosters[i].coach_EN != "" & window.innerWidth <= 600) {
+        if (window.innerWidth <= 600) {
             blank = `<br>`
-        } else if (window.innerWidth <= 495) {
-            blank = '<br>'
         } else {
             blank = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
         }
         tableCount.innerHTML += `
         <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id} ${allRosters[i].id}-bg">
             <td>
-                ${allRosters[i].coach}${allRosters[i].coach_EN}${blank}
+                ${allRosters[i].coach}${blank}
                 本土球員:&nbsp;&nbsp;${allRosters[i].local_count}&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 外籍球員:&nbsp;&nbsp;${allRosters[i].import_count}&nbsp;&nbsp;人
             </td>

@@ -6,7 +6,7 @@ $(document).ready(function () {
     // test = '.html'
 
     navbar_dropdown = document.getElementById('navbar-dropdown');
-    nav = [
+    navs = [
         ['playoffs', '季後賽'],
         ['standings', '戰績'],
         ['rosters', '球隊陣容'],
@@ -17,12 +17,12 @@ $(document).ready(function () {
         ['free-agents', '自由球員'],
         ['us-players', '旅美學生']
     ]
-    for (let i = 0; i < nav.length; i++) {
+    navs.forEach(nav => {
         navbar_dropdown.innerHTML += `
         <li class="nav-item">
-            <a class="nav-link" href="./${nav[i][0]}${test}">${nav[i][1]}</a>
+            <a class="nav-link" href="./${nav[0]}${test}">${nav[1]}</a>
         </li>`
-    }
+    });
 
     footerBody = document.getElementById("footerContent");
     footerBody.innerHTML = `
@@ -46,15 +46,13 @@ $(document).ready(function () {
     </div>`
 });
 class Teams {
-    constructor(gender, league, id, full_name_CN = '', short_name_CN = '', full_name_EN = '', short_name_EN = '', coach_EN = '', url = '') {
+    constructor(gender, league, id, full_name_CN, short_name_CN, coach_EN = '', url = '') {
         this.gender = gender;
         this.league = league;
         this.id = id;
         this.coach_EN = coach_EN;
         this.full_name_CN = full_name_CN;
         this.short_name_CN = short_name_CN;
-        this.full_name_EN = full_name_EN;
-        this.short_name_EN = short_name_EN;
         this.coach_EN = coach_EN;
         this.url = url;
     }
@@ -71,15 +69,15 @@ class Teams {
     }
 }
 braves = new Teams('men', 'plg', 'braves', '臺北富邦勇士', '勇士');
-kings = new Teams('men', 'plg', 'kings', '新北國王', '國王');
-pilots = new Teams('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿');
-lioneers = new Teams('men', 'plg', 'lioneers', '新竹御頂攻城獅', '攻城獅');
-dreamers = new Teams('men', 'plg', 'dreamers', '福爾摩沙夢想家', '夢想家');
+kings = new Teams('men', 'plg', 'kings', '新北國王', '國王', 'Ryan Marchand');
+pilots = new Teams('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿', 'Iurgi Caminos');
+lioneers = new Teams('men', 'plg', 'lioneers', '新竹御頂攻城獅', '攻城獅', 'Milan Mitrović');
+dreamers = new Teams('men', 'plg', 'dreamers', '福爾摩沙夢想家', '夢想家', 'Jamie Pearlman');
 steelers = new Teams('men', 'plg', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人');
 dea = new Teams('men', 't1', 'dea', '新北中信特攻', '特攻');
 mars = new Teams('men', 't1', 'mars', '臺北戰神', '戰神');
-leopards = new Teams('men', 't1', 'leopards', '台啤永豐雲豹', '雲豹');
-ghosthawks = new Teams('men', 't1', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹');
+leopards = new Teams('men', 't1', 'leopards', '台啤永豐雲豹', '雲豹', 'Charles Dubé-Brais');
+ghosthawks = new Teams('men', 't1', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', 'Raoul Korner');
 aquas = new Teams('men', 't1', 'aquas', '高雄全家海神', '海神');
 beer = new Teams('men', 'sbl', 'beer', '台灣啤酒', '台啤');
 bank = new Teams('men', 'sbl', 'bank', '臺灣銀行', '臺銀');
@@ -96,12 +94,6 @@ allTeams = [
     beer, bank, yulon, bll,
     cathay, taipower, cht, taiyuen
 ]
-kings.coach_EN = ' Ryan Marchand'
-pilots.coach_EN = ' Iurgi Caminos'
-lioneers.coach_EN = ' Milan Mitrović'
-dreamers.coach_EN = ' Jamie Pearlman'
-leopards.coach_EN = ' Charles Dubé-Brais'
-ghosthawks.coach_EN = ' Raoul Korner'
 
 braves.url = 'https://pleagueofficial.com/team/1';
 kings.url = 'https://pleagueofficial.com/team/6';

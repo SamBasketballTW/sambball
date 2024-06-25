@@ -21,6 +21,7 @@ class Players {
 	}
 }
 allPlayers = [];
+
 $(document).ready(function () {
 	table = document.getElementById('contracts_tbody');
 

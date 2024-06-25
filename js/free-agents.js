@@ -23,6 +23,7 @@ class Players {
     }
 }
 allPlayers = [];
+
 $(document).ready(function () {
     fetch('../data/rosters.csv')
         .then((response) => response.text())
