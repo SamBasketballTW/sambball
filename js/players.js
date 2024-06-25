@@ -192,7 +192,7 @@ $(document).ready(function () {
                 var school_dropdown = document.getElementById('school-dropdown');
                 if (this.innerHTML == "男籃") {
 
-                    add_team_dropdown('team-dropdown', 'men', 'all', 'cba');
+                    add_team_dropdown('team-dropdown', 'men', 'all oversea');
 
                     team_dropdown.innerHTML += `
                     <li><hr class="dropdown-divider"></li>
@@ -222,7 +222,7 @@ $(document).ready(function () {
 
                 } else if (this.innerHTML == "女籃") {
 
-                    add_team_dropdown('team-dropdown', 'women', 'all', 'wcba');
+                    add_team_dropdown('team-dropdown', 'women', 'all oversea');
 
                     player_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>

@@ -335,10 +335,10 @@ $(document).ready(function () {
 
             if (switch_gender == 1) {
                 if (this.innerHTML == "男籃") {
-                    add_team_dropdown('team-dropdown', 'men', '', 'cba');
+                    add_team_dropdown('team-dropdown', 'men', 'oversea');
 
                 } else if (this.innerHTML == "女籃") {
-                    add_team_dropdown('team-dropdown', 'women', '', 'wcba');
+                    add_team_dropdown('team-dropdown', 'women', 'oversea');
 
                 }
                 var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");

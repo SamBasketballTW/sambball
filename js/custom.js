@@ -1,24 +1,46 @@
-function add_team_dropdown(dropdown, gender, all = "", oversea = "") {
+function add_team_dropdown(dropdown, gender, value = '') {
 	var team_dropdown = document.getElementById(dropdown);
 	team_dropdown.innerHTML = ''
 	active = 'active'
-	if (all != "" | oversea != "") {
-		if (all != "") {
-			team_dropdown.innerHTML += `
-			<li><a class="dropdown-item active" onclick="f('all')">
-				<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
-			</li>`
-			active = ''
+	
+	if(value.includes('all')){
+		team_dropdown.innerHTML += `
+		<li><a class="dropdown-item active" onclick="f('all')">
+			<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
+		</li>`
+		active = '';
+	}
+	if(value.includes('oversea')){
+		if(gender == 'men'){
+			oversea = 'cba';
+		}else if(gender == 'women'){
+			oversea = 'wcba'
 		}
-		if (oversea != "") {
-			team_dropdown.innerHTML += `
-			<li><a class="dropdown-item ${active}" onclick="f('oversea')">
-				<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
-			</li>`
-
-		}
+		team_dropdown.innerHTML += `
+		<li><a class="dropdown-item ${active}" onclick="f('oversea')">
+			<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
+		</li>`
+	}
+	if(value != ''){
 		team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
 	}
+	// if (all != "" | oversea != "") {
+	// 	if (all != "") {
+	// 		team_dropdown.innerHTML += `
+	// 		<li><a class="dropdown-item active" onclick="f('all')">
+	// 			<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
+	// 		</li>`
+	// 		active = ''
+	// 	}
+	// 	if (oversea != "") {
+	// 		team_dropdown.innerHTML += `
+	// 		<li><a class="dropdown-item ${active}" onclick="f('oversea')">
+	// 			<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
+	// 		</li>`
+
+	// 	}
+	// 	team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
+	// }
 
 	lastLeague = ''
 	allTeams.forEach(team => {

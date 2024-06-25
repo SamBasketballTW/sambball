@@ -121,7 +121,7 @@ $(document).ready(function () {
 			document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
 		});
 
-	add_team_dropdown("team-dropdown", "men", 'all', 'cba');
+	add_team_dropdown("team-dropdown", "men", 'all oversea');
 
 	var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
 	var genderbtn = document.getElementById("genderbtn");
