@@ -97,7 +97,11 @@ $(document).ready(function () {
                     player.birth = birth;
                     player.age = birthToAge(birth);
                     player.school = school;
-                    player.last_team = teamName('short', '', last_team);
+                    if(last_team != ''){
+                        player.last_team = teamName('short', league, last_team);
+                    }else{
+                        player.last_team = '';
+                    }
 
                     if (isOversea(team) & team != 'fa') {
                         if (current_team != team) {
