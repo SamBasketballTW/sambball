@@ -8,7 +8,6 @@ function add_team_dropdown(dropdown, gender, value = '') {
 		<li><a class="dropdown-item active" onclick="f('all')">
 			<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
 		</li>`
-		active = '';
 	}
 	if(value.includes('oversea')){
 		if(gender == 'men'){
@@ -17,7 +16,7 @@ function add_team_dropdown(dropdown, gender, value = '') {
 			oversea = 'wcba'
 		}
 		team_dropdown.innerHTML += `
-		<li><a class="dropdown-item ${active}" onclick="f('oversea')">
+		<li><a class="dropdown-item" onclick="f('oversea')">
 			<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
 		</li>`
 	}

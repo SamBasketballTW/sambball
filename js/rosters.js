@@ -358,8 +358,8 @@ $(document).ready(function () {
                             roster_tbs[2].className = roster_tbs[2].className.replace(" showTb", "");
                             roster_tbs[1].className += " showTb";
                         }
-                        var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item active");
-                        currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+                        var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
+						if (currentTeam.length != 0) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
                         this.className += " active";
                         teambtn.innerHTML = this.innerHTML;
 
