@@ -1,5 +1,5 @@
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,23,22,23,24,25,26,27,28
-性別,球員,#,聯盟,球隊,連結,現役,身份,新秀,聯盟身份,位置,身高,體重,生日,學歷,入隊方式,前球隊,class,合約,,剩餘年限,備注,連結,,自由球員,MPG,PPG,RPG,APG
+性別,球員,#,聯盟,球隊,連結,現役,身份,新秀,聯盟身份,位置,身高,體重,生日,學歷,入隊方式,前球隊,class,合約,,剩餘年限,備注,連結,,自由球員,GP,PPG,RPG,APG
 men,劉錚,5,CBA,上海久事,https://www.cbaleague.com/data/#/playerMain?playerId=958480,active,local,,港澳台,F,191,82,1990/11/24,明道大學,加盟: 2020-21賽季,,,2023-24,1年,0,,續約1年,https://weibo.com/1713437511/N9bqxisUF,,,,,
 men,陳盈駿,9,CBA,廣州龍獅,https://www.cbaleague.com/data/#/playerMain?playerId=100002141,active,local,,港澳台,G,182,86,1993/06/09,NCAA D1 Liberty,#1 順位 - 2017 CBA 選秀,,,2023-24,3年,2,,續約3年,https://weibo.com/1859597684/N7xKfgWu8,,,,, 
 men,林庭謙,0,CBA,天津先行者,https://www.cbaleague.com/data/#/playerMain?playerId=100025767,active,local,2020Rookie,港澳台,G,190,80,1999/10/31,NCAA D1 Bryant,#3 順位 - 2020 CBA 選秀,,,2023-24,3年,2,,續約3年,https://weibo.com/2337547167/N8l2dpPWH,,,,,
@@ -227,14 +227,14 @@ men,郭翰,14,SBL,bll,https://sleague.tw/player/oldRoster/5928,active,local,2022
 men,蘇格爾,22,SBL,bll,https://sleague.tw/player/oldRoster/6999,active,uba_import,2023Rookie,外籍生,-,200,-,1999/07/02,中信學院,#1 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,蔡紘揚,24,SBL,bll,https://sleague.tw/player/oldRoster/7000,active,local,2023Rookie,本土,-,181,-,2000/09/13,輔仁大學,#8 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,徐仕宏,77,SBL,bll,https://sleague.tw/player/oldRoster/7002,active,local,2023Rookie,本土,-,188,-,1998/03/23,HBL 來義高中,#11 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
-men,施晉堯,28,PLG,fa,https://pleagueofficial.com/player/65,active,local,,本土,G,188,86,1990/10/28,文化大學,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,-,1432,7.0,2.7,2.6
-men,陳冠全,30,PLG,fa,https://pleagueofficial.com/player/67,active,local,,本土,C,197,110,1993/12/30,國立體大,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,-,796,2.2,1.9,0.7
-men,林耀宗,7,PLG,fa,https://pleagueofficial.com/player/59,active,local,,本土,C,194,100,1990/09/07,明道大學,交易 from 領航猿: 2022/07/14,dreamers,,,,,,,,-,101,0.0,0.5,0.0
-men,張傑瑋,0,PLG,fa,https://pleagueofficial.com/player/282,active,uba_import,2022Rookie,外籍生,G,184,87,1997/09/06,萬能科大,加盟: 2023-24賽季,lioneers,,,,,,,,-,646,4.7,2.5,1.8
-men,李啓瑋,75,T1,fa,https://t-leopards.com/team/4,active,local,,本土,G,192,87,1993/04/08,明道大學,加盟: 2023-24賽季,leopards,,,,,,,,-,1713,7.8,2.5,1.3
-men,劉駿霆,6,日本 B2,fa,https://www.bleague.jp/roster_detail/?PlayerID=51000324,active,local,2021Rookie,亞外,F,187,75,1999/03/31,健行科大,加盟: 2023-24賽季,青森熱力,,,,,,,,-,169,0.7,0.1,0.0
-men,張宗憲,3,PLG,fa,https://pleagueofficial.com/player/43,active,local,,本土,G,193,88,1988/12/27,NCAA D2 BYU-Hawaii,加盟: 2020-21賽季,braves,,,,,,,,提前終止合約,843,3.6,1.3,1.8
-men,蔣淯安,14,T1,fa,https://t-leopards.com/team/1,active,local,,本土,G,174,66,1991/08/04,臺灣體大,加盟: 2023-24賽季,leopards,,,,,,,,-,2208,15.6,3.9,5.2
+men,施晉堯,28,PLG,fa,https://pleagueofficial.com/player/65,active,local,,本土,G,188,86,1990/10/28,文化大學,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,-,32,7.0,2.7,2.6
+men,陳冠全,30,PLG,fa,https://pleagueofficial.com/player/67,active,local,,本土,C,197,110,1993/12/30,國立體大,交易 from 領航猿: 2023/06/19,steelers,,,,,,,,-,35,2.2,1.9,0.7
+men,林耀宗,7,PLG,fa,https://pleagueofficial.com/player/59,active,local,,本土,C,194,100,1990/09/07,明道大學,交易 from 領航猿: 2022/07/14,dreamers,,,,,,,,-,8,0.0,0.5,0.0
+men,張傑瑋,0,PLG,fa,https://pleagueofficial.com/player/282,active,uba_import,2022Rookie,外籍生,G,184,87,1997/09/06,萬能科大,加盟: 2023-24賽季,lioneers,,,,,,,,-,23,4.7,2.5,1.8
+men,李啓瑋,75,T1,fa,https://t-leopards.com/team/4,active,local,,本土,G,192,87,1993/04/08,明道大學,加盟: 2023-24賽季,leopards,,,,,,,,-,16,7.8,2.5,1.3
+men,劉駿霆,6,日本 B2,fa,https://www.bleague.jp/roster_detail/?PlayerID=51000324,active,local,2021Rookie,亞外,F,187,75,1999/03/31,健行科大,加盟: 2023-24賽季,青森熱力,,,,,,,,-,9,0.7,0.1,0.0
+men,張宗憲,3,PLG,fa,https://pleagueofficial.com/player/43,active,local,,本土,G,193,88,1988/12/27,NCAA D2 BYU-Hawaii,加盟: 2020-21賽季,braves,,,,,,,,提前終止合約,16,3.6,1.3,1.8
+men,蔣淯安,14,T1,fa,https://t-leopards.com/team/1,active,local,,本土,G,174,66,1991/08/04,臺灣體大,加盟: 2023-24賽季,leopards,,,,,,,,-,20,15.6,3.9,5.2
 ,馬克斯,,,,,,uba_import,2024Rookie,外籍生,F,198,98,2000/05/10,虎尾科大,,,,,,,,,,,,,,
 ,李允傑,,,,,,local,2024Rookie,本土,G,190,84,2000/08/21,政治大學,,,,,,,,,,,,,,
 ,莫巴耶,,,,,,uba_import,2024Rookie,外籍生,F,205,105,2001/01/01,政治大學,,,,,,,,,,,,,,

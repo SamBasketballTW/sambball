@@ -2,7 +2,7 @@ class Players {
     static player_id = 0;
 
     constructor(gender, name, league, team, team_order, player_url, pos, height, age,
-        fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg, filter = '') {
+        fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg, filter = '') {
 
         this.player_id = Players.player_id++;
         this.gender = gender;
@@ -15,7 +15,7 @@ class Players {
         this.height = height;
         this.age = age;
         this.fa_status = fa_status;
-        this.fa_total_sec = fa_total_sec;
+        this.fa_gp = fa_gp;
         this.fa_ppg = fa_ppg;
         this.fa_rpg = fa_rpg;
         this.fa_apg = fa_apg;
@@ -41,22 +41,22 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, pos, height, weight, birth,
-                    school,
-                    acquired,
-                    last_team,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-                    fa_status, fa_total_sec, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, pos, height, weight, birth,
+					school,
+					acquired,
+					last_team,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note,
+					contract_link_title, contract_url,
+					fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-                ] = infos;
+				] = infos;
 
                 if (fa_status != '') {
                     player = new Players();
@@ -71,7 +71,7 @@ $(document).ready(function () {
                     player.height = height;
                     player.age = birthToAge(birth);
                     player.fa_status = fa_status;
-                    player.fa_total_sec = fa_total_sec;
+                    player.fa_gp = fa_gp;
                     player.fa_ppg = fa_ppg;
                     player.fa_rpg = fa_rpg;
                     player.fa_apg = fa_apg;
@@ -96,7 +96,7 @@ $(document).ready(function () {
                         <td class="borderR">${p.height}</td>
                         <td>${p.fa_status}</td>
                         <td class="${teamBG(p.league, p.team)} borderR" data-order="${p.team_order}">${teamName('full', p.league, p.team)}</td>
-                        <td data-order="${p.fa_total_sec}">${secToTime(p.fa_total_sec)}</td>
+                        <td>${p.fa_gp}</td>
                         <td>${p.fa_ppg}</td>
                         <td>${p.fa_rpg}</td>
                         <td>${p.fa_apg}</td>              
