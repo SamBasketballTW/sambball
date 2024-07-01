@@ -65,7 +65,6 @@ $(document).ready(function () {
                     player.gender = gender;
                     player.name = name;
                     player.league = league;
-                    player.team = last_team;
                     player.player_url = playerUrl(last_team, player_url);
                     player.pos = pos;
                     player.height = height;
@@ -76,14 +75,21 @@ $(document).ready(function () {
                     player.fa_rpg = fa_rpg;
                     player.fa_apg = fa_apg;
 
-                    if (isOversea(last_team)) {
-                        if (current_team != last_team) {
+                    if(team != 'fa'){
+                        player.team = team;
+                    }else{
+                        player.team = last_team;
+                    }
+
+                    if (isOversea(player.team)) {
+                        if (current_team != player.team) {
                             oversea_team_order += 1;
-                            current_team = last_team;
+                            current_team = player.team;
                         }
                         player.team_order = oversea_team_order;
                     } else {
-                        player.team_order = oversea_team_order + 1 + findTeam(last_team).teamIndex();
+                        player.team_order = 1 + 1 + findTeam(player.team).teamIndex();
+
                     }
                 }
             })
@@ -109,7 +115,7 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [],
+                order: [5, 'asc'],
             });
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });

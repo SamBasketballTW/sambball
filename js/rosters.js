@@ -455,6 +455,7 @@ function updateMovements() {
             lost = '';
             if (allRosters[i].extension.length > 0) {
                 for (let j = 0; j < allRosters[i].extension.length; j++) {
+                    if(j != 0) extension += '<br>';
                     extension += allRosters[i].extension[j].content;
                 }
             } else {
@@ -462,6 +463,7 @@ function updateMovements() {
             }
             if (allRosters[i].signed.length > 0) {
                 for (let j = 0; j < allRosters[i].signed.length; j++) {
+                    if(j != 0) signed += '<br>';
                     signed += allRosters[i].signed[j].content;
                 }
             } else {
@@ -469,6 +471,7 @@ function updateMovements() {
             }
             if (allRosters[i].lost.length > 0) {
                 for (let j = 0; j < allRosters[i].lost.length; j++) {
+                    if(j != 0) lost += '<br>';
                     lost += allRosters[i].lost[j].content;
                 }
             } else {
@@ -503,6 +506,7 @@ function updateMovements() {
             lost = '';
             if (allRosters[i].extension.length > 0) {
                 for (let j = 0; j < allRosters[i].extension.length; j++) {
+                    if(j != 0) extension += '<br>';
                     extension += allRosters[i].extension[j].content;
                 }
             } else {
@@ -510,6 +514,7 @@ function updateMovements() {
             }
             if (allRosters[i].signed.length > 0) {
                 for (let j = 0; j < allRosters[i].signed.length; j++) {
+                    if(j != 0) signed += '<br>';
                     signed += allRosters[i].signed[j].content;
                 }
             } else {
@@ -517,6 +522,7 @@ function updateMovements() {
             }
             if (allRosters[i].lost.length > 0) {
                 for (let j = 0; j < allRosters[i].lost.length; j++) {
+                    if(j != 0) lost += '<br>';
                     lost += allRosters[i].lost[j].content;
                 }
             } else {
