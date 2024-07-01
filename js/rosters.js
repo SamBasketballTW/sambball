@@ -44,9 +44,9 @@ class Rosters {
 
     avg(value) {
         if (value == "age") {
-            return (this.local_age_sum / this.local_count).toFixed(1);
+            return (this.local_age_sum / this.local_count);
         } else if (value = "height") {
-            return (this.local_height_sum / this.local_count).toFixed(1);
+            return (this.local_height_sum / this.local_count);
         }
     }
 }
@@ -398,8 +398,8 @@ function updateTables() {
         </tr>
         <tr class="filterTr men oversea CBA-bg">
             <td>
-                本土平均年齡:&nbsp;${allRosters[0].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                本土平均身高:&nbsp;${allRosters[0].avg('height')}
+                本土平均年齡:&nbsp;${allRosters[0].avg('age').toFixed(1)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                本土平均身高:&nbsp;${allRosters[0].avg('height').toFixed(1)}
             </td>
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
@@ -407,8 +407,8 @@ function updateTables() {
         </tr>
         <tr class="filterTr women oversea WCBA-bg">
             <td>
-            本土平均年齡:&nbsp;${allRosters[1].avg('age')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            本土平均身高:&nbsp;${allRosters[1].avg('height')}
+            本土平均年齡:&nbsp;${allRosters[1].avg('age').toFixed(1)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            本土平均身高:&nbsp;${allRosters[1].avg('height').toFixed(1)}
             </td>
         </tr>`
 
@@ -435,8 +435,8 @@ function updateTables() {
         tableCount.innerHTML += `
         <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id} ${allRosters[i].id}-bg">
             <td>
-                本土平均年齡:&nbsp;${allRosters[i].avg('age')}&nbsp;(${allRosters[i].league.toUpperCase()}第${allRosters[i].age_rank})${blank}
-                本土平均身高:&nbsp;${allRosters[i].avg('height')}&nbsp;(${allRosters[i].league.toUpperCase()}第${allRosters[i].height_rank})
+                本土平均年齡:&nbsp;${allRosters[i].avg('age').toFixed(1)}&nbsp;(${allRosters[i].league.toUpperCase()}第${allRosters[i].age_rank})${blank}
+                本土平均身高:&nbsp;${allRosters[i].avg('height').toFixed(1)}&nbsp;(${allRosters[i].league.toUpperCase()}第${allRosters[i].height_rank})
             </td>
         </tr>`
     }
@@ -480,7 +480,7 @@ function updateMovements() {
             table_movements.innerHTML += `
             <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id}">
                 <td class="textL">
-                    <a style="text-decoration:underline; font-size:20px;"><b>Extension</b></a><br>${extension}
+                    <a style="text-decoration:underline; font-size:20px;"><b>Re-Signed</b></a><br>${extension}
                 </td>
             </tr>
             <tr class="filterTr ${allRosters[i].gender} ${allRosters[i].id}">
@@ -496,7 +496,7 @@ function updateMovements() {
         }
     } else {
         table_movements_th.innerHTML = `
-        <th style="font-size:18px"><b>Extension</b></th>
+        <th style="font-size:18px"><b>Re-Signed</b></th>
         <th style="font-size:18px"><b>Signed</b></th>
         <th style="font-size:18px"><b>Lost</b></th>`
 
