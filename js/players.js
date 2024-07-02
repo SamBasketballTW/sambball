@@ -61,22 +61,22 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-					gender,
-					name,
-					jersey_num, league, team, player_url,
-					status,
-					identity,
-					rookie,
-					league_identity, pos, height, weight, birth,
-					school,
-					acquired,
-					last_team,
-					contract_filter, contract_season, contract_years, contract_years_left,
-					contract_note,
-					contract_link_title, contract_url,
-					fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+                    gender,
+                    name,
+                    jersey_num, league, team, player_url,
+                    status,
+                    identity,
+                    rookie,
+                    league_identity, pos, height, weight, birth,
+                    school,
+                    acquired,
+                    last_team,
+                    contract_filter, contract_season, contract_years, contract_years_left,
+                    contract_note,
+                    contract_link_title, contract_url,
+                    fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-				] = infos;
+                ] = infos;
 
                 if (status == 'active' & identity != 'coach') {
                     player = new Players();
@@ -97,10 +97,10 @@ $(document).ready(function () {
                     player.birth = birth;
                     player.age = birthToAge(birth);
                     player.school = school;
-                    if(last_team != ''){
-                        if(isOversea(last_team)){
+                    if (last_team != '') {
+                        if (isOversea(last_team)) {
                             player.last_team = last_team;
-                        }else{
+                        } else {
                             player.last_team = teamName('short', league, last_team);
                         }
                     }

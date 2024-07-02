@@ -26,9 +26,9 @@ $(document).ready(function () {
 		['sbl', '第21屆 SBL年度總冠軍:', yulon],
 		['wsbl', '第21屆 WSBL年度總冠軍:', cathay],
 	]
-	champs.forEach(champ =>{
+	champs.forEach(champ => {
 		document.getElementById(`${champ[0]}-champ`).innerHTML = `
-		<tr class="${teamBG('',champ[2].id)}"><td>${champ[1]} ${teamName('full', '', champ[2].id)}</td></tr>`
+		<tr class="${teamBG('', champ[2].id)}"><td>${champ[1]} ${teamName('full', '', champ[2].id)}</td></tr>`
 	});
 
 	league = ['plg', 't1', 'sbl', 'wsbl'];
