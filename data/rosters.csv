@@ -214,13 +214,9 @@ men,黃宗翰,31,SBL,yulon,https://sleague.tw/player/oldRoster/5934,active,local
 men,林明毅,76,SBL,yulon,https://sleague.tw/player/oldRoster/5618,active,local,,本土,-,175,-,1996/03/27,明道大學,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
 men,郭昭男,93,SBL,yulon,https://sleague.tw/player/oldRoster/272,active,local,,本土,-,192,-,1992/11/06,高雄師大,加盟: 2019-20賽季,,,,未知,,,,,,,,,
 men,吳俊雄,-,SBL,bll,,active,coach,-,總教練,-,-,-,1984/08/26,,總教練: 2022-23賽季,,,2022-23,,,,,,,,,,
-men,楊浩之,2,SBL,bll,https://sleague.tw/player/oldRoster/6993,active,taiwanese,2021Rookie,華裔,-,187,-,1995/10/20,-,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
-men,陳奕綸,3,SBL,bll,https://sleague.tw/player/oldRoster/5883,active,local,2021Rookie,本土,-,172,-,1998/09/09,國立體大,加盟: 2022-23賽季,,,2023-24,,,,,,,,,,
-men,陳昶宏,4,SBL,bll,https://sleague.tw/player/oldRoster/6994,active,local,2023Rookie,本土,-,186,-,2001/05/24,陽明交通,加盟: 2023-24賽季 (新秀),,,2023-24,,,,,,,,,,
 men,陳昭群,5,SBL,bll,https://sleague.tw/player/oldRoster/6995,active,local,2023Rookie,本土,-,193,-,2000/11/10,臺灣科大,#10 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,廖景泰,6,SBL,bll,https://sleague.tw/player/oldRoster/6996,active,local,2023Rookie,本土,-,198,-,1999/11/12,高雄師大,#9 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,江尚謙,7,SBL,bll,https://sleague.tw/player/oldRoster/5930,active,local,2022Rookie,本土,-,181,-,1999/10/23,亞洲大學,#1 順位 - 2022 SBL 選秀,,2022Draft,2022-23,22' 新秀合約,,,,,,,,,
-men,蔣浩偉,10,SBL,bll,https://sleague.tw/player/oldRoster/5927,active,local,2022Rookie,本土,-,176,-,1998/10/28,醒吾科大,#5 順位 - 2022 SBL 選秀,,2022Draft,2022-23,22' 新秀合約,,,,,,,,,
 men,林梓峰,11,SBL,bll,https://sleague.tw/player/oldRoster/6997,active,local,2021Rookie,本土,-,185,-,1998/10/30,健行科大,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
 men,謝承諳,12,SBL,bll,https://sleague.tw/player/oldRoster/6998,active,local,2023Rookie,本土,-,191,-,2000/11/24,國立體大,#5 順位 - 2023 SBL 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,黃建智,13,SBL,bll,https://sleague.tw/player/oldRoster/624,active,local,2022Rookie,本土,-,193,-,1998/09/08,臺灣師大,#11 順位 - 2022 SBL 選秀,,2022Draft,2022-23,22' 新秀合約,,,,,,,,,
@@ -236,6 +232,10 @@ men,錢肯尼,23,PLG,fa,https://pleagueofficial.com/player/149,active,taiwanese,
 men,吳松蔚,30,PLG,fa,https://pleagueofficial.com/player/95,active,local,,本土,G,185,85,1993/05/21,義守大學,加盟: 2017-18賽季 (新秀),dreamers,,,,,,,,球隊不續約,12,0.5,0.1,0.0
 men,蔡嘉駿,14,SBL,fa,https://sleague.tw/player/oldRoster/5903,active,local,2021Rookie,本土,-,190,-,1997/12/11,北市大學,加盟: 2021-22賽季 (新秀),bank,,,,,,,,-,7,1.4,0.7,0.1
 men,陳俊翰,21,SBL,fa,https://sleague.tw/player/oldRoster/635,active,local,2020Rookie,本土,-,196,-,1996/03/20,康寧大學,加盟: 2022-23賽季,bank,,,,,,,,-,2,4.0,0.5,0.5
+men,陳奕綸,3,SBL,fa,https://sleague.tw/player/oldRoster/5883,active,local,2021Rookie,本土,-,172,-,1998/09/09,國立體大,加盟: 2022-23賽季,bll,,,,,,,,-,22,2.6,1.4,2.0
+men,蔣浩偉,10,SBL,fa,https://sleague.tw/player/oldRoster/5927,active,local,2022Rookie,本土,-,176,-,1998/10/28,醒吾科大,#5 順位 - 2022 SBL 選秀,bll,,,,,,,,-,19,4.5,0.8,0.5
+men,楊浩之,2,SBL,fa,https://sleague.tw/player/oldRoster/6993,active,taiwanese,2021Rookie,華裔,-,187,-,1995/10/20,-,加盟: 2023-24賽季,bll,,,,,,,,-,7,1.3,0.7,0.0
+men,陳昶宏,4,SBL,fa,https://sleague.tw/player/oldRoster/6994,active,local,2023Rookie,本土,-,186,-,2001/05/24,陽明交通,加盟: 2023-24賽季 (新秀),bll,,,,,,,,-,5,0.4,0.8,0.2
 ,馬克斯,,,,,,uba_import,2024Rookie,外籍生,F,198,98,2000/05/10,虎尾科大,,,,,,,,,,,,,,
 ,李允傑,,,,,,local,2024Rookie,本土,G,190,84,2000/08/21,政治大學,,,,,,,,,,,,,,
 ,莫巴耶,,,,,,uba_import,2024Rookie,外籍生,F,205,105,2001/01/01,政治大學,,,,,,,,,,,,,,
