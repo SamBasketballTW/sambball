@@ -65,6 +65,9 @@ $(document).ready(function () {
 					player.team = team;
 					player.jersey_num = jersey_num;
 					player.player_url = playerUrl(team, player_url);
+					player.contract_season = contract_season;
+					player.contract_years = contract_years;
+					player.contract_years_left = contract_years_left;
 					player.contract_note = contract_note;
 
 					player.filter += contract_filter;
@@ -84,13 +87,10 @@ $(document).ready(function () {
 					}
 
 					if (contract_filter.includes('trade')) {
-						contract_season = `*${contract_season}*`;
-						contract_years = `*${contract_years}*`;
-						contract_years_left = `*${contract_years_left}*`;
+						if (contract_season != '') player.contract_season = `*${contract_season}*`;
+						if (contract_years != '') player.contract_years = `*${contract_years}*`;
+						if (contract_years_left != '') player.contract_years_left = `*${contract_years_left}*`;
 					}
-					player.contract_season = contract_season;
-					player.contract_years = contract_years;
-					player.contract_years_left = contract_years_left;
 
 					if (contract_url != '') {
 						player.contract_link =

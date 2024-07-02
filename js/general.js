@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.07.01</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.07.02</b>`
 
     test = ''
     // test = '.html'
@@ -94,6 +94,10 @@ allTeams = [
     beer, bank, yulon, bll,
     cathay, taipower, cht, taiyuen
 ]
+plgTeams = [braves, kings, pilots, lioneers, dreamers, steelers];
+t1Teams = [dea, mars, leopards, ghosthawks, aquas];
+sblTeams = [beer, bank, yulon, bll];
+wsblTeams = [cathay, taipower, cht, taiyuen];
 
 braves.url = 'https://pleagueofficial.com/team/1';
 kings.url = 'https://pleagueofficial.com/team/6';

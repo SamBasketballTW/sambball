@@ -239,7 +239,7 @@ $(document).ready(function () {
 					count1_gender = 'men'
 				}
 
-				if (status == 'active' | status == 'unknown') {
+				if ((status == 'active' | status == 'unknown') & identity != 'coach') {
 					birthday = new Date(birth);
 
 					if (birthday.getDate() == today.getDate() & birthday.getMonth() == today.getMonth()) {

@@ -2,17 +2,17 @@ function add_team_dropdown(dropdown, gender, value = '') {
 	var team_dropdown = document.getElementById(dropdown);
 	team_dropdown.innerHTML = ''
 	active = 'active'
-	
-	if(value.includes('all')){
+
+	if (value.includes('all')) {
 		team_dropdown.innerHTML += `
 		<li><a class="dropdown-item active" onclick="f('all')">
 			<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
 		</li>`
 	}
-	if(value.includes('oversea')){
-		if(gender == 'men'){
+	if (value.includes('oversea')) {
+		if (gender == 'men') {
 			oversea = 'cba';
-		}else if(gender == 'women'){
+		} else if (gender == 'women') {
 			oversea = 'wcba'
 		}
 		team_dropdown.innerHTML += `
@@ -20,7 +20,7 @@ function add_team_dropdown(dropdown, gender, value = '') {
 			<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
 		</li>`
 	}
-	if(value != ''){
+	if (value != '') {
 		team_dropdown.innerHTML += `<li><hr class="dropdown-divider"></li>`
 	}
 
@@ -56,13 +56,15 @@ function leagueIdFilter(id) {
 	return -1;
 }
 function teamName(value, league, id, img = '') {
-	if (id == 'fa') {
-		return '自由球員'
+	if (id == '') {
+		return '';
+	} else if (id == 'fa') {
+		return '自由球員';
 	} else if (isOversea(id)) {
 		if (value == 'full') {
-			return `${league} ${id}`
+			return `${league} ${id}`;
 		} else if (value == 'short') {
-			return `${league}<br>${id}`
+			return `${league}<br>${id}`;
 		}
 	} else {
 		team = findTeam(id);

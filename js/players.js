@@ -2,7 +2,7 @@ class Players {
     static player_id = 0;
 
     constructor(gender, name, league, team, team_order, jersey_num, player_url,
-        identity, rookie, league_identity, pos, height, weight, birth, age, school, last_team, filter = '') {
+        identity, rookie, league_identity, pos, height, weight, birth, age, school, last_team = '', filter = '') {
 
         this.player_id = Players.player_id++;
         this.gender = gender;
@@ -98,9 +98,11 @@ $(document).ready(function () {
                     player.age = birthToAge(birth);
                     player.school = school;
                     if(last_team != ''){
-                        player.last_team = teamName('short', league, last_team);
-                    }else{
-                        player.last_team = '';
+                        if(isOversea(last_team)){
+                            player.last_team = last_team;
+                        }else{
+                            player.last_team = teamName('short', league, last_team);
+                        }
                     }
 
                     if (isOversea(team) & team != 'fa') {
@@ -198,10 +200,6 @@ $(document).ready(function () {
 
                     add_team_dropdown('team-dropdown', 'men', 'all oversea');
 
-                    team_dropdown.innerHTML += `
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" onclick="f('fa')">自由球員</li>`
-
                     player_dropdown.innerHTML = `
                     <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
 					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
@@ -264,10 +262,6 @@ $(document).ready(function () {
                         this.className += " active";
                         teambtn.innerHTML = this.innerHTML;
 
-                        if (this.innerHTML == "自由球員") {
-                            players[0].click();
-                            schools[0].click();
-                        }
                         f('filter');
                     });
                 }
@@ -287,6 +281,9 @@ $(document).ready(function () {
                         currentSchool[0].className = currentSchool[0].className.replace(" active", "");
                         this.className += " active";
                         schoolbtn.innerHTML = this.innerHTML;
+
+                        teams[0].click();
+                        players[0].click();
 
                         f('filter');
                     });

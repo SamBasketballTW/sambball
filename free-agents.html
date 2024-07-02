@@ -48,7 +48,7 @@
         <div class="jumbotron"></div>
 
         <div class="container-lg" style="overflow-x: auto;">
-            <div class="col" style="width:530px;">
+            <div class="col" style="width:500px;">
 
                 <button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" style="width:150px">男籃</button>
@@ -57,7 +57,14 @@
                     <li><a class="dropdown-item disabled" onclick="f('women')">女籃 (尚無資料)</a></li>
                 </ul>
 
-                <a><b>&nbsp;&nbsp;自由球員 - 2024休賽季</b></a>
+                <a><b>&nbsp;&nbsp;2024休賽季 - 自由球員</b></a>
+                <button id="fabtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width:150px">未簽約</button>
+                <ul id="fa-dropdown" class="dropdown-menu">
+                    <li><a class="dropdown-item" onclick="f('all')">全部</a></li>
+                    <li><a class="dropdown-item" onclick="f('signed')">已簽約</a></li>
+                    <li><a class="dropdown-item active" onclick="f('unsigned')">未簽約</a></li>
+                </ul>
             </div>
         </div>
 
@@ -70,7 +77,8 @@
                         <th style="width:65px">年齡</th>
                         <th style="width:65px">身高</th>
                         <th style="width:165px">合約狀況</th>
-                        <th style="width:170px">原球隊</th>
+                        <th style="width:170px">2023-24 球隊</th>
+                        <th style="width:170px">新球隊</th>
                         <th style="width:65px">出賽</th>
                         <th style="width:65px">PPG</th>
                         <th style="width:65px">RPG</th>
