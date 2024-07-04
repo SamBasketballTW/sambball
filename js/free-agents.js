@@ -143,7 +143,10 @@ $(document).ready(function () {
                 scrollCollapse: true,
                 info: false,
                 ordering: true,
-                order: [[5, 'asc']]
+                order: [
+                    [6, 'asc'],
+                    [5, 'asc']
+                ]
             });
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
             document.getElementById('fa-dropdown').getElementsByClassName('dropdown-item')[2].click();
