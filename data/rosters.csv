@@ -93,7 +93,6 @@ men,呂政儒,13,PLG,steelers,https://pleagueofficial.com/player/208,active,loca
 men,盧哲毅,15,PLG,steelers,https://pleagueofficial.com/player/83,active,local,2020Rookie,本土,G,187,82,1993/07/15,義守大學,加盟: 2021-22賽季,,,,,,,,,-,26,1.2,1.0,0.4
 men,林郅為,18,PLG,steelers,https://pleagueofficial.com/player/286,active,local,,本土,C,200,95,1992/07/10,文化大學,加盟: 2022-23賽季,,,,,,,,,-,36,3.8,1.8,0.3
 men,施晉堯,28,PLG,steelers,https://pleagueofficial.com/player/65,active,local,,本土,G,188,86,1990/10/28,文化大學,交易 from 領航猿: 2023/06/19,,,,,,,,,-,32,7.0,2.7,2.6
-men,陳冠全,30,PLG,steelers,https://pleagueofficial.com/player/67,active,local,,本土,C,197,110,1993/12/30,國立體大,交易 from 領航猿: 2023/06/19,,,,,,,,,-,35,2.2,1.9,0.7
 men,丹尼爾,35,PLG,steelers,https://pleagueofficial.com/player/378,active,uba_import,2023Rookie,外籍生,C,208,96,2000/08/07,世新大學,#4 順位 - 2023 PLG 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,張伯維,77,PLG,steelers,https://pleagueofficial.com/player/45,active,local,,本土,F,190,92,1990/07/22,臺灣藝大,加盟: 2021-22賽季,,,,,,,,,-,39,9.1,2.0,1.0
 men,李逸驊,-,T1,dea,,active,coach,-,總教練,-,-,-,1968/01/08,,總教練: 2021-22賽季,,,2021-22,,,,,,,,,,
@@ -122,6 +121,7 @@ men,孫思堯,20,T1,mars,https://taipeimars.com.tw/team/39,active,local,2020Rook
 men,許敬恩,24,T1,mars,https://taipeimars.com.tw/team/189,active,local,2023Rookie,本土,G,190,90,2001/07/11,臺灣師大,加盟: 2023-24賽季 (新秀),,,2023-24,,,,,,,,,,
 men,張耕淯,29,T1,mars,https://taipeimars.com.tw/team/190,active,local,,本土,G,188,88,1995/10/16,臺灣體大,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
 men,曹薰襄,57,T1,mars,https://taipeimars.com.tw/team/134,active,local,2022Rookie,本土,G,181,81,1999/03/16,臺灣藝大,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
+men,陳冠全,62,T1,mars,https://pleagueofficial.com/player/67,active,local,,本土,C,197,110,1993/12/30,國立體大,加盟: 2024/07/05,steelers,,2024-25,,,,,,-,35,2.2,1.9,0.7
 men,查爾斯,-,T1,leopards,,active,coach,-,總教練,-,-,-,,,總教練: 2023-24賽季,,,2023-24,,,,,,,,,,
 men,陳孝榕,0,T1,leopards,https://t-leopards.com/team/140,active,local,2022Rookie,本土,G,180,70,1999/11/06,臺灣科大,R1 指名 - 2022 T1 選秀,,2022Draft,2022-23,22' 新秀合約,,,,,,,,,
 men,鄭瑋,1,T1,leopards,https://t-leopards.com/team/21,active,local,,本土,G,180,90,1991/01/08,實踐大學,加盟: 2021-22賽季,,,2022-23,2+1年,0+1,,提前換約,https://www.instagram.com/p/ChEkCAiv1kI/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
@@ -131,16 +131,15 @@ men,朱億宗,10,T1,leopards,https://t-leopards.com/team/6,active,local,,本土,
 men,林信寬,12,T1,leopards,https://t-leopards.com/team/199,active,local,2023Rookie,本土,F,192,97,2002/05/09,臺灣師大,#1 順位 - 2023 T1 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,黃鎮,27,T1,leopards,https://t-leopards.com/team/5,active,local,,本土,G,193,86,1990/06/27,輔仁大學,加盟: 2023-24賽季,,,,未知,0,,,,,,,,
 men,吳沛嘉,32,T1,leopards,https://t-leopards.com/team/212,active,local,2023Rookie,本土,C,205,100,1999/09/27,世新大學,加盟: 2023-24賽季,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
+men,呂濟而,72,T1,leopards,https://ghosthawks.tw/team/13,active,local,,本土,G,187,80,1992/01/15,高雄師大,加盟: 2024/07/05,ghosthawks,,2024-25,,,,,,-,24,3.8,0.9,0.8
 men,阿拉薩,77,T1,leopards,,active,uba_import,2023Rookie,洋將,C,205,105,2002/01/08,臺灣藝大,加盟: 2023-24賽季,,,2023-24,複數年,,,複數年,https://www.instagram.com/p/CvgmLJ7BTw3/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,劉元凱,82,T1,leopards,https://t-leopards.com/team/142,active,local,,本土,C,206,105,1991/07/09,輔仁大學,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,柯納,-,T1,ghosthawks,,active,coach,-,總教練,-,-,-,-,,總教練: 2023-24賽季,,extension,2024-25,,,,,,,,,,
-men,劉駿霆,,T1,ghosthawks,https://www.bleague.jp/roster_detail/?PlayerID=51000324,active,local,2021Rookie,本土,F,187,75,1999/03/31,健行科大,回歸: 2024/07/02,B2 青森,,,,,,,,,,,,
+men,劉駿霆,,T1,ghosthawks,https://www.bleague.jp/roster_detail/?PlayerID=51000324,active,local,2021Rookie,本土,F,187,75,1999/03/31,健行科大,加盟: 2024/07/02,B2 青森,,,,,,,,,,,,
 men,簡偉儒,2,T1,ghosthawks,https://ghosthawks.tw/team/154,active,local,,本土,G,186,85,1992/01/20,臺灣師大,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,谷毛唯嘉,3,T1,ghosthawks,https://ghosthawks.tw/team/149,active,local,2022Rookie,本土,G,175,68,1999/12/04,健行科大,R1 指名 - 2022 T1 選秀,,2022Draft,2022-23,22' 新秀合約,,,,,,,,,
-men,李漢昇,4,T1,ghosthawks,https://ghosthawks.tw/team/51,active,local,2020Rookie,本土,G,177,76,1994/10/24,臺灣師大,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,白薩,6,T1,ghosthawks,https://ghosthawks.tw/team/122,active,uba_import,2022Rookie,特案外籍生,G,183,75,1997/10/30,宏國德霖,加盟: 2023-24賽季,,,2023-24,,,特案外籍生,特案,https://t1league.basketball/announcements/779/2022.9.18%E8%81%AF%E7%9B%9F%E5%85%AC%E5%91%8A,,,,,
 men,吳彥侖,9,T1,ghosthawks,https://sleague.tw/player/oldRoster/7020,loan,local,,本土,G,182,72,1997/06/18,義守大學,加盟: 2022-23賽季,,,2023-24,,,租借至 SBL裕隆,租借,https://tw.sports.yahoo.com/news/sbl%E8%A3%95%E9%9A%86%E7%B0%BD%E8%B3%AD%E6%A1%88%E6%88%B0%E5%8A%9B%E5%A4%A7%E5%82%B7-t1%E7%8D%B5%E9%B7%B9%E6%9A%96%E5%BF%83%E4%BA%A4%E6%B5%81%E9%80%81%E5%87%BA4%E5%90%8D%E7%90%83%E5%93%A1-073018186.html,,,,,
-men,胡凱翔,12,T1,ghosthawks,https://ghosthawks.tw/team/151,active,local,,本土,F,190,93,1991/05/16,文化大學,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,吳宏興,18,T1,ghosthawks,https://ghosthawks.tw/team/145,active,local,,本土,C,202,96,1989/10/21,HBL 新榮高中,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,呂冠霆,21,T1,ghosthawks,https://ghosthawks.tw/team/147,active,local,,本土,F,197,100,1992/10/13,臺灣藝大,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,高承恩,22,T1,ghosthawks,https://sleague.tw/player/oldRoster/7021,loan,local,2022Rookie,本土,G,175,75,1999/12/23,健行科大,加盟: 2023-24賽季,,,2023-24,,,租借至 SBL裕隆,租借,https://tw.sports.yahoo.com/news/sbl%E8%A3%95%E9%9A%86%E7%B0%BD%E8%B3%AD%E6%A1%88%E6%88%B0%E5%8A%9B%E5%A4%A7%E5%82%B7-t1%E7%8D%B5%E9%B7%B9%E6%9A%96%E5%BF%83%E4%BA%A4%E6%B5%81%E9%80%81%E5%87%BA4%E5%90%8D%E7%90%83%E5%93%A1-073018186.html,,,,,
@@ -150,7 +149,6 @@ men,韓杰諭,29,T1,ghosthawks,https://ghosthawks.tw/team/153,active,local,2022R
 men,蘇奕晉,41,T1,ghosthawks,https://ghosthawks.tw/team/38,active,local,,本土,F,196,105,1993/12/29,明道大學,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
 men,吳岱豪,54,T1,ghosthawks,https://sleague.tw/player/oldRoster/42,active,local,,本土,C,203,108,1985/02/07,臺灣師大,加盟: 2022-23賽季,yulon,,2023-24,,,,,,,,,,
 men,張博勝,68,T1,ghosthawks,https://ghosthawks.tw/team/205,active,local,,本土,G,185,82,1987/02/02,臺灣藝大,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
-men,呂濟而,72,T1,ghosthawks,https://ghosthawks.tw/team/13,active,local,,本土,G,187,80,1992/01/15,高雄師大,交易 from 特攻: 2022/03/19,,trade,2021-22,,,,,,,,,,
 men,,-,T1,aquas,,active,coach,-,總教練,-,-,-,,,,,,,,,,,,,,,,
 men,王詠誠,3,T1,aquas,https://ktown-aquas.com/team/135,active,local,2021Rookie,本土,F,196,92,1998/12/29,政治大學,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,于煥亞,7,T1,aquas,https://ktown-aquas.com/team/53,active,local,,本土,G,182,80,1993/11/30,臺灣師大,加盟: 2021-22賽季,,,2022-23,,,,,,,,,,
@@ -229,6 +227,8 @@ men,張宗憲,3,PLG,fa,https://pleagueofficial.com/player/43,active,local,,本�
 men,陳昱翰,8,PLG,fa,https://pleagueofficial.com/player/409,active,local,,本土,G,187,85,1993/12/14,義守大學,加盟: 2023-24賽季,pilots,,,,,,,,約滿合意不續約,3,1.3,0.3,0.3
 men,張傑瑋,0,PLG,fa,https://pleagueofficial.com/player/282,active,uba_import,2022Rookie,外籍生,G,184,87,1997/09/06,萬能科大,加盟: 2023-24賽季,lioneers,,,,,,,,不執行球隊選擇權,23,4.7,2.5,1.8
 men,林耀宗,7,PLG,fa,https://pleagueofficial.com/player/59,active,local,,本土,C,194,100,1990/09/07,明道大學,交易 from 領航猿: 2022/07/14,dreamers,,,,,,,,-,8,0.0,0.5,0.0
+men,李漢昇,4,T1,fa,https://ghosthawks.tw/team/51,active,local,2020Rookie,本土,G,177,76,1994/10/24,臺灣師大,加盟: 2022-23賽季,ghosthawks,,,,,,,,-,27,8.3,1.9,4.0
+men,胡凱翔,12,T1,fa,https://ghosthawks.tw/team/151,active,local,,本土,F,190,93,1991/05/16,文化大學,加盟: 2022-23賽季,ghosthawks,,,,,,,,-,15,3.1,0.9,1.5
 men,蔡嘉駿,14,SBL,fa,https://sleague.tw/player/oldRoster/5903,active,local,2021Rookie,本土,-,190,-,1997/12/11,北市大學,加盟: 2021-22賽季 (新秀),bank,,,,,,,,-,7,1.4,0.7,0.1
 men,陳俊翰,21,SBL,fa,https://sleague.tw/player/oldRoster/635,active,local,2020Rookie,本土,-,196,-,1996/03/20,康寧大學,加盟: 2022-23賽季,bank,,,,,,,,-,2,4.0,0.5,0.5
 men,陳奕綸,3,SBL,fa,https://sleague.tw/player/oldRoster/5883,active,local,2021Rookie,本土,-,172,-,1998/09/09,國立體大,加盟: 2022-23賽季,bll,,,,,,,,-,22,2.6,1.4,2.0
@@ -238,9 +238,9 @@ men,陳昶宏,4,SBL,fa,https://sleague.tw/player/oldRoster/6994,active,local,202
 men,郭翰,14,SBL,fa,https://sleague.tw/player/oldRoster/5928,active,local,2022Rookie,本土,-,195,-,1998/08/28,國立體大,#9 順位 - 2022 SBL 選秀,bll,,,,,,,,-,22,4.0,3.5,0.7
 ,馬克斯,,,,,,uba_import,2024Rookie,外籍生,F,198,98,2000/05/10,虎尾科大,,,,,,,,,,,,,,
 ,莫巴耶,,,,,,uba_import,2024Rookie,外籍生,F,205,105,2001/01/01,政治大學,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,local,2024Rookie,本土,,,,,,,,,,,,,,,,,,,
-,,,,,,,local,2024Rookie,本土,,,,,,,,,,,,,,,,,,,
+,魏莨哲,,,,,,local,2024Rookie,本土,G,185,72,2001/11/28,高雄師大,,,,,,,,,,,,,,
+,陳冠中,,,,,,local,2024Rookie,本土,G,187,83,2001/12/10,,,,,,,,,,,,,,,
+,於韋豪,,,,,,local,2024Rookie,本土,,,,,,,,,,,,,,,,,,,
 ,,,,,,,local,2024Rookie,本土,,,,,,,,,,,,,,,,,,,
 ,李允傑,,,,,,local,2024Rookie,本土,G,190,84,2000/08/21,政治大學,,,,,,,,,,,,,,
 ,簡賀宇,,,,,,local,2024Rookie,本土,,,,2001/08/10,世新大學,,,,,,,,,,,,,,
