@@ -55,7 +55,7 @@ $(document).ready(function () {
 
 				] = infos;
 
-				if (gender == 'men' & (status == 'active' | status == 'loan') & team != 'fa') {
+				if (gender == 'men' & (status == 'active' | status == 'away') & team != 'fa') {
 					player = new Players();
 					allPlayers.push(player);
 
