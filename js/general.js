@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.07.08</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.07.09</b>`
 
     test = ''
     // test = '.html'
@@ -11,10 +11,10 @@ $(document).ready(function () {
         ['standings', '戰績'],
         ['rosters', '球隊陣容'],
         ['players', '現役球員'],
+        ['free-agents', '自由球員'],
         ['contracts', '合約'],
         ['drafts', '選秀'],
         ['trades', '交易'],
-        ['free-agents', '自由球員'],
         ['us-players', '旅美學生']
     ]
     navs.forEach(nav => {
@@ -69,16 +69,16 @@ class Teams {
     }
 }
 braves = new Teams('men', 'plg', 'braves', '臺北富邦勇士', '勇士');
-kings = new Teams('men', 'plg', 'kings', '新北國王', '國王', 'Ryan Marchand');
 pilots = new Teams('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿', 'Iurgi Caminos');
-lioneers = new Teams('men', 'plg', 'lioneers', '新竹御頂攻城獅', '攻城獅', 'Milan Mitrović');
-dreamers = new Teams('men', 'plg', 'dreamers', '福爾摩沙夢想家', '夢想家', 'Jamie Pearlman');
+ghosthawks = new Teams('men', 'plg', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', 'Raoul Korner');
 steelers = new Teams('men', 'plg', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人');
-dea = new Teams('men', 't1', 'dea', '新北中信特攻', '特攻');
-mars = new Teams('men', 't1', 'mars', '臺北戰神', '戰神');
-leopards = new Teams('men', 't1', 'leopards', '台啤永豐雲豹', '雲豹', 'Charles Dubé-Brais');
-ghosthawks = new Teams('men', 't1', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', 'Raoul Korner');
-aquas = new Teams('men', 't1', 'aquas', '高雄全家海神', '海神');
+kings = new Teams('men', '新聯盟', 'kings', '新北國王', '國王', 'Ryan Marchand');
+dea = new Teams('men', '新聯盟', 'dea', '新北中信特攻', '特攻');
+mars = new Teams('men', '新聯盟', 'mars', '臺北戰神', '戰神');
+leopards = new Teams('men', '新聯盟', 'leopards', '台啤永豐雲豹', '雲豹', 'Charles Dubé-Brais');
+lioneers = new Teams('men', '新聯盟', 'lioneers', '新竹御頂攻城獅', '攻城獅', 'Milan Mitrović');
+dreamers = new Teams('men', '新聯盟', 'dreamers', '福爾摩沙夢想家', '夢想家', 'Jamie Pearlman');
+aquas = new Teams('men', '新聯盟', 'aquas', '高雄全家海神', '海神');
 beer = new Teams('men', 'sbl', 'beer', '台灣啤酒', '台啤');
 bank = new Teams('men', 'sbl', 'bank', '臺灣銀行', '臺銀');
 yulon = new Teams('men', 'sbl', 'yulon', '裕隆納智捷', '裕隆');
@@ -88,16 +88,12 @@ taipower = new Teams('women', 'wsbl', 'taipower', '台灣電力', '台電');
 cht = new Teams('women', 'wsbl', 'cht', '中華電信', '電信');
 taiyuen = new Teams('women', 'wsbl', 'taiyuen', '台元紡織', '台元');
 
-allTeams = [
-    braves, kings, pilots, lioneers, dreamers, steelers,
-    dea, mars, leopards, ghosthawks, aquas,
-    beer, bank, yulon, bll,
-    cathay, taipower, cht, taiyuen
-]
-plgTeams = [braves, kings, pilots, lioneers, dreamers, steelers];
-t1Teams = [dea, mars, leopards, ghosthawks, aquas];
+plgTeams = [braves, pilots, ghosthawks, steelers];
+t1Teams = [kings, dea, mars, leopards, lioneers, dreamers, aquas];
 sblTeams = [beer, bank, yulon, bll];
 wsblTeams = [cathay, taipower, cht, taiyuen];
+
+allTeams = plgTeams.concat(t1Teams, sblTeams, wsblTeams);
 
 braves.url = 'https://pleagueofficial.com/team/1';
 kings.url = 'https://pleagueofficial.com/team/6';
