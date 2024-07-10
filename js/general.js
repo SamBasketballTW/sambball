@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.07.09</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.07.10</b>`
 
     test = ''
     // test = '.html'
@@ -72,13 +72,13 @@ braves = new Teams('men', 'plg', 'braves', '臺北富邦勇士', '勇士');
 pilots = new Teams('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿', 'Iurgi Caminos');
 ghosthawks = new Teams('men', 'plg', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', 'Raoul Korner');
 steelers = new Teams('men', 'plg', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人');
-kings = new Teams('men', '新聯盟', 'kings', '新北國王', '國王', 'Ryan Marchand');
-dea = new Teams('men', '新聯盟', 'dea', '新北中信特攻', '特攻');
-mars = new Teams('men', '新聯盟', 'mars', '臺北戰神', '戰神');
-leopards = new Teams('men', '新聯盟', 'leopards', '台啤永豐雲豹', '雲豹', 'Charles Dubé-Brais');
-lioneers = new Teams('men', '新聯盟', 'lioneers', '新竹御頂攻城獅', '攻城獅', 'Milan Mitrović');
-dreamers = new Teams('men', '新聯盟', 'dreamers', '福爾摩沙夢想家', '夢想家', 'Jamie Pearlman');
-aquas = new Teams('men', '新聯盟', 'aquas', '高雄全家海神', '海神');
+mars = new Teams('men', 'tpbl', 'mars', '臺北戰神', '戰神');
+kings = new Teams('men', 'tpbl', 'kings', '新北國王', '國王', 'Ryan Marchand');
+dea = new Teams('men', 'tpbl', 'dea', '新北中信特攻', '特攻');
+leopards = new Teams('men', 'tpbl', 'leopards', '台啤永豐雲豹', '雲豹', 'Charles Dubé-Brais');
+lioneers = new Teams('men', 'tpbl', 'lioneers', '新竹御頂攻城獅', '攻城獅', 'Milan Mitrović');
+dreamers = new Teams('men', 'tpbl', 'dreamers', '福爾摩沙夢想家', '夢想家', 'Jamie Pearlman');
+aquas = new Teams('men', 'tpbl', 'aquas', '高雄全家海神', '海神', 'Mathias Fischer');
 beer = new Teams('men', 'sbl', 'beer', '台灣啤酒', '台啤');
 bank = new Teams('men', 'sbl', 'bank', '臺灣銀行', '臺銀');
 yulon = new Teams('men', 'sbl', 'yulon', '裕隆納智捷', '裕隆');
@@ -89,11 +89,11 @@ cht = new Teams('women', 'wsbl', 'cht', '中華電信', '電信');
 taiyuen = new Teams('women', 'wsbl', 'taiyuen', '台元紡織', '台元');
 
 plgTeams = [braves, pilots, ghosthawks, steelers];
-t1Teams = [kings, dea, mars, leopards, lioneers, dreamers, aquas];
+tpblTeams = [mars, kings, dea, leopards, lioneers, dreamers, aquas];
 sblTeams = [beer, bank, yulon, bll];
 wsblTeams = [cathay, taipower, cht, taiyuen];
 
-allTeams = plgTeams.concat(t1Teams, sblTeams, wsblTeams);
+allTeams = plgTeams.concat(tpblTeams, sblTeams, wsblTeams);
 
 braves.url = 'https://pleagueofficial.com/team/1';
 kings.url = 'https://pleagueofficial.com/team/6';
