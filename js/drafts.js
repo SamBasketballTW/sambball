@@ -62,7 +62,7 @@ $(document).ready(function () {
 					<li>
 						<a class="dropdown-item disabled" style="color:black">PLG</a>
 						<ul class="dropdown-menu dropdown-submenu">`
-					for (let i = 2023; i >= 2021; i--) {
+					for (let i = 2024; i >= 2021; i--) {
 						temp += `<li><a class="dropdown-item" onclick="f('${i}plg')">${i} PLG 選秀</a></li>`
 					}
 					temp += `
