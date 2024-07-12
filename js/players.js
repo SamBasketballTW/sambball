@@ -1,10 +1,10 @@
-class Players {
+class Player {
     static player_id = 0;
 
     constructor(gender, name, league, team, team_order, jersey_num, player_url,
         identity, rookie, league_identity, pos, height, weight, birth, age, school, last_team = '', filter = '') {
 
-        this.player_id = Players.player_id++;
+        this.player_id = Player.player_id++;
         this.gender = gender;
         this.name = name;
         this.league = league;
@@ -79,29 +79,29 @@ $(document).ready(function () {
                 ] = infos;
 
                 if (status == 'active' & identity != 'coach') {
-                    player = new Players();
-                    allPlayers.push(player);
+                    player1 = new Player();
+                    allPlayers.push(player1);
 
-                    player.gender = gender;
-                    player.name = name;
-                    player.league = league;
-                    player.team = team;
-                    player.jersey_num = jersey_num;
-                    player.player_url = playerUrl(team, player_url);
-                    player.identity = identity;
-                    player.rookie = rookie;
-                    player.league_identity = league_identity;
-                    player.pos = pos;
-                    player.height = height;
-                    player.weight = weight;
-                    player.birth = birth;
-                    player.age = birthToAge(birth);
-                    player.school = school;
+                    player1.gender = gender;
+                    player1.name = name;
+                    player1.league = league;
+                    player1.team = team;
+                    player1.jersey_num = jersey_num;
+                    player1.player_url = playerUrl(team, player_url);
+                    player1.identity = identity;
+                    player1.rookie = rookie;
+                    player1.league_identity = league_identity;
+                    player1.pos = pos;
+                    player1.height = height;
+                    player1.weight = weight;
+                    player1.birth = birth;
+                    player1.age = birthToAge(birth);
+                    player1.school = school;
                     if (last_team != '') {
                         if (isOversea(last_team)) {
-                            player.last_team = last_team;
+                            player1.last_team = last_team;
                         } else {
-                            player.last_team = teamName('short', league, last_team);
+                            player1.last_team = teamName('short', league, last_team);
                         }
                     }
 
@@ -110,27 +110,27 @@ $(document).ready(function () {
                             oversea_team_order += 1;
                             current_team = team;
                         }
-                        player.team_order = oversea_team_order;
+                        player1.team_order = oversea_team_order;
                     } else if (team != 'fa') {
-                        player.team_order = oversea_team_order + 1 + findTeam(team).teamIndex();
+                        player1.team_order = oversea_team_order + 1 + findTeam(team).teamIndex();
                     } else {
-                        player.team_order = oversea_team_order + allTeams.length + 1;
+                        player1.team_order = oversea_team_order + allTeams.length + 1;
                     }
 
                     if (last_team != '' & team != 'fa') {
-                        player.filter += ' change';
+                        player1.filter += ' change';
                     }
 
                     if (!school.includes('HBL') & school != '-') {
                         if (school.includes(' ')) {
                             college = allColleges[0];
-                            player.filter += ` ${findSchool('旅外').id}`;
+                            player1.filter += ` ${findSchool('旅外').id}`;
                         } else {
                             if (findSchool(school) == -1) {
                                 allColleges.push(new PlayerCount(school));
                             }
                             college = findSchool(school);
-                            player.filter += ` ${findSchool(school).id}`;
+                            player1.filter += ` ${findSchool(school).id}`;
                         }
 
                         if (gender == 'men') {

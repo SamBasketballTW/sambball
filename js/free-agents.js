@@ -1,10 +1,10 @@
-class Players {
+class Player {
     static player_id = 0;
 
     constructor(gender, name, league, last_team, last_team_order, team, team_order, player_url, pos, height, age,
         fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg, filter = '') {
 
-        this.player_id = Players.player_id++;
+        this.player_id = Player.player_id++;
         this.gender = gender;
         this.name = name;
         this.league = league;
@@ -63,58 +63,58 @@ $(document).ready(function () {
                 ] = infos;
 
                 if (fa_status != '') {
-                    player = new Players();
-                    allPlayers.push(player);
+                    player1 = new Player();
+                    allPlayers.push(player1);
 
-                    player.gender = gender;
-                    player.name = name;
-                    player.league = league;
-                    player.player_url = playerUrl(last_team, player_url);
-                    player.pos = pos;
-                    player.height = height;
-                    player.age = birthToAge(birth);
-                    player.fa_status = fa_status;
-                    player.fa_gp = fa_gp;
-                    player.fa_ppg = fa_ppg;
-                    player.fa_rpg = fa_rpg;
-                    player.fa_apg = fa_apg;
+                    player1.gender = gender;
+                    player1.name = name;
+                    player1.league = league;
+                    player1.player_url = playerUrl(last_team, player_url);
+                    player1.pos = pos;
+                    player1.height = height;
+                    player1.age = birthToAge(birth);
+                    player1.fa_status = fa_status;
+                    player1.fa_gp = fa_gp;
+                    player1.fa_ppg = fa_ppg;
+                    player1.fa_rpg = fa_rpg;
+                    player1.fa_apg = fa_apg;
 
                     if (team != 'fa') {
                         if (last_team == '') {
-                            player.last_team = team;
-                            player.team = '';
-                            player.filter += ' unsigned';
+                            player1.last_team = team;
+                            player1.team = '';
+                            player1.filter += ' unsigned';
                         } else {
-                            player.last_team = last_team;
-                            player.team = team;
-                            player.filter += ' signed';
+                            player1.last_team = last_team;
+                            player1.team = team;
+                            player1.filter += ' signed';
                         }
                     } else {
-                        player.last_team = last_team;
-                        player.team = '';
-                        player.filter += ' unsigned';
+                        player1.last_team = last_team;
+                        player1.team = '';
+                        player1.filter += ' unsigned';
                     }
 
-                    if (isOversea(player.last_team)) {
-                        if (current_last_team != player.last_team) {
+                    if (isOversea(player1.last_team)) {
+                        if (current_last_team != player1.last_team) {
                             oversea_last_team_order += 1;
-                            current_last_team = player.last_team;
+                            current_last_team = player1.last_team;
                         }
-                        player.last_team_order = oversea_last_team_order;
+                        player1.last_team_order = oversea_last_team_order;
                     } else {
-                        player.last_team_order = 0 + 1 + findTeam(player.last_team).teamIndex();
+                        player1.last_team_order = 0 + 1 + findTeam(player1.last_team).teamIndex();
 
                     }
 
-                    if (player.team != '') {
-                        if (isOversea(player.team)) {
-                            if (current_team != player.team) {
+                    if (player1.team != '') {
+                        if (isOversea(player1.team)) {
+                            if (current_team != player1.team) {
                                 oversea_team_order += 1;
-                                current_team = player.team;
+                                current_team = player1.team;
                             }
-                            player.team_order = oversea_team_order;
+                            player1.team_order = oversea_team_order;
                         } else {
-                            player.team_order = oversea_team_order + 1 + findTeam(player.team).teamIndex();
+                            player1.team_order = oversea_team_order + 1 + findTeam(player1.team).teamIndex();
 
                         }
                     }

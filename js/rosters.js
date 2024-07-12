@@ -1,10 +1,10 @@
-class Players {
+class Player {
     static player_id = 0;
 
     constructor(gender, name, league, team, team_order, jersey_num, player_url,
         league_identity, pos, height, weight, birth, age, school, acquired, filter = '') {
 
-        this.player_id = Players.player_id++;
+        this.player_id = Player.player_id++;
         this.gender = gender;
         this.name = name;
         this.league = league;
@@ -23,7 +23,7 @@ class Players {
         this.filter = filter;
     }
 }
-class Rosters {
+class Roster {
     constructor(gender, league, id, coach = '',
         local_age_sum = 0, local_height_sum = 0, local_count = 0, import_count = 0, age_rank, height_rank,
         extension = [], signed = [], lost = []) {
@@ -50,7 +50,7 @@ class Rosters {
         }
     }
 }
-class Movements {
+class Movement {
     constructor(move, content = '') {
         this.move = move;
         this.content = content;
@@ -59,14 +59,13 @@ class Movements {
 allPlayers = [];
 
 
-allRosters = [new Rosters('men', 'oversea', 'oversea'), new Rosters('women', 'oversea', 'oversea')];
+allRosters = [new Roster('men', 'oversea', 'oversea'), new Roster('women', 'oversea', 'oversea')];
 allTeams.forEach(team => {
-    allRosters.push(new Rosters(team.gender, team.league, team.id))
+    allRosters.push(new Roster(team.gender, team.league, team.id, team.coach))
 });
 
 men_oversea = [['CBA', 0], ['日本', 0]];
 women_oversea = [['WCBA', 0], ['韓國', 0], ['其他', 0]];
-
 $(document).ready(function () {
 
     tableCount = document.getElementById('r_count_tbody');
@@ -89,98 +88,89 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-					gender,
-					name,
-					jersey_num, league, team, player_url,
-					status,
-					identity,
-					rookie,
-					league_identity, pos, height, weight, birth,
-					school,
-					acquired,
-					last_team,
-					contract_filter, contract_season, contract_years, contract_years_left,
-					contract_note,
-					contract_link_title, contract_url,
-					fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+                    gender,
+                    name,
+                    jersey_num, league, team, player_url,
+                    status,
+                    identity,
+                    rookie,
+                    league_identity, pos, height, weight, birth,
+                    school,
+                    acquired,
+                    last_team,
+                    contract_filter, contract_season, contract_years, contract_years_left,
+                    contract_note,
+                    contract_link_title, contract_url,
+                    fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-				] = infos;
+                ] = infos;
 
                 if (status == "active" & team != "fa") {
 
-                    if (identity == "coach") {
-                        team_index = 2 + findTeam(team).teamIndex();
+                    player1 = new Player();
+                    allPlayers.push(player1);
 
-                        allRosters[team_index].coach = `${league_identity}: ${name}`;
-                        if (findTeam(team).coach_EN != '') {
-                            allRosters[team_index].coach += ' ' + findTeam(team).coach_EN;
+                    player1.gender = gender;
+                    player1.name = name;
+                    player1.league = league;
+                    player1.team = team;
+                    player1.jersey_num = jersey_num;
+                    player1.player_url = playerUrl(team, player_url);
+                    player1.league_identity = league_identity;
+                    player1.pos = pos;
+                    player1.height = height;
+                    player1.weight = weight;
+                    player1.birth = birth;
+                    player1.age = birthToAge(birth);
+                    player1.school = school;
+                    player1.acquired = acquired;
+
+                    if (isOversea(team)) {
+                        if (gender == 'men') {
+                            oversea_count = men_oversea;
+                        } else if (gender == 'women') {
+                            oversea_count = women_oversea;
                         }
-                    } else {
-                        player = new Players();
-                        allPlayers.push(player);
 
-                        player.gender = gender;
-                        player.name = name;
-                        player.league = league;
-                        player.team = team;
-                        player.jersey_num = jersey_num;
-                        player.player_url = playerUrl(team, player_url);
-                        player.league_identity = league_identity;
-                        player.pos = pos;
-                        player.height = height;
-                        player.weight = weight;
-                        player.birth = birth;
-                        player.age = birthToAge(birth);
-                        player.school = school;
-                        player.acquired = acquired;
-
-                        if (isOversea(team)) {
-                            if (gender == 'men') {
-                                oversea_count = men_oversea;
-                            } else if (gender == 'women') {
-                                oversea_count = women_oversea;
-                            }
-
-                            if (league.includes('CBA') | league.includes('日本') | league.includes('韓國')) {
-                                oversea_count.forEach(oversea => {
-                                    if (league.includes(oversea[0])) {
-                                        oversea[1] += 1;
-                                    }
-                                })
-                            } else {
-                                oversea_count[oversea_count.length - 1][1] += 1;
-                            }
-
-
-                            if (current_team != team) {
-                                oversea_team_order += 1;
-                                current_team = team;
-                            }
-                            player.team_order = oversea_team_order;
-
-                            if (gender == "men") {
-                                team_index = 0;
-                            } else if (gender == "women") {
-                                team_index = 1;
-                            }
-                            is_local = 1;
-                            is_import = 0;
-
+                        if (league.includes('CBA') | league.includes('日本') | league.includes('韓國')) {
+                            oversea_count.forEach(oversea => {
+                                if (league.includes(oversea[0])) {
+                                    oversea[1] += 1;
+                                }
+                            })
                         } else {
-                            team_index = 2 + findTeam(team).teamIndex();
-                            is_local = leagueIdFilter(league_identity) == "local";
-                            is_import = leagueIdFilter(league_identity) == "import";
+                            oversea_count[oversea_count.length - 1][1] += 1;
                         }
 
-                        if (is_local | is_import) {
-                            if (is_local) {
-                                allRosters[team_index].local_age_sum += birthToAge(birth);
-                                allRosters[team_index].local_height_sum += parseInt(height);
-                                allRosters[team_index].local_count += 1;
 
-                            } else if (is_import) {
-                                allRosters[team_index].import_count += 1;
-                            }
+                        if (current_team != team) {
+                            oversea_team_order += 1;
+                            current_team = team;
+                        }
+                        player1.team_order = oversea_team_order;
+
+                        if (gender == "men") {
+                            team_index = 0;
+                        } else if (gender == "women") {
+                            team_index = 1;
+                        }
+                        is_local = 1;
+                        is_import = 0;
+
+                    } else {
+                        team_index = 2 + findTeam(team).teamIndex();
+                        is_local = leagueIdFilter(league_identity) == "local";
+                        is_import = leagueIdFilter(league_identity) == "import";
+                    }
+
+                    if (is_local | is_import) {
+                        if (is_local) {
+                            allRosters[team_index].local_age_sum += birthToAge(birth);
+                            allRosters[team_index].local_height_sum += parseInt(height);
+                            allRosters[team_index].local_count += 1;
+
+                        } else if (is_import) {
+                            allRosters[team_index].import_count += 1;
                         }
                     }
                 }
@@ -302,16 +292,16 @@ $(document).ready(function () {
                         }
                     }
                     if (new_move == 1) {
-                        movement = new Movements(move);
-                        current_move.push(movement);
+                        movement1 = new Movement(move);
+                        current_move.push(movement1);
                         if (move != '續約' & move != '離隊') {
-                            movement.content = `<a style="text-decoration:underline"><i>${move}</i></a><br>`
+                            movement1.content = `<a style="text-decoration:underline"><i>${move}</i></a><br>`
                         }
 
                         if (content != '') {
-                            movement.content += `${player_name} (${content})<br>`;
+                            movement1.content += `${player_name} (${content})<br>`;
                         } else {
-                            movement.content += `${player_name}<br>`;
+                            movement1.content += `${player_name}<br>`;
                         }
                     }
                 }
@@ -359,7 +349,7 @@ $(document).ready(function () {
                             roster_tbs[1].className += " showTb";
                         }
                         var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
-						if (currentTeam.length != 0) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
+                        if (currentTeam.length != 0) currentTeam[0].className = currentTeam[0].className.replace(" active", "");
                         this.className += " active";
                         teambtn.innerHTML = this.innerHTML;
 
@@ -455,7 +445,7 @@ function updateMovements() {
             lost = '';
             if (allRosters[i].extension.length > 0) {
                 for (let j = 0; j < allRosters[i].extension.length; j++) {
-                    if(j != 0) extension += '<br>';
+                    if (j != 0) extension += '<br>';
                     extension += allRosters[i].extension[j].content;
                 }
             } else {
@@ -463,7 +453,7 @@ function updateMovements() {
             }
             if (allRosters[i].signed.length > 0) {
                 for (let j = 0; j < allRosters[i].signed.length; j++) {
-                    if(j != 0) signed += '<br>';
+                    if (j != 0) signed += '<br>';
                     signed += allRosters[i].signed[j].content;
                 }
             } else {
@@ -471,7 +461,7 @@ function updateMovements() {
             }
             if (allRosters[i].lost.length > 0) {
                 for (let j = 0; j < allRosters[i].lost.length; j++) {
-                    if(j != 0) lost += '<br>';
+                    if (j != 0) lost += '<br>';
                     lost += allRosters[i].lost[j].content;
                 }
             } else {
@@ -506,7 +496,7 @@ function updateMovements() {
             lost = '';
             if (allRosters[i].extension.length > 0) {
                 for (let j = 0; j < allRosters[i].extension.length; j++) {
-                    if(j != 0) extension += '<br>';
+                    if (j != 0) extension += '<br>';
                     extension += allRosters[i].extension[j].content;
                 }
             } else {
@@ -514,7 +504,7 @@ function updateMovements() {
             }
             if (allRosters[i].signed.length > 0) {
                 for (let j = 0; j < allRosters[i].signed.length; j++) {
-                    if(j != 0) signed += '<br>';
+                    if (j != 0) signed += '<br>';
                     signed += allRosters[i].signed[j].content;
                 }
             } else {
@@ -522,7 +512,7 @@ function updateMovements() {
             }
             if (allRosters[i].lost.length > 0) {
                 for (let j = 0; j < allRosters[i].lost.length; j++) {
-                    if(j != 0) lost += '<br>';
+                    if (j != 0) lost += '<br>';
                     lost += allRosters[i].lost[j].content;
                 }
             } else {

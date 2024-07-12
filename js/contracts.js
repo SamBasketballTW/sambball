@@ -1,10 +1,10 @@
-class Players {
+class Player {
 	static player_id = 0;
 
 	constructor(gender, name, league, team, jersey_num, player_url, league_identity,
 		contract_season, contract_years, contract_years_left, contract_note, contract_link = '', filter = '') {
 
-		this.player_id = Players.player_id++;
+		this.player_id = Player.player_id++;
 		this.gender = gender;
 		this.name = name;
 		this.league = league;
@@ -56,44 +56,42 @@ $(document).ready(function () {
 				] = infos;
 
 				if (gender == 'men' & (status == 'active' | status == 'away') & team != 'fa') {
-					player = new Players();
-					allPlayers.push(player);
+					player1 = new Player();
+					allPlayers.push(player1);
 
-					player.gender = gender;
-					player.name = name;
-					player.league = league;
-					player.team = team;
-					player.jersey_num = jersey_num;
-					player.player_url = playerUrl(team, player_url);
-					player.contract_season = contract_season;
-					player.contract_years = contract_years;
-					player.contract_years_left = contract_years_left;
-					player.contract_note = contract_note;
+					player1.gender = gender;
+					player1.name = name;
+					player1.league = league;
+					player1.team = team;
+					player1.jersey_num = jersey_num;
+					player1.player_url = playerUrl(team, player_url);
+					player1.contract_season = contract_season;
+					player1.contract_years = contract_years;
+					player1.contract_years_left = contract_years_left;
+					player1.contract_note = contract_note;
 
-					player.filter += contract_filter;
+					player1.filter += contract_filter;
 
 					if (isOversea(team)) {
-						player.league_identity = 'local';
+						player1.league_identity = 'local';
 					} else if (leagueIdFilter(league_identity) == 'import') {
-						player.league_identity = 'import';
+						player1.league_identity = 'import';
 					} else if (leagueIdFilter(league_identity) == 'local') {
-						player.league_identity = 'local';
-					} else if (identity == 'coach') {
-						player.league_identity = 'coach';
+						player1.league_identity = 'local';
 					}
 
 					if (contract_years_left.includes('0')) {
-						player.filter += ' 1y';
+						player1.filter += ' 1y';
 					}
 
 					if (contract_filter.includes('trade')) {
-						if (contract_season != '') player.contract_season = `*${contract_season}*`;
-						if (contract_years != '') player.contract_years = `*${contract_years}*`;
-						if (contract_years_left != '') player.contract_years_left = `*${contract_years_left}*`;
+						if (contract_season != '') player1.contract_season = `*${contract_season}*`;
+						if (contract_years != '') player1.contract_years = `*${contract_years}*`;
+						if (contract_years_left != '') player1.contract_years_left = `*${contract_years_left}*`;
 					}
 
 					if (contract_url != '') {
-						player.contract_link =
+						player1.contract_link =
 							`<a style="color:inherit; text-decoration:underline" href="${contract_url}" target="_blank">
 							<i class="bi bi-link-45deg"></i>${contract_link_title}</a>`;
 					}

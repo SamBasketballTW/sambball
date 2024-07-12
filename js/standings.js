@@ -1,4 +1,4 @@
-class Standings {
+class Standing {
     constructor(team, playoff = '', w = 0, l = 0, gb = '-', streak = '', streak_count = 0, matchup = [],
         recent5 = new WL, home = new WL, road = new WL, ot = new WL, total_pts = new WL, total_pts_against = new WL,
         q_points = [0, 0, 0, 0], q2_ahead = new WL, q2_behind = new WL, q2_tied = new WL,
@@ -98,7 +98,7 @@ $(document).ready(function () {
                     po_teams = 3;
                 }
 
-                for (let i = 0; i < teams.length; i++) stand_info.push(new Standings(teams[i].id));
+                for (let i = 0; i < teams.length; i++) stand_info.push(new Standing(teams[i].id));
 
                 for (let i = 0; i < stand_info.length; i++) {
                     for (let j = 0; j < teams.length; j++) {

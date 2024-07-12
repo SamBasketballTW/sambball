@@ -45,15 +45,14 @@ $(document).ready(function () {
         <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
     </div>`
 });
-class Teams {
-    constructor(gender, league, id, full_name_CN, short_name_CN, coach_EN = '', url = '') {
+class Team {
+    constructor(gender, league, id, full_name_CN, short_name_CN, coach = '', url = '') {
         this.gender = gender;
         this.league = league;
         this.id = id;
-        this.coach_EN = coach_EN;
         this.full_name_CN = full_name_CN;
         this.short_name_CN = short_name_CN;
-        this.coach_EN = coach_EN;
+        this.coach = coach;
         this.url = url;
     }
 
@@ -68,25 +67,25 @@ class Teams {
         return allTeams.indexOf(this);
     }
 }
-braves = new Teams('men', 'plg', 'braves', '臺北富邦勇士', '勇士');
-pilots = new Teams('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿', 'Iurgi Caminos');
-ghosthawks = new Teams('men', 'plg', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', 'Raoul Korner');
-steelers = new Teams('men', 'plg', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人');
-mars = new Teams('men', 'tpbl', 'mars', '臺北戰神', '戰神');
-kings = new Teams('men', 'tpbl', 'kings', '新北國王', '國王', 'Ryan Marchand');
-dea = new Teams('men', 'tpbl', 'dea', '新北中信特攻', '特攻');
-leopards = new Teams('men', 'tpbl', 'leopards', '台啤永豐雲豹', '雲豹', 'Charles Dubé-Brais');
-lioneers = new Teams('men', 'tpbl', 'lioneers', '新竹御頂攻城獅', '攻城獅', 'Milan Mitrović');
-dreamers = new Teams('men', 'tpbl', 'dreamers', '福爾摩沙夢想家', '夢想家', 'Jamie Pearlman');
-aquas = new Teams('men', 'tpbl', 'aquas', '高雄全家海神', '海神', 'Mathias Fischer');
-beer = new Teams('men', 'sbl', 'beer', '台灣啤酒', '台啤');
-bank = new Teams('men', 'sbl', 'bank', '臺灣銀行', '臺銀');
-yulon = new Teams('men', 'sbl', 'yulon', '裕隆納智捷', '裕隆');
-bll = new Teams('men', 'sbl', 'bll', '彰化柏力力', '柏力力');
-cathay = new Teams('women', 'wsbl', 'cathay', '國泰人壽', '國泰');
-taipower = new Teams('women', 'wsbl', 'taipower', '台灣電力', '台電');
-cht = new Teams('women', 'wsbl', 'cht', '中華電信', '電信');
-taiyuen = new Teams('women', 'wsbl', 'taiyuen', '台元紡織', '台元');
+braves = new Team('men', 'plg', 'braves', '臺北富邦勇士', '勇士', '執行教練: 吳永仁');
+pilots = new Team('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿', '總教練: 卡米諾斯 Iurgi Caminos');
+ghosthawks = new Team('men', 'plg', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');
+steelers = new Team('men', 'plg', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人', '總教練: 邱大宗');
+mars = new Team('men', 'tpbl', 'mars', '臺北戰神', '戰神', '代理總教練: 許皓程');
+kings = new Team('men', 'tpbl', 'kings', '新北國王', '國王', '總教練: 萊恩 Ryan Marchand');
+dea = new Team('men', 'tpbl', 'dea', '新北中信特攻', '特攻', '總教練: 李逸驊');
+leopards = new Team('men', 'tpbl', 'leopards', '台啤永豐雲豹', '雲豹', '總教練: 查爾斯 Charles Dubé-Brais');
+lioneers = new Team('men', 'tpbl', 'lioneers', '新竹御頂攻城獅', '攻城獅', '總教練: 密特羅維奇 Milan Mitrović');
+dreamers = new Team('men', 'tpbl', 'dreamers', '福爾摩沙夢想家', '夢想家', '總教練: 皮爾曼 Jamie Pearlman');
+aquas = new Team('men', 'tpbl', 'aquas', '高雄全家海神', '海神', '總教練: 費雪 Mathias Fischer');
+beer = new Team('men', 'sbl', 'beer', '台灣啤酒', '台啤', '總教練: 楊志豪');
+bank = new Team('men', 'sbl', 'bank', '臺灣銀行', '臺銀', '代理總教練: 程恩傑');
+yulon = new Team('men', 'sbl', 'yulon', '裕隆納智捷', '裕隆', '執行教練: 李啟億');
+bll = new Team('men', 'sbl', 'bll', '彰化柏力力', '柏力力', '總教練: 吳俊雄');
+cathay = new Team('women', 'wsbl', 'cathay', '國泰人壽', '國泰', '總教練: 鄭慧芸');
+taipower = new Team('women', 'wsbl', 'taipower', '台灣電力', '台電', '教練: 陳萓峰');
+cht = new Team('women', 'wsbl', 'cht', '中華電信', '電信', '教練: 柯孟儀');
+taiyuen = new Team('women', 'wsbl', 'taiyuen', '台元紡織', '台元', '執行教練: 邱啟益');
 
 plgTeams = [braves, pilots, ghosthawks, steelers];
 tpblTeams = [mars, kings, dea, leopards, lioneers, dreamers, aquas];

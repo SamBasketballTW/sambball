@@ -1,4 +1,4 @@
-class PlayoffGames {
+class PlayoffGame {
     constructor(team1 = '', team2 = '', series, games_to_win, team1_wins, team2_wins, next_series = '', next_series_spot = 0) {
         this.team1 = team1;
         this.team2 = team2;
@@ -10,45 +10,45 @@ class PlayoffGames {
         this.next_series_spot = next_series_spot
     }
 }
-class PlayoffTeams {
+class PlayoffTeam {
     constructor(rank, team = '') {
         this.rank = rank;
         this.team = team;
     }
 }
 $(document).ready(function () {
-    plg_rank1 = new PlayoffTeams(1, pilots);
-    plg_rank2 = new PlayoffTeams(2, dreamers);
-    plg_rank3 = new PlayoffTeams(3, kings);
-    plg_rank4 = new PlayoffTeams(4, lioneers);
+    plg_rank1 = new PlayoffTeam(1, pilots);
+    plg_rank2 = new PlayoffTeam(2, dreamers);
+    plg_rank3 = new PlayoffTeam(3, kings);
+    plg_rank4 = new PlayoffTeam(4, lioneers);
 
-    t1_rank1 = new PlayoffTeams(1, dea);
-    t1_rank2 = new PlayoffTeams(2, leopards);
-    t1_rank3 = new PlayoffTeams(3, aquas);
-    t1_rank4 = new PlayoffTeams(4, mars);
+    t1_rank1 = new PlayoffTeam(1, dea);
+    t1_rank2 = new PlayoffTeam(2, leopards);
+    t1_rank3 = new PlayoffTeam(3, aquas);
+    t1_rank4 = new PlayoffTeam(4, mars);
 
-    sbl_rank1 = new PlayoffTeams(1, beer);
-    sbl_rank2 = new PlayoffTeams(2, bank);
-    sbl_rank3 = new PlayoffTeams(3, yulon);
+    sbl_rank1 = new PlayoffTeam(1, beer);
+    sbl_rank2 = new PlayoffTeam(2, bank);
+    sbl_rank3 = new PlayoffTeam(3, yulon);
 
-    wsbl_rank1 = new PlayoffTeams(1, taiyuen);
-    wsbl_rank2 = new PlayoffTeams(2, cathay);
-    wsbl_rank3 = new PlayoffTeams(3, taipower);
+    wsbl_rank1 = new PlayoffTeam(1, taiyuen);
+    wsbl_rank2 = new PlayoffTeam(2, cathay);
+    wsbl_rank3 = new PlayoffTeam(3, taipower);
 
     allGames = [
-        plg_1_4 = new PlayoffGames(plg_rank1, plg_rank4, 'plg_1-4', 4, 4, 2, 'plg_finals', 1),
-        plg_2_3 = new PlayoffGames(plg_rank2, plg_rank3, 'plg_2-3', 4, 2, 4, 'plg_finals', 2),
-        plg_finals = new PlayoffGames('', '', 'plg_finals', 4, 1, 4),
+        plg_1_4 = new PlayoffGame(plg_rank1, plg_rank4, 'plg_1-4', 4, 4, 2, 'plg_finals', 1),
+        plg_2_3 = new PlayoffGame(plg_rank2, plg_rank3, 'plg_2-3', 4, 2, 4, 'plg_finals', 2),
+        plg_finals = new PlayoffGame('', '', 'plg_finals', 4, 1, 4),
 
-        t1_1_4 = new PlayoffGames(t1_rank1, t1_rank4, 't1_1-4', 3, 2, 3, 't1_finals', 1),
-        t1_2_3 = new PlayoffGames(t1_rank2, t1_rank3, 't1_2-3', 3, 3, 0, 't1_finals', 2),
-        t1_finals = new PlayoffGames('', '', 't1_finals', 4, 0, 4),
+        t1_1_4 = new PlayoffGame(t1_rank1, t1_rank4, 't1_1-4', 3, 2, 3, 't1_finals', 1),
+        t1_2_3 = new PlayoffGame(t1_rank2, t1_rank3, 't1_2-3', 3, 3, 0, 't1_finals', 2),
+        t1_finals = new PlayoffGame('', '', 't1_finals', 4, 0, 4),
 
-        sbl_2_3 = new PlayoffGames(sbl_rank2, sbl_rank3, 'sbl_2-3', 2, 1, 2, 'sbl_finals', 2),
-        sbl_finals = new PlayoffGames(sbl_rank1, '', 'sbl_finals', 3, 2, 3),
+        sbl_2_3 = new PlayoffGame(sbl_rank2, sbl_rank3, 'sbl_2-3', 2, 1, 2, 'sbl_finals', 2),
+        sbl_finals = new PlayoffGame(sbl_rank1, '', 'sbl_finals', 3, 2, 3),
 
-        wsbl_2_3 = new PlayoffGames(wsbl_rank2, wsbl_rank3, 'wsbl_2-3', 2, 2, 0, 'wsbl_finals', 2),
-        wsbl_finals = new PlayoffGames(wsbl_rank1, '', 'wsbl_finals', 3, 1, 3)
+        wsbl_2_3 = new PlayoffGame(wsbl_rank2, wsbl_rank3, 'wsbl_2-3', 2, 2, 0, 'wsbl_finals', 2),
+        wsbl_finals = new PlayoffGame(wsbl_rank1, '', 'wsbl_finals', 3, 1, 3)
     ]
 
     for (let i = 0; i < allGames.length; i++) {

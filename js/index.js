@@ -1,4 +1,4 @@
-class Standings {
+class Standing {
 	constructor(team, playoff = '', w = 0, l = 0, gb = '-', streak = '', streak_count = 0, matchup = []) {
 		this.team = team;
 		this.playoff = playoff;
@@ -65,7 +65,7 @@ $(document).ready(function () {
 					games = 30;
 					po_teams = 3;
 				}
-				for (let i = 0; i < teams.length; i++) stand_info.push(new Standings(teams[i].id));
+				for (let i = 0; i < teams.length; i++) stand_info.push(new Standing(teams[i].id));
 
 				for (let i = 0; i < stand_info.length; i++) {
 					for (let j = 0; j < teams.length; j++) {
