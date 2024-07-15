@@ -7,6 +7,7 @@ men,馬建豪,2,CBA,江蘇肯帝亞,https://www.cbaleague.com/data/#/playerMain?
 men,林彥廷,0,CBA,北京控股,https://www.cbaleague.com/data/#/playerMain?playerId=100012995,active,local,2023Rookie,港澳台,G,185,86,2000/10/22,政治大學,#3 順位 - 2023 CBA 選秀,,2023Draft,2023-24,2年,1,,新秀,https://weibo.com/5869834778/N9WOYuFvn,,,,,
 men,阿巴西,0,日本 B1,秋田北部喜悅,https://ctbcdea.com.tw/team/16,active,local,2021Rookie,亞外,F,189,92,1998/04/27,世新大學,加盟: 2024/06/17,dea,,2024-25,1+1年,1+1,,1+1年合約,https://sports.ltn.com.tw/news/breakingnews/4707957,,,,,
 men,游艾喆,7,日本 B1,滋賀湖泊,https://www.bleague.jp/club_detail/?TeamID=698&tab=2,active,local,2024Rookie,亞外,G,181,78,2002/02/14,政治大學,加盟: 2024/06/24 (新秀),,,2024-25,1年,1,,1年合約,https://www.cna.com.tw/news/aspt/202406240270.aspx,,,,,
+men,曾祥鈞,88,日本 B1,名古屋戰鷹,https://pleagueofficial.com/player/52,active,local,2020Rookie,亞外,C,205,95,1998/08/08,輔仁大學,加盟: 2024/07/15,braves,,2024-25,,,,,,-,27,5.2,4.1,0.8
 men,謝宗融,13,日本 B3,金沢武士團,https://pleagueofficial.com/player/274,active,local,,亞外,C,199,98,1995/08/16,臺灣科大,加盟: 2024/07/12,braves,,2024-25,,,,,,-,16,3.1,2.0,0.1
 men,莫巴耶,,PLG,braves,,active,uba_import,2024Rookie,外籍生,F,205,105,2001/01/01,政治大學,#1 順位 - 2024 PLG 選秀,,,,,,,,,,,,,
 men,江 均,,PLG,braves,,active,local,2024Rookie,本土,F,193,93,2001/09/11,輔仁大學,#9 順位 - 2024 PLG 選秀,,,,,,,,,,,,,
@@ -18,7 +19,6 @@ men,洪楷傑,11,PLG,braves,https://pleagueofficial.com/player/235,active,local,
 men,林志傑,12,PLG,braves,https://pleagueofficial.com/player/48,active,local,,本土,G,192,92,1982/06/11,文化大學,加盟: 2019-20賽季,,extension,2024-25,1年,1,,續約1年,https://www.instagram.com/p/C8oYWPMvZEA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==,,,,,
 men,林孟學,13,PLG,braves,https://pleagueofficial.com/player/49,active,local,,本土,F,195,88,1992/10/14,國立體大,#9 順位 - 2015 SBL 選秀,,,,,,,,,-,5,2.6,1.6,0.4
 men,蔡文誠,14,PLG,braves,https://pleagueofficial.com/player/50,active,local,,本土,F,190,96,1985/05/31,彰化師大,加盟: 2016-17賽季,,,2022-23,3年,1,,續約3年,https://www.instagram.com/p/Ch_wkRPv_q1/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
-men,曾祥鈞,21,PLG,braves,https://pleagueofficial.com/player/52,active,local,2020Rookie,本土,C,205,95,1998/08/08,輔仁大學,加盟: 2020-21賽季 (新秀),,,2021-22,3年,0,,提前換約,https://www.instagram.com/p/CSs5vqeh2QP/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,石博恩,23,PLG,braves,https://pleagueofficial.com/player/53,active,uba_import,2020Rookie,外籍生,F,198,98,1995/10/05,健行科大,加盟: 2020-21賽季 (新秀),,,2022-23,3年,1,,續約3年,https://www.instagram.com/p/CgI9tC9vOWk/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,簡廷兆,24,PLG,braves,https://pleagueofficial.com/player/275,active,local,2022Rookie,本土,G,183,80,1998/01/16,健行科大,#6 順位 - 2022 PLG 選秀,,2022Draft,2022-23,2+1年 (球隊選擇權),0+1,,新秀合約,https://www.instagram.com/p/Chtm6ItPP39/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,蔡鎮嶽,33,PLG,braves,https://pleagueofficial.com/player/361,active,local,2023Rookie,本土,F,197,93,2000/01/26,高雄師大,#6 順位 - 2023 PLG 選秀,,2023Draft,2023-24,2+1年 (球隊選擇權),1+1,,新秀合約,https://www.instagram.com/p/CwFJ4TVPr4M/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
@@ -57,13 +57,12 @@ men,王凱裕,,PLG,steelers,,active,local,2024Rookie,本土,G,190,83,2002/01/11,
 men,汪哲宇,,PLG,steelers,,active,local,2024Rookie,本土,F,190,88,2002/03/18,臺灣科大,#8 順位 - 2024 PLG 選秀,,,,,,,,,,,,,
 men,林心翔,,PLG,steelers,,active,local,2024Rookie,本土,G,185,80,2001/04/09,臺灣師大,#10 順位 - 2024 PLG 選秀,,,,,,,,,,,,,
 men,朱育君,,PLG,steelers,,active,local,2024Rookie,本土,G,183,80,2000/11/22,高雄師大,#11 順位 - 2024 PLG 選秀,,,,,,,,,,,,,
-men,陳范柏彥,,PLG,steelers,https://pleagueofficial.com/player/270,active,local,2022Rookie,本土,G,196,90,2000/01/24,健行科大,交易 from 勇士: 2024/07/12,braves,2022Draft Trade,2022-23,2+1年 (球隊選擇權),0+1,,新秀合約,https://www.instagram.com/p/ChtmpARvJiy/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
+men,陳范柏彥,,PLG,steelers,https://pleagueofficial.com/player/270,active,local,2022Rookie,本土,G,196,90,2000/01/24,健行科大,交易 from 勇士: 2024/07/12,braves,2022Draft trade,2022-23,2+1年 (球隊選擇權),0+1,,新秀合約,https://www.instagram.com/p/ChtmpARvJiy/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,李睿麒,1,PLG,steelers,https://pleagueofficial.com/player/230,active,local,,本土,F,193,87,1993/01/07,首府大學,加盟: 2023-24賽季,,,,,,,,,-,15,4.1,2.9,0.4
 men,劉承彥,2,PLG,steelers,https://pleagueofficial.com/player/376,active,local,2023Rookie,本土,G,172,73,2001/07/08,義守大學,#8 順位 - 2023 PLG 選秀,,2023Draft,2023-24,23' 新秀合約,,,,,,,,,
 men,陳又瑋,4,PLG,steelers,https://pleagueofficial.com/player/204,active,local,2021Rookie,本土,G,183,83,1999/12/29,臺灣師大,#2 順位 - 2021 PLG 選秀,,2021Draft,2021-22,2+1年 (球隊選擇權),0,,,,,,,,
 men,邱柏璋,6,PLG,steelers,https://pleagueofficial.com/player/283,active,local,,本土,F,190,90,1995/11/02,臺灣藝大,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,王律翔,8,PLG,steelers,https://pleagueofficial.com/player/211,active,local,2021Rookie,本土,G,184,83,1997/12/21,中州科大,交易 from 勇士: 2021/10/27 (新秀),,2021Draft,2021-22,2+1年 (球隊選擇權),0,,,,,,,,
-men,呂政儒,13,PLG,steelers,https://pleagueofficial.com/player/208,active,local,,本土,F,194,93,1986/04/13,文化大學,加盟: 2021-22賽季,,,2021-22,3年,0,,3年合約,https://sports.ettoday.net/news/2029571,,,,,
 men,盧哲毅,15,PLG,steelers,https://pleagueofficial.com/player/83,active,local,2020Rookie,本土,G,187,82,1993/07/15,義守大學,加盟: 2021-22賽季,,,,,,,,,-,26,1.2,1.0,0.4
 men,林郅為,18,PLG,steelers,https://pleagueofficial.com/player/286,active,local,,本土,C,200,95,1992/07/10,文化大學,加盟: 2022-23賽季,,,,,,,,,-,36,3.8,1.8,0.3
 men,施晉堯,28,PLG,steelers,https://pleagueofficial.com/player/65,active,local,,本土,G,188,86,1990/10/28,文化大學,交易 from 領航猿: 2023/06/19,,,,,,,,,-,32,7.0,2.7,2.6
@@ -92,6 +91,7 @@ men,林書豪,7,TPBL,kings,https://pleagueofficial.com/player/354,active,taiwane
 men,李愷諺,9,TPBL,kings,https://pleagueofficial.com/player/233,active,local,,本土,G,182,80,1993/05/06,醒吾科大,加盟: 2021-22賽季,,,2021-22,,,,,,,,,,
 men,簡祐哲,10,TPBL,kings,https://pleagueofficial.com/player/234,active,local,,本土,G,180,80,1995/09/10,健行科大,加盟: 2021-22賽季,,,2024-25,,,2023-24 提前續約,提前續約,https://www.instagram.com/p/CuqqZqyLj1M/?utm_source=ig_web_copy_link,,,,,
 men,王柏智,11,TPBL,kings,https://pleagueofficial.com/player/89,active,local,,本土,F,195,130,1996/10/29,國立體大,加盟: 2023-24賽季,,,2023-24,,,,,,,,,,
+men,呂政儒,13,TPBL,kings,https://pleagueofficial.com/player/208,active,local,,本土,F,194,93,1986/04/13,文化大學,加盟: 2024/07/15,steelers,,2024-25,,,,,,-,11,12.9,2.7,2.8
 men,蘇士軒,17,TPBL,kings,https://pleagueofficial.com/player/290,active,local,2020Rookie,本土,F,197,95,1996/04/09,臺灣師大,加盟: 2023-24賽季,,extension,2024-25,,,,,,,,,,
 men,林金榜,19,TPBL,kings,https://pleagueofficial.com/player/263,active,local,,本土,F,190,90,1985/06/15,臺灣體大,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,洪志善,24,TPBL,kings,https://pleagueofficial.com/player/237,active,local,,本土,G,176,75,1985/07/05,臺北科大,加盟: 2021-22賽季,,,2023-24,2年,1,,2年合約,https://youtu.be/0_EQN9t68-E?si=A0aQETF57LeM_fdV&t=220,,,,,
@@ -146,12 +146,10 @@ men,林俊吉,11,TPBL,dreamers,https://pleagueofficial.com/player/90,active,loca
 men,蔣淯安,14,TPBL,dreamers,https://t-leopards.com/team/1,active,local,,本土,G,174,66,1991/08/04,臺灣體大,加盟: 2024/07/02,leopards,,2024-25,5年,5,,5年合約,https://www.instagram.com/p/C85_dczhyIm/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==,-,20,15.6,3.9,5.2
 men,楊盛硯,18,TPBL,dreamers,https://pleagueofficial.com/player/93,active,local,,本土,G,178,80,1997/01/18,國立體大,加盟: 2020-21賽季,,,,2年,,2023-24 延長合約,延長2年,https://www.instagram.com/p/Cvgj0NFPbhs/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,簡浩,21,TPBL,dreamers,https://pleagueofficial.com/player/222,active,local,,本土,F,200,90,1985/03/07,NAIA Madonna,加盟: 2021-22賽季,,,,2年,,2023-24 延長合約,延長2年,https://www.instagram.com/p/Cvgj0NFPbhs/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
-men,錢肯尼,23,TPBL,dreamers,https://pleagueofficial.com/player/149,active,taiwanese,,華裔,G,186,88,1995/02/06,NJCAA Broward,加盟: 2017-18賽季,,,,,,,,,球隊不續約,35,4.5,1.8,1.4
 men,忻沃克,24,TPBL,dreamers,https://pleagueofficial.com/player/155,active,taiwanese,2020Rookie,華裔,F,196,93,1998/09/21,NCAA D3 TCNJ,加盟: 2020-21賽季 (新秀),,,2023-24,2年,1,,續約2年,https://www.instagram.com/p/CvEQB75vjOk/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==,,,,,
 men,李德威,26,TPBL,dreamers,https://pleagueofficial.com/player/94,active,local,,本土,C,200,110,1991/10/15,HBL 能仁家商,加盟: 2020-21賽季,,extension,2024-25,3年,3,,續約3年,https://www.instagram.com/p/C8_JBMxPx3e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==,,,,,
 men,盧冠良,28,TPBL,dreamers,https://pleagueofficial.com/player/278,active,local,,本土,G,185,85,1991/04/09,臺灣藝大,加盟: 2022-23賽季,,extension,2024-25,3年,3,,續約3年,https://www.instagram.com/p/C8_JBMxPx3e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==,,,,,
-men,吳松蔚,30,TPBL,dreamers,https://pleagueofficial.com/player/95,active,local,,本土,G,185,85,1993/05/21,義守大學,加盟: 2017-18賽季 (新秀),,,,,,,,,球隊不續約,12,0.5,0.1,0.0
-men,吉爾貝克,34,TPBL,dreamers,https://pleagueofficial.com/player/212,active,naturalized,,洋將,C,213,110,1996/12/09,-,加盟: 2021-22賽季,,,2023-24,,,,,,,,,,
+men,吉爾貝克,34,TPBL,dreamers,https://pleagueofficial.com/player/212,active,import,,洋將,C,213,110,1996/12/09,-,加盟: 2021-22賽季,,,2023-24,,,,,,,,,,
 men,周柏臣,88,TPBL,dreamers,https://pleagueofficial.com/player/279,active,local,,本土,C,198,98,1990/08/08,臺灣師大,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,王詠誠,3,TPBL,aquas,https://ktown-aquas.com/team/135,active,local,2021Rookie,本土,F,196,92,1998/12/29,政治大學,加盟: 2022-23賽季,,,2022-23,,,,,,,,,,
 men,于煥亞,7,TPBL,aquas,https://ktown-aquas.com/team/53,active,local,,本土,G,182,80,1993/11/30,臺灣師大,加盟: 2021-22賽季,,,2022-23,,,,,,,,,,
@@ -225,6 +223,8 @@ men,徐仕宏,77,SBL,bll,https://sleague.tw/player/oldRoster/7002,active,local,2
 men,陳昱翰,8,PLG,fa,https://pleagueofficial.com/player/409,active,local,,本土,G,187,85,1993/12/14,義守大學,加盟: 2023-24賽季,pilots,,,,,,,,約滿合意不續約,3,1.3,0.3,0.3
 men,張傑瑋,0,PLG,fa,https://pleagueofficial.com/player/282,active,uba_import,2022Rookie,外籍生,G,184,87,1997/09/06,萬能科大,加盟: 2023-24賽季,lioneers,,,,,,,,不執行球隊選擇權,23,4.7,2.5,1.8
 men,林耀宗,7,PLG,fa,https://pleagueofficial.com/player/59,active,local,,本土,C,194,100,1990/09/07,明道大學,交易 from 領航猿: 2022/07/14,dreamers,,,,,,,,-,8,0.0,0.5,0.0
+men,錢肯尼,23,PLG,fa,https://pleagueofficial.com/player/149,active,taiwanese,,華裔,G,186,88,1995/02/06,NJCAA Broward,加盟: 2017-18賽季,dreamers,,,,,,,,球隊不續約,35,4.5,1.8,1.4
+men,吳松蔚,30,PLG,fa,https://pleagueofficial.com/player/95,active,local,,本土,G,185,85,1993/05/21,義守大學,加盟: 2017-18賽季 (新秀),dreamers,,,,,,,,球隊不續約,12,0.5,0.1,0.0
 men,蔡嘉駿,14,SBL,fa,https://sleague.tw/player/oldRoster/5903,active,local,2021Rookie,本土,-,190,-,1997/12/11,北市大學,加盟: 2021-22賽季 (新秀),bank,,,,,,,,-,7,1.4,0.7,0.1
 men,陳俊翰,21,SBL,fa,https://sleague.tw/player/oldRoster/635,active,local,2020Rookie,本土,-,196,-,1996/03/20,康寧大學,加盟: 2022-23賽季,bank,,,,,,,,-,2,4.0,0.5,0.5
 men,陳奕綸,3,SBL,fa,https://sleague.tw/player/oldRoster/5883,active,local,2021Rookie,本土,-,172,-,1998/09/09,國立體大,加盟: 2022-23賽季,bll,,,,,,,,-,22,2.6,1.4,2.0
