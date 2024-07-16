@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.07.15</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.07.16</b>`
 
     test = ''
     // test = '.html'
@@ -8,7 +8,6 @@ $(document).ready(function () {
     navbar_dropdown = document.getElementById('navbar-dropdown');
     navs = [
         ['playoffs', '季後賽'],
-        ['standings', '戰績'],
         ['rosters', '球隊陣容'],
         ['players', '現役球員'],
         ['free-agents', '自由球員'],
