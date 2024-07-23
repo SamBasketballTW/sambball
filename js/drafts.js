@@ -66,6 +66,15 @@ $(document).ready(function () {
 						temp += `<li><a class="dropdown-item" onclick="f('${i}plg')">${i} PLG 選秀</a></li>`
 					}
 					temp += `
+					</ul>
+					</li>
+					<li>
+						<a class="dropdown-item disabled" style="color:black">TPBL</a>
+						<ul class="dropdown-menu dropdown-submenu">`
+					for (let i = 2024; i >= 2024; i--) {
+						temp += `<li><a class="dropdown-item" onclick="f('${i}tpbl')">${i} TPBL 選秀</a></li>`
+					}
+					temp += `
 						</ul>
 					</li>
 					<li>
