@@ -38,7 +38,8 @@ $(document).ready(function () {
                     filter = "taiwanese";
                 }
 
-                table.innerHTML += `
+                if (college_or_hs == "c") {
+                    table.innerHTML += `
                     <tr class="filterTr ${gender} ${filter}">
                         <td class="borderR">${pos}</td>
                         <td class="borderR">${name}</td>
@@ -54,6 +55,7 @@ $(document).ready(function () {
                         <td>${division}</td>
                         <td>${conference}</td>
                     </tr>`
+                }
             });
             document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
         });
@@ -78,11 +80,7 @@ $(document).ready(function () {
                 btns[1].className = "btn btn-light"
                 btns[2].className = "btn btn-light"
 
-                if (this.innerHTML == "男籃") {
-                    btns[1].click();
-                } else if (this.innerHTML == "女籃") {
-                    btns[0].click();
-                }
+                btns[0].click();
             }
         });
     }
