@@ -7,7 +7,6 @@ $(document).ready(function () {
 
     navbar_dropdown = document.getElementById('navbar-dropdown');
     navs = [
-        ['playoffs', '季後賽'],
         ['rosters', '球隊陣容'],
         ['players', '現役球員'],
         ['free-agents', '自由球員'],
