@@ -24,7 +24,7 @@ $(document).ready(function () {
 		['plg', 'P. LEAGUE+ 2023-24年度總冠軍:', kings],
 		['t1', 'T1 LEAGUE 2023-24年度總冠軍:', leopards],
 		['sbl', '第21屆 SBL年度總冠軍:', yulon],
-		['wsbl', '第21屆 WSBL年度總冠軍:', cathay],
+		['wsbl', '第19屆 WSBL年度總冠軍:', cathay],
 	]
 	champs.forEach(champ => {
 		document.getElementById(`${champ[0]}-champ`).innerHTML = `
