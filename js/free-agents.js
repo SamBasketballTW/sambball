@@ -1,7 +1,7 @@
 class Player {
     static player_id = 0;
 
-    constructor(gender, name, league, last_team, last_team_order, team, team_order, player_url, pos, height, age,
+    constructor(gender, name, league, last_team, last_team_order, new_team, new_team_order, player_url, pos, height, age,
         fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg, filter = '') {
 
         this.player_id = Player.player_id++;
@@ -10,8 +10,8 @@ class Player {
         this.league = league;
         this.last_team = last_team;
         this.last_team_order = last_team_order;
-        this.team = team;
-        this.team_order = team_order;
+        this.new_team = new_team;
+        this.new_team_order = new_team_order;
         this.player_url = player_url;
         this.pos = pos;
         this.height = height;
@@ -58,7 +58,7 @@ $(document).ready(function () {
                     contract_filter, contract_season, contract_years, contract_years_left,
                     contract_note,
                     contract_link_title, contract_url,
-                    fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+					fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
 
                 ] = infos;
 
@@ -79,20 +79,22 @@ $(document).ready(function () {
                     player1.fa_rpg = fa_rpg;
                     player1.fa_apg = fa_apg;
 
-                    if (team != 'fa') {
-                        if (last_team == '') {
-                            player1.last_team = team;
-                            player1.team = '';
-                            player1.filter += ' unsigned';
-                        } else {
-                            player1.last_team = last_team;
-                            player1.team = team;
-                            player1.filter += ' signed';
-                        }
-                    } else {
+                    if(fa_status == '完成簽約'){
+                        player1.filter += ' signed';
                         player1.last_team = last_team;
-                        player1.team = '';
+                        player1.new_team = team;
+                    }else if(fa_status == '已續約'){
+                        player1.filter += ' signed';
+                        player1.last_team = team;
+                        player1.new_team = team;
+                    }else{
                         player1.filter += ' unsigned';
+                        player1.new_team = '';
+                        if(team != 'fa'){
+                            player1.last_team = team;
+                        }else{
+                            player1.last_team = last_team;
+                        }
                     }
 
                     if (isOversea(player1.last_team)) {
@@ -106,17 +108,19 @@ $(document).ready(function () {
 
                     }
 
-                    if (player1.team != '') {
-                        if (isOversea(player1.team)) {
-                            if (current_team != player1.team) {
+                    if (player1.new_team != '') {
+                        if (isOversea(player1.new_team)) {
+                            if (current_team != player1.new_team) {
                                 oversea_team_order += 1;
-                                current_team = player1.team;
+                                current_team = player1.new_team;
                             }
-                            player1.team_order = oversea_team_order;
+                            player1.new_team_order = oversea_team_order;
                         } else {
-                            player1.team_order = oversea_team_order + 1 + findTeam(player1.team).teamIndex();
+                            player1.new_team_order = oversea_team_order + 1 + findTeam(player1.new_team).teamIndex();
 
                         }
+                    }else{
+                        player1.new_team_order = 30;
                     }
                 }
             })
@@ -129,7 +133,7 @@ $(document).ready(function () {
                         <td class="borderR">${p.height}</td>
                         <td>${p.fa_status}</td>
                         <td class="${teamBG(p.league, p.last_team)} borderR" data-order="${p.last_team_order}">${teamName('full', p.league, p.last_team)}</td>
-                        <td class="${teamBG(p.league, p.team)} borderR" data-order="${p.team_order}">${teamName('full', p.league, p.team)}</td>
+                        <td class="${teamBG(p.league, p.new_team)} borderR" data-order="${p.new_team_order}">${teamName('full', p.league, p.new_team)}</td>
                         <td>${p.fa_gp}</td>
                         <td>${p.fa_ppg}</td>
                         <td>${p.fa_rpg}</td>
