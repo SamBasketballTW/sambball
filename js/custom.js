@@ -85,7 +85,9 @@ function teamFilter(id) {
 	}
 }
 function teamBG(league, id) {
-	if (isOversea(id)) {
+	if (id == '') {
+		return '';
+	} else if (isOversea(id)) {
 		return `${league}-bg`
 	} else {
 		return `${id}-bg`

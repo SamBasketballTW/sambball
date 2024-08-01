@@ -104,7 +104,7 @@ $(document).ready(function () {
                         }
                         player1.last_team_order = oversea_last_team_order;
                     } else {
-                        player1.last_team_order = 0 + 1 + findTeam(player1.last_team).teamIndex();
+                        player1.last_team_order = 10 + 1 + findTeam(player1.last_team).teamIndex();
 
                     }
 
