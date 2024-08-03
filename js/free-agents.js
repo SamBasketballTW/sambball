@@ -79,7 +79,11 @@ $(document).ready(function () {
                     player1.fa_rpg = fa_rpg;
                     player1.fa_apg = fa_apg;
 
-                    if(fa_status == '完成簽約'){
+                    if(name == '馬建豪'){
+                        player1.filter += ' unsigned';
+                        player1.last_team = '江蘇肯帝亞';
+                        player1.new_team = '';
+                    }else if(fa_status == '完成簽約'){
                         player1.filter += ' signed';
                         player1.last_team = last_team;
                         player1.new_team = team;
