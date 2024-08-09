@@ -1,13 +1,14 @@
 class Player {
     static player_id = 0;
 
-    constructor(gender, name, league, last_team, last_team_order, new_team, new_team_order, player_url, pos, height, age,
+    constructor(gender, name, league, last_league, last_team, last_team_order, new_team, new_team_order, player_url, pos, height, age,
         fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg, filter = '') {
 
         this.player_id = Player.player_id++;
         this.gender = gender;
         this.name = name;
         this.league = league;
+        this.last_league = last_league;
         this.last_team = last_team;
         this.last_team_order = last_team_order;
         this.new_team = new_team;
@@ -80,19 +81,23 @@ $(document).ready(function () {
                     player1.fa_apg = fa_apg;
 
                     if(name == '馬建豪'){
-                        player1.filter += ' unsigned';
+                        player1.filter += ' signed';
+                        player1.last_league = 'CBA';
                         player1.last_team = '江蘇肯帝亞';
-                        player1.new_team = '';
+                        player1.new_team = team;
                     }else if(fa_status == '完成簽約'){
                         player1.filter += ' signed';
+                        player1.last_league = league;
                         player1.last_team = last_team;
                         player1.new_team = team;
                     }else if(fa_status == '已續約'){
                         player1.filter += ' signed';
+                        player1.last_league = league;
                         player1.last_team = team;
                         player1.new_team = team;
                     }else{
                         player1.filter += ' unsigned';
+                        player1.last_league = league;
                         player1.new_team = '';
                         if(team != 'fa'){
                             player1.last_team = team;
@@ -136,7 +141,7 @@ $(document).ready(function () {
                         <td>${p.age}</td>
                         <td class="borderR">${p.height}</td>
                         <td>${p.fa_status}</td>
-                        <td class="${teamBG(p.league, p.last_team)} borderR" data-order="${p.last_team_order}">${teamName('full', p.league, p.last_team)}</td>
+                        <td class="${teamBG(p.last_league, p.last_team)} borderR" data-order="${p.last_team_order}">${teamName('full', p.last_league, p.last_team)}</td>
                         <td class="${teamBG(p.league, p.new_team)} borderR" data-order="${p.new_team_order}">${teamName('full', p.league, p.new_team)}</td>
                         <td>${p.fa_gp}</td>
                         <td>${p.fa_ppg}</td>
