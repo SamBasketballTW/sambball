@@ -89,7 +89,7 @@ $(document).ready(function () {
 					<li>
 						<a class="dropdown-item disabled" style="color:black">SBL</a>
 						<ul class="dropdown-menu dropdown-submenu">`
-					for (let i = 2023; i >= 2020; i--) {
+					for (let i = 2024; i >= 2020; i--) {
 						temp += `<li><a class="dropdown-item" onclick="f('${i}sbl')">${i} SBL 選秀</a></li>`
 					}
 					temp += `
@@ -103,7 +103,7 @@ $(document).ready(function () {
 					temp = `
 					<li><a class="dropdown-item" onclick="f('oversea')">WCBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>`
-					for (let i = 2023; i >= 2019; i--) {
+					for (let i = 2024; i >= 2019; i--) {
 						temp += `<li><a class="dropdown-item" onclick="f('${i}wsbl')">${i} WSBL 選秀</a></li>`
 					}
 
