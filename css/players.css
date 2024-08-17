@@ -1,13 +1,5 @@
-.plgtrade{
-	background-color: #F8E6D0;
-}
-.t1trade{
-	background-color: rgb(204, 218, 245);
-}
-.ct{
-	background-color: #0E468E;
-	color: #FAF0F0;
-	--bs-table-hover-color: #FAF0F0;
+.PNB-bg{
+	background-color: #EEEEEE;
 }
 .CBA-bg{
 	background-color: #B22625;

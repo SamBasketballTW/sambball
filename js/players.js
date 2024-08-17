@@ -43,7 +43,9 @@ function findSchool(school) {
     return -1;
 }
 allPlayers = [];
+// console.log(allPlayers);
 allColleges = [new PlayerCount('旅外')];
+// console.log(allColleges);
 $(document).ready(function () {
     fetch('../data/rosters.csv')
         .then((response) => response.text())
@@ -61,22 +63,22 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, pos, height, weight, birth,
-                    school,
-                    acquired,
-                    last_team,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-                    fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, pos, height, weight, birth,
+					school,
+					acquired,
+					last_team,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note,
+					contract_link_title, contract_url,
+					fa_status,  last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-                ] = infos;
+				] = infos;
 
                 if (status == 'active' & identity != 'coach') {
                     player1 = new Player();
@@ -231,7 +233,7 @@ $(document).ready(function () {
 					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
 					<li><hr class="dropdown-divider"></li>`
 
-                    for (let j = 2023; j >= 2019; j--) {
+                    for (let j = 2024; j >= 2019; j--) {
                         player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${j}Rookie')">${j}'新秀</a></li>`
                     }
 

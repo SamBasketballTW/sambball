@@ -21,7 +21,7 @@ class Player {
 	}
 }
 allPlayers = [];
-
+// console.log(allPlayers);
 $(document).ready(function () {
 	table = document.getElementById('contracts_tbody');
 
@@ -51,7 +51,7 @@ $(document).ready(function () {
 					contract_filter, contract_season, contract_years, contract_years_left,
 					contract_note,
 					contract_link_title, contract_url,
-					fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+					fa_status,  last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
 
 				] = infos;
 

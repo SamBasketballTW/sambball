@@ -57,8 +57,7 @@ class Movement {
     }
 }
 allPlayers = [];
-
-
+// console.log(allPlayers);
 allRosters = [new Roster('men', 'oversea', 'oversea'), new Roster('women', 'oversea', 'oversea')];
 allTeams.forEach(team => {
     allRosters.push(new Roster(team.gender, team.league, team.id, team.coach))
@@ -88,22 +87,22 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, pos, height, weight, birth,
-                    school,
-                    acquired,
-                    last_team,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-                    fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, pos, height, weight, birth,
+					school,
+					acquired,
+					last_team,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note,
+					contract_link_title, contract_url,
+					fa_status,  last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-                ] = infos;
+				] = infos;
 
                 if (status == "active" & team != "fa") {
 

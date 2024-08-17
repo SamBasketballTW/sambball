@@ -1,16 +1,16 @@
 class Player {
     static player_id = 0;
 
-    constructor(gender, name, league, last_league, last_team, last_team_order, new_team, new_team_order, player_url, pos, height, age,
+    constructor(gender, name, last_season_league, last_season_team, last_season_team_order, new_league, new_team, new_team_order, player_url, pos, height, age,
         fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg, filter = '') {
 
         this.player_id = Player.player_id++;
         this.gender = gender;
         this.name = name;
-        this.league = league;
-        this.last_league = last_league;
-        this.last_team = last_team;
-        this.last_team_order = last_team_order;
+        this.last_season_league = last_season_league;
+        this.last_season_team = last_season_team;
+        this.last_season_team_order = last_season_team_order;
+        this.new_league = new_league;
         this.new_team = new_team;
         this.new_team_order = new_team_order;
         this.player_url = player_url;
@@ -26,7 +26,7 @@ class Player {
     }
 }
 allPlayers = [];
-
+// console.log(allPlayers);
 $(document).ready(function () {
     fetch('../data/rosters.csv')
         .then((response) => response.text())
@@ -46,22 +46,22 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, pos, height, weight, birth,
-                    school,
-                    acquired,
-                    last_team,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-					fa_status, fa_gp, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, pos, height, weight, birth,
+					school,
+					acquired,
+					last_team,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note,
+					contract_link_title, contract_url,
+					fa_status,  last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-                ] = infos;
+				] = infos;
 
                 if (fa_status != '') {
                     player1 = new Player();
@@ -69,7 +69,8 @@ $(document).ready(function () {
 
                     player1.gender = gender;
                     player1.name = name;
-                    player1.league = league;
+                    player1.last_season_league = last_season_league;
+                    player1.last_season_team = last_season_team;
                     player1.player_url = playerUrl(last_team, player_url);
                     player1.pos = pos;
                     player1.height = height;
@@ -80,40 +81,24 @@ $(document).ready(function () {
                     player1.fa_rpg = fa_rpg;
                     player1.fa_apg = fa_apg;
 
-                    if(name == '馬建豪'){
+                    if(fa_status == '完成簽約' | fa_status == '已續約'){
                         player1.filter += ' signed';
-                        player1.last_league = 'CBA';
-                        player1.last_team = '江蘇肯帝亞';
-                        player1.new_team = team;
-                    }else if(fa_status == '完成簽約'){
-                        player1.filter += ' signed';
-                        player1.last_league = league;
-                        player1.last_team = last_team;
-                        player1.new_team = team;
-                    }else if(fa_status == '已續約'){
-                        player1.filter += ' signed';
-                        player1.last_league = league;
-                        player1.last_team = team;
+                        player1.new_league = league;
                         player1.new_team = team;
                     }else{
                         player1.filter += ' unsigned';
-                        player1.last_league = league;
+                        player1.new_league = '';
                         player1.new_team = '';
-                        if(team != 'fa'){
-                            player1.last_team = team;
-                        }else{
-                            player1.last_team = last_team;
-                        }
                     }
 
-                    if (isOversea(player1.last_team)) {
-                        if (current_last_team != player1.last_team) {
+                    if (isOversea(last_season_team)) {
+                        if (current_last_team != last_season_team) {
                             oversea_last_team_order += 1;
-                            current_last_team = player1.last_team;
+                            current_last_team = last_season_team;
                         }
-                        player1.last_team_order = oversea_last_team_order;
+                        player1.last_season_team_order = oversea_last_team_order;
                     } else {
-                        player1.last_team_order = 10 + 1 + findTeam(player1.last_team).teamIndex();
+                        player1.last_season_team_order = 10 + 1 + findTeam(last_season_team).teamIndex();
 
                     }
 
@@ -141,8 +126,8 @@ $(document).ready(function () {
                         <td>${p.age}</td>
                         <td class="borderR">${p.height}</td>
                         <td>${p.fa_status}</td>
-                        <td class="${teamBG(p.last_league, p.last_team)} borderR" data-order="${p.last_team_order}">${teamName('full', p.last_league, p.last_team)}</td>
-                        <td class="${teamBG(p.league, p.new_team)} borderR" data-order="${p.new_team_order}">${teamName('full', p.league, p.new_team)}</td>
+                        <td class="${teamBG(p.last_season_league, p.last_season_team)} borderR" data-order="${p.last_season_team_order}">${teamName('full', p.last_season_league, p.last_season_team)}</td>
+                        <td class="${teamBG(p.new_league, p.new_team)} borderR" data-order="${p.new_team_order}">${teamName('full', p.new_league, p.new_team)}</td>
                         <td>${p.fa_gp}</td>
                         <td>${p.fa_ppg}</td>
                         <td>${p.fa_rpg}</td>
