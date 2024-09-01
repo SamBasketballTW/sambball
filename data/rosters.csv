@@ -1,12 +1,12 @@
 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,23,22,23,24,25,26,27,28,29,30
 性別,球員,#,聯盟,球隊,連結,現役,身份,新秀,聯盟身份,位置,身高,體重,生日,學歷,入隊方式,前球隊,class,合約,,剩餘年限,備注,連結,,自由球員,2023-24 球隊,,GP,PPG,RPG,APG
-men,劉錚,5,CBA,上海久事,https://www.cbaleague.com/data/#/playerMain?playerId=958480,active,local,,港澳台,F,191,82,1990/11/24,明道大學,加盟: 2020-21賽季,,,2023-24,1年,0,,續約1年,https://weibo.com/1713437511/N9bqxisUF,-,CBA,上海久事,41,11.7,4.8,3.7
-men,陳盈駿,1,CBA,北京首鋼,https://www.cbaleague.com/data/#/playerMain?playerId=100002141,active,local,,港澳台,G,182,86,1993/06/09,NCAA D1 Liberty,交易 from 龍獅: 2024/08/29,CBA 龍獅,,2023-24,3年,2,,續約3年,https://weibo.com/1859597684/N7xKfgWu8,,,,,,, 
-men,林庭謙,0,CBA,天津先行者,https://www.cbaleague.com/data/#/playerMain?playerId=100025767,active,local,2020Rookie,港澳台,G,190,80,1999/10/31,NCAA D1 Bryant,2020 CBA 選秀 - #3 順位,,,2023-24,3年,2,,續約3年,https://weibo.com/2337547167/N8l2dpPWH,,,,,,,
-men,林彥廷,0,CBA,北京控股,https://www.cbaleague.com/data/#/playerMain?playerId=100012995,active,local,2023Rookie,港澳台,G,185,86,2000/10/22,政治大學,2023 CBA 選秀 - #3 順位,,,2023-24,2年,1,,,,,,,,,,
-men,林秉聖,0,CBA,浙江廣廈,https://taipeimars.com.tw/team/11,active,local,,港澳台,G,184,77,1996/12/26,文化大學,2024 CBA 選秀 - #4 順位,mars,,2024-25,,,,,,,,,,,,
-men,陳將双,5,CBA,南京同曦,https://www.instagram.com/owenchen_11/,active,local,2024Rookie,港澳台,G,187,85,2002/10/16,世新大學,2024 CBA 選秀 - #8 順位,,,2024-25,3年,3,,,,,,,,,,
-men,陳冠中,,CBA,吉林九台農商,https://www.instagram.com/tim121010/,active,local,2024Rookie,港澳台,G,187,83,2001/12/10,國立體大,2024 CBA 選秀 - #21 順位,,,2024-25,3年,3,,,,,,,,,,
+men,劉錚,5,CBA,上海久事,https://www.cbaleague.com/data/#/playerMain?playerId=958480,active,local,,港澳台,F,191,82,1990/11/24,明道大學,加盟: 2020-21賽季,,extension,2024-25,1+1年 (俱樂部選項),1+1,E類合約,,,已續約,CBA,上海久事,41,11.7,4.8,3.7
+men,陳盈駿,1,CBA,北京首鋼,https://www.cbaleague.com/data/#/playerMain?playerId=100002141,active,local,,港澳台,G,182,86,1993/06/09,NCAA D1 Liberty,交易 from 龍獅: 2024/08/29,CBA 龍獅,,2023-24,D類合約 - 3年,2,,續約3年,https://weibo.com/1859597684/N7xKfgWu8,,,,,,, 
+men,林庭謙,0,CBA,天津先行者,https://www.cbaleague.com/data/#/playerMain?playerId=100025767,active,local,2020Rookie,港澳台,G,190,80,1999/10/31,NCAA D1 Bryant,2020 CBA 選秀 - #3 順位,,,2023-24,D類合約 - 3年,2,,續約3年,https://weibo.com/2337547167/N8l2dpPWH,,,,,,,
+men,林彥廷,0,CBA,北京控股,https://www.cbaleague.com/data/#/playerMain?playerId=100012995,active,local,2023Rookie,港澳台,G,185,86,2000/10/22,政治大學,2023 CBA 選秀 - #3 順位,,,2023-24,A2類合約 - 2年,1,,,,,,,,,,
+men,林秉聖,0,CBA,浙江廣廈,https://taipeimars.com.tw/team/11,active,local,,港澳台,G,184,77,1996/12/26,文化大學,2024 CBA 選秀 - #4 順位,mars,,2024-25,A2類合約 - 2年,2,,,,,,,,,,
+men,陳將双,5,CBA,南京同曦,https://www.instagram.com/owenchen_11/,active,local,2024Rookie,港澳台,G,187,85,2002/10/16,世新大學,2024 CBA 選秀 - #8 順位,,,2024-25,A2類合約 - 3年,3,,,,,,,,,,
+men,陳冠中,,CBA,吉林九台農商,https://www.instagram.com/tim121010/,active,local,2024Rookie,港澳台,G,187,83,2001/12/10,國立體大,2024 CBA 選秀 - #21 順位,,,2024-25,A2類合約 - 3年,3,,,,,,,,,,
 men,阿巴西,0,日本 B1,秋田北部喜悅,https://www.bleague.jp/roster_detail/?PlayerID=51000384,active,local,2021Rookie,亞外,F,189,92,1998/04/27,世新大學,加盟: 2024/06/17,dea,,2024-25,1+1年,1+1,,1+1年合約,https://sports.ltn.com.tw/news/breakingnews/4707957,,,,,,,
 men,游艾喆,7,日本 B1,滋賀湖泊,https://www.bleague.jp/roster_detail/?PlayerID=51000382,active,local,2024Rookie,亞外,G,180,78,2002/02/14,政治大學,加盟: 2024/06/24 (新秀),,,2024-25,1年,1,,1年合約,https://www.cna.com.tw/news/aspt/202406240270.aspx,,,,,,,
 men,曾祥鈞,88,日本 B1,名古屋戰鷹,https://pleagueofficial.com/player/52,active,local,2020Rookie,亞外,C,205,95,1998/08/08,輔仁大學,加盟: 2024/07/15,braves,,2024-25,1年,1,,1年合約,https://sports.ettoday.net/news/2780706,完成簽約,PLG,braves,27,5.2,4.1,0.8
