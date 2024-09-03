@@ -64,7 +64,7 @@ allTeams.forEach(team => {
 });
 
 men_oversea = [['CBA', 0], ['日本', 0]];
-women_oversea = [['WCBA', 0], ['韓國', 0], ['其他', 0]];
+women_oversea = [['WCBA', 0], ['韓國', 0]];
 $(document).ready(function () {
 
     tableCount = document.getElementById('r_count_tbody');
