@@ -1,40 +1,41 @@
 0,1,2,3,4,5,6,7,8,9,10,11,12
 性別,class,位置,球員,instagram,身份,身高,生日,Class,#,大學,聯盟,賽區
-men,c,G,Chris Schlesinger,cschlesinger12,華裔,6'6,,c/o 2026,,Shasta College,CCCAA,Golden Valley
-men,c,G,傅 友,__fu0227,本土,6'4,2004/02/27,c/o 2027,24,West Virginia Tech,NAIA,AAC
-men,c,G,林新唯,jax1in,本土,6'0,2003/06/29,c/o 2025,3,Westcliff University,NAIA,CAL PAC
-men,c,G,林宇謙,l.lin_12,本土,6'4,2002/10/05,c/o 2025,13,Blue Mountain Christian,NAIA,SSAC
-men,c,G,黃宙騏,_jh.12_,本土,6'2,2003/11/26,c/o 2027,9,Unversity of Utah,NCAA D1,Big 12
-men,c,G,Myles Che,mylesche,-,6'2,2004/03/15,c/o 2027,77,UC Irvine,NCAA D1,Big West
-men,c,G,賀 丹,adamthinton,本土,6'4,2003/07/09,c/o 2026,8,Cornell University,NCAA D1,Ivy League
-men,c,G,賀 博,camp_hinton,本土,6'5,2006/02/20,c/o 2028,4,Harvard University,NCAA D1,Ivy League
-men,c,G,葉惟捷,noisy_7_,本土,6'5,2005/04/17,c/o 2028,,Alabama A&M,NCAA D1,SWAC
-men,c,G,林現惟,du_941020,本土,6'1,2005/10/20,c/o 2028,,Cal St. Dom. HIlls,NCAA D2,CCAA
-men,c,G,林子桓,lin_2003_29,本土,5'10,2003/11/29,c/o 2027,,University of Charleston,NCAA D2,Mountain East
-men,c,G,Jordan Lee,jordannlee_,-,6'1,,c/o 2027,4,Grinnell College,NCAA D3,Midwest
-men,c,G,Spencer Lin,spencer_bb_lin,-,6'4,,c/o 2025,1,MIT,NCAA D3,NEWMAC
-men,c,G,Colin Huang,colin.huaang,華裔,6'0,2005/03/16,c/o 2028,,US Coast Guard,NCAA D3,NEWMAC
-men,c,G,張庭瑋,cheung.benjamin,本土,6'3,2003/09/25,c/o 2026,4,Occidental College,NCAA D3,SCIAC
-men,c,G,Kai Gibbons,kaiigibbons,華裔,5'11,,c/o 2028,,Cal Lutheran,NCAA D3,SCIAC
-men,c,C,鄭名斈,xue_1225_,本土,6'10,2004/12/25,c/o 2028,,Seminole State College,NJCAA D1,Region II
-men,hs,G,金秉昱,dylankingking,本土,6'5,,c/o 2024,5,Lord Byng,,
-men,hs,G,謝銘駿,mingjun_15,本土,6'5,,c/o 2025,,Southern Coast Academy,,
-men,hs,G,邱 靖,joshuajchiu0912,本土,6'5,2006/09/12,c/o 2025,,Orion Academy,,
-men,hs,G,吳宇桓,vicw.511,本土,5'10,,c/o 2025,3,Southern California,,
-men,hs,G,袁昊君,abner_y1,本土,6'0,2006/12/20,c/o 2026,1,Sunrise Christian,,
-men,hs,G,Ethan Lin,ethanlin8,華裔,6'3,,c/o 2026,12,Montgomery,,
-men,hs,G,Henry Ye,henry.ye.23,-,6'2,,c/o 2026,3,Westtown,,
-men,hs,G,周秉裕,abi_chou022408,本土,6'2,2008/02/24,c/o 2027,24,Oaks Christian,,
-men,hs,G,邱 鼎,imnathanchiu,本土,6'1,2009/07/25,c/o 2027,8,Spring Valley,,
-men,hs,G,Edison Kan,edison.kan.11,-,6'2,,c/o 2027,14,Bellevue Christian,,
-men,hs,G,Oscar Pan,yc_p2o08,-,,,c/o 2027,,Oviedo High School,,
-men,hs,G,Ethan Young,swish_ethanyoung,本土,5'8,,c/o 2028,,Fairmont Prep,,
-men,hs,G,黃佳瀚,justin._huang._,本土,6'3,,c/o 2028,,Blue Ridge School,,
-men,hs,G,Chris Chu,chrischu2029,本土,6'1,2011/05/19,c/o 2029,,,,
+men,c,G,Chris Schlesinger,cschlesinger12,華裔,6'6,,,,Shasta College,CCCAA,Golden Valley
+men,c,G,傅 友,__fu0227,本土,6'4,2004/02/27,So.,24,West Virginia Tech,NAIA,AAC
+,,G,林新唯,jax1in,本土,6'0,2003/06/29,,3,Westcliff University,NAIA,CAL PAC
+men,c,G,林宇謙,l.lin_12,本土,6'4,2002/10/05,Jr.,13,Blue Mountain Christian,NAIA,SSAC
+men,c,G,黃宙騏,_jh.12_,本土,6'2,2003/11/26,Redshirt Fr.,9,Unversity of Utah,NCAA D1,Big 12
+men,c,G,Myles Che,mylesche,-,6'2,2004/03/15,So.,77,UC Irvine,NCAA D1,Big West
+men,c,G,賀 丹,adamthinton,本土,6'4,2003/07/09,Jr.,8,Cornell University,NCAA D1,Ivy League
+men,c,G,賀 博,camp_hinton,本土,6'5,2006/02/20,Fr.,4,Harvard University,NCAA D1,Ivy League
+men,c,G,葉惟捷,noisy_7_,本土,6'5,2005/04/17,Fr.,,Alabama A&M,NCAA D1,SWAC
+men,c,G,林現惟,du_941020,本土,6'1,2005/10/20,Fr.,,Cal St. Dom. HIlls,NCAA D2,CCAA
+men,c,G,林子桓,lin_2003_29,本土,5'10,2003/11/29,So.,,University of Charleston,NCAA D2,Mountain East
+men,c,G,Jordan Lee,jordannlee_,-,6'1,,So.,4,Grinnell College,NCAA D3,Midwest
+men,c,G,Spencer Lin,spencer_bb_lin,-,6'4,,Jr.,1,MIT,NCAA D3,NEWMAC
+,,G,Colin Huang,colin.huaang,華裔,6'0,2005/03/16,Fr.,,US Coast Guard,NCAA D3,NEWMAC
+men,c,G,張庭瑋,cheung.benjamin,本土,6'3,2003/09/25,So.,4,Occidental College,NCAA D3,SCIAC
+men,c,G,Kai Gibbons,kaiigibbons,華裔,5'11,,Fr.,,Cal Lutheran,NCAA D3,SCIAC
+men,c,C,鄭名斈,xue_1225_,本土,6'10,2004/12/25,Fr.,,Seminole State College,NJCAA D1,Region II
 ,,,,,,,,,,,,
-women,c,G,Audrey Chen,audrey.chenn,-,5'7,,c/o 2024,,Cornell University,NCAA D1,Ivy League
-women,c,G,邱昱珺,jean._.chiu,本土,5'7,2003/02/13,c/o 2028,5,Washington State,NCAA D1,Pac-12
-women,c,G,Belle Bramer,bellecbramer,-,6'1,,c/o 2028,12,Lehigh University,NCAA D1,Patriot
-women,c,G,林芍彤,tong._1102,本土,5'4,,c/o 2024,1,Austin Peay State,NCAA D1,Sun
-women,c,G,米靖恩,savi_09_28_10,本土,5'9,,c/o 2028,,Dodge City,NJCAA D1,KJCCC
-women,c,G,李郁慈,yuci_58,本土,5'11,,c/o 2028,,Dodge City,NJCAA D1,KJCCC
+women,c,G,Audrey Chen,audrey.chenn,-,5'7,,Fr.,12,Cornell University,NCAA D1,Ivy League
+women,c,G,邱昱珺,jean._.chiu,本土,5'7,2003/02/13,Jr.,5,Washington State,NCAA D1,Pac-12
+women,c,G/F,Belle Bramer,bellecbramer,-,6'1,,Fr.,12,Lehigh University,NCAA D1,Patriot
+,,G,林芍彤,tong._1102,本土,5'4,1999/11/02,c/o 2024,1,Austin Peay State,NCAA D1,Sun
+women,c,G,米靖恩,savi_09_28_10,本土,5'9,,Fr.,,Dodge City,NJCAA D1,KJCCC
+women,c,G,李郁慈,yuci_58,本土,5'11,,Fr.,,Dodge City,NJCAA D1,KJCCC
+,,,,,,,,,,,,
+,,G,金秉昱,dylankingking,本土,6'5,,c/o 2024,5,Lord Byng,,
+,,G,謝銘駿,mingjun_15,本土,6'5,,c/o 2025,,Southern Coast Academy,,
+,,G,邱 靖,joshuajchiu0912,本土,6'5,2006/09/12,c/o 2025,,Orion Academy,,
+,,G,吳宇桓,vicw.511,本土,5'10,,c/o 2025,3,Southern California,,
+,,G,袁昊君,abner_y1,本土,6'0,2006/12/20,c/o 2026,1,Sunrise Christian,,
+,,G,Ethan Lin,ethanlin8,華裔,6'3,,c/o 2026,12,Montgomery,,
+,,G,Henry Ye,henry.ye.23,-,6'2,,c/o 2026,3,Westtown,,
+,,G,周秉裕,abi_chou022408,本土,6'2,2008/02/24,c/o 2027,24,Oaks Christian,,
+,,G,邱 鼎,imnathanchiu,本土,6'1,2009/07/25,c/o 2027,8,Spring Valley,,
+,,G,Edison Kan,edison.kan.11,-,6'2,,c/o 2027,14,Bellevue Christian,,
+,,G,Oscar Pan,yc_p2o08,-,,,c/o 2027,,Oviedo High School,,
+,,G,Ethan Young,swish_ethanyoung,本土,5'8,,c/o 2028,,Fairmont Prep,,
+,,G,黃佳瀚,justin._huang._,本土,6'3,,c/o 2028,,Blue Ridge School,,
+,,G,Chris Chu,chrischu2029,本土,6'1,2011/05/19,c/o 2029,,,,
