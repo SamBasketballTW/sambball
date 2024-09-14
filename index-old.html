@@ -1,0 +1,174 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>山姆籃球</title>
+	<link rel="icon" href="./asset/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/custom.css">
+	<link rel="stylesheet" href="./css/players.css">
+	<link rel="stylesheet" href="./css/table.css">
+
+	<script src="./js/tools/popper.min.js"></script>
+	<script src="./js/tools/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+	<script src="../js/general.js"></script>
+	<script src="./js/custom.js"></script>
+	<script src="./js/index.js"></script>
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9054066263992256"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+		<div class="container-fluid">
+			<a id="index" class="navbar-brand" href="./">&nbsp;&nbsp;<img src="./asset/images/logo.png"
+					class="icon">&nbsp;山姆籃球</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div id="navbar-dropdown" class="navbar-nav"></div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="content">
+		<div class="jumbotron"></div>
+
+		<div class="container-lg" style="padding-top:10px; max-width:920px">
+			<div class="alert alert-warning alert-dismissible fade show" role="alert" style="padding:16px; margin-bottom:0px; text-align:center; color:black; background-color: #FFAD7C;
+				border: 3px solid black;"><strong id="birthday_td"></strong>
+			</div>
+		</div>
+
+		<div class="container-lg" style="max-width:920px">
+			<a style="font-size:13px"><b>p-例行賽排名確定&nbsp;&nbsp;&nbsp;x-晉級季後賽&nbsp;&nbsp;&nbsp;o-無緣季後賽<br></b></a>
+			<div class="table-scroll" style="border-bottom:0px">
+				<table class="table table-hover">
+					<tbody id="plg-champ">
+
+					</tbody>
+				</table>
+			</div>
+			<div class="table-scroll" style="border-top:0px">
+				<table id="plg_tb" class="table table-hover table-fix2">
+					<thead>
+						<th style="width:50px"></th>
+						<th style="width:187px">P. LEAGUE+</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
+						<th style="width:50px">連勝</th>
+					</thead>
+					<tbody id="plg_tbody">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container-lg" style="max-width:920px">
+			<div class="table-scroll" style="border-bottom:0px">
+				<table class="table table-hover">
+					<tbody id="t1-champ">
+
+					</tbody>
+				</table>
+			</div>
+			<div class="table-scroll" style="border-top:0px">
+				<table id="t1_tb" class="table table-hover table-fix2">
+					<thead>
+						<th style="width:50px"></th>
+						<th style="width:187px">T1 LEAGUE</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
+						<th style="width:50px">連勝</th>
+					</thead>
+					<tbody id="t1_tbody">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container-lg" style="max-width:920px">
+			<div class="table-scroll" style="border-bottom:0px">
+				<table class="table table-hover">
+					<tbody id="sbl-champ">
+
+					</tbody>
+				</table>
+			</div>
+			<div class="table-scroll" style="border-top:0px">
+				<table id="sbl_tb" class="table table-hover table-fix2">
+					<thead>
+						<th style="width:50px"></th>
+						<th style="width:187px">SBL 超級籃球聯賽</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
+						<th style="width:50px">連勝</th>
+					</thead>
+					<tbody id="sbl_tbody">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container-lg" style="max-width:920px">
+			<div class="table-scroll" style="border-bottom:0px">
+				<table class="table table-hover">
+					<tbody id="wsbl-champ">
+
+					</tbody>
+				</table>
+			</div>
+			<div class="table-scroll" style="border-top:0px">
+				<table id="wsbl_tb" class="table table-hover table-fix2">
+					<thead>
+						<th style="width:50px"></th>
+						<th style="width:187px">WSBL 超級籃球聯賽</th>
+						<th style="width:50px">已賽</th>
+						<th style="width:50px">勝場</th>
+						<th style="width:50px">敗場</th>
+						<th style="width:60px">勝率</th>
+						<th style="width:50px">勝差</th>
+						<th style="width:50px">連勝</th>
+					</thead>
+					<tbody id="wsbl_tbody">
+
+					</tbody>
+				</table>
+			</div>
+			<a id="timeStamp" style="font-size:13px"></a>
+		</div>
+
+		<img id="loader" class="spinner" src="./asset/images/logo.png">
+	</div>
+
+	<footer id="footerContent" class="bg-dark" style="color:white;"></footer>
+
+	<script>
+		window.onload = function () { document.getElementById('loader').style.display = 'none'; }
+	</script>
+
+</body>
+
+</html>
