@@ -1,9 +1,9 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.09.16 17:00</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.09.19 17:00</b>`
 
     test = ''
-    test = '.html'
+    // test = '.html'
 
     navbar_dropdown = document.getElementById('navbar-dropdown');
     navs = [
