@@ -355,7 +355,7 @@ $(document).ready(function () {
                         f('filter');
                     });
                 }
-                teams[1].click();
+                teams[0].click();
             }
         });
     }
