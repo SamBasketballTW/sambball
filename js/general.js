@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.10.09 15:00</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.10.11 18:00</b>`
 
     test = ''
     // test = '.html'
@@ -59,25 +59,25 @@ class Team {
         return allTeams.indexOf(this);
     }
 }
-braves = new Team('men', 'plg', 'braves', '臺北富邦勇士', '勇士', '執行教練: 吳永仁');
-pilots = new Team('men', 'plg', 'pilots', '桃園璞園領航猿', '領航猿', '總教練: 卡米諾斯 Iurgi Caminos');
-ghosthawks = new Team('men', 'plg', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');
-steelers = new Team('men', 'plg', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人', '總教練: 邱大宗');
-mars = new Team('men', 'tpbl', 'mars', '臺北台新戰神', '戰神', '總教練: 許皓程');
-kings = new Team('men', 'tpbl', 'kings', '新北國王', '國王', '總教練: 萊恩 Ryan Marchand');
-dea = new Team('men', 'tpbl', 'dea', '新北中信特攻', '特攻', '總教練: 李逸驊');
-leopards = new Team('men', 'tpbl', 'leopards', '桃園台啤永豐雲豹', '雲豹', '總教練: 查爾斯 Charles Dubé-Brais');
-lioneers = new Team('men', 'tpbl', 'lioneers', '新竹御頂攻城獅', '攻城獅', '總教練: 密特羅維奇 Milan Mitrović');
-dreamers = new Team('men', 'tpbl', 'dreamers', '福爾摩沙夢想家', '夢想家', '總教練: 皮爾曼 Jamie Pearlman');
-aquas = new Team('men', 'tpbl', 'aquas', '高雄全家海神', '海神', '總教練: 費雪 Mathias Fischer');
-beer = new Team('men', 'sbl', 'beer', '台灣啤酒', '台啤', '總教練: 楊志豪');
-bank = new Team('men', 'sbl', 'bank', '臺灣銀行', '臺銀', '代理總教練: 程恩傑');
-yulon = new Team('men', 'sbl', 'yulon', '裕隆納智捷', '裕隆', '執行教練: 李啟億');
-bll = new Team('men', 'sbl', 'bll', '彰化柏力力', '柏力力', '總教練: 吳俊雄');
-cathay = new Team('women', 'wsbl', 'cathay', '國泰人壽', '國泰', '總教練: 鄭慧芸');
-taipower = new Team('women', 'wsbl', 'taipower', '台灣電力', '台電', '教練: 陳萓峰');
-cht = new Team('women', 'wsbl', 'cht', '中華電信', '電信', '教練: 柯孟儀');
-taiyuen = new Team('women', 'wsbl', 'taiyuen', '台元紡織', '台元', '執行教練: 邱啟益');
+braves = new Team('men', 'PLG', 'braves', '臺北富邦勇士', '勇士', '執行教練: 吳永仁');
+pilots = new Team('men', 'PLG', 'pilots', '桃園璞園領航猿', '領航猿', '總教練: 卡米諾斯 Iurgi Caminos');
+ghosthawks = new Team('men', 'PLG', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');
+steelers = new Team('men', 'PLG', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人', '總教練: 邱大宗');
+mars = new Team('men', 'TPBL', 'mars', '臺北台新戰神', '戰神', '總教練: 許皓程');
+kings = new Team('men', 'TPBL', 'kings', '新北國王', '國王', '總教練: 萊恩 Ryan Marchand');
+dea = new Team('men', 'TPBL', 'dea', '新北中信特攻', '特攻', '總教練: 李逸驊');
+leopards = new Team('men', 'TPBL', 'leopards', '桃園台啤永豐雲豹', '雲豹', '總教練: 查爾斯 Charles Dubé-Brais');
+lioneers = new Team('men', 'TPBL', 'lioneers', '新竹御頂攻城獅', '攻城獅', '總教練: 密特羅維奇 Milan Mitrović');
+dreamers = new Team('men', 'TPBL', 'dreamers', '福爾摩沙夢想家', '夢想家', '總教練: 皮爾曼 Jamie Pearlman');
+aquas = new Team('men', 'TPBL', 'aquas', '高雄全家海神', '海神', '總教練: 費雪 Mathias Fischer');
+beer = new Team('men', 'SBL', 'beer', '台灣啤酒', '台啤', '總教練: 楊志豪');
+bank = new Team('men', 'SBL', 'bank', '臺灣銀行', '臺銀', '代理總教練: 程恩傑');
+yulon = new Team('men', 'SBL', 'yulon', '裕隆納智捷', '裕隆', '執行教練: 李啟億');
+bll = new Team('men', 'SBL', 'bll', '彰化柏力力', '柏力力', '總教練: 吳俊雄');
+cathay = new Team('women', 'WSBL', 'cathay', '國泰人壽', '國泰', '總教練: 鄭慧芸');
+taipower = new Team('women', 'WSBL', 'taipower', '台灣電力', '台電', '教練: 陳萓峰');
+cht = new Team('women', 'WSBL', 'cht', '中華電信', '電信', '教練: 柯孟儀');
+taiyuen = new Team('women', 'WSBL', 'taiyuen', '台元紡織', '台元', '執行教練: 邱啟益');
 
 plgTeams = [braves, pilots, ghosthawks, steelers];
 tpblTeams = [mars, kings, dea, leopards, lioneers, dreamers, aquas];
@@ -87,15 +87,15 @@ wsblTeams = [cathay, taipower, cht, taiyuen];
 allTeams = plgTeams.concat(tpblTeams, sblTeams, wsblTeams);
 
 braves.url = 'https://pleagueofficial.com/team/1';
-kings.url = 'https://pleagueofficial.com/team/6';
 pilots.url = 'https://pleagueofficial.com/team/2';
+ghosthawks.url = 'https://pleagueofficial.com/team/7';
+steelers.url = 'https://pleagueofficial.com/team/5';
+kings.url = 'https://pleagueofficial.com/team/6';
 lioneers.url = 'https://pleagueofficial.com/team/3';
 dreamers.url = 'https://pleagueofficial.com/team/4';
-steelers.url = 'https://pleagueofficial.com/team/5';
 dea.url = 'https://ctbcdea.com.tw/';
 mars.url = 'https://taipeimars.com.tw/';
 leopards.url = 'https://t-leopards.com/';
-ghosthawks.url = 'https://ghosthawks.tw/';
 aquas.url = 'https://ktown-aquas.com/';
 beer.url = 'https://sleague.tw/team/1/76/714';
 bank.url = 'https://sleague.tw/team/1/76/713';
