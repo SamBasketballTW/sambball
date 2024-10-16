@@ -53,8 +53,8 @@
 				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:150px">男籃</button>
 				<ul id="gender-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item" onclick="f('men')">男籃</a></li>
-					<li><a class="dropdown-item active" onclick="f('women')">女籃</a></li>
+					<li><a class="dropdown-item" value="men">男籃</a></li>
+					<li><a class="dropdown-item active" value="women">女籃</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球隊: </b></a>
@@ -64,10 +64,10 @@
 				<ul id="team-dropdown" class="dropdown-menu">
 				</ul>
 
-				<a><b>&nbsp;&nbsp;球員: </b></a>
-				<button id="playerbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-					aria-expanded="false" style="width:160px">全部球員</button>
-				<ul id="player-dropdown" class="dropdown-menu">
+				<a><b>&nbsp;&nbsp;新秀: </b></a>
+				<button id="rookiebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+					aria-expanded="false" style="width:160px">全部新秀</button>
+				<ul id="rookie-dropdown" class="dropdown-menu">
 				</ul>
 
 				<a><b>&nbsp;&nbsp;學校: </b></a>
@@ -79,28 +79,27 @@
 			<div class="col" style="width:560px; padding-top:3px;">
 
 				<div class="form-check form-switch" style="width:90px; display: inline-block">
-					<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked
-						onchange="toggleCheckboxes()">
+					<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked>
 					<label class="form-check-label" for="flexSwitchCheckChecked">全勾</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('local'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" value="local" checked>
 					<label class="form-check-label" for="inlineCheckbox1">本土</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('taiwanese'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" value="taiwanese" checked>
 					<label class="form-check-label" for="inlineCheckbox1">華裔</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('uba_import'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" value="uba_import" checked>
 					<label class="form-check-label" for="inlineCheckbox1">外籍生</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('naturalized'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" value="naturalized" checked>
 					<label class="form-check-label" for="inlineCheckbox1">歸化</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('import'); f('filter')" checked>
+					<input class="form-check-input" type="checkbox" value="import" checked>
 					<label class="form-check-label" for="inlineCheckbox1">洋將</label>
 				</div>
 
@@ -108,7 +107,12 @@
 		</div>
 
 		<div class="container-lg">
-			<div class="table-scroll" style="max-height: calc(100vh - 191px)">
+			<div class="table-scroll" style="border-bottom:0px">
+				<table id="player_count_tb" class="table table-hover">
+
+				</table>
+			</div>
+			<div id="players_table" class="table-scroll" style="max-height: calc(100vh - 191px); border-top:0px">
 				<table id="players_tb" class="table table-hover table-fixTeam">
 					<thead>
 						<th style="width:120px">球隊</th>
@@ -121,7 +125,6 @@
 						<th style="width:80px">年齡</th>
 						<th style="width:120px">生日</th>
 						<th style="width:220px">學校</th>
-						<th style="width:120px">前球隊</th>
 					</thead>
 					<tbody id="players_tbody">
 

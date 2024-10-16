@@ -5,7 +5,7 @@ function add_team_dropdown(dropdown, gender, value = '') {
 
 	if (value.includes('all')) {
 		team_dropdown.innerHTML += `
-		<li><a class="dropdown-item active" onclick="f('all')">
+		<li><a class="dropdown-item active" value="all">
 			<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
 		</li>`
 	}
@@ -16,7 +16,7 @@ function add_team_dropdown(dropdown, gender, value = '') {
 			oversea = 'wcba'
 		}
 		team_dropdown.innerHTML += `
-		<li><a class="dropdown-item" onclick="f('oversea')">
+		<li><a class="dropdown-item" value="oversea">
 			<img src="../asset/images/${gender}/${oversea}.png" alt="oversea" class="teamicon">${oversea.toUpperCase()} & 旅外</a>
 		</li>`
 	}
@@ -33,7 +33,7 @@ function add_team_dropdown(dropdown, gender, value = '') {
 				lastLeague = team.league;
 			}
 			team_dropdown.innerHTML += `
-			<li><a class="dropdown-item" onclick="f('${team.id}')">
+			<li><a class="dropdown-item" value="${team.id}">
 				<img src="../asset/images/${team.gender}/${team.id}.png" alt="${team.id}" class="teamicon">${team.full_name_CN}</a>
 			</li>`
 
@@ -48,7 +48,7 @@ function isOversea(id) {
 	}
 }
 function leagueIdFilter(id) {
-	if (id == "本土" | id == "華裔" | id == "外籍生" | id == "特案外籍生") {
+	if (id == "本土" | id == "華裔" | id == "外籍生") {
 		return "local"
 	} else if (id == "洋將" | id == "亞外") {
 		return "import"
@@ -64,7 +64,7 @@ function teamName(value, league, id, img = '') {
 		if (value == 'full') {
 			return `${league} ${id}`;
 		} else if (value == 'short') {
-			return `${league}<br>${id}`;
+			return `<a style="font-size:12px">${league}<br>${id}</a>`;
 		}
 	} else {
 		team = findTeam(id);
@@ -93,13 +93,21 @@ function teamBG(league, id) {
 		return `${id}-bg`
 	}
 }
-function playerUrl(id, url) {
-	if (url != '') {
-		return url;
-	} else if (!isOversea(id)) {
-		return findTeam(id).url;
+function teamOrder(league, id) {
+	if (id == 'fa') {
+		return 5 + allTeams.length;
+	} else if (id == '') {
+		return 6 + allTeams.length;
+	} else if (league.includes('CBA')) {
+		return 0;
+	} else if (league.includes('日本')) {
+		return 1;
+	} else if (league.includes('韓國')) {
+		return 2;
+	} else if (isOversea(id)) {
+		return 3;
 	} else {
-		return '';
+		return 4 + findTeam(id).teamIndex();
 	}
 }
 function numOrder(num) {
@@ -109,65 +117,21 @@ function numOrder(num) {
 		return 100;
 	}
 }
+function playerUrl(id, url) {
+	if (url != '') {
+		return url;
+	} else if (!isOversea(id)) {
+		return findTeam(id).url;
+	} else {
+		return '';
+	}
+}
 function birthToAge(bday) {
 	const birthday = new Date(bday);
 	const today = new Date();
 	const diff = today - birthday
 	const a = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 	return a;
-}
-function secToTime(t) {
-	min = Math.floor(t / 60);
-	sec = t % 60;
-	return min + ':' + sec;
-}
-
-function f(value, table = "") {
-	if (value == "filter") {
-		filters = []
-		checkboxes = []
-		var actives = document.getElementsByClassName("active");
-		for (let i = 0; i < actives.length; i++) {
-			if (actives[i].getAttribute('onclick') != "") {
-				var fil = actives[i].getAttribute('onclick').split('\'')[1];
-			}
-			if (table == "") {
-				tab = ""
-			} else {
-				var tab = actives[i].getAttribute('onclick').split('\'')[3];
-			}
-			if (fil != "all" & tab == table) filters.push(fil)
-		}
-		if (table != "") {
-			var rows = document.getElementById(table).getElementsByClassName(("filterTr"));
-		} else {
-			var rows = document.getElementsByClassName(("filterTr"));
-		}
-		cbs = document.querySelectorAll('.form-check-input:not(#checkSwitch)');
-		for (let i = 0; i < cbs.length; i++) {
-			if (!cbs[i].checked) {
-				if (cbs[i].getAttribute('onclick')) {
-					cb = cbs[i].getAttribute('onclick').split('\'')[1];
-					checkboxes.push(cb);
-				}
-
-			}
-		}
-		for (let i = 0; i < rows.length; i++) {
-			var text = rows[i].className.split(' ');
-			show = 1;
-			filters.forEach(filter => {
-				if (text.indexOf(filter) == -1) show = 0
-			})
-			checkboxes.forEach(cb => {
-				if (text.indexOf(cb) != -1) show = 0
-			})
-			if (show == 1) w3AddClass(rows[i], " showTr");
-			if (show == 0) w3RemoveClass(rows[i], " showTr");
-		}
-
-	}
-
 }
 function w3AddClass(element, name) {
 	var i, arr1, arr2;

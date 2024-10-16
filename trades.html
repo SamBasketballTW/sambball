@@ -53,8 +53,8 @@
 				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:150px">男籃</button>
 				<ul id="gender-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('men')">男籃</a></li>
-					<li><a class="dropdown-item disabled" onclick="f('women')">女籃 (尚無資料)</a></li>
+					<li><a class="dropdown-item" value="men">男籃</a></li>
+					<li><a class="dropdown-item active" value="women">女籃</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球隊: </b></a>
@@ -68,37 +68,22 @@
 				<button id="tradebtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:160px">全部交易</button>
 				<ul id="trade-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all')">全部交易</a></li>
-					<li><a class="dropdown-item" onclick="f('futurePick')">含未來選秀籤</a></li>
-					<li><a class="dropdown-item" onclick="f('draft')">含選秀籤</a></li>
-					<li><a class="dropdown-item" onclick="f('player')">含球員</a></li>
+					<li><a class="dropdown-item active" value="all">全部交易</a></li>
+					<li><a class="dropdown-item" value="futurePick">含未來選秀籤</a></li>
+					<li><a class="dropdown-item" value="draft">含選秀籤</a></li>
+					<li><a class="dropdown-item" value="player">含球員</a></li>
 				</ul>
 
-				<!-- &nbsp;
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('plg'); f('filter')" checked>
-					<label class="form-check-label" for="inlineCheckbox1">PLG</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('t1'); f('filter')" checked>
-					<label class="form-check-label" for="inlineCheckbox1">T1</label>
-				</div> -->
 			</div>
 		</div>
 
 		<div class="container-lg">
 			<div class="table-scroll" style="max-height: calc(100vh - 163px)">
-				<table id="trades_tb" class="table table-hover">
-					<colgroup>
-						<col width="90px">
-						<col width="80px">
-						<col width="calc(100vw - 60px)">
-					</colgroup>
+				<table class="table table-hover">
 					<thead>
-						<tr class="index">
-							<th colspan="2" style="width:185px">日期</th>
-							<th style="width:calc(100vw - 60px); max-width:630px;">內容</th>
-						</tr>
+						<th style="width:90px">日期</th>
+            			<th style="width:80px">賽段</th>
+            			<th style="width:calc(100vw - 60px); max-width:630px">內容</th>
 					</thead>
 					<tbody id="trades_tbody">
 

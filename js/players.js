@@ -1,262 +1,149 @@
-class Player {
-    static player_id = 0;
-
-    constructor(gender, name, league, team, team_order, jersey_num, player_url,
-        identity, rookie, league_identity, pos, height, weight, birth, age, school, last_team = '', filter = '') {
-
-        this.player_id = Player.player_id++;
-        this.gender = gender;
-        this.name = name;
-        this.league = league;
-        this.team = team;
-        this.team_order = team_order;
-        this.jersey_num = jersey_num;
-        this.player_url = player_url;
-        this.identity = identity;
-        this.rookie = rookie;
-        this.league_identity = league_identity;
-        this.pos = pos;
-        this.height = height;
-        this.weight = weight;
-        this.birth = birth;
-        this.age = age;
-        this.school = school;
-        this.last_team = last_team;
-        this.filter = filter;
-    }
-}
 class PlayerCount {
-    static id = 0;
-    constructor(name, men_count = 0, women_count = 0) {
-        this.id = 'college' + PlayerCount.id++;
-        this.name = name;
+    constructor(id, filter, men_count = 0, women_count = 0) {
+        this.id = id;
+        this.filter = filter;
         this.men_count = men_count;
         this.women_count = women_count;
     }
 }
-function findSchool(school) {
-    for (let i = 0; i < allColleges.length; i++) {
-        if (allColleges[i].name == school) {
-            return allColleges[i]
-        }
-    }
-    return -1;
-}
-allPlayers = [];
-// console.log(allPlayers);
-allColleges = [new PlayerCount('旅外')];
-// console.log(allColleges);
+
 $(document).ready(function () {
+
+    allColleges = [new PlayerCount('旅外', 'school0')];
+    allRookies = [];
+    for (let i = 2024; i >= 2019; i--) allRookies.push(new PlayerCount(i + 'Rookie', i + 'Rookie'));
+
     fetch('../data/rosters.csv')
         .then((response) => response.text())
         .then((result) => {
 
             lines = result.split('\n');
-            lines = lines.slice(2);
-
-            table = document.getElementById('players_tbody');
-
-            oversea_team_order = 0;
-            current_team = '';
+            lines = lines.slice(1);
 
             lines.forEach(line => {
                 infos = line.split(',');
 
                 let [
-					gender,
-					name,
-					jersey_num, league, team, player_url,
-					status,
-					identity,
-					rookie,
-					league_identity, pos, height, weight, birth,
-					school,
-					acquired,
-					last_team,
-					contract_filter, contract_season, contract_years, contract_years_left,
-					contract_note,
-					contract_link_title, contract_url,
-					fa_status,  last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
+                    gender,
+                    name,
+                    jersey_num, league, team, player_url,
+                    status,
+                    identity,
+                    rookie,
+                    league_identity, position, height, weight, birth,
+                    school,
+                    acquired,
+                    contract_filter, contract_season, contract_years, contract_years_left,
+                    contract_note,
+                    contract_link_title, contract_url,
+                    fa_status, last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
 
-				] = infos;
+                ] = infos;
 
-                if (status == 'active' & identity != 'coach') {
-                    player1 = new Player();
-                    allPlayers.push(player1);
-
-                    player1.gender = gender;
-                    player1.name = name;
-                    player1.league = league;
-                    player1.team = team;
-                    player1.jersey_num = jersey_num;
-                    player1.player_url = playerUrl(team, player_url);
-                    player1.identity = identity;
-                    player1.rookie = rookie;
-                    player1.league_identity = league_identity;
-                    player1.pos = pos;
-                    player1.height = height;
-                    player1.weight = weight;
-                    player1.birth = birth;
-                    player1.age = birthToAge(birth);
-                    player1.school = school;
-                    if (last_team != '') {
-                        if (isOversea(last_team)) {
-                            player1.last_team = last_team;
-                        } else {
-                            player1.last_team = teamName('short', league, last_team);
+                if (status == 'active' & identity != 'coach' & team != 'fa') {
+                    if (rookie != '') {
+                        currentRookie = findCount(allRookies, rookie);
+                        if (gender == 'men') {
+                            currentRookie.men_count += 1;
+                        } else if (gender == 'women') {
+                            currentRookie.women_count += 1;
                         }
-                    }
-
-                    if (isOversea(team) & team != 'fa') {
-                        if (current_team != team) {
-                            oversea_team_order += 1;
-                            current_team = team;
-                        }
-                        player1.team_order = oversea_team_order;
-                    } else if (team != 'fa') {
-                        player1.team_order = oversea_team_order + 1 + findTeam(team).teamIndex();
-                    } else {
-                        player1.team_order = oversea_team_order + allTeams.length + 1;
-                    }
-
-                    if (last_team != '' & team != 'fa') {
-                        player1.filter += ' change';
                     }
 
                     if (!school.includes('HBL') & school != '-') {
                         if (school.includes(' ')) {
-                            college = allColleges[0];
-                            player1.filter += ` ${findSchool('旅外').id}`;
+                            currentCollege = findCount(allColleges, '旅外');
                         } else {
-                            if (findSchool(school) == -1) {
-                                allColleges.push(new PlayerCount(school));
-                            }
-                            college = findSchool(school);
-                            player1.filter += ` ${findSchool(school).id}`;
+                            if (findCount(allColleges, school) == -1) allColleges.push(new PlayerCount(school, 'school' + allColleges.length));
+                            currentCollege = findCount(allColleges, school);
                         }
 
                         if (gender == 'men') {
-                            college.men_count += 1;
+                            currentCollege.men_count += 1;
                         } else if (gender == 'women') {
-                            college.women_count += 1;
+                            currentCollege.women_count += 1;
                         }
                     }
                 }
-            });
-            allColleges.sort((a, b) => a.name.localeCompare(b.name));
-
-            allPlayers.forEach(p => {
-                if (isOversea(p.team)) {
-                    team_name = `<a style="font-size:12px">${teamName('short', p.league, p.team, 'img')}`
-                } else {
-                    team_name = `${teamName('short', p.league, p.team, 'img')}`
-                }
-
-                table.innerHTML += `
-                    <tr class="filterTr ${p.gender} ${teamFilter(p.team)} ${p.identity} ${p.rookie} ${p.filter}">
-                        <td class="borderR ${teamBG(p.league, p.team)}" data-order=${p.team_order}>${team_name}</td>
-                        <td class="borderR" data-order=${numOrder(p.jersey_num)}>${p.jersey_num}</td>
-                        <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${p.player_url}" target="_blank">${p.name}</a></td>
-                        <td data-order=${order[p.league_identity]}>${p.league_identity}</td>
-                        <td>${p.pos}</td>
-                        <td>${p.height}</td>
-                        <td>${p.weight}</td>
-                        <td>${p.age}</td>
-                        <td class="borderR">${p.birth}</td>
-                        <td class="borderR textL">${p.school}</td>
-                        <td>${p.last_team}</td>                
-                    </tr>`
-            });
-
-            var dataTable = $('#players_tb').DataTable({
-                dom: 't',
-                paging: false,
-                scrollCollapse: true,
-                info: false,
-                ordering: true,
-                order: [0, 'asc'],
-            });
-
-            document.getElementById("gender-dropdown").getElementsByClassName('dropdown-item')[0].click();
-        });
+            })
+            genders[0].click();
+        })
 
     var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
     var genderbtn = document.getElementById("genderbtn");
+    var checkSwitch = document.getElementById("checkSwitch");
+    var checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]');
 
     for (var i = 0; i < genders.length; i++) {
         genders[i].addEventListener("click", function () {
             switch_gender = 0;
-            if (this.className != "dropdown-item active") {
-                switch_gender = 1;
-            }
+            if (this.className != "dropdown-item active") switch_gender = 1;
+
             var currentGender = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item active");
             currentGender[0].className = currentGender[0].className.replace(" active", "");
             this.className += " active";
             genderbtn.innerHTML = this.innerHTML;
 
             if (switch_gender == 1) {
-                var team_dropdown = document.getElementById('team-dropdown');
-                var player_dropdown = document.getElementById('player-dropdown');
+
+                var rookie_dropdown = document.getElementById('rookie-dropdown');
                 var school_dropdown = document.getElementById('school-dropdown');
+
+                rookie_dropdown.innerHTML = `
+                <li><a class="dropdown-item active" value="all">全部新秀</a></li>
+				<li><hr class="dropdown-divider"></li>`
+
                 if (this.innerHTML == "男籃") {
 
                     add_team_dropdown('team-dropdown', 'men', 'all oversea');
 
-                    player_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
-					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
-					<li><hr class="dropdown-divider"></li>`
-
-                    for (let j = 2024; j >= 2020; j--) {
-                        player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${j}Rookie')">${j}'新秀</a></li>`
-                    }
+                    allRookies.forEach(r => {
+                        if (parseInt(r.id) >= 2020) {
+                            rookie_dropdown.innerHTML += `<li><a class="dropdown-item" value="${r.id}">${parseInt(r.id)}'新秀: ${r.men_count} 人</a></li>`
+                        }
+                    })
 
                     school_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('${findSchool('旅外').id}')">旅外: ${findSchool('旅外').men_count} 人</a></li>`
+                    <li><a class="dropdown-item active" value="all">全部學校</a></li>
+                    <li><a class="dropdown-item" value="school0">旅外: ${findCount(allColleges, '旅外').men_count} 人`
 
                     allColleges.sort((a, b) => b.men_count - a.men_count);
-                    for (let i = 0; i < allColleges.length; i++) {
-                        if (allColleges[i].name != '旅外' & allColleges[i].men_count != 0) {
+                    allColleges.forEach(c => {
+                        if (c.id != '旅外' & c.men_count != 0) {
                             school_dropdown.innerHTML += `
-                            <li><a class="dropdown-item" 
-                            onclick="f('${allColleges[i].id}')">${allColleges[i].name}: ${allColleges[i].men_count} 人</a></li>`
+                            <li><a class="dropdown-item" value="${c.filter}">${c.id}: ${c.men_count} 人`
                         }
-                    }
+                    })
+
 
                 } else if (this.innerHTML == "女籃") {
 
                     add_team_dropdown('team-dropdown', 'women', 'all oversea');
 
-                    player_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('all')">全部球員</a></li>
-					<li><a class="dropdown-item" onclick="f('change')">換隊球員</a></li>
-					<li><hr class="dropdown-divider"></li>`
-
-                    for (let j = 2024; j >= 2019; j--) {
-                        player_dropdown.innerHTML += `<li><a class="dropdown-item" onclick="f('${j}Rookie')">${j}'新秀</a></li>`
-                    }
+                    allRookies.forEach(r => {
+                        rookie_dropdown.innerHTML += `<li><a class="dropdown-item" value="${r.id}">${parseInt(r.id)}'新秀: ${r.women_count} 人</a></li>`
+                    })
 
                     school_dropdown.innerHTML = `
-                    <li><a class="dropdown-item active" onclick="f('all')">全部學校</a></li>
-					<li><a class="dropdown-item" onclick="f('college0')">旅外: ${findSchool('旅外').women_count} 人</a></li>`
+                    <li><a class="dropdown-item active" value="all">全部學校</a></li>
+                    <li><a class="dropdown-item" value="school0">旅外: ${findCount(allColleges, '旅外').women_count} 人`
 
                     allColleges.sort((a, b) => b.women_count - a.women_count);
-                    for (let i = 0; i < allColleges.length; i++) {
-                        if (allColleges[i].name != '旅外' & allColleges[i].women_count != 0) {
+                    allColleges.forEach(c => {
+                        if (c.id != '旅外' & c.women_count != 0) {
                             school_dropdown.innerHTML += `
-                            <li><a class="dropdown-item" 
-                            onclick="f('${allColleges[i].id}')">${allColleges[i].name}: ${allColleges[i].women_count} 人</a></li>`
+                            <li><a class="dropdown-item" value="${c.filter}">${c.id}: ${c.women_count} 人`
                         }
-                    }
-
+                    })
                 }
+
                 var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");
-                var players = document.getElementById("player-dropdown").getElementsByClassName("dropdown-item");
-                var schools = document.getElementById("school-dropdown").getElementsByClassName("dropdown-item");
                 var teambtn = document.getElementById("teambtn");
-                var playerbtn = document.getElementById("playerbtn");
+                var rookies = document.getElementById("rookie-dropdown").getElementsByClassName("dropdown-item");
+                var rookiebtn = document.getElementById("rookiebtn");
+                var schools = document.getElementById("school-dropdown").getElementsByClassName("dropdown-item");
                 var schoolbtn = document.getElementById("schoolbtn");
+
                 for (let i = 0; i < teams.length; i++) {
                     teams[i].addEventListener("click", function () {
                         var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
@@ -264,17 +151,17 @@ $(document).ready(function () {
                         this.className += " active";
                         teambtn.innerHTML = this.innerHTML;
 
-                        f('filter');
+                        showPlayersInfo();
                     });
                 }
-                for (let i = 0; i < players.length; i++) {
-                    players[i].addEventListener("click", function () {
-                        var currentPlayer = document.getElementById("player-dropdown").getElementsByClassName("active");
-                        currentPlayer[0].className = currentPlayer[0].className.replace(" active", "");
+                for (let i = 0; i < rookies.length; i++) {
+                    rookies[i].addEventListener("click", function () {
+                        var currentRookie = document.getElementById("rookie-dropdown").getElementsByClassName("active");
+                        currentRookie[0].className = currentRookie[0].className.replace(" active", "");
                         this.className += " active";
-                        playerbtn.innerHTML = this.innerHTML;
+                        rookiebtn.innerHTML = this.innerHTML;
 
-                        f('filter');
+                        showPlayersInfo();
                     });
                 }
                 for (let i = 0; i < schools.length; i++) {
@@ -284,25 +171,169 @@ $(document).ready(function () {
                         this.className += " active";
                         schoolbtn.innerHTML = this.innerHTML;
 
-                        teams[0].click();
-                        players[0].click();
-
-                        f('filter');
+                        showPlayersInfo();
                     });
                 }
                 teams[0].click();
-                players[0].click();
+                rookies[0].click();
                 schools[0].click();
             }
+        })
+
+    }
+
+    checkSwitch.addEventListener("click", function () {
+        if (checkSwitch.checked) {
+            showPlayersInfo();
+        } else {
+            player_count_tb = document.getElementById('player_count_tb');
+            player_count_tb.innerHTML = `<tr><td style="font-size:18px">現役球員: 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自由球員: 0</td></tr>`
+            players_tbody = document.getElementById('players_tbody');
+            players_tbody.innerHTML = '';
+        }
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = checkSwitch.checked;
         });
+
+    })
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener("click", function () {
+            showPlayersInfo();
+        })
     }
 });
-function toggleCheckboxes() {
-    var checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]');
-    var checkSwitch = document.getElementById('checkSwitch');
+function showPlayersInfo() {
+    var currentGender = document.getElementById("gender-dropdown").getElementsByClassName("active");
+    var filter_gender = currentGender[0].getAttribute('value');
+    var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
+    var filter_team = currentTeam[0].getAttribute('value');
+    var currentRookie = document.getElementById("rookie-dropdown").getElementsByClassName("active");
+    var filter_rookie = currentRookie[0].getAttribute('value');
+    var currentSchool = document.getElementById("school-dropdown").getElementsByClassName("active");
+    var filter_school = currentSchool[0].getAttribute('value');
+    filter_identities = [];
+    var checkboxes = document.querySelectorAll('.form-check-input:not(#checkSwitch)');
+    checkboxes.forEach(c => {
+        if (c.checked) filter_identities.push(c.getAttribute('value'));
+    })
 
-    checkboxes.forEach(function (checkbox) {
-        checkbox.checked = checkSwitch.checked;
-        f('filter');
-    });
+    fetch('../data/rosters.csv')
+        .then((response) => response.text())
+        .then((result) => {
+
+            lines = result.split('\n');
+            lines = lines.slice(1);
+
+            players_info = ''
+            player_count = 0;
+            fa_count = 0;
+
+            lines.forEach(line => {
+                infos = line.split(',');
+
+                let [
+                    gender,
+                    name,
+                    jersey_num, league, team, player_url,
+                    status,
+                    identity,
+                    rookie,
+                    league_identity, position, height, weight, birth,
+                    school,
+                    acquired,
+                    contract_filter, contract_season, contract_years, contract_years_left,
+                    contract_note,
+                    contract_link_title, contract_url,
+                    fa_status, last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
+
+                ] = infos;
+
+                if (gender == filter_gender & status == 'active' & identity != 'coach') {
+                    showPlayer = 0;
+                    if (filter_team == 'all') {
+                        showPlayer += 1;
+                    } else if (filter_team == 'oversea' & isOversea(team)) {
+                        showPlayer += 1;
+                    } else if (team == filter_team) {
+                        showPlayer += 1;
+                    }
+
+                    if (filter_rookie == 'all') {
+                        showPlayer += 1;
+                    } else if (rookie == filter_rookie) {
+                        showPlayer += 1;
+                    }
+
+                    if (filter_school == 'all') {
+                        showPlayer += 1;
+                    } else if (filter_school == 'school0' & !school.includes('HBL') & school.includes(' ')) {
+                        showPlayer += 1;
+                    } else if (findCount(allColleges, school) != -1 & findCount(allColleges, school).filter == filter_school) {
+                        showPlayer += 1;
+                    }
+
+                    filter_identities.forEach(f => {
+                        if (identity == f) showPlayer += 1;
+                    })
+
+                    if (showPlayer == 4) {
+                        if (team == 'fa') {
+                            fa_count += 1;
+                        } else {
+                            player_count += 1;
+                        }
+
+                        players_info += `
+                        <tr>
+                            <td class="borderR ${teamBG(league, team)}" data-order=${teamOrder(league, team)}>${teamName('short', league, team, 'img')}</td>
+                            <td class="borderR" data-order=${numOrder(jersey_num)}>${jersey_num}</td>
+                            <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+                            <td data-order=${order[league_identity]}>${league_identity}</td>
+                            <td>${position}</td>
+                            <td>${height}</td>
+                            <td>${weight}</td>
+                            <td>${birthToAge(birth)}</td>
+                            <td class="borderR">${birth}</td>
+                            <td class="textL">${school}</td>
+                        </tr>`
+                    }
+                }
+            })
+            player_th_width_title = [[120, '球隊'], [60, '#'], [100, '球員'],
+            [90, '聯盟身份'], [80, '位置'], [80, '身高'], [80, '體重'],
+            [80, '年齡'], [120, '生日'], [220, '學校']];
+
+            thead_info = '';
+            player_th_width_title.forEach(th => {
+                thead_info += `<th style="width:${th[0]}px">${th[1]}</th>`
+            })
+
+            player_count_tb = document.getElementById('player_count_tb');
+            player_count_tb.innerHTML = `<tr><td style="font-size:18px">現役球員: ${player_count}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自由球員: ${fa_count}</td></tr>`
+            players_table = document.getElementById('players_table');
+            players_table.innerHTML = `
+            <table id="players_tb" class="table table-hover table-fixTeam">
+                <thead>${thead_info}</thead>
+                <tbody>${players_info}</tbody>
+            </table>
+            `
+            var dataTable = $('#players_tb').DataTable({
+                dom: 't',
+                paging: false,
+                scrollCollapse: true,
+                info: false,
+                ordering: true,
+            });
+
+        })
+}
+function findCount(list, value) {
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].id == value) {
+            return list[i]
+        }
+    }
+    return -1;
 }

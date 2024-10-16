@@ -53,16 +53,15 @@
                 <button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" style="width:150px">男籃</button>
                 <ul id="gender-dropdown" class="dropdown-menu">
-                    <li><a class="dropdown-item" onclick="f('men')">男籃</a></li>
-                    <li><a class="dropdown-item active" onclick="f('women')">女籃</a></li>
+                    <li><a class="dropdown-item" value="men">男籃</a></li>
+                    <li><a class="dropdown-item active" value="women">女籃</a></li>
                 </ul>
 
                 <a><b>&nbsp;&nbsp;球隊: </b></a>
                 <button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false"></button>
                 <ul id="team-dropdown" class="dropdown-menu">
-                    <li><a class="dropdown-item active" onclick="f('')">
-                            <img src="../asset/images/logo.png" alt="all" class="teamicon">全部球隊</a></li>
+                    
                 </ul>
                 &nbsp;&nbsp;&nbsp;
                 <div id="move_check" class="form-check form-check-inline">
@@ -75,61 +74,21 @@
 
         <div class="container-lg">
             <div class="table-scroll" style="border-bottom:0px">
-                <table id="r_count" class="table table-hover">
-                    <tbody id="r_count_tbody">
+                <table id="r_count_tb" class="table table-hover">
 
-                    </tbody>
                 </table>
             </div>
             <div class="table-scroll" style="border-top:0px; border-bottom:0px">
-                <table id="roster_movements_tb" class="table table-hover filterTb showTb">
-                    <thead id="roster_movements_thead">
+                <table id="r_movements_tb" class="table table-hover">
 
-                    </thead>
-                    <tbody id="roster_movements_tbody">
-
-                    </tbody>
                 </table>
             </div>
-            <div class="table-scroll" style="border-top:0px; border-bottom:0px">
-                <table id="rosters_tb" class="table table-hover table-fix2 filterTb showTb">
-                    <thead>
-                        <th style="width:60px">#</th>
-                        <th style="width:100px">球員</th>
-                        <th style="width:90px">聯盟身份</th>
-                        <th style="width:80px">位置</th>
-                        <th style="width:80px">身高</th>
-                        <th style="width:80px">體重</th>
-                        <th style="width:80px">年齡</th>
-                        <th style="width:120px">生日</th>
-                        <th style="width:210px">學校</th>
-                        <th style="width:235px">加入途徑</th>
-                    </thead>
-                    <tbody id="roster_tbody">
-
-                    </tbody>
+            <div id="roster_table" class="table-scroll" style="border-top:0px">
+                <table id="roster_tb" class="table table-hover">
+                    
                 </table>
             </div>
-            <div class="table-scroll" style="border-top:0px">
-                <table id="rosters_oversea_tb" class="table table-hover table-fixTeam filterTb">
-                    <thead>
-                        <th style="width:120px">球隊</th>
-                        <th style="width:60px">#</th>
-                        <th style="width:100px">球員</th>
-                        <th style="width:90px">聯盟身份</th>
-                        <th style="width:80px">位置</th>
-                        <th style="width:80px">身高</th>
-                        <th style="width:80px">體重</th>
-                        <th style="width:80px">年齡</th>
-                        <th style="width:120px">生日</th>
-                        <th style="width:210px">學校</th>
-                        <th style="width:235px">加入途徑</th>
-                    </thead>
-                    <tbody id="roster_oversea_tbody">
 
-                    </tbody>
-                </table>
-            </div>
             <a style="font-size:13px"><b>註: 位置、身高等資訊皆取自官網</b></a><br>
             <a id="timeStamp" style="font-size:13px"></a>
         </div>

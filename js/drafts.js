@@ -1,42 +1,4 @@
 $(document).ready(function () {
-	fetch('../data/drafts.csv')
-		.then((response) => response.text())
-		.then((result) => {
-
-			lines = result.split('\n');
-			lines = lines.slice(2);
-
-			table = document.getElementById('drafts_tbody');
-
-			lines.forEach(line => {
-				infos = line.split(',');
-
-				let [
-					gender,
-					year,
-					league,
-					pick,
-					team_id,
-					team_name,
-					name
-
-				] = infos;
-
-				if (team_name == "") {
-					team_name = teamName('full', '', team_id);
-				}
-
-				table.innerHTML += `
-				<tr class="filterTr ${gender} ${year}${league} ${team_id}">	
-					<td class="borderR">${year} ${league.toUpperCase()} 選秀大會</td>
-					<td class="borderR">${pick}</td>
-					<td class="borderR">${team_name}</td>
-					<td>${name}</td>
-				</tr>`
-			});
-
-			document.getElementById('gender-dropdown').getElementsByClassName('dropdown-item')[0].click();
-		});
 
 	var genders = document.getElementById("gender-dropdown").getElementsByClassName("dropdown-item");
 	var genderbtn = document.getElementById("genderbtn");
@@ -53,67 +15,58 @@ $(document).ready(function () {
 			genderbtn.innerHTML = this.innerHTML;
 
 			if (switch_gender == 1) {
-				var team_dropdown = document.getElementById('team-dropdown');
-				var draft_dropdown = document.getElementById('draft-dropdown');
-				if (this.innerHTML == "男籃") {
-					temp = `
-					<li><a class="dropdown-item" onclick="f('oversea')">CBA & 旅外</a></li>
+				if (this.innerHTML == '男籃') {
+					var draft_dropdown = document.getElementById('draft-dropdown');
+					draft_items = `
+					<li><a class="dropdown-item"">CBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">PLG</a>
 						<ul class="dropdown-menu dropdown-submenu">`
 					for (let i = 2024; i >= 2021; i--) {
-						temp += `<li><a class="dropdown-item" onclick="f('${i}plg')">${i} PLG 選秀</a></li>`
+						draft_items += `<li><a class="dropdown-item" value="${i}plg">${i} PLG 選秀</a></li>`
 					}
-					temp += `
-					</ul>
-					</li>
+					draft_items += `</ul></li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">TPBL</a>
 						<ul class="dropdown-menu dropdown-submenu">`
 					for (let i = 2024; i >= 2024; i--) {
-						temp += `<li><a class="dropdown-item" onclick="f('${i}tpbl')">${i} TPBL 選秀</a></li>`
+						draft_items += `<li><a class="dropdown-item" value="${i}tpbl">${i} TPBL 選秀</a></li>`
 					}
-					temp += `
-						</ul>
-					</li>
+					draft_items += `</ul></li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">T1</a>
 						<ul class="dropdown-menu dropdown-submenu">`
 					for (let i = 2023; i >= 2021; i--) {
-						temp += `<li><a class="dropdown-item" onclick="f('${i}t1')">${i} T1 選秀</a></li>`
+						draft_items += `<li><a class="dropdown-item" value="${i}t1">${i} T1 選秀</a></li>`
 					}
-					temp += `
-						</ul>
-					</li>
+					draft_items += `</ul></li>
 					<li>
 						<a class="dropdown-item disabled" style="color:black">SBL</a>
 						<ul class="dropdown-menu dropdown-submenu">`
 					for (let i = 2024; i >= 2020; i--) {
-						temp += `<li><a class="dropdown-item" onclick="f('${i}sbl')">${i} SBL 選秀</a></li>`
+						draft_items += `<li><a class="dropdown-item" value="${i}sbl">${i} SBL 選秀</a></li>`
 					}
-					temp += `
-						</ul>
-					</li>`
+					draft_items += `</ul></li>`
 
-					draft_dropdown.innerHTML = temp;
+					draft_dropdown.innerHTML = draft_items;
 					add_team_dropdown('team-dropdown', 'men');
 
-				} else if (this.innerHTML == "女籃") {
-					temp = `
-					<li><a class="dropdown-item" onclick="f('oversea')">WCBA & 旅外</a></li>
+				} else if (this.innerHTML == '女籃') {
+					var draft_dropdown = document.getElementById('draft-dropdown');
+					draft_items = `
+					<li><a class="dropdown-item" value="oversea">WCBA & 旅外</a></li>
 					<li><hr class="dropdown-divider"></li>`
 					for (let i = 2024; i >= 2019; i--) {
-						temp += `<li><a class="dropdown-item" onclick="f('${i}wsbl')">${i} WSBL 選秀</a></li>`
+						draft_items += `<li><a class="dropdown-item" value="${i}wsbl">${i} WSBL 選秀</a></li>`
 					}
-
-					draft_dropdown.innerHTML = temp;
+					draft_dropdown.innerHTML = draft_items;
 					add_team_dropdown('team-dropdown', 'women');
-
 				}
+
 				var drafts = document.getElementById("draft-dropdown").getElementsByClassName("dropdown-item");
-				var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");
 				var draftbtn = document.getElementById("draftbtn");
+				var teams = document.getElementById("team-dropdown").getElementsByClassName("dropdown-item");
 				var teambtn = document.getElementById("teambtn");
 
 				for (let i = 0; i < drafts.length; i++) {
@@ -128,7 +81,7 @@ $(document).ready(function () {
 						draftbtn.innerHTML = this.innerHTML;
 						teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
 
-						f('filter');
+						showDraftsInfo();
 					});
 				}
 
@@ -144,7 +97,7 @@ $(document).ready(function () {
 						teambtn.innerHTML = this.innerHTML;
 						draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
 
-						f('filter');
+						showDraftsInfo();
 					});
 				}
 
@@ -156,4 +109,88 @@ $(document).ready(function () {
 			}
 		});
 	}
+
+	genders[0].click();
 });
+function showDraftsInfo() {
+	var currentGender = document.getElementById("gender-dropdown").getElementsByClassName("active");
+	var filter_gender = currentGender[0].getAttribute("value");
+	var currentDraft = document.getElementById("draft-dropdown").getElementsByClassName("active");
+	var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
+
+	if (currentDraft.length == 0) {
+		filter_draft = '';
+		filter_team = currentTeam[0].getAttribute("value");
+	} else if (currentTeam.length == 0) {
+		if (currentDraft[0].innerHTML.includes('CBA')) {
+			filter_draft = '';
+			filter_team = 'oversea';
+		} else {
+			filter_draft = currentDraft[0].getAttribute("value");
+			filter_team = '';
+		}
+	}
+
+	fetch('../data/drafts.csv')
+		.then((response) => response.text())
+		.then((result) => {
+			lines = result.split('\n');
+			lines = lines.slice(1);
+
+			drafts_info = '';
+			currentYear = '';
+			count = 0;
+
+			lines.forEach(line => {
+				infos = line.split(',');
+
+				let [
+					gender,
+					year,
+					league,
+					pick,
+					team_id,
+					team_name,
+					player
+
+				] = infos;
+
+				if (gender == filter_gender) {
+					showDraft = 0;
+					if (filter_draft != '' & filter_draft == (year + league)) {
+						showDraft = 1;
+					} else if (filter_team != '' & team_id == filter_team) {
+						showDraft = 1;
+					}
+
+					if (showDraft == 1) {
+						if (currentYear != year) {
+							if (currentYear != '') {
+								drafts_info += `
+								<tr style="background-color:#BBBBBB; hover:#BBBBBB">
+									<td class="borderR"></td>
+									<td class="borderR"></td>
+									<td class="borderR"></td>
+									<td></td>
+								</tr>`
+							}
+							count += 1;
+							currentYear = year;
+						}
+						if (team_name == '') team_name = teamName('full', '', team_id);
+
+						drafts_info += `
+						<tr>
+							<td class="borderR">${year} ${league.toUpperCase()} 選秀大會</td>
+							<td class="borderR">${pick}</td>
+							<td class="borderR">${team_name}</td>
+							<td>${player}</td>
+						</tr>`
+					}
+				}
+			})
+
+			drafts_tbody = document.getElementById('drafts_tbody');
+			drafts_tbody.innerHTML = drafts_info;
+		})
+}

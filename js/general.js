@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.10.11 18:00</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.10.16 18:00</b>`
 
     test = ''
     // test = '.html'
@@ -62,7 +62,7 @@ class Team {
 braves = new Team('men', 'PLG', 'braves', '臺北富邦勇士', '勇士', '執行教練: 吳永仁');
 pilots = new Team('men', 'PLG', 'pilots', '桃園璞園領航猿', '領航猿', '總教練: 卡米諾斯 Iurgi Caminos');
 ghosthawks = new Team('men', 'PLG', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');
-steelers = new Team('men', 'PLG', 'steelers', '高雄17直播鋼鐵人', '鋼鐵人', '總教練: 邱大宗');
+steelers = new Team('men', 'PLG', 'steelers', '高雄鋼鐵人', '鋼鐵人', '總教練: 邱大宗');
 mars = new Team('men', 'TPBL', 'mars', '臺北台新戰神', '戰神', '總教練: 許皓程');
 kings = new Team('men', 'TPBL', 'kings', '新北國王', '國王', '總教練: 萊恩 Ryan Marchand');
 dea = new Team('men', 'TPBL', 'dea', '新北中信特攻', '特攻', '總教練: 李逸驊');

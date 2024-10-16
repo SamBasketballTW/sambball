@@ -53,69 +53,38 @@
 				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:150px">男籃</button>
 				<ul id="gender-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item" onclick="f('men')">男籃</a></li>
-					<li><a class="dropdown-item active" onclick="f('women')">女籃</a></li>
+					<li><a class="dropdown-item" value="men">男籃</a></li>
+					<li><a class="dropdown-item active" value="women">女籃</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;身份篩選: </b></a>
-				<div id="us-btngroup" class="btn-group">
-					<a class="btn btn-light active" onclick="f('all')">全部</a>
-					<a class="btn btn-light" onclick="f('local')">本土身份</a>
-					<a class="btn btn-light" onclick="f('taiwanese')">華裔 / 未知</a>
+				<div id="identity-btngroup" class="btn-group">
+					<a class="btn btn-light active" value="all">全部</a>
+					<a class="btn btn-light" value="local">本土身份</a>
+					<a class="btn btn-light" value="taiwanese">華裔 / 未知</a>
 				</div>
 			</div>
 		</div>
 		<div class="container-lg" style="max-width:1230px">
 			<div class="table-scroll">
-				<table id="college_tb" class="table table-hover table-fix2">
-					<colgroup>
-						<col width="60px">
-						<col width="120px">
-						<col width="180px">
-						<col width="60px">
-						<col width="60px">
-						<col width="100px">
-						<col width="60px">
-						<col width="220px">
-						<col width="100px">
-						<col width="170px">
-					</colgroup>
+				<table class="table table-hover table-fix2">
 					<thead>
 						<tr>
-							<th>位置</th>
-							<th>球員</th>
-							<th>Instagram</th>
-							<th>身份</th>
-							<th>身高</th>
-							<th>Class</th>
-							<th>#</th>
-							<th>大學</th>
-							<th>聯盟</th>
-							<th>賽區</th>
+							<th style="width:60px">位置</th>
+							<th style="width:120px">球員</th>
+							<th style="width:180px">Instagram</th>
+							<th style="width:60px">身份</th>
+							<th style="width:60px">身高</th>
+							<th style="width:100px">Class</th>
+							<th style="width:60px">#</th>
+							<th style="width:220px">大學</th>
+							<th style="width:100px">聯盟</th>
+							<th style="width:170px">賽區</th>
 						</tr>
 					</thead>
 					<tbody id="college_tbody">
 
 					</tbody>
-					<!-- <thead>
-						<tr>
-							<th>位置</th>
-							<th>球員</th>
-							<th>Instagram</th>
-							<th>身份</th>
-							<th>身高</th>
-							<th>Class</th>
-							<th>#</th>
-							<th>高中</th>
-							<th colspan="2">Committed</th>
-						</tr>
-					</thead>
-					<tbody id="hs_tbody">
-						<tr class="filterTr women local taiwanese showTr">
-							<td colspan=10>尚無資料</td>
-						</tr>
-
-					</tbody> -->
 				</table>
 			</div>
 			<a style="font-size:13px"><b>特別感謝 Jake Young 提供的幫忙</b></a><br>

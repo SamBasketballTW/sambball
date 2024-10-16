@@ -53,41 +53,26 @@
                 <button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" style="width:150px">男籃</button>
                 <ul id="gender-dropdown" class="dropdown-menu">
-                    <li><a class="dropdown-item active" onclick="f('men')">男籃</a></li>
-                    <li><a class="dropdown-item disabled" onclick="f('women')">女籃 (尚無資料)</a></li>
+                    <!-- <li><a class="dropdown-item active" value="men">男籃</a></li>
+                    <li><a class="dropdown-item disabled" value="women">女籃 (尚無資料)</a></li> -->
+                    <li><a class="dropdown-item" value="men">男籃</a></li>
+                    <li><a class="dropdown-item active" value="women">女籃</a></li>
                 </ul>
 
                 <a><b>&nbsp;&nbsp;2024休賽季 - 自由球員</b></a>
                 <button id="fabtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" style="width:150px">未簽約</button>
                 <ul id="fa-dropdown" class="dropdown-menu">
-                    <li><a class="dropdown-item" onclick="f('all')">全部</a></li>
-                    <li><a class="dropdown-item" onclick="f('signed')">已簽約</a></li>
-                    <li><a class="dropdown-item active" onclick="f('unsigned')">未簽約</a></li>
+                    <li><a class="dropdown-item" value="all">全部</a></li>
+                    <li><a class="dropdown-item" value="signed">已簽約</a></li>
+                    <li><a class="dropdown-item active" value="unsigned">未簽約</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="container-lg">
-            <div class="table-scroll">
-                <table id="fa_tb" class="table table-hover table-fix1">
-                    <thead>
-                        <th style="width:110px">球員</th>
-                        <th style="width:65px">位置</th>
-                        <th style="width:65px">年齡</th>
-                        <th style="width:65px">身高</th>
-                        <th style="width:165px">合約狀況</th>
-                        <th style="width:170px">2023-24 球隊</th>
-                        <th style="width:170px">新球隊</th>
-                        <th style="width:65px">出賽</th>
-                        <th style="width:65px">PPG</th>
-                        <th style="width:65px">RPG</th>
-                        <th style="width:65px">APG</th>
-                    </thead>
-                    <tbody id="roster_fa_tbody">
-
-                    </tbody>
-                </table>
+            <div id="fa_table" class="table-scroll">
+                
             </div>
             <a id="timeStamp" style="font-size:13px"></a>
         </div>

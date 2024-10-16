@@ -48,13 +48,13 @@
 		<div class="jumbotron"></div>
 
 		<div class="container-lg" style="overflow-x: auto;">
-			<div class="col" style="width:840px;">
+			<div class="col" style="width:700px;">
 
 				<button id="genderbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:150px">男籃</button>
 				<ul id="gender-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('men')">男籃</a></li>
-					<li><a class="dropdown-item disabled" onclick="f('women')">女籃 (尚無資料)</a></li>
+					<li><a class="dropdown-item" value="men">男籃</a></li>
+					<li><a class="dropdown-item active" value="women">女籃</a></li>
 				</ul>
 
 				<a><b>&nbsp;&nbsp;球隊: </b></a>
@@ -64,24 +64,14 @@
 				<ul id="team-dropdown" class="dropdown-menu">
 				</ul>
 
-				<a><b>&nbsp;&nbsp;2024休賽季: </b></a>
+				<a><b>&nbsp;&nbsp;2024-25 賽季: </b></a>
 				<button id="contractbtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
 					aria-expanded="false" style="width:160px">全部合約</button>
 				<ul id="contract-dropdown" class="dropdown-menu">
-					<li><a class="dropdown-item active" onclick="f('all')">全部合約</a></li>
-					<li><a class="dropdown-item" onclick="f('1y')">合約年 / 選擇權</a></li>
-					<li><a class="dropdown-item" onclick="f('extension')">續約</a></li>
+					<li><a class="dropdown-item active" value="all">全部合約</a></li>
+					<li><a class="dropdown-item" value="1y">合約年 / 選擇權</a></li>
+					<li><a class="dropdown-item" value="resigned">續約</a></li>
 				</ul>
-
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('local'); f('filter')" checked>
-					<label class="form-check-label" for="inlineCheckbox1">本土</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" onclick="f('import'); f('filter')" checked>
-					<label class="form-check-label" for="inlineCheckbox1">洋將</label>
-				</div>
-
 			</div>
 		</div>
 
@@ -105,8 +95,7 @@
 			</div>
 			<a style="font-size:13px">
 				<b> 註1: 合約年限皆依照 官宣/新聞 發布，並附上連結<br>
-					註2: 被交易球員因不知是否有重新簽約，皆假設為承接合約，將原合約及年限以*標注<br>
-					註3: 因新秀合約實際年限未知，皆不放上剩餘年限<br>
+					註2: 被交易球員皆假設為承接合約，將原合約及年限以*標注<br>
 				</b>
 			</a>
 			<a id="timeStamp" style="font-size:13px"></a>

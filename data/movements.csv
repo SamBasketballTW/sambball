@@ -1,252 +1,253 @@
-0,1,2,3,4,5,6
-性別,球隊,class,分類,球員,異動,
-men,oversea,extension,續約,劉錚,E類 1+1年 ,
-men,braves,extension,續約,林志傑,續約 1 年,
-men,braves,extension,續約,洪楷傑,續約 複數年,
-men,braves,extension,續約,周桂羽,續約 複數年,
-men,pilots,extension,續約,盧峻翔,續約 5 年,
-men,pilots,extension,續約,關達祐,續約 5 年,
-men,pilots,extension,續約,陳昱瑞,續約 5 年,
-men,pilots,extension,續約,李家慷,提前續約 5 年,
-men,ghosthawks,extension,續約,谷毛唯嘉,提前換約,
-men,ghosthawks,extension,續約,白薩,提前換約,
-men,ghosthawks,extension,續約,呂冠霆,提前換約,
-men,kings,extension,續約,蘇士軒,,
-men,kings,extension,續約,李愷諺,換約 3 年,
-men,kings,extension,續約,林書豪,執行球員選擇權,
-men,dea,extension,續約,魏嘉豪,續約 2 年,
-men,dea,extension,續約,譚傑龍,續約 複數年,
-men,leopards,extension,續約,黃鎮,,
-men,leopards,extension,續約,劉元凱,,
-men,dreamers,extension,續約,陳振傑,續約 3 年,
-men,dreamers,extension,續約,吳家駿,續約 3 年,
-men,dreamers,extension,續約,盧冠良,續約 3 年,
-men,dreamers,extension,續約,李德威,續約 3 年,
-men,lioneers,extension,續約,曾柏喻,續約 3 年,
-men,aquas,extension,續約,蘇文儒,,
-men,aquas,extension,續約,呂威霆,,
-men,aquas,extension,續約,胡瓏貿,續約 3 年,
-men,pilots,extension,續留洋將,伯朗 Alec Brown,,
-men,pilots,extension,續留洋將,葛拉漢 Treveon Graham,,
-men,kings,extension,續留洋將,奧帝 Austin Daye,,
-men,kings,extension,續留洋將,曼尼高 Kenny Manigault,,
-men,dea,extension,續留洋將,克力斯 Kristijan Krajina,,
-men,leopards,extension,續留洋將,威廉斯 Devin Williams,,
-men,leopards,extension,續留洋將,克羅馬 Lasan Kromah,,
-men,lioneers,extension,續留洋將,霍立飛 Michael Holyfield,,
-men,lioneers,extension,續留洋將,克拉 Earl Clark,,
-men,dreamers,extension,續留洋將,高柏鎧 Brandon Gilbeck,,
-men,aquas,extension,續留洋將,布銳克曼 Jason Brickman,合約期內,
-,,,,,,
-men,oversea,signed,同聯賽轉隊,陳盈駿,交易 from 廣州龍獅,
-women,oversea,signed,同聯賽轉隊,許筱彤,原 釜山BNK Sum,
-women,oversea,signed,同聯賽轉隊,林育庭,原 東莞新彤盛,
-men,oversea,signed,Via 自由球員,阿巴西,B1 秋田北部喜悅,
-men,oversea,signed,Via 自由球員,游艾喆,B1 滋賀湖泊,
-men,oversea,signed,Via 自由球員,曾祥鈞,B1 名古屋戰鷹,
-women,oversea,signed,Via 自由球員,陳薇安,WCBA 河南,
-women,oversea,signed,Via 自由球員,彭曉彤,WCBA 河南,
-women,oversea,signed,Via 自由球員,謝羽珊,WCBA 黑龍江,
-women,oversea,signed,Via 自由球員,陳昱潔,WCBA 江西,
-women,oversea,signed,Via 自由球員,劉希曄,WCBA 安徽,
-women,oversea,signed,Via 自由球員,王維琳,WCBA 安徽,
-men,braves,signed,Via 自由球員,林郅為,複數年合約,
-men,braves,signed,Via 自由球員,陳又瑋,,
-men,braves,signed,Via 自由球員,張鎮衙,複數年合約,
-men,ghosthawks,signed,Via 自由球員,种義仁,,
-men,ghosthawks,signed,Via 自由球員,謝宗融,,
-men,steelers,signed,Via 自由球員,劉彥廷,,
-men,steelers,signed,Via 自由球員,李威廷,,
-men,steelers,signed,Via 自由球員,高偉綸,,
-men,steelers,signed,Via 自由球員,陳鈺安,,
-men,mars,signed,Via 自由球員,陳冠全,,
-men,mars,signed,Via 自由球員,蘇奕晉,,
-men,mars,signed,Via 自由球員,錢肯尼,,
-men,mars,signed,Via 自由球員,王律翔,,
-men,kings,signed,Via 自由球員,呂政儒,,
-men,dea,signed,Via 自由球員,施晉堯,複數年合約,
-men,dea,signed,Via 自由球員,李睿麒,1+1年合約,
-men,dea,signed,Via 自由球員,徐宇煇,1年合約,
-men,lioneers,signed,Via 自由球員,李啓瑋,,
-men,lioneers,signed,Via 自由球員,李漢昇,,
-men,dreamers,signed,Via 自由球員,蔣淯安,5 年合約,
-men,dreamers,signed,Via 自由球員,張宗憲,,
-men,dreamers,signed,Via 自由球員,簡偉儒,,
-men,dreamers,signed,Via 自由球員,馬建豪,,
-men,leopards,signed,Via 自由球員,呂濟而,,
-men,leopards,signed,Via 自由球員,林孟學,,
-men,leopards,signed,Via 自由球員,陳俊翰,,
-men,leopards,signed,Via 自由球員,金德偉,,
-men,leopards,signed,Via SBL台啤,王皓吉,,
-men,leopards,signed,Via SBL台啤,董永全,,
-men,beer,signed,Via 台啤雲豹,陳孝榕,,
-men,beer,signed,Via 台啤雲豹,鄭駿龍,原名 鄭瑋,
-men,beer,signed,Via 台啤雲豹,盧捷閔,,
-men,beer,signed,Via 台啤雲豹,朱億宗,,
-men,beer,signed,Via 台啤雲豹,吳沛嘉,,
-men,beer,signed,Via 台啤雲豹,阿拉薩,,
-men,bank,signed,Via 自由球員,王詠誠,,
-men,bank,signed,Via 自由球員,郭翰,,
-men,yulon,signed,Via 自由球員,藍少甫,,
-men,yulon,signed,Via 自由球員,劉光尚,,
-men,bll,signed,Via 自由球員,楊天佑,,
-men,bll,signed,Via 自由球員,林勵,,
-men,bll,signed,Via 自由球員,張幃翔,,
-men,bll,signed,Via 自由球員,黃泓諭,,
-men,steelers,signed,Via 交易,陳范柏彥,from 勇士,
-men,leopards,signed,Via 交易,丁冠皓,from 夢想家,
-men,leopards,signed,Via 交易,楊盛硯,from 夢想家,
-men,oversea,signed,Via 選秀,林秉聖,第一輪第4順位,
-men,oversea,signed,Via 選秀,陳將双,第一輪第8順位,
-men,oversea,signed,Via 選秀,陳冠中,第二輪第25順位,
-men,braves,signed,Via 選秀,莫巴耶,第一輪第1順位,
-men,ghosthawks,signed,Via 選秀,李允傑,第一輪第2順位,
-men,steelers,signed,Via 選秀,馬克斯,第一輪第3順位,
-men,pilots,signed,Via 選秀,陳力生,第一輪第4順位,
-men,ghosthawks,signed,Via 選秀,張志豪,第一輪第5順位,
-men,steelers,signed,Via 選秀,莊朝勝,第二輪第1順位,
-men,steelers,signed,Via 選秀,王凱裕,第二輪第3順位,
-men,steelers,signed,Via 選秀,林心翔,第四輪第1順位,
-men,steelers,signed,Via 選秀,朱育君,第五輪第1順位,
-men,mars,signed,Via 選秀,雷蒙恩,第一輪第1順位,
-men,lioneers,signed,Via 選秀,蔡宸綱,第一輪第2順位,
-men,leopards,signed,Via 選秀,汪哲宇,第一輪第3順位,
-men,aquas,signed,Via 選秀,魏莨哲,第一輪第4順位,
-men,dea,signed,Via 選秀,余維豪,第一輪第5順位,
-men,mars,signed,Via 選秀,江均,第一輪第6順位,
-men,dreamers,signed,Via 選秀,史承平,第二輪第3順位,
-men,leopards,signed,Via 選秀,莊博元,第二輪第4順位,
-men,bll,signed,Via 選秀,王家昌,第一輪第1順位,
-men,yulon,signed,Via 選秀,阿美,第一輪第2順位,
-men,bank,signed,Via 選秀,王書府,第一輪第3順位,
-men,yulon,signed,Via 選秀,蒲國倫,第二輪第2順位,
-women,cht,signed,Via 選秀,張家瑄,第一輪第1順位,
-women,taipower,signed,Via 選秀,宋瑞蓁,第一輪第2順位,
-women,cathay,signed,Via 選秀,劉倩伶,第一輪第3順位,
-women,taiyuen,signed,Via 選秀,趙云楓,第一輪第4順位,
-women,cht,signed,Via 選秀,梁瑜玲,第二輪第1順位,
-women,taipower,signed,Via 選秀,韓汛,第二輪第2順位,
-women,taiyuen,signed,Via 選秀,方曉晴,第二輪第4順位,
-men,lioneers,signed,傷病回歸,容毅燊,,
-men,ghosthawks,signed,旅外歸隊,劉駿霆,from B2 青森熱力,
-men,ghosthawks,signed,租借回歸,吳岱豪,from 裕隆,
-men,ghosthawks,signed,租借回歸,藍少甫,from 裕隆 / 已離隊,
-men,dreamers,signed,租借回歸,王振原,from 柏力力,
-men,braves,signed,加盟洋將,金恩 Nick King,,
-men,braves,signed,加盟洋將,沃特斯 Brandon Walters,,
-men,braves,signed,加盟洋將,漢米爾頓 Jordan Hamilton,,
-men,braves,signed,加盟洋將,威希 Jeff Withey,,
-men,pilots,signed,加盟洋將,瓊斯 Jarrod Jones,,
-men,pilots,signed,加盟洋將,布依德 Julian Boyd,,
-men,ghosthawks,signed,加盟洋將,鉑金 Nick Perkins,,
-men,ghosthawks,signed,加盟洋將,翟蒙 De'Mon Brooks,,
-men,ghosthawks,signed,加盟洋將,飛雷神 Branden Frazier,,
-men,ghosthawks,signed,加盟洋將,赤崁 Žiga Dimec,,
-men,steelers,signed,加盟洋將,艾賽亞 Isaiah Briscoe,,
-men,steelers,signed,加盟洋將,喬迪 Jordy Tshimanga,,
-men,mars,signed,加盟洋將,奧利佛 Devin Oliver,,
-men,mars,signed,加盟洋將,塞瑟夫 Ihor Zaytsev,,
-men,mars,signed,加盟洋將,牧倫斯 Byron Mullens,,
-men,mars,signed,加盟洋將,米勒 Malcolm Miller,,
-men,kings,signed,加盟洋將,強森 Chris Johnson,,
-men,kings,signed,加盟洋將,沃許本 Jason Washburn,,
-men,kings,signed,加盟洋將,桑尼 Sani Sakakini,東超亞外,
-men,dea,signed,加盟洋將,捷翼 Jame Eads,,
-men,dea,signed,加盟洋將,浩勝 Chevez Goodwin,,
-men,dea,signed,加盟洋將,葛瑞飛 Bryan Griffin,,
-men,dea,signed,加盟洋將,銳尼 Raynere Thornton,,
-men,leopards,signed,加盟洋將,桑德斯 Larry Sanders,,
-men,leopards,signed,加盟洋將,阿修羅 Robert Upshaw III,,
-men,lioneers,signed,加盟洋將,力契 Matej Radunic,,
-men,lioneers,signed,加盟洋將,米克獅 Kennedy Meeks,,
-men,dreamers,signed,加盟洋將,霍爾曼 Aric Holman,,
-men,dreamers,signed,加盟洋將,揚科維奇 Stefan Janković,,
-men,dreamers,signed,加盟洋將,貝奇 Beau Beech,,
-men,aquas,signed,加盟洋將,摩爾斯 Anthony Morse,,
-men,aquas,signed,加盟洋將,威勝 Kaleb Wesson,,
-men,aquas,signed,加盟洋將,比斯赫 Terrence Bieshaar,,
-,,,,,,
-men,oversea,lost,離隊,劉駿霆,加盟 獵鷹,
-men,oversea,lost,離隊,馬建豪,加盟 夢想家,
-men,braves,lost,離隊,曾祥鈞,旅外 日本 B1,
-men,braves,lost,離隊,張宗憲,加盟 夢想家,
-men,braves,lost,離隊,謝宗融,加盟 獵鷹,
-men,braves,lost,離隊,林孟學,加盟 雲豹,
-men,braves,lost,離隊,張文平,香港東方,
-men,pilots,lost,離隊,張鎮衙,加盟 勇士,
-men,pilots,lost,離隊,陳昱翰,,
-men,pilots,lost,離隊,李學林,,
-men,pilots,lost,離隊,周儀翔,,
-men,ghosthawks,lost,離隊,呂濟而,加盟 雲豹,
-men,ghosthawks,lost,離隊,李漢昇,加盟 攻城獅,
-men,ghosthawks,lost,離隊,蘇奕晉,加盟 戰神,
-men,ghosthawks,lost,離隊,簡偉儒,加盟 夢想家,
-men,ghosthawks,lost,離隊,藍少甫,加盟 裕隆,
-men,ghosthawks,lost,離隊,胡凱翔,,
-men,ghosthawks,lost,離隊,吳宏興,,
-men,steelers,lost,離隊,邱柏璋,轉任 體能訓練師,
-men,steelers,lost,離隊,林郅為,加盟 勇士,
-men,steelers,lost,離隊,陳又瑋,加盟 勇士,
-men,steelers,lost,離隊,陳冠全,加盟 戰神,
-men,steelers,lost,離隊,王律翔,加盟 戰神,
-men,steelers,lost,離隊,呂政儒,加盟 國王,
-men,steelers,lost,離隊,施晉堯,加盟 特攻,
-men,steelers,lost,離隊,李睿麒,加盟 特攻,
-men,steelers,lost,離隊,張伯維,,
-men,steelers,lost,離隊,盧哲毅,,
-men,mars,lost,離隊,林秉聖,旅外 CBA,
-men,mars,lost,離隊,劉彥廷,加盟 鋼鐵人,
-men,mars,lost,離隊,林勵,加盟 柏力力,
-men,mars,lost,離隊,許敬恩,,
-men,kings,lost,離隊,李威廷,加盟 鋼鐵人,
-men,kings,lost,離隊,楊敬敏,,
-men,kings,lost,離隊,翟振皓,,
-men,dea,lost,離隊,阿巴西,旅外 日本 B1,
-men,dea,lost,離隊,陳鈺安,加盟 鋼鐵人,
-men,leopards,lost,離隊,李啓瑋,加盟 攻城獅,
-men,leopards,lost,離隊,蔣淯安,加盟 夢想家,
-men,leopards,lost,SBL台啤,陳孝榕,,
-men,leopards,lost,SBL台啤,鄭駿龍,原名 鄭瑋,
-men,leopards,lost,SBL台啤,盧捷閔,,
-men,leopards,lost,SBL台啤,朱億宗,,
-men,leopards,lost,SBL台啤,吳沛嘉,,
-men,leopards,lost,SBL台啤,阿拉薩,,
-men,lioneers,lost,離隊,呂奇旻,退役 轉任助理教練,
-men,lioneers,lost,離隊,宋宇軒,退役 轉任體能助教,
-men,lioneers,lost,離隊,劉光尚,加盟 裕隆,
-men,lioneers,lost,離隊,張傑瑋,,
-men,lioneers,lost,離隊,施顏宗,涉賭,
-men,dreamers,lost,離隊,吳松蔚,退役,
-men,dreamers,lost,離隊,錢肯尼,加盟 戰神,
-men,dreamers,lost,離隊,林耀宗,,
-men,aquas,lost,離隊,王詠誠,加盟 臺銀,
-men,beer,lost,離隊,楊天佑,加盟 柏力力,
-men,beer,lost,離隊,黃泓諭,加盟 柏力力,
-men,beer,lost,離隊,簡肇熠,,
-men,beer,lost,離隊,陳建銘,,
-men,beer,lost,離隊,呂蔡瑜倫,,
-men,beer,lost,台啤雲豹,王皓吉,,
-men,beer,lost,台啤雲豹,董永全,,
-men,bank,lost,離隊,桑一慶,回歸教練團,
-men,bank,lost,離隊,陳俊翰,加盟 雲豹,
-men,bank,lost,離隊,蔡嘉駿,,
-men,bank,lost,離隊,蔡亞軒,,
-men,yulon,lost,離隊,伊波卡,,
-men,bll,lost,離隊,郭翰,加盟 臺銀,
-men,bll,lost,離隊,蔣浩偉,,
-men,bll,lost,離隊,楊浩之,,
-men,bll,lost,離隊,陳昶宏,,
-men,bll,lost,離隊,陳奕綸,涉賭,
-women,cathay,lost,離隊,陳薇安,旅外 WCBA,
-women,cathay,lost,離隊,黃凡珊,,
-women,taiyuen,lost,離隊,黃品蓁,退役,
-women,taiyuen,lost,離隊,彭曉彤,旅外 WCBA,
-women,taipower,lost,離隊,劉希曄,旅外 WCBA,
-women,taipower,lost,離隊,王維琳,旅外 WCBA,
-men,braves,lost,Via 交易,陳范柏彥,至 鋼鐵人,
-men,dreamers,lost,Via 交易,丁冠皓,至 雲豹,
-men,dreamers,lost,Via 交易,楊盛硯,至 雲豹,
-men,yulon,lost,租借結束,吳岱豪,回歸 獵鷹,
-men,yulon,lost,租借結束,藍少甫,回歸 獵鷹,
-men,bll,lost,租借結束,王振原,回歸 夢想家,
-men,lioneers,lost,離隊洋將,艾夫伯 Michael Efevberha,,
+性別,球隊,分類,動作,球員,異動
+men,oversea,resigned,續約,劉錚,E類 1+1年 
+men,braves,resigned,續約,林志傑,續約 1 年
+men,braves,resigned,續約,洪楷傑,續約 複數年
+men,braves,resigned,續約,周桂羽,續約 複數年
+men,pilots,resigned,續約,盧峻翔,續約 5 年
+men,pilots,resigned,續約,關達祐,續約 5 年
+men,pilots,resigned,續約,陳昱瑞,續約 5 年
+men,pilots,resigned,續約,李家慷,提前續約 5 年
+men,ghosthawks,resigned,續約,谷毛唯嘉,提前換約
+men,ghosthawks,resigned,續約,白薩,提前換約
+men,ghosthawks,resigned,續約,呂冠霆,提前換約
+men,kings,resigned,續約,蘇士軒,
+men,kings,resigned,續約,李愷諺,換約 3 年
+men,kings,resigned,續約,林書豪,執行球員選擇權
+men,dea,resigned,續約,魏嘉豪,續約 2 年
+men,dea,resigned,續約,譚傑龍,續約 複數年
+men,leopards,resigned,續約,黃鎮,
+men,leopards,resigned,續約,劉元凱,
+men,dreamers,resigned,續約,陳振傑,續約 3 年
+men,dreamers,resigned,續約,吳家駿,續約 3 年
+men,dreamers,resigned,續約,盧冠良,續約 3 年
+men,dreamers,resigned,續約,李德威,續約 3 年
+men,lioneers,resigned,續約,曾柏喻,續約 3 年
+men,aquas,resigned,續約,蘇文儒,
+men,aquas,resigned,續約,呂威霆,
+men,aquas,resigned,續約,胡瓏貿,續約 3 年
+men,pilots,resigned,續留洋將,伯朗 Alec Brown,
+men,pilots,resigned,續留洋將,葛拉漢 Treveon Graham,
+men,kings,resigned,續留洋將,奧帝 Austin Daye,
+men,kings,resigned,續留洋將,曼尼高 Kenny Manigault,
+men,dea,resigned,續留洋將,克力斯 Kristijan Krajina,
+men,leopards,resigned,續留洋將,威廉斯 Devin Williams,
+men,leopards,resigned,續留洋將,克羅馬 Lasan Kromah,
+men,lioneers,resigned,續留洋將,霍立飛 Michael Holyfield,
+men,lioneers,resigned,續留洋將,克拉 Earl Clark,
+men,dreamers,resigned,續留洋將,高柏鎧 Brandon Gilbeck,
+men,aquas,resigned,續留洋將,布銳克曼 Jason Brickman,合約期內
+,,,,,
+men,oversea,signed,同聯賽轉隊,陳盈駿,交易 from 廣州龍獅
+women,oversea,signed,同聯賽轉隊,許筱彤,原 釜山BNK Sum
+women,oversea,signed,同聯賽轉隊,林育庭,原 東莞新彤盛
+men,oversea,signed,Via 自由球員,阿巴西,B1 秋田北部喜悅
+men,oversea,signed,Via 自由球員,游艾喆,B1 滋賀湖泊
+men,oversea,signed,Via 自由球員,曾祥鈞,B1 名古屋戰鷹
+women,oversea,signed,Via 自由球員,陳薇安,WCBA 河南
+women,oversea,signed,Via 自由球員,彭曉彤,WCBA 河南
+women,oversea,signed,Via 自由球員,謝羽珊,WCBA 黑龍江
+women,oversea,signed,Via 自由球員,陳昱潔,WCBA 江西
+women,oversea,signed,Via 自由球員,劉希曄,WCBA 安徽
+women,oversea,signed,Via 自由球員,王維琳,WCBA 安徽
+men,braves,signed,Via 自由球員,林郅為,複數年合約
+men,braves,signed,Via 自由球員,陳又瑋,
+men,braves,signed,Via 自由球員,張鎮衙,複數年合約
+men,ghosthawks,signed,Via 自由球員,种義仁,
+men,ghosthawks,signed,Via 自由球員,謝宗融,
+men,steelers,signed,Via 自由球員,劉彥廷,
+men,steelers,signed,Via 自由球員,李威廷,
+men,steelers,signed,Via 自由球員,高偉綸,
+men,steelers,signed,Via 自由球員,陳鈺安,
+men,mars,signed,Via 自由球員,陳冠全,
+men,mars,signed,Via 自由球員,蘇奕晉,
+men,mars,signed,Via 自由球員,錢肯尼,
+men,mars,signed,Via 自由球員,王律翔,
+men,kings,signed,Via 自由球員,呂政儒,
+men,dea,signed,Via 自由球員,施晉堯,複數年合約
+men,dea,signed,Via 自由球員,李睿麒,1+1年合約
+men,dea,signed,Via 自由球員,徐宇煇,1年合約
+men,lioneers,signed,Via 自由球員,李啓瑋,
+men,lioneers,signed,Via 自由球員,李漢昇,
+men,dreamers,signed,Via 自由球員,蔣淯安,5 年合約
+men,dreamers,signed,Via 自由球員,張宗憲,
+men,dreamers,signed,Via 自由球員,簡偉儒,
+men,dreamers,signed,Via 自由球員,馬建豪,
+men,leopards,signed,Via 自由球員,呂濟而,
+men,leopards,signed,Via 自由球員,林孟學,
+men,leopards,signed,Via 自由球員,陳俊翰,
+men,leopards,signed,Via 自由球員,金德偉,
+men,leopards,signed,Via SBL台啤,王皓吉,
+men,leopards,signed,Via SBL台啤,董永全,
+men,beer,signed,Via 台啤雲豹,陳孝榕,
+men,beer,signed,Via 台啤雲豹,鄭駿龍,原名 鄭瑋
+men,beer,signed,Via 台啤雲豹,盧捷閔,
+men,beer,signed,Via 台啤雲豹,朱億宗,
+men,beer,signed,Via 台啤雲豹,吳沛嘉,
+men,beer,signed,Via 台啤雲豹,阿拉薩,
+men,bank,signed,Via 自由球員,王詠誠,
+men,bank,signed,Via 自由球員,郭翰,
+men,yulon,signed,Via 自由球員,藍少甫,
+men,yulon,signed,Via 自由球員,劉光尚,
+men,bll,signed,Via 自由球員,楊天佑,
+men,bll,signed,Via 自由球員,林勵,
+men,bll,signed,Via 自由球員,張幃翔,
+men,bll,signed,Via 自由球員,黃泓諭,
+men,steelers,signed,Via 交易,陳范柏彥,from 勇士
+men,leopards,signed,Via 交易,丁冠皓,from 夢想家
+men,leopards,signed,Via 交易,楊盛硯,from 夢想家
+men,oversea,signed,Via 選秀,林秉聖,第一輪第4順位
+men,oversea,signed,Via 選秀,陳將双,第一輪第8順位
+men,oversea,signed,Via 選秀,陳冠中,第二輪第25順位
+men,braves,signed,Via 選秀,莫巴耶,第一輪第1順位
+men,ghosthawks,signed,Via 選秀,李允傑,第一輪第2順位
+men,steelers,signed,Via 選秀,馬克斯,第一輪第3順位
+men,pilots,signed,Via 選秀,陳力生,第一輪第4順位
+men,ghosthawks,signed,Via 選秀,張志豪,第一輪第5順位
+men,steelers,signed,Via 選秀,莊朝勝,第二輪第1順位
+men,steelers,signed,Via 選秀,王凱裕,第二輪第3順位
+men,steelers,signed,Via 選秀,林心翔,第四輪第1順位
+men,steelers,signed,Via 選秀,朱育君,第五輪第1順位
+men,mars,signed,Via 選秀,雷蒙恩,第一輪第1順位
+men,lioneers,signed,Via 選秀,蔡宸綱,第一輪第2順位
+men,leopards,signed,Via 選秀,汪哲宇,第一輪第3順位
+men,aquas,signed,Via 選秀,魏莨哲,第一輪第4順位
+men,dea,signed,Via 選秀,余維豪,第一輪第5順位
+men,mars,signed,Via 選秀,江均,第一輪第6順位
+men,dreamers,signed,Via 選秀,史承平,第二輪第3順位
+men,leopards,signed,Via 選秀,莊博元,第二輪第4順位
+men,bll,signed,Via 選秀,王家昌,第一輪第1順位
+men,yulon,signed,Via 選秀,阿美,第一輪第2順位
+men,bank,signed,Via 選秀,王書府,第一輪第3順位
+men,yulon,signed,Via 選秀,蒲國倫,第二輪第2順位
+women,cht,signed,Via 選秀,張家瑄,第一輪第1順位
+women,taipower,signed,Via 選秀,宋瑞蓁,第一輪第2順位
+women,cathay,signed,Via 選秀,劉倩伶,第一輪第3順位
+women,taiyuen,signed,Via 選秀,趙云楓,第一輪第4順位
+women,cht,signed,Via 選秀,梁瑜玲,第二輪第1順位
+women,taipower,signed,Via 選秀,韓汛,第二輪第2順位
+women,taiyuen,signed,Via 選秀,方曉晴,第二輪第4順位
+men,lioneers,signed,傷病回歸,容毅燊,
+men,ghosthawks,signed,旅外歸隊,劉駿霆,from B2 青森熱力
+men,ghosthawks,signed,租借回歸,吳岱豪,from 裕隆
+men,ghosthawks,signed,租借回歸,藍少甫,from 裕隆 / 已離隊
+men,dreamers,signed,租借回歸,王振原,from 柏力力
+men,braves,signed,加盟洋將,金恩 Nick King,
+men,braves,signed,加盟洋將,沃特斯 Brandon Walters,
+men,braves,signed,加盟洋將,漢米爾頓 Jordan Hamilton,
+men,braves,signed,加盟洋將,威希 Jeff Withey,
+men,pilots,signed,加盟洋將,瓊斯 Jarrod Jones,
+men,pilots,signed,加盟洋將,布依德 Julian Boyd,
+men,ghosthawks,signed,加盟洋將,鉑金 Nick Perkins,
+men,ghosthawks,signed,加盟洋將,翟蒙 De'Mon Brooks,
+men,ghosthawks,signed,加盟洋將,飛雷神 Branden Frazier,
+men,ghosthawks,signed,加盟洋將,赤崁 Žiga Dimec,
+men,steelers,signed,加盟洋將,艾賽亞 Isaiah Briscoe,
+men,steelers,signed,加盟洋將,喬迪 Jordy Tshimanga,
+men,mars,signed,加盟洋將,奧利佛 Devin Oliver,
+men,mars,signed,加盟洋將,塞瑟夫 Ihor Zaytsev,
+men,mars,signed,加盟洋將,牧倫斯 Byron Mullens,
+men,mars,signed,加盟洋將,米勒 Malcolm Miller,
+men,kings,signed,加盟洋將,強森 Chris Johnson,
+men,kings,signed,加盟洋將,沃許本 Jason Washburn,
+men,kings,signed,加盟洋將,桑尼 Sani Sakakini,東超亞外
+men,dea,signed,加盟洋將,捷翼 Jame Eads,
+men,dea,signed,加盟洋將,浩勝 Chevez Goodwin,
+men,dea,signed,加盟洋將,葛瑞飛 Bryan Griffin,
+men,dea,signed,加盟洋將,銳尼 Raynere Thornton,
+men,leopards,signed,加盟洋將,桑德斯 Larry Sanders,
+men,leopards,signed,加盟洋將,阿修羅 Robert Upshaw III,
+men,lioneers,signed,加盟洋將,力契 Matej Radunic,
+men,lioneers,signed,加盟洋將,米克獅 Kennedy Meeks,
+men,dreamers,signed,加盟洋將,霍爾曼 Aric Holman,
+men,dreamers,signed,加盟洋將,揚科維奇 Stefan Janković,
+men,dreamers,signed,加盟洋將,貝奇 Beau Beech,
+men,aquas,signed,加盟洋將,摩爾斯 Anthony Morse,
+men,aquas,signed,加盟洋將,威勝 Kaleb Wesson,
+men,aquas,signed,加盟洋將,比斯赫 Terrence Bieshaar,
+,,,,,
+men,oversea,lost,離隊,劉駿霆,加盟 獵鷹
+men,oversea,lost,離隊,馬建豪,加盟 夢想家
+men,braves,lost,離隊,曾祥鈞,旅外 日本 B1
+men,braves,lost,離隊,張宗憲,加盟 夢想家
+men,braves,lost,離隊,謝宗融,加盟 獵鷹
+men,braves,lost,離隊,林孟學,加盟 雲豹
+men,braves,lost,離隊,張文平,香港東方
+men,pilots,lost,離隊,張鎮衙,加盟 勇士
+men,pilots,lost,離隊,陳昱翰,
+men,pilots,lost,離隊,李學林,
+men,pilots,lost,離隊,周儀翔,
+men,ghosthawks,lost,離隊,呂濟而,加盟 雲豹
+men,ghosthawks,lost,離隊,李漢昇,加盟 攻城獅
+men,ghosthawks,lost,離隊,蘇奕晉,加盟 戰神
+men,ghosthawks,lost,離隊,簡偉儒,加盟 夢想家
+men,ghosthawks,lost,離隊,藍少甫,加盟 裕隆
+men,ghosthawks,lost,離隊,胡凱翔,
+men,ghosthawks,lost,離隊,吳宏興,
+men,steelers,lost,離隊,邱柏璋,轉任 體能訓練師
+men,steelers,lost,離隊,林郅為,加盟 勇士
+men,steelers,lost,離隊,陳又瑋,加盟 勇士
+men,steelers,lost,離隊,陳冠全,加盟 戰神
+men,steelers,lost,離隊,王律翔,加盟 戰神
+men,steelers,lost,離隊,呂政儒,加盟 國王
+men,steelers,lost,離隊,施晉堯,加盟 特攻
+men,steelers,lost,離隊,李睿麒,加盟 特攻
+men,steelers,lost,離隊,張伯維,
+men,steelers,lost,離隊,盧哲毅,
+men,mars,lost,離隊,林秉聖,旅外 CBA
+men,mars,lost,離隊,劉彥廷,加盟 鋼鐵人
+men,mars,lost,離隊,林勵,加盟 柏力力
+men,mars,lost,離隊,許敬恩,
+men,kings,lost,離隊,李威廷,加盟 鋼鐵人
+men,kings,lost,離隊,楊敬敏,
+men,kings,lost,離隊,翟振皓,
+men,kings,lost,離隊,戴維斯,
+men,dea,lost,離隊,劉韋辰,轉任 助理教練
+men,dea,lost,離隊,阿巴西,旅外 日本 B1
+men,dea,lost,離隊,陳鈺安,加盟 鋼鐵人
+men,leopards,lost,離隊,李啓瑋,加盟 攻城獅
+men,leopards,lost,離隊,蔣淯安,加盟 夢想家
+men,leopards,lost,SBL台啤,陳孝榕,
+men,leopards,lost,SBL台啤,鄭駿龍,原名 鄭瑋
+men,leopards,lost,SBL台啤,盧捷閔,
+men,leopards,lost,SBL台啤,朱億宗,
+men,leopards,lost,SBL台啤,吳沛嘉,
+men,leopards,lost,SBL台啤,阿拉薩,
+men,lioneers,lost,離隊,呂奇旻,退役 轉任助理教練
+men,lioneers,lost,離隊,宋宇軒,退役 轉任體能助教
+men,lioneers,lost,離隊,劉光尚,加盟 裕隆
+men,lioneers,lost,離隊,張傑瑋,
+men,lioneers,lost,離隊,施顏宗,涉賭
+men,dreamers,lost,離隊,吳松蔚,退役
+men,dreamers,lost,離隊,錢肯尼,加盟 戰神
+men,dreamers,lost,離隊,林耀宗,
+men,aquas,lost,離隊,王詠誠,加盟 臺銀
+men,beer,lost,離隊,楊天佑,加盟 柏力力
+men,beer,lost,離隊,黃泓諭,加盟 柏力力
+men,beer,lost,離隊,簡肇熠,
+men,beer,lost,離隊,陳建銘,
+men,beer,lost,離隊,呂蔡瑜倫,
+men,beer,lost,台啤雲豹,王皓吉,
+men,beer,lost,台啤雲豹,董永全,
+men,bank,lost,離隊,桑一慶,回歸教練團
+men,bank,lost,離隊,陳俊翰,加盟 雲豹
+men,bank,lost,離隊,蔡嘉駿,
+men,bank,lost,離隊,蔡亞軒,
+men,yulon,lost,離隊,伊波卡,
+men,bll,lost,離隊,郭翰,加盟 臺銀
+men,bll,lost,離隊,蔣浩偉,
+men,bll,lost,離隊,楊浩之,
+men,bll,lost,離隊,陳昶宏,
+men,bll,lost,離隊,陳奕綸,涉賭
+women,cathay,lost,離隊,陳薇安,旅外 WCBA
+women,cathay,lost,離隊,黃凡珊,
+women,taiyuen,lost,離隊,黃品蓁,退役
+women,taiyuen,lost,離隊,彭曉彤,旅外 WCBA
+women,taipower,lost,離隊,劉希曄,旅外 WCBA
+women,taipower,lost,離隊,王維琳,旅外 WCBA
+men,braves,lost,Via 交易,陳范柏彥,至 鋼鐵人
+men,dreamers,lost,Via 交易,丁冠皓,至 雲豹
+men,dreamers,lost,Via 交易,楊盛硯,至 雲豹
+men,yulon,lost,租借結束,吳岱豪,回歸 獵鷹
+men,yulon,lost,租借結束,藍少甫,回歸 獵鷹
+men,bll,lost,租借結束,王振原,回歸 夢想家
+men,lioneers,lost,離隊洋將,艾夫伯 Michael Efevberha,

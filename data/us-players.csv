@@ -1,6 +1,5 @@
-0,1,2,3,4,5,6,7,8,9,10,11,12
-性別,class,位置,球員,instagram,身份,身高,生日,Class,#,大學,聯盟,賽區
-men,c,G,Chris Schlesinger,cschlesinger12,華裔,6'6,,,,Shasta College,CCCAA,Golden Valley
+gender,school,position,player_name,instagram,identity,height,birth,year,num,college_name,league,conference
+men,c,G/F,Chris Schlesinger,cschlesinger12,華裔,6'5,,So.,12,Shasta College,CCCAA,Golden Valley
 men,c,G,傅 友,__fu0227,本土,6'4,2004/02/27,So.,24,West Virginia Tech,NAIA,AAC
 ,,G,林新唯,jax1in,本土,6'0,2003/06/29,,3,Westcliff University,NAIA,CAL PAC
 ,,G,金秉昱,dylankingking,本土,6'5,,,,University of Victoria,NAIA,Canada West
@@ -14,9 +13,9 @@ men,c,G,林現惟,du_941020,本土,6'2,2005/10/20,Fr.,5,Cal St. Dom. HIlls,NCAA 
 men,c,G,林子桓,lin_2003_29,本土,5'10,2003/11/29,So.,,University of Charleston,NCAA D2,Mountain East
 men,c,G,Jordan Lee,jordannlee_,-,6'1,,So.,4,Grinnell College,NCAA D3,Midwest
 men,c,G,Spencer Lin,spencer_bb_lin,-,6'4,,Jr.,1,MIT,NCAA D3,NEWMAC
+men,c,G,張庭瑋,cheung.benjamin,本土,6'3,2003/09/25,Jr.,4,Occidental College,NCAA D3,SCIAC
 ,,G,Colin Huang,colin.huaang,華裔,6'0,2005/03/16,,,US Coast Guard,NCAA D3,NEWMAC
-men,c,G,張庭瑋,cheung.benjamin,本土,6'3,2003/09/25,So.,4,Occidental College,NCAA D3,SCIAC
-men,c,G,Kai Gibbons,kaiigibbons,華裔,5'11,,,,Cal Lutheran,NCAA D3,SCIAC
+,c,G,Kai Gibbons,kaiigibbons,華裔,5'11,,,,Cal Lutheran,NCAA D3,SCIAC
 men,c,F,鄭名斈,xue_1225_,本土,6'10,2004/12/25,Fr.,30,Seminole State College,NJCAA D1,Region II
 ,,,,,,,,,,,,
 women,c,G,Kaitlyn Chen,kaitlyn.chen,本土,5'9,,Gr.,20,UConn,NCAA D1,Big East

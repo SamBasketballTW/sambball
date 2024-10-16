@@ -1,5 +1,4 @@
-0,1,2,3,4,5,6
-性別,選秀大會,,總順位,class,球隊,新秀球員
+gender,year,league,pick,team_id,team_name,player
 men,2024,cba,4.,oversea,浙江廣廈,林秉聖
 men,2024,cba,8.,oversea,南京同曦,陳將双
 men,2024,cba,9.,oversea,山西汾酒,蔡宸綱 (未報到)
