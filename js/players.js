@@ -183,19 +183,11 @@ $(document).ready(function () {
     }
 
     checkSwitch.addEventListener("click", function () {
-        if (checkSwitch.checked) {
-            showPlayersInfo();
-        } else {
-            player_count_tb = document.getElementById('player_count_tb');
-            player_count_tb.innerHTML = `<tr><td style="font-size:18px">現役球員: 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自由球員: 0</td></tr>`
-            players_tbody = document.getElementById('players_tbody');
-            players_tbody.innerHTML = '';
-        }
-
         checkboxes.forEach(function (checkbox) {
             checkbox.checked = checkSwitch.checked;
         });
 
+        showPlayersInfo();
     })
 
     for (var i = 0; i < checkboxes.length; i++) {

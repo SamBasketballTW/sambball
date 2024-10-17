@@ -77,13 +77,6 @@ function teamName(value, league, id, img = '') {
 		}
 	}
 }
-function teamFilter(id) {
-	if (id != 'fa' & isOversea(id)) {
-		return 'oversea';
-	} else {
-		return id;
-	}
-}
 function teamBG(league, id) {
 	if (id == '') {
 		return '';
