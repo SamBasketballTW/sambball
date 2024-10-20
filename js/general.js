@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.10.16 18:00</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.10.20 17:00</b>`
 
     test = ''
     // test = '.html'
@@ -80,7 +80,7 @@ cht = new Team('women', 'WSBL', 'cht', '中華電信', '電信', '教練: 柯孟
 taiyuen = new Team('women', 'WSBL', 'taiyuen', '台元紡織', '台元', '執行教練: 邱啟益');
 
 plgTeams = [braves, pilots, ghosthawks, steelers];
-tpblTeams = [mars, kings, dea, leopards, lioneers, dreamers, aquas];
+tpblTeams = [mars, dea, kings, leopards, lioneers, dreamers, aquas];
 sblTeams = [beer, bank, yulon, bll];
 wsblTeams = [cathay, taipower, cht, taiyuen];
 
@@ -90,13 +90,13 @@ braves.url = 'https://pleagueofficial.com/team/1';
 pilots.url = 'https://pleagueofficial.com/team/2';
 ghosthawks.url = 'https://pleagueofficial.com/team/7';
 steelers.url = 'https://pleagueofficial.com/team/5';
-kings.url = 'https://tpbl.basketball/';
-lioneers.url = 'https://tpbl.basketball/';
-dreamers.url = 'https://tpbl.basketball/';
-dea.url = 'https://tpbl.basketball/';
-mars.url = 'https://tpbl.basketball/';
-leopards.url = 'https://tpbl.basketball/';
-aquas.url = 'https://tpbl.basketball/';
+mars.url = 'https://taipeimars.com.tw/';
+dea.url = 'https://ctbcdea.com.tw/';
+kings.url = 'https://kings.tpbl.basketball/';
+leopards.url = 'https://t-leopards.com/';
+lioneers.url = 'https://lioneers.tpbl.basketball/';
+dreamers.url = 'https://dreamers.tpbl.basketball/';
+aquas.url = 'https://ktown-aquas.com/';
 beer.url = 'https://sleague.tw/team/1/76/714';
 bank.url = 'https://sleague.tw/team/1/76/713';
 yulon.url = 'https://sleague.tw/team/1/76/712';

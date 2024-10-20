@@ -65,7 +65,7 @@ function showContractsInfo() {
 	var currentContract = document.getElementById("contract-dropdown").getElementsByClassName("active");
 	var filter_contract = currentContract[0].getAttribute('value');
 
-	fetch('../data/rosters.csv')
+	fetch('../data/players.csv')
 		.then((response) => response.text())
 		.then((result) => {
 
@@ -88,9 +88,9 @@ function showContractsInfo() {
 					school,
 					acquired,
 					contract_filter, contract_season, contract_years, contract_years_left,
-					contract_note,
-					contract_link_title, contract_url,
-					fa_status, last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
+					contract_note, contract_url,
+					last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg,
+					fa_status, fa_status_url
 
 				] = infos;
 
@@ -115,31 +115,27 @@ function showContractsInfo() {
 
 					if (showContract == 2) {
 						if (contract_filter.includes('trade')) {
-							if (contract_season != '') contract_season = '*' + contract_season + '*';
-							if (contract_years != '') contract_years = '*' + contract_years + '*';
-							if (contract_years_left != '') contract_years_left = '*' + contract_years_left + '*';
+							if (contract_season != '') contract_season = contract_season + '*';
+							if (contract_years != '') contract_years = contract_years + '*';
+							if (contract_years_left != '') contract_years_left = contract_years_left + '*';
+						}
+
+						if(contract_url != ''){
+							years = `<i class="bi bi-link-45deg"></i><a href="${contract_url}" target="_blank">${contract_years}</a>`;
+						}else{
+							years = contract_years;
 						}
 
 						contracts_info += `
 						<tr>
 							<td class="${teamBG(league, team)} borderR">${teamName('short', league, team, 'img')}</td>
 							<td class="borderR">${jersey_num}</td>
-							<td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+							<td class="borderR"><a href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
 							<td>${contract_season}</td>
-							<td class="borderR">${contract_years}</td>
+							<td class="borderR">${years}</td>
 							<td class="borderR">${contract_years_left}</td>
-							<td class="borderR">${contract_note}</td>`
-
-						if (contract_url != '') {
-							contracts_info += `
-							<td>
-								<a style="color:inherit; text-decoration:underline" href="${contract_url}" target="_blank">
-								<i class="bi bi-link-45deg"></i>${contract_link_title}</a>
-							</td></tr>`;
-						} else {
-							contracts_info += `
-							<td></td></tr>`
-						}
+							<td>${contract_note}</td>
+						</tr>`
 					}
 				}
 			});

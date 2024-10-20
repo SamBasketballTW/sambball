@@ -81,8 +81,7 @@ function showPlayers() {
                             <td class="borderR">${position}</td>
                             <td class="borderR">${player_name}</td>
                             <td class="borderR textL">
-                                <a href="https://www.instagram.com/${instagram}/" target="_blank">
-                                <i class="bi bi-instagram"></i> ${instagram}</a>
+                                <i class="bi bi-instagram"></i><a href="https://www.instagram.com/${instagram}/" target="_blank"> ${instagram}</a>
                             </td>
                             <td>${identity}</td>
                             <td>${height}</td>

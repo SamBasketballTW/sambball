@@ -87,7 +87,7 @@ function showRosterInfo() {
     var currentTeam = document.getElementById("team-dropdown").getElementsByClassName("active");
     var filter_team = currentTeam[0].getAttribute('value');
 
-    fetch('../data/rosters.csv')
+    fetch('../data/players.csv')
         .then((response) => response.text())
         .then((result) => {
             lines = result.split('\n');
@@ -118,21 +118,21 @@ function showRosterInfo() {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, position, height, weight, birth,
-                    school,
-                    acquired,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-                    fa_status, last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, position, height, weight, birth,
+					school,
+					acquired,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note, contract_url,
+					last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg,
+					fa_status, fa_status_url
 
-                ] = infos;
+				] = infos;
 
                 if (gender == filter_gender & status == 'active' & team != 'fa') {
                     if (filter_team == 'oversea' & isOversea(team)) {
@@ -153,13 +153,9 @@ function showRosterInfo() {
 
                         roster_info += `
                         <tr>
-                            <td class="${teamBG(league, team)} borderR">
-                                ${teamName('short', league, team)}
-                            </td>
+                            <td class="${teamBG(league, team)} borderR">${teamName('short', league, team)}</td>
                             <td class="borderR" data-order="${numOrder(jersey_num)}">${jersey_num}</td>
-                            <td class="borderR"><a style="text-decoration:underline;color:inherit"
-                                href="${playerUrl(team, player_url)}" target="_blank">${name}</a>
-                            </td>             
+                            <td class="borderR"><a href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>             
                             <td data-order=${order[league_identity]}>${league_identity}</td>
                             <td>${position}</td>
                             <td>${height}</td>
@@ -187,8 +183,7 @@ function showRosterInfo() {
                             roster_info += `
                             <tr class="${teamBG(league, team)}">
                                 <td class="borderR" data-order="${numOrder(jersey_num)}">${jersey_num}</td>
-                                <td class="borderR"><a style="text-decoration:underline;color:inherit"
-                                    href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>             
+                                <td class="borderR"><a href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>             
                                 <td data-order=${order[league_identity]}>${league_identity}</td>
                                 <td>${position}</td>
                                 <td>${height}</td>

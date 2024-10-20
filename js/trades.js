@@ -122,14 +122,12 @@ function showTradesInfo() {
                             currentSeason = season;
                             trades_info += `
                             <tr>
-                                <td colspan="3" style="font-size:18px; color:white; background-color:#1B1B1B">
-                                    ${season} 賽季
-                                </td>
+                                <td colspan="3" style="font-size:18px; color:white; background-color:#1B1B1B">${season} 賽季</td>
                             </tr>`
                         }
 
                         if (futurePick_content != '') {
-                            content += `<a style="color:red">${futurePick_content}</a>${content2}`
+                            content += `<span style="color:red">${futurePick_content}</span>${content2}`
                         }
 
                         trades_info += `

@@ -13,7 +13,7 @@ $(document).ready(function () {
     allRookies = [];
     for (let i = 2024; i >= 2019; i--) allRookies.push(new PlayerCount(i + 'Rookie', i + 'Rookie'));
 
-    fetch('../data/rosters.csv')
+    fetch('../data/players.csv')
         .then((response) => response.text())
         .then((result) => {
 
@@ -24,21 +24,21 @@ $(document).ready(function () {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, position, height, weight, birth,
-                    school,
-                    acquired,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-                    fa_status, last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, position, height, weight, birth,
+					school,
+					acquired,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note, contract_url,
+					last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg,
+					fa_status, fa_status_url
 
-                ] = infos;
+				] = infos;
 
                 if (status == 'active' & identity != 'coach' & team != 'fa') {
                     if (rookie != '') {
@@ -211,7 +211,7 @@ function showPlayersInfo() {
         if (c.checked) filter_identities.push(c.getAttribute('value'));
     })
 
-    fetch('../data/rosters.csv')
+    fetch('../data/players.csv')
         .then((response) => response.text())
         .then((result) => {
 
@@ -226,21 +226,21 @@ function showPlayersInfo() {
                 infos = line.split(',');
 
                 let [
-                    gender,
-                    name,
-                    jersey_num, league, team, player_url,
-                    status,
-                    identity,
-                    rookie,
-                    league_identity, position, height, weight, birth,
-                    school,
-                    acquired,
-                    contract_filter, contract_season, contract_years, contract_years_left,
-                    contract_note,
-                    contract_link_title, contract_url,
-                    fa_status, last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg
+					gender,
+					name,
+					jersey_num, league, team, player_url,
+					status,
+					identity,
+					rookie,
+					league_identity, position, height, weight, birth,
+					school,
+					acquired,
+					contract_filter, contract_season, contract_years, contract_years_left,
+					contract_note, contract_url,
+					last_season_league, last_season_team, fa_gp, fa_ppg, fa_rpg, fa_apg,
+					fa_status, fa_status_url
 
-                ] = infos;
+				] = infos;
 
                 if (gender == filter_gender & status == 'active' & identity != 'coach') {
                     showPlayer = 0;
@@ -281,7 +281,7 @@ function showPlayersInfo() {
                         <tr>
                             <td class="borderR ${teamBG(league, team)}" data-order=${teamOrder(league, team)}>${teamName('short', league, team, 'img')}</td>
                             <td class="borderR" data-order=${numOrder(jersey_num)}>${jersey_num}</td>
-                            <td class="borderR"><a style="text-decoration:underline;color:inherit" href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
+                            <td class="borderR"><a href="${playerUrl(team, player_url)}" target="_blank">${name}</a></td>
                             <td data-order=${order[league_identity]}>${league_identity}</td>
                             <td>${position}</td>
                             <td>${height}</td>
@@ -294,7 +294,7 @@ function showPlayersInfo() {
                 }
             })
             player_th_width_title = [[120, '球隊'], [60, '#'], [100, '球員'],
-            [90, '聯盟身份'], [80, '位置'], [80, '身高'], [80, '體重'],
+            [80, '聯盟身份'], [80, '位置'], [80, '身高'], [80, '體重'],
             [80, '年齡'], [120, '生日'], [220, '學校']];
 
             thead_info = '';

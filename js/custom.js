@@ -70,10 +70,10 @@ function teamName(value, league, id, img = '') {
 		team = findTeam(id);
 		if (img != '') {
 			return `
-			<a href = "${team.url}" target = "_blank">
-				<img src="../asset/images/${team.gender}/${team.id}.png" alt="${team.id}" class="teamicon"><b>${team.name_CN(value)}</b></a>`
+			<a href = "${team.url}" target = "_blank"><img src="../asset/images/${team.gender}/${team.id}.png" alt="${team.id}" class="teamicon"><b>${team.name_CN(value)}</b></a>`
 		} else {
-			return team.name_CN(value);
+			return `
+			<a href = "${team.url}" target = "_blank"><b>${team.name_CN(value)}</b></a>`
 		}
 	}
 }
