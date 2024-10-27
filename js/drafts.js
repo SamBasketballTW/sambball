@@ -79,7 +79,7 @@ $(document).ready(function () {
 
 						this.className += " active";
 						draftbtn.innerHTML = this.innerHTML;
-						teambtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>`
+						teambtn.innerHTML = `<img src="../asset/images/logo.png" alt="all" class="teamicon">全部球隊</a>`
 
 						showDraftsInfo();
 					});
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 						this.className += " active";
 						teambtn.innerHTML = this.innerHTML;
-						draftbtn.innerHTML = `<img src="../asset/images/logo_round.png" alt="all" class="teamicon">歷屆選秀</a>`;
+						draftbtn.innerHTML = `<img src="../asset/images/logo.png" alt="all" class="teamicon">歷屆選秀</a>`;
 
 						showDraftsInfo();
 					});

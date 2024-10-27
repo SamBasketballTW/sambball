@@ -7,10 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>現役球員 | 山姆籃球</title>
 	<link rel="icon" href="../asset/images/logo.png" type="image/icon">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/custom.css">
-	<link rel="stylesheet" href="../css/background.css">
-	<link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" href="./css/default.css">
 
 	<script src="../js/tools/popper.min.js"></script>
 	<script src="../js/tools/bootstrap.min.js"></script>
@@ -59,8 +56,7 @@
 
 				<a><b>&nbsp;&nbsp;球隊: </b></a>
 				<button id="teambtn" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-					aria-expanded="false"><img src="../asset/images/logo_round.png" alt="all"
-						class="teamicon">全部球隊</a></button>
+					aria-expanded="false"></button>
 				<ul id="team-dropdown" class="dropdown-menu">
 				</ul>
 
@@ -79,28 +75,34 @@
 			<div class="col" style="width:560px; padding-top:3px;">
 
 				<div class="form-check form-switch" style="width:90px; display: inline-block">
-					<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked>
-					<label class="form-check-label" for="flexSwitchCheckChecked">全勾</label>
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="checkSwitch" role="switch" checked>全勾
+					</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" value="local" checked>
-					<label class="form-check-label" for="inlineCheckbox1">本土</label>
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" value="local" checked>本土
+					</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" value="taiwanese" checked>
-					<label class="form-check-label" for="inlineCheckbox1">華裔</label>
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" value="taiwanese" checked>華裔
+					</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" value="uba_import" checked>
-					<label class="form-check-label" for="inlineCheckbox1">外籍生</label>
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" value="uba_import" checked>外籍生
+					</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" value="naturalized" checked>
-					<label class="form-check-label" for="inlineCheckbox1">歸化</label>
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" value="naturalized" checked>歸化
+					</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" value="import" checked>
-					<label class="form-check-label" for="inlineCheckbox1">洋將</label>
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" value="import" checked>洋將
+					</label>
 				</div>
 
 			</div>

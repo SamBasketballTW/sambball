@@ -6,7 +6,7 @@ function add_team_dropdown(dropdown, gender, value = '') {
 	if (value.includes('all')) {
 		team_dropdown.innerHTML += `
 		<li><a class="dropdown-item active" value="all">
-			<img src="../asset/images/logo_round.png" alt="all" class="teamicon">全部球隊</a>
+			<img src="../asset/images/logo.png" alt="all" class="teamicon">全部球隊</a>
 		</li>`
 	}
 	if (value.includes('oversea')) {
