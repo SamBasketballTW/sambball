@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.10.27 18:00</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.10.30 11:00</b>`
 
     test = ''
     // test = '.html'
@@ -13,7 +13,7 @@ $(document).ready(function () {
         ['contracts', '合約'],
         ['drafts', '選秀'],
         ['trades', '交易'],
-        ['us-players', '旅美學生']
+        ['us-players', '旅美大學生']
     ]
     navs.forEach(nav => {
         navbar_dropdown.innerHTML += `
@@ -59,6 +59,15 @@ class Team {
         return allTeams.indexOf(this);
     }
 }
+class PlayerCount {
+    constructor(id, filter, men_count = 0, women_count = 0) {
+        this.id = id;
+        this.filter = filter;
+        this.men_count = men_count;
+        this.women_count = women_count;
+    }
+}
+
 braves = new Team('men', 'PLG', 'braves', '臺北富邦勇士', '勇士', '執行教練: 吳永仁');
 pilots = new Team('men', 'PLG', 'pilots', '桃園璞園領航猿', '領航猿', '總教練: 卡米諾斯 Iurgi Caminos');
 ghosthawks = new Team('men', 'PLG', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');

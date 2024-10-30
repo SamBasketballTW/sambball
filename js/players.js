@@ -1,14 +1,4 @@
-class PlayerCount {
-    constructor(id, filter, men_count = 0, women_count = 0) {
-        this.id = id;
-        this.filter = filter;
-        this.men_count = men_count;
-        this.women_count = women_count;
-    }
-}
-
 $(document).ready(function () {
-
     allColleges = [new PlayerCount('旅外', 'school0')];
     allRookies = [];
     for (let i = 2024; i >= 2019; i--) allRookies.push(new PlayerCount(i + 'Rookie', i + 'Rookie'));
