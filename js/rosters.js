@@ -99,11 +99,17 @@ function showRosterInfo() {
                 filter_league = '';
                 allRosters = [new Roster(filter_gender, 'oversea', 'oversea')];
 
-                if (filter_gender == 'men') {
-                    oversea_count = [['CBA', 0], ['日本', 0]];
-                } else if (filter_gender == 'women') {
-                    oversea_count = [['WCBA', 0], ['韓國', 0]];
+                overseaRosterCount = [];
+                if(filter_gender == 'men'){
+                    overseaRosterCount.push(new PlayerCount('中國','CBA'));
+
+                }else if(filter_gender == 'women'){
+                    overseaRosterCount.push(new PlayerCount('中國','WCBA'));
+
                 }
+                overseaRosterCount.push(new PlayerCount('日本','B1'));
+                overseaRosterCount.push(new PlayerCount('韓國','WKBL'));
+
             } else {
                 filter_league = findTeam(filter_team).league;
                 allRosters = [];
@@ -137,15 +143,16 @@ function showRosterInfo() {
                 if (gender == filter_gender & status == 'active' & team != 'fa') {
                     if (filter_team == 'oversea' & isOversea(team)) {
 
-                        if (league.includes('CBA') | league.includes('日本') | league.includes('韓國')) {
-                            oversea_count.forEach(o => {
-                                if (league.includes(o[0])) {
-                                    o[1] += 1;
+                        overseaRosterCount.forEach(o =>{
+                            if(league.includes(o.id)){
+                                if(gender == 'men'){
+                                    o.men_count += 1;
+                                }else if(gender == 'women'){
+                                    o.women_count += 1;
                                 }
-                            })
-                        } else {
-                            oversea_count[oversea_count.length - 1][1] += 1;
-                        }
+                                
+                            }
+                        })
 
                         allRosters[0].local_age_sum += birthToAge(birth);
                         allRosters[0].local_height_sum += parseInt(height);
@@ -207,16 +214,24 @@ function showRosterInfo() {
             if (filter_team == 'oversea') {
                 r_count_tb = document.getElementById('r_count_tb');
                 count_info = ''
-                oversea_count.forEach(o => {
-                    if (o[0] == 'CBA' | o[0] == 'WCBA') {
-                        count_info += `${o[0]}:&nbsp;&nbsp;${o[1]}&nbsp;&nbsp;人`
-                    } else {
-                        count_info += `${long_blank}${o[0]}:&nbsp;&nbsp;${o[1]}&nbsp;&nbsp;人`
+
+                overseaRosterCount.forEach(o =>{
+                    if(o.men_count + o.women_count != 0){
+                        if(o.id != '中國'){
+                            count_info += long_blank;
+                        }
+                        if(filter_gender == 'men'){
+                            count_info += `${o.id}:&nbsp;&nbsp;${o.men_count}&nbsp;&nbsp;人`
+                        }else if(filter_gender == 'women'){
+                            count_info += `${o.id}:&nbsp;&nbsp;${o.women_count}&nbsp;&nbsp;人`
+                        }
                     }
+                    
                 })
+
                 r_count_tb.innerHTML = `
-                <tr class="${oversea_count[0][0]}-bg"><td>${count_info}</td></tr>
-                <tr class="${oversea_count[0][0]}-bg">
+                <tr class="${overseaRosterCount[0].filter}-bg"><td>${count_info}</td></tr>
+                <tr class="${overseaRosterCount[0].filter}-bg">
                     <td>
                         本土平均年齡:&nbsp;${allRosters[0].avg('age').toFixed(1)}${long_blank}
                         本土平均身高:&nbsp;${allRosters[0].avg('height').toFixed(1)}
