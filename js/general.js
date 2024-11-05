@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.11.05 12:00</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.11.05 17:00</b>`
 
     test = ''
     // test = '.html'
@@ -34,7 +34,7 @@ $(document).ready(function () {
             sam_basketball_tw&nbsp;
         </a>
         <br>
-        <a style="color:white; font-size:12px;">All rights reserved © 2024</a>
+        <a style="color:white; font-size:12px;">本網站僅供學習、展示之用，若有侵權，請連絡告知</a>
     </div>`
 });
 class Team {

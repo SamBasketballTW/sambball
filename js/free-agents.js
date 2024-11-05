@@ -80,7 +80,7 @@ function showFAInfo() {
                             showFA = 1;
                         }
                     } else if (filter_fa == 'unsigned') {
-                        if (!fa_status.includes('加盟') & !fa_status.includes('續約') & !fa_status.includes('轉任') & !fa_status.includes('退役')) {
+                        if (!fa_status.includes('加盟') & !fa_status.includes('續約')) {
                             showFA = 1;
                         }
                     }
