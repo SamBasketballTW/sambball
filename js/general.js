@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.11.19</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.11.20</b>`
 
     test = ''
     // test = '.html'
