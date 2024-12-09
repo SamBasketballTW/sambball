@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.12.02</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.12.08</b>`
 
     test = ''
     // test = '.html'
@@ -76,7 +76,7 @@ mars = new Team('men', 'TPBL', 'mars', '臺北台新戰神', '戰神', '總教�
 kings = new Team('men', 'TPBL', 'kings', '新北國王', '國王', '總教練: 萊恩 Ryan Marchand');
 dea = new Team('men', 'TPBL', 'dea', '新北中信特攻', '特攻', '總教練: 李逸驊');
 leopards = new Team('men', 'TPBL', 'leopards', '桃園台啤永豐雲豹', '雲豹', '總教練: 查爾斯 Charles Dubé-Brais');
-lioneers = new Team('men', 'TPBL', 'lioneers', '新竹御頂攻城獅', '攻城獅', '總教練: 密特羅維奇 Milan Mitrović');
+lioneers = new Team('men', 'TPBL', 'lioneers', '新竹御頂攻城獅', '攻城獅', '代理總教練: 沈欣漢');
 dreamers = new Team('men', 'TPBL', 'dreamers', '福爾摩沙夢想家', '夢想家', '總教練: 皮爾曼 Jamie Pearlman');
 aquas = new Team('men', 'TPBL', 'aquas', '高雄全家海神', '海神', '總教練: 費雪 Mathias Fischer');
 beer = new Team('men', 'SBL', 'beer', '台灣啤酒', '台啤', '總教練: 劉孟竹');
