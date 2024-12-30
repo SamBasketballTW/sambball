@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.12.23</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.12.30</b>`
 
     test = ''
     // test = '.html'
@@ -70,7 +70,7 @@ class PlayerCount {
 
 braves = new Team('men', 'PLG', 'braves', '臺北富邦勇士', '勇士', '執行教練: 吳永仁');
 pilots = new Team('men', 'PLG', 'pilots', '桃園璞園領航猿', '領航猿', '總教練: 卡米諾斯 Iurgi Caminos');
-ghosthawks = new Team('men', 'PLG', 'ghosthawks', '臺南台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');
+ghosthawks = new Team('men', 'PLG', 'ghosthawks', '台鋼獵鷹', '獵鷹', '總教練: 柯納 Raoul Korner');
 steelers = new Team('men', 'PLG', 'steelers', '高雄鋼鐵人', '鋼鐵人', '總教練: 邱大宗');
 mars = new Team('men', 'TPBL', 'mars', '臺北台新戰神', '戰神', '總教練: 許皓程');
 kings = new Team('men', 'TPBL', 'kings', '新北國王', '國王', '總教練: 萊恩 Ryan Marchand');
@@ -81,7 +81,7 @@ dreamers = new Team('men', 'TPBL', 'dreamers', '福爾摩沙夢想家', '夢想�
 aquas = new Team('men', 'TPBL', 'aquas', '高雄全家海神', '海神', '總教練: 費雪 Mathias Fischer');
 beer = new Team('men', 'SBL', 'beer', '台灣啤酒', '台啤', '總教練: 劉孟竹');
 bank = new Team('men', 'SBL', 'bank', '臺灣銀行', '臺銀', '總教練: 程恩傑');
-yulon = new Team('men', 'SBL', 'yulon', '裕隆納智捷', '裕隆', '執行教練: 李啟億');
+yulon = new Team('men', 'SBL', 'yulon', '裕隆集團', '裕隆', '執行教練: 李啟億');
 bll = new Team('men', 'SBL', 'bll', '彰化璞園柏力力', '柏力力', '總教練: 吳俊雄');
 cathay = new Team('women', 'WSBL', 'cathay', '國泰人壽', '國泰', '總教練: 鄭慧芸');
 taipower = new Team('women', 'WSBL', 'taipower', '台灣電力', '台電', '教練: 陳萓峰');
