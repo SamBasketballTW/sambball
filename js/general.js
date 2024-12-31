@@ -1,6 +1,6 @@
 $(document).ready(function () {
     timeStamp = document.getElementById('timeStamp');
-    timeStamp.innerHTML = `<b>最後更新: 2024.12.30</b>`
+    timeStamp.innerHTML = `<b>最後更新: 2024.12.31 15:00</b>`
 
     test = ''
     // test = '.html'
@@ -106,14 +106,14 @@ leopards.url = 'https://t-leopards.com/';
 lioneers.url = 'https://lioneers.tpbl.basketball/';
 dreamers.url = 'https://dreamers.tpbl.basketball/';
 aquas.url = 'https://ktown-aquas.com/';
-beer.url = 'https://sleague.tw/team/1/76/714';
-bank.url = 'https://sleague.tw/team/1/76/713';
-yulon.url = 'https://sleague.tw/team/1/76/712';
-bll.url = 'https://sleague.tw/team/1/76/711';
-cathay.url = 'https://wsbl.meetagile.com/team/2/77/715';
-taipower.url = 'https://wsbl.meetagile.com/team/2/77/716';
-cht.url = 'https://wsbl.meetagile.com/team/2/77/717';
-taiyuen.url = 'https://wsbl.meetagile.com/team/2/77/718';
+beer.url = 'https://sleague.tw/squad/10731';
+bank.url = 'https://sleague.tw/squad/10732';
+yulon.url = 'https://sleague.tw/squad/10729';
+bll.url = 'https://sleague.tw/squad/10730';
+cathay.url = 'https://wsbl.meetagile.com/squad/10736';
+taipower.url = 'https://wsbl.meetagile.com/squad/10737';
+cht.url = 'https://wsbl.meetagile.com/squad/10734';
+taiyuen.url = 'https://wsbl.meetagile.com/squad/10735';
 
 function findTeam(team) {
     for (let i = 0; i < allTeams.length; i++) {
@@ -127,7 +127,6 @@ order = {
     '本土': 1,
     '華裔': 2,
     '外籍生': 3,
-    '特案外籍生': 4,
-    '亞外': 5,
-    '洋將': 6
+    '亞外': 4,
+    '洋將': 5
 }
